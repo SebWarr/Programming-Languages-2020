@@ -8,7 +8,6 @@ global_keywords = ["False", "None", "True", "and", "as", "assert", "async", "awa
 dict_conversor2 = {
     "//": "tk_division",
     "==": "tk_igual",
-    ":": "tk_dos_puntos",
     "->": "tk_ejecuta",
     "!=": "tk_distinto",
     "<=": "tk_menor_igual",
@@ -18,15 +17,17 @@ dict_conversor2 = {
     "%": "tk_modulo",
     "(": "tk_par_izq",
     ")": "tk_par_der",
-    "=": "tk_asig",
+    # "=": "tk_asig",
     ".": "tk_punto",
     ",": "tk_coma",
-    "<": "tk_menor",
-    ">": "tk_mayor",
+    # "<": "tk_menor",
+    # ">": "tk_mayor",
+    ":": "tk_dos_puntos",
     "[": "tk_corch_izq",
     "]": "tk_corch_der",
     "{": "tk_llave_izq",
     "}": "tk_llave_der",
+    # "-": "pollo"
 }
 
 
@@ -43,36 +44,89 @@ def lexical_analysis(input_file):
 
     input_string = open(input_file, "r").read()
     global_keywords_appear = []
-    str_re = re.compile('"[A-Z]{0,1}[a-z]*[0-9]*"')
+    str_re = re.compile('"([A-Z]{0,1}[a-z]\s)*([0-9]\s)*"')
     id_re = re.compile("[A-Z]{0,1}[a-z]+[0-9]*")
     for idx, line in enumerate(input_string.splitlines()):
         line += " "
         possible_substr = ""
+        tmp_char = ""
+        caso_especial = False
         for jdx, char in enumerate(line):
-            if char != " " and char not in list(x for x in dict_conversor2.keys()):
-                possible_substr += char
-            else:
-                if possible_substr in global_keywords:
-                    global_keywords_appear.append((possible_substr, idx+1, jdx+1 - len(possible_substr)))
-                    possible_substr = ""
-                elif len(list(str_re.finditer(possible_substr))) > 0:
-                    global_keywords_appear.append(("tk_cadena", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
-                    possible_substr = ""
-                elif len(list(id_re.finditer(possible_substr))) > 0:
-                    global_keywords_appear.append(
-                        ("id", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
-                    possible_substr = ""
+            if not caso_especial:
+                if char != " " and char not in list(x for x in dict_conversor2.keys()) and (ord(char) > 31 and ord(char) < 127):
+                    possible_substr += char
                 else:
-                    if char == "#":
-                        break
-                if possible_substr + char in list(x for x in dict_conversor2.keys()) and len(
-                        possible_substr + char) == 2:
-                    global_keywords_appear.append(
-                        (dict_conversor2[possible_substr + char], idx + 1, jdx))
-                    possible_substr = ""
-                elif char in list(x for x in dict_conversor2.keys()):
-                    global_keywords_appear.append(
-                        (dict_conversor2[char], idx + 1, jdx + 1))
+                    if possible_substr in global_keywords:
+                        global_keywords_appear.append((possible_substr, idx+1, jdx+1 - len(possible_substr)))
+                        possible_substr = ""
+                    elif len(list(str_re.finditer(possible_substr))) > 0:
+                        global_keywords_appear.append(("tk_cadena", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
+                        possible_substr = ""
+                    elif len(list(id_re.finditer(possible_substr))) > 0:
+                        global_keywords_appear.append(
+                            ("id", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
+                        possible_substr = ""
+                    else:
+                        if possible_substr == "#":
+                            break
+                    if possible_substr + char in list(x for x in dict_conversor2.keys()) and len(
+                            possible_substr + char) == 2:
+                        global_keywords_appear.append(
+                            (dict_conversor2[possible_substr + char], idx + 1, jdx))
+                        possible_substr = ""
+                    elif char in list(x for x in dict_conversor2.keys()):
+                        global_keywords_appear.append(
+                            (dict_conversor2[char], idx + 1, jdx + 1))
+                    elif possible_substr.__contains__("\""):
+                        possible_substr += char
+                    elif char == "\n":
+                        global_keywords_appear.append(
+                            ("tk_newline", idx + 1, jdx + 1))
+                    elif char == "\t":
+                        global_keywords_appear.append(
+                            ("tk_ident", idx + 1, jdx + 1))
+                    elif char == "\\":
+                        global_keywords_appear.append(
+                            ("tk_continue_string", idx + 1, jdx + 1))
+                    # elif char == "-":
+                    #     if jdx+1 < len(line):
+                    #         if line[jdx+1] == ">":
+                    #             global_keywords_appear.append(("tk_ejecuta", idx + 1, jdx+1))
+                    #             caso_especial = True
+                    #             break
+                    #         else:
+                    #             global_keywords_appear.append(("tk_menos", idx + 1, jdx+1))
+                    #     else:
+                    #         global_keywords_appear.append(("tk_menos", idx + 1, jdx + 1))
+                    else:
+                        # usted es un error
+
+                        if possible_substr == "-":
+                            global_keywords_appear.append(("tk_menos", idx + 1, jdx + 1))
+                            possible_substr = ""
+                        elif possible_substr == "<":
+                            global_keywords_appear.append(("tk_menor", idx + 1, jdx + 1))
+                            possible_substr = ""
+                        elif possible_substr == ">":
+                            global_keywords_appear.append(("tk_mayor", idx + 1, jdx + 1))
+                            possible_substr = ""
+                        elif possible_substr == "==":
+                            global_keywords_appear.append(("tk_igual", idx + 1, jdx-1))
+                            possible_substr = ""
+                        elif possible_substr == "!=":
+                            global_keywords_appear.append(("tk_diferente", idx + 1, jdx-1))
+                            possible_substr = ""
+                        elif possible_substr == "=":
+                            global_keywords_appear.append(("tk_assig", idx + 1, jdx))
+                            possible_substr = ""
+                        elif char != " ":
+                            print("Se ha encontrado un error léxico en:", idx+1, jdx+1, char)
+                            #                 - len(possible_substr)
+                            break
+                        else:
+                            print("Buenas tardes")
+                caso_especial = False
+
     tokens = global_keywords_appear
     return tokens
 
