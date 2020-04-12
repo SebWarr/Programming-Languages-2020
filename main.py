@@ -6,6 +6,7 @@
 ## MANEJO DE ERRORES EN EXPRESIONES REGULARES
 ##ver expresiones regulares
 ## ver que el buffer substring no tenga nada para seguir adicionado en caso de hallar un conversor2
+### REVISAR ROMPER LA EJECUCION DE CODIGO CUANDO HAYA ERROR
 import re
 
 global_keywords = ["False", "None", "True", "and", "as", "assert", "async", "await", "break", "class", "continue",
@@ -54,12 +55,12 @@ def lexical_analysis(input_file):
     global_keywords_appear = []
     str_re = re.compile('"([A-Z]{0,1}[a-z]*\s)*([0-9]\s)*"')
     id_re = re.compile("[A-Z]{0,1}[a-z]+[0-9]*")
+    flag_str = False
+    caso_especial = False
     for idx, line in enumerate(input_string.splitlines()):
         line += " "
         possible_substr = ""
         tmp_char = "" #ver si se usa
-        flag_str = False
-        caso_especial = False
         for jdx, char in enumerate(line):
             print(char)
             if not caso_especial:
@@ -141,16 +142,20 @@ def lexical_analysis(input_file):
                             #possible_substr = ""
                         #Darle trato especial a los strings    
                         elif char == '"':
+                            print("ENTRE YOOOOOO ")
                             #if (ord(char) <= 31 or ord(char) >= 127):
                             #    print("Se ha encontrado un error léxico en:", idx+1, jdx+1, char)
-                            #    caso_especial = True ##BREAK
+                            #    caso_especial = True ##BREAK                            
                             if(flag_str):
+                                print('Encontre un comillas de cierre con substring {}'.format(possible_substr))
                                 #encontro comillas de cierre
                                 global_keywords_appear.append(("tk_cadena", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
                                 possible_substr = ""
                                 flag_str = False
                             else:
+                                possible_substr+=char
                                 flag_str = True
+                            print(flag_str)    
 
                         elif( char =="\\"):
                             ##Se encontro una barra en algo en algo que no es String
@@ -176,14 +181,21 @@ def lexical_analysis(input_file):
                         print('posible substring at {} {} : {}'.format(idx,jdx,possible_substr))
                     else:
                         if(char == '"'):
-                            possible_substr+=char
+                            print('YA ME ESTOY CERRANDO')
+                            possible_substr=possible_substr+char
+                            print('posible substring {}'.format(possible_substr))
                             #encontro comillas de cierre
                             global_keywords_appear.append(("tk_cadena", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
                             possible_substr = ""
-                            flag_str = False    
+                            flag_str = False
+                        else:    
+                            possible_substr=possible_substr+char    
+                            print('posible substring {}'.format(possible_substr))
                 else:
+                    if(char == " " and flag_str):
+                        possible_substr+=char
                     ##encontró un caracter diferente; un espacio o algo similar
-                    if possible_substr in global_keywords:
+                    elif possible_substr in global_keywords:
                         #ver si lo que llevo en substring es palabra reservada
                         global_keywords_appear.append((possible_substr, idx+1, jdx+1 - len(possible_substr)))
                         possible_substr = ""
@@ -223,8 +235,9 @@ def lexical_analysis(input_file):
                             print("Se ha encontrado un error léxico en:", idx+1, jdx+1, char)
                             #                 - len(possible_substr)
                             break
-                        #else:
-                            #print("Buenas tardes")
+                        else:
+                            if(flag_str):
+                                possible_substr+=char
             else:    
                 caso_especial = False  
 

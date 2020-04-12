@@ -1,25 +1,10 @@
-"Hola Mundo"
-\n
-\t
-\\
-id hola
-it_str = 1
-for idx in archivo
-for jdx in line
-substring+char
-while(true):
-    if(jdx+it_str==len(line)):
-        error jdx
-        break
-    if(ecuentra '"' )
-        substring+char
-        encontre token str , escribir en output
-        substring = ""
-        break
-    if(posicion valida en ASCII):
-        substring+char
-    else:
-        error  
-        break  
-    it_str++
- jdx = jdx+it_str    
+# Comentario
+class animal (object):
+    makes_noise : bool = False
+
+    def make_noise (self : "animal") -> object :
+        if (self . makes_noise):
+            print (self . sound ())
+
+    def sound (self : " animal") -> str :
+        return "??? "
