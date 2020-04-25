@@ -1,11 +1,3 @@
-##REVISAR SI IMPRIME ID ANTES DE ENCONTRAR ERROR (duda)
-## REVISAR STRINGS
-## ID NO DEBE RECIBIR CARACTERES RAROS, ARREGLAR STRINGS X2 Y NUMEROS RANGO ASCII
-## LEER NUMERO, SI PROXIMO CARACTER != NUMERO SI ES VACIO ENTONCES ES UN INT , SI ES OTRA COSA QUE NO SEA OPERACION O PARENTESIS ES ERROR
-## MANEJO DE ERRORES EN EXPRESIONES REGULARES
-##ver expresiones regulares
-## ver que el buffer substring no tenga nada para seguir adicionado en caso de hallar un conversor2
-### REVISAR ROMPER LA EJECUCION DE CODIGO CUANDO HAYA ERROR
 import re
 
 global_keywords = ["False", "None", "True", "and", "as", "assert", "async", "await", "break", "class", "continue",
@@ -13,31 +5,38 @@ global_keywords = ["False", "None", "True", "and", "as", "assert", "async", "awa
                    "in", "is", "lambda", "nonlocal", "not", "or", "pass", "raise", "return", "try", "while", "with",
                    "yield", "bool", "str", "int", "len", "print", "input", "__init__", "self"]
 
-dict_conversor2 = {
-    # "//": "tk_division",
-    # "==": "tk_igual",
-    # "->": "tk_ejecuta",
-    # "!=": "tk_distinto",
-    # "<=": "tk_menor_igual",
-    # ">=": "tk_mayor_igual",
+dict_operators_len1 = {
     "+": "tk_suma",
     "*": "tk_multiplicacion",
     "%": "tk_modulo",
     "(": "tk_par_izq",
     ")": "tk_par_der",
-    # "=": "tk_asig",
     ".": "tk_punto",
     ",": "tk_coma",
-    # "<": "tk_menor",
-    # ">": "tk_mayor",
     ":": "tk_dos_puntos",
     "[": "tk_corch_izq",
     "]": "tk_corch_der",
     "{": "tk_llave_izq",
-    "}": "tk_llave_der",
-    # "-": "pollo"
+    "}": "tk_llave_der"
 }
 
+dict_operators_len2 = {
+    "!": ["!", "=", 0, "diferente"],
+    "/": ["/", "/", 0, "division"],
+    "-": ["-", ">", 1, "ejecuta", "menos"],
+    "<": ["<", "=", 1, "menor_igual", "menor"],
+    ">": [">", "=", 1, "mayor_igual", "mayor"],
+    "=": ["=", "=", 1, "igual", "asig"]
+}
+
+# REGEX
+id_re = re.compile("([A-Z]|[a-z]|_)([0-9]|[a-z]|[A-Z]|_)*")
+num_re = re.compile("\d+")
+tokens_list = []
+next = True
+newLine = True
+tokenNewLine = False
+indentationStack=[0]
 
 class Token:
 
@@ -48,267 +47,290 @@ class Token:
         self.tipo = tipo
 
 
-def lexical_analysis(input_file):
-    input_string = open(input_file, "r").read()
-    global_keywords_appear = []
-    str_re = re.compile('"([A-Z]{0,1}[a-z]*\s)*([0-9]\s)*"')
-    id_re = re.compile("[[A-Z]{0,1}[a-z]*[0-9]*]*")
-    num_re = re.compile("\d+")
+def isTokenNumber(possible_substr, char, idx, jdx):
+    if num_re.match(possible_substr) and not num_re.match(char):
+        if len(list(num_re.finditer(possible_substr))) > 0:
+            tokens_list.append(
+                ("tk_numero", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
+            return "", False
+    return possible_substr, True
+
+
+def isTokenId(possible_substr, idx, jdx):
+    if len(list(id_re.finditer(possible_substr))) > 0 and possible_substr != "":
+        tokens_list.append(
+            ("id", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
+
+        return "", False
+    return possible_substr, True
+
+
+def isTokenResWord(possible_substr, idx, jdx):
+    if possible_substr in global_keywords:
+        tokens_list.append((possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
+        return "", False
+    return possible_substr, True
+
+
+def isTokenSymbol(char, idx, jdx):
+    if char in list(x for x in dict_operators_len1.keys()):
+        tokens_list.append((dict_operators_len1[char], idx + 1, jdx + 1))
+        return False
+    return True
+
+
+def print_lexical_error(idx, jdx, char, token_buffer):
+    tokens_list.append(f">>>Error léxico(linea:{idx + 1},posicion:{jdx + 1})")
+    print("Se ha encontrado un error léxico en:", idx + 1, jdx + 1, char)
+    return tokens_list[-1], [], -1, -1
+
+def print_indentation_error(idx,jdx):
+    tokens_list.append(f">>>Error de indentacion (linea:{idx + 1},posicion:{jdx + 1})")
+    print("Se ha encontrado un error de indentacion en:", idx + 1, jdx + 1)
+    return tokens_list[-1], [], -1, -1
+
+
+def lexical_analysis(input_string, token_buffer, i=0, j=0):
+    global newLine
+    global indentationStack
+    global tokenNewLine
+    next = True
     flag_str = False
     caso_especial = False
-    for idx, line in enumerate(input_string.splitlines()):
-        line += " "
+    list_lines = input_string.splitlines()
+    if len(list_lines[i])==j:
+        j = 0
+        i += 1
+        newLine = True
+
+    for idx in range(i, len(list_lines)):
+        list_lines[idx] += " "
         possible_substr = ""
-        for jdx, char in enumerate(line):
-            print(char)
-            if not caso_especial:
-                ##hay un salto en la lectura de caracteres por signos dobles o string
-                ##POSIBLE MEJORA: no recorreer con enummerate sino con i in range len(line)
-                ## y adelantar arbitrariamente i
-                if char != " " and char not in list(x for x in dict_conversor2.keys()):
-                    ##si no es espacio, ni token especiales y está en rango Ascii permitido
-                    ##analizar tokens especiales trickies
-                    # ver si es un comentario
-                    if char == "#":
-                        break
-                    elif flag_str and jdx+1 == len(line):
-                        print("Se ha encontrado un error léxico en:", idx + 1, jdx + 1, char)
-                        return global_keywords_appear
-                    if (ord(char) <= 31 or ord(char) >= 127):
-                        print("Se ha encontrado un error léxico en:", idx + 1, jdx + 1, char)
-                        caso_especial = True  ##BREAK
-                        global_keywords_appear.append(("id", possible_substr,idx + 1, jdx + 1))
-                        return global_keywords_appear
-                    if (not flag_str):
-                        if char == "-":
-                            print('encontre un -')
-                            if len(list(num_re.finditer(possible_substr))) > 0:
-                                global_keywords_appear.append(
-                                    ("tk_numero", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
-                                possible_substr = ""
-                            if jdx + 2 < len(line):
-                                if line[jdx + 1] == '>':
-                                    global_keywords_appear.append(("tk_ejecuta", idx + 1, jdx + 1))
-                                    caso_especial = True
-                                else:
-                                    global_keywords_appear.append(("tk_menos", idx + 1, jdx + 1))
+        line = list_lines[idx]
+        for jdx in range(j, len(line)):
+            # print(char) # Solo para debug
+            if next:
+                char = line[jdx]
+                #Indentaciones
+                if newLine:
+                    if tokenNewLine:
+                        tokenNewLine = False
+                        tokens_list.append(("NEWLINE", idx+1, jdx))
+                        return tokens_list[-1], [], idx, jdx
+                    if char != " " and char != "#":
+                        newLine = False
+                        tokenNewLine = True
+                        if jdx > indentationStack[-1]:
+                            indentationStack.append(jdx)
+                            tokens_list.append(("INDENT", idx + 1, jdx))
+                            return tokens_list[-1], [], idx, jdx
+                        elif jdx < indentationStack[-1]:
+                            if jdx in indentationStack:
+                                if jdx < indentationStack[-1]:
+                                    indentationStack.pop()
+                                    tokens_list.append(("DEDENT", idx + 1, jdx))
+                                    if(jdx < indentationStack[-1]):
+                                        newLine = True
+                                        tokenNewLine = False
+                                    return tokens_list[-1], [], idx, jdx
                             else:
-                                global_keywords_appear.append(("tk_menos", idx + 1, jdx + 1))
+                                return print_indentation_error(idx,jdx)
 
-                            # possible_substr = ""
-                        elif char == "!":
-                            print('encontre un !')
-                            if len(list(num_re.finditer(possible_substr))) > 0:
-                                global_keywords_appear.append(
-                                    ("tk_numero", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
-                                possible_substr = ""
-                            if jdx + 2 < len(line):
-                                if line[jdx + 1] == '=':
-                                    global_keywords_appear.append(("tk_diferente", idx + 1, jdx + 1))
-                                    caso_especial = True
-                                else:
-                                    print("Se ha encontrado un error léxico en:", idx + 1, jdx + 1, char)
-                                    return global_keywords_appear
-                            else:
-                                print("Se ha encontrado un error léxico en:", idx + 1, jdx + 1, char)
-                                return global_keywords_appear
-                            # possible_substr = ""
-                        elif char == "/":
+                if not caso_especial:
+                    if char != " " and char not in list(x for x in dict_operators_len1.keys()):
 
-                            print('encontre un /')
-                            if len(list(num_re.finditer(possible_substr))) > 0:
-                                global_keywords_appear.append(
-                                    ("tk_numero", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
-                                possible_substr = ""
-                            if jdx + 2 < len(line):
-                                if line[jdx + 1] == '/':
-                                    global_keywords_appear.append(("tk_division", idx + 1, jdx + 1))
-                                    caso_especial = True
+                        # Se revisa si es un comentario
+                        if char == "#" and not flag_str:
+                            j = 0
+                            #i += 1
+                            newLine = True
+                            break
+                        elif flag_str and jdx + 1 == len(line):  # Era un string que nunca cerró
+                            return print_lexical_error(idx, jdx, char, token_buffer)
+
+                        # Si entra es caracter raro
+                        if ord(char) <= 31 or ord(char) >= 127:
+                            caso_especial = True  # Este caso especial salta el siguiente caracter
+                            # Verificamos que quedó en el buffer antes de romper
+                            #if flag_str:
+                            #    tokens_list.append(("tk_cadena", possible_substr, idx + 1, jdx + 1))
+                            #    return tokens_list[-1], [], idx, jdx
+                            if len(possible_substr) != 0:
+                                if possible_substr in global_keywords:
+                                    # ver si lo que llevo en substring es palabra reservada
+                                    tokens_list.append(
+                                        (possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
+                                    possible_substr = ""
+                                    return tokens_list[-1], [], idx, jdx
+                                elif len(list(num_re.finditer(possible_substr))) > 0 and len(
+                                        list(id_re.finditer(possible_substr))) == 0:
+                                    tokens_list.append(
+                                        ("tk_numero", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
+                                    possible_substr = ""
+                                    return tokens_list[-1], [], idx, jdx
+                                elif not possible_substr.__contains__("\""):
+                                    tokens_list.append(("id", possible_substr, idx + 1, jdx + 1))
+                                    return tokens_list[-1], [], idx, jdx
+
+                            return print_lexical_error(idx, jdx, char, token_buffer)
+
+                        # Si entra no es un string asi que hay validar operadores len 2
+                        if not flag_str:
+                            # Verificacion de operadores longitud 2
+                            if char in list(x for x in dict_operators_len2.keys()):
+                                possible_substr, next = isTokenNumber(possible_substr, char, idx, jdx)
+                                if not next:
+                                    return tokens_list[-1], [], idx, jdx
+                                possible_substr, next = isTokenId(possible_substr, idx, jdx)
+
+                                if not next:
+                                    return tokens_list[-1], [], idx, jdx
+
+                                if jdx + 2 < len(line):
+                                    if line[jdx + 1] == dict_operators_len2[char][1]:
+                                        tokens_list.append(("tk_" + dict_operators_len2[char][3], idx + 1, jdx + 1))
+                                        return tokens_list[-1], [], idx, jdx+2
+                                    else:
+                                        if dict_operators_len2[char][2]:
+                                            tokens_list.append(
+                                                ("tk_" + dict_operators_len2[char][4], idx + 1, jdx + 1))
+                                            return tokens_list[-1], [], idx, jdx+1
+                                        else:
+                                            return print_lexical_error(idx, jdx, char, token_buffer)
                                 else:
-                                    print("Se ha encontrado un error léxico en:", idx + 1, jdx + 1, char)
-                                    return global_keywords_appear
-                            else:
-                                print("Se ha encontrado un error léxico en:", idx + 1, jdx + 1, char)
-                                return global_keywords_appear
-                            # possible_substr = ""
-                        elif char == "<":
-                            print('encontre un <')
-                            if len(list(num_re.finditer(possible_substr))) > 0:
-                                global_keywords_appear.append(
-                                    ("tk_numero", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
-                                possible_substr = ""
-                            if jdx + 2 < len(line):
-                                if line[jdx + 1] == '=':
-                                    global_keywords_appear.append(("tk_menor_igual", idx + 1, jdx + 1))
-                                    caso_especial = True
-                                else:
-                                    global_keywords_appear.append(("tk_menor", idx + 1, jdx + 1))
-                            else:
-                                global_keywords_appear.append(("tk_menor", idx + 1, jdx + 1))
-                            # possible_substr = ""
-                        elif char == ">":
-                            print('encontre un >')
-                            if len(list(num_re.finditer(possible_substr))) > 0:
-                                global_keywords_appear.append(
-                                    ("tk_numero", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
-                                possible_substr = ""
-                            if jdx + 2 < len(line):
-                                if line[jdx + 1] == '=':
-                                    global_keywords_appear.append(("tk_mayor_igual", idx + 1, jdx + 1))
-                                    caso_especial = True
-                                else:
-                                    global_keywords_appear.append(("tk_mayor", idx + 1, jdx + 1))
-                            else:
-                                global_keywords_appear.append(("tk_mayor", idx + 1, jdx + 1))
-                            # possible_substr = ""
-                        elif char == "=":
-                            print('encontre un =')
-                            if len(list(num_re.finditer(possible_substr))) > 0:
-                                global_keywords_appear.append(
-                                    ("tk_numero", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
-                                possible_substr = ""
-                            if jdx + 2 < len(line):
-                                if line[jdx + 1] == '=':
-                                    global_keywords_appear.append(("tk_igual", idx + 1, jdx + 1))
-                                    caso_especial = True
-                                else:
-                                    global_keywords_appear.append(("tk_asignacion", idx + 1, jdx + 1))
-                            else:
-                                global_keywords_appear.append(("tk_asignacion", idx + 1, jdx + 1))
-                            # possible_substr = ""
-                        # Darle trato especial a los strings
-                        elif char == '"':
-                            if len(list(num_re.finditer(possible_substr))) > 0:
-                                global_keywords_appear.append(
-                                    ("tk_numero", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
-                                possible_substr = ""
-                            print("ENTRE YOOOOOO ")
-                            # if (ord(char) <= 31 or ord(char) >= 127):
-                            #    print("Se ha encontrado un error léxico en:", idx+1, jdx+1, char)
-                            #    caso_especial = True ##BREAK
-                            if (flag_str):
-                                print('Encontre un comillas de cierre con substring {}'.format(possible_substr))
-                                # encontro comillas de cierre
-                                global_keywords_appear.append(
-                                    ("tk_cadena", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
-                                possible_substr = ""
-                                flag_str = False
-                            else:
+                                    if dict_operators_len2[char][2]:
+                                        tokens_list.append(("tk_" + dict_operators_len2[char][4], idx + 1, jdx + 1))
+                                        return tokens_list[-1], [], idx, jdx+1
+                                    else:
+                                        return print_lexical_error(idx, jdx, char, token_buffer)
+                                #else:
+
+
+                            # Darle trato especial a los strings
+                            elif char == '"':
+                                possible_substr, next = isTokenNumber(possible_substr, char, idx, jdx)
+                                if not next:
+                                    return tokens_list[-1], [], idx, jdx
+                                possible_substr, next = isTokenId(possible_substr, idx, jdx)
+                                if not next:
+                                    return tokens_list[-1], [], idx, jdx
                                 possible_substr += char
                                 flag_str = True
-                            print(flag_str)
 
-                        elif (char == "\\"):
-                            ##Se encontro una barra en algo en algo que no es String
-                            ##REEEEVIIISAAAAAAR QUE PUEDE PASAR CON IDENTACIONES DE CODIGO
-                            print("Se ha encontrado un error léxico en:", idx + 1, jdx + 1, char)
-                            ##idea : iterar con iter_string (iter_string=jdx;jdx<len(line) )
-                            ### possible_substr += char hasta encontrar otra ", si lo hace,
-                            # procesar el possible_substring en la expresión regular
-                            # ignorar las proximas iter_string iteraciones lo que esté en line
-                            ###      y que el iter_string<len(line) si llega a
-                        # elif ord(char) >= 48 and ord(char) <= 57:
-                        #
-                        else:
-                            if (char == "\\"):
-                                if (jdx + 2 == len(line)):
-                                    print("Se ha encontrado un error léxico en:", idx + 1, jdx + 1, char)
-                                else:
-                                    if (line[jdx + 1] != 'n' or line[jdx + 1] != 't' or line[jdx + 1] != '\\'):
-                                        print("Se ha encontrado un error léxico en:", idx + 1, jdx + 1, char)
-                                    else:
-                                        possible_substr += char
-                                        print('tratar casos ')
-
-                            possible_substr += char
-                        print('posible substring at {} {} : {}'.format(idx, jdx, possible_substr))
-                    else:
-
-                        if (char == '"'):
-                            print('YA ME ESTOY CERRANDO')
-                            possible_substr = possible_substr + char
-                            print('posible substring {}'.format(possible_substr))
-                            # encontro comillas de cierre
-                            global_keywords_appear.append(
-                                ("tk_cadena", possible_substr, idx + 1, jdx + 2 - len(possible_substr)))
-                            possible_substr = ""
-                            flag_str = False
-                        else:
-                            possible_substr = possible_substr + char
-                            print('posible substring {}'.format(possible_substr))
-                else:
-                    if flag_str and jdx + 1 == len(line):
-                        print("Se ha encontrado un error léxico en:", idx + 1, jdx + 1, char)
-                        return global_keywords_appear
-                    elif (char == " " and flag_str):
-                        possible_substr += char
-                    else:
-
-                    ##encontró un caracter diferente; un espacio o algo similar
-                        if possible_substr in global_keywords:
-                            # ver si lo que llevo en substring es palabra reservada
-                            global_keywords_appear.append((possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
-                            possible_substr = ""
-                        elif len(list(str_re.finditer(possible_substr))) > 0:
-                            # ver si lo que llevo ees un string REVISARRRRRRRRR!!!!!!!!!!!!
-                            global_keywords_appear.append(
-                                ("tk_cadena", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
-                            possible_substr = ""
-
-                        elif len(list(num_re.finditer(possible_substr))) > 0:
-                            global_keywords_appear.append(
-                                ("tk_numero", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
-                            possible_substr = ""
-                        elif len(list(id_re.finditer(possible_substr))) > 0 and possible_substr != "":
-                            # ver si lo que llevo es un id
-                            global_keywords_appear.append(
-                                ("id", possible_substr, idx + 1, jdx + 1 - len(possible_substr)))
-                            possible_substr = ""
-
-                        if char in list(x for x in dict_conversor2.keys()):
-                            # ver si caracter es un token
-                            global_keywords_appear.append(
-                                (dict_conversor2[char], idx + 1, jdx + 1))
-                        # ver si es una tab, salto de linea o algo diferente
-                        ##VER QUE HAY EN EL SUBSTRING
-                        elif possible_substr.__contains__("\""):
-                            possible_substr += char
-                        elif char == "\n":
-                            global_keywords_appear.append(
-                                ("tk_newline", idx + 1, jdx + 1))
-                        elif char == "\t":
-                            global_keywords_appear.append(
-                                ("tk_ident", idx + 1, jdx + 1))
-                        elif char == "\\":
-                            global_keywords_appear.append(
-                                ("tk_continue_string", idx + 1, jdx + 1))
-                        else:
-                            # ver si es error
-                            if char != " ":
-                                print("Se ha encontrado un error léxico en:", idx + 1, jdx + 1, char)
-                                #                 - len(possible_substr)
-                                break
+                            elif (char == "\\"):
+                                return print_lexical_error(idx, jdx, char, token_buffer)
                             else:
-                                if (flag_str):
-                                    possible_substr += char
+                                if (char == "\\"):
+                                    if (jdx + 2 == len(line)):
+                                        return print_lexical_error(idx, jdx, char, token_buffer)
+                                    else:
+                                        if (line[jdx + 1] != 'n' or line[jdx + 1] != 't' or line[jdx + 1] != '\\'):
+                                            return print_lexical_error(idx, jdx, char, token_buffer)
+                                        else:
+                                            possible_substr += char
+                                            print('tratar casos ')
+
+                                possible_substr, next = isTokenNumber(possible_substr, char, idx, jdx)
+
+                                if not next:
+                                    return tokens_list[-1], [], idx, jdx
+
+                                if not char.isalnum() and char != "_":
+                                    possible_substr, next = isTokenId(possible_substr, idx, jdx)
+                                    if not next:
+                                        return tokens_list[-1], [], idx, jdx
+                                    return print_lexical_error(idx, jdx, char, token_buffer)
+
+                                possible_substr += char
+
+                        else:
+                            # Poner condición posible error con "\"
+                            if (char == '"'):  # encontro comillas de cierre
+                                possible_substr = possible_substr + char
+                                tokens_list.append(
+                                    ("tk_cadena", possible_substr, idx + 1, jdx + 2 - len(possible_substr)))
+                                possible_substr = ""
+                                flag_str = False
+                                return tokens_list[-1], [], idx, jdx + 1
+
+                            else:
+                                if char == "\\" and jdx + 2 < len(line):
+                                    if line[jdx + 1] == "\\":
+                                        caso_especial = True
+                                        possible_substr += '\\'
+                                    elif line[jdx + 1] == "\"":
+                                        caso_especial = True
+                                        possible_substr += '"'
+                                    elif line[jdx + 1] == "n":
+                                        caso_especial = True
+                                        possible_substr += "\n"
+                                    elif line[jdx + 1] == "t":
+                                        caso_especial = True
+                                        possible_substr += "\t"
+                                    else:
+                                        return print_lexical_error(idx, jdx, char, token_buffer)
+                                else:
+                                    possible_substr = possible_substr + char
+                    else:
+                        # " " o no es un operador de longitud 1
+                        if flag_str:
+                            if jdx + 1 == len(line):
+                                return print_lexical_error(idx, jdx, char, token_buffer)
+                            elif char == " ":
+                                possible_substr += char
+                            else:
+                                possible_substr += char
+                        else:  # encontró un caracter diferente;
+                            possible_substr, next = isTokenResWord(possible_substr, idx, jdx)
+                            if not next:
+                                return tokens_list[-1], [], idx, jdx
+                            possible_substr, next = isTokenId(possible_substr, idx, jdx)
+                            if not next:
+                                return tokens_list[-1], [], idx, jdx
+                            possible_substr, next = isTokenNumber(possible_substr, char, idx, jdx)
+                            if not next:
+                                return tokens_list[-1], [], idx, jdx
+
+                            next = isTokenSymbol(char, idx, jdx)
+                            if not next:
+                                return tokens_list[-1], [], idx, jdx+1
+
+                            if len(list_lines[i]) == jdx+1:
+                                j = 0
+                                i += 1
+                                possible_substr=""
+                else:
+                    caso_especial = False
             else:
-                caso_especial = False
 
-    tokens = global_keywords_appear
-    return tokens
+                return tokens_list[-1], [], idx, jdx
 
+        newLine = True
+    if 0 < indentationStack[-1]:
+        indentationStack.pop()
+        tokens_list.append(("DEDENT", len(list_lines)+1, 1))
+        return tokens_list[-1], [], len(list_lines)-1, len(list_lines[-1])
+    return [], [], -1, -1
 
-def main():
-    list_tokens = lexical_analysis("test.py")
+def main(input_file):
+    str_code = open(input_file, "r").read()
+    i = j = 0
+    token_buffer = []
     with open("output.txt", "w") as file:
-        for token in list_tokens:
-            if len(token) > 3:
+        while i != -1 and j != -1:
+            token, token_buffer, i, j = lexical_analysis(str_code, token_buffer, i, j)
+            if len(token) == 4:
                 file.write(
                     "<" + str(token[0]) + "," + str(token[1]) + "," + str(token[2]) + "," + str(token[3]) + ">\n")
-            else:
+            elif len(token) == 3:
                 file.write("<" + str(token[0]) + "," + str(token[1]) + "," + str(token[2]) + ">\n")
+            else:
+                if token:
+                    file.write(str(token))
+            if len(tokens_list)>0:
+                tokens_list.pop()
         file.close()
 
 
 if __name__ == '__main__':
-    main()
+    main("test.py")

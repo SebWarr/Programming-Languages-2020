@@ -1,7 +1,3 @@
-
-1234352f3452345
-
 # Cadenas no especificadas
+-809 3.0.0 -90.9999 " "    "dsdgfsdf"
 
-"Cadena  diferente # !?"
-"Era una cade...

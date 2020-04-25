@@ -1,8 +1,14 @@
-<tk_numero,1234352f3452345,2,1>
-<tk_cadena,",7,1>
-<id,Era,7,2>
-<id,una,7,6>
-<id,cade,7,10>
-<tk_punto,7,14>
-<tk_punto,7,15>
-<tk_punto,7,16>
+<tk_menos,2,1>
+<tk_numero,809,2,2>
+<tk_numero,3,2,6>
+<tk_punto,2,7>
+<tk_numero,0,2,8>
+<tk_punto,2,9>
+<tk_numero,0,2,10>
+<tk_menos,2,12>
+<tk_numero,90,2,13>
+<tk_punto,2,15>
+<tk_numero,9999,2,16>
+<tk_cadena," ",2,21>
+<tk_cadena,"dsdgfsdf",2,28>
+<NEWLINE,3,0>
