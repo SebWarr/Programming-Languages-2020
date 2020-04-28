@@ -1,15 +1,17 @@
-initial_symbol_grammar = "A"
-not_terminals = ["A", "B", "C", "F", "G", "D",
-                 "E"]
+initial_symbol_grammar = "expr"
+not_terminals = ["expr", "expr_aux", "expr_p2", "expr_p2_aux", "expr_p3", "expr_p3_aux", "expr_p4",
+                 "cexpr", "cexpr_aux"]
 
 grammar = {
-    "A": [["B", "G"]],
-    "G": [["if", "A", "else", "A"], [""]],
-    "B": [["C", "D"]],
-    "D": [["or", "C", "D"], [""]],
-    "C": [["F", "E"]],
-    "E": [["and", "F", "E"], [""]],
-    "F": [["not", "F"], ["BUENASTARDES"]]
+    "expr": [["expr_p2", "expr_aux"]],
+    "expr_aux": [["if", "expr", "else", "expr"], [""]],
+    "expr_p2": [["expr_p3", "expr_p2_aux"]],
+    "expr_p2_aux": [["or", "expr_p3", "expr_p2_aux"], [""]],
+    "expr_p3": [["expr_p4", "expr_p3_aux"]],
+    "expr_p3_aux": [["and", "expr_p4", "expr_p3_aux"], [""]],
+    "expr_p4": [["not", "expr_p4"], ["cexpr"]],
+    "cexpr":[["BUENASP6","cexpr_aux"]],
+    "cexpr_aux":[["OPBIN","BUENASP6"],[""]],
 }
 
 # not {expr}
@@ -28,6 +30,8 @@ def log(s, debug=0):
 
 def PRIMEROS(alpha, debug=0):
 
+    alpha = [alpha] if type(alpha) is str else alpha
+
     set_primeros = set()
     if alpha[0] == "":  # 1. Si alpha == epsilon
         set_primeros = set_primeros.union([""])
@@ -42,7 +46,7 @@ def PRIMEROS(alpha, debug=0):
 
     else:  # 2b. a_1 es un no terminal
 
-        if alpha[0] != alpha:
+        if alpha[0] != alpha[0]:
 
             log("Hacemos unión con: PRIMEROS(" + alpha[0] + ")", debug)
             set_primeros = set_primeros.union(PRIMEROS(alpha[0], debug))
@@ -136,7 +140,7 @@ def PRED(no_terminal):
         pred_rules[no_terminal].append(lst_tmp)
 
 def main():
-    alpha = ["B"]  # Cadena de Símbolos Terminales y No terminales
+    alpha = ["expr_p2"]  # Cadena de Símbolos Terminales y No terminales
     debug = False
     for nt in not_terminals:
         PRED(nt)
