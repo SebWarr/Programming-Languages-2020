@@ -1,18 +1,46 @@
-initial_symbol_grammar = "expr"
-not_terminals = ["expr", "expr_aux", "expr_p2", "expr_p2_aux", "expr_p3", "expr_p3_aux", "expr_p4",
-                 "cexpr", "cexpr_aux"]
+#initial_symbol_grammar = "expr"
+# not_terminals = ["expr", "expr_aux", "expr_p2", "expr_p2_aux", "expr_p3", "expr_p3_aux", "expr_p4",
+#                  "cexpr", "cexpr_aux","bin_op_log","cexpr_p6","cexpr_p6_aux","bin_op_p6","cexpr_p7",
+#                  "cexpr_p7_aux", "bin_op_p7","cexpr_p8", "cexpr_p9","cexpr_p9_aux", "expr_list_no_req",
+#                  "expr_list_0_more","member_expr","index_expr","target"]
+#
+# grammar = {
+#     "expr": [["expr_p2", "expr_aux"]],
+#     "expr_aux": [["if", "expr", "else", "expr"], [""]],
+#     "expr_p2": [["expr_p3", "expr_p2_aux"]],
+#     "expr_p2_aux": [["or", "expr_p3", "expr_p2_aux"], [""]],
+#     "expr_p3": [["expr_p4", "expr_p3_aux"]],
+#     "expr_p3_aux": [["and", "expr_p4", "expr_p3_aux"], [""]],
+#     "expr_p4": [["not", "expr_p4"], ["cexpr"]],
+#     "cexpr":[["cexpr_p6","cexpr_aux"]],
+#     "cexpr_aux":[["bin_op_log","cexpr_p6"],[""]],
+#     "bin_op_log": [["igual"],["diferente"],["mayor"],["menor"],["mayor_igual"],["menor_igual"],["is"]],
+#     "cexpr_p6": [["cexpr_p7", "cexpr_p6_aux"]],
+#     "cexpr_p6_aux": [["bin_op_p6","cexpr_p7","cexpr_p6_aux"],[""]],
+#     "bin_op_p6": [["tk_suma"], ["tk_menos"]],
+#     "cexpr_p7": [["cexpr_p8", "cexpr_p7_aux"]],
+#     "cexpr_p7_aux": [["bin_op_p7", "cexpr_p8", "cexpr_p7_aux"], [""]],
+#     "bin_op_p7": [["tk_multiplicacion"],["tk_division"],["tk_modulo"]],
+#     "cexpr_p8": [["tk_menos", "cexpr_p9"], ["cexpr_p9"]],
+#     "cexpr_p9": [["id"],["literal"],["tk_corch_izq","expr_list_no_req", "tk_corch_der"],
+#                  ["tk_par_izq","expr","tk_par_der"],["member_expr","cexpr_p9_aux"],
+#                  ["index_expr"],["id","tk_par_izq","expr_list_no_req","tk_par_der"]],
+#     "cexpr_p9_aux": [["tk_par_izq","expr_list_no_req","tk_par_der"],[""]],
+#     "expr_list_no_req": [["expr","expr_list_0_more"],[""]],
+#     "expr_list_0_more": [["tk_coma", "expr", "expr_list_0_more"],[""]],
+#     "member_expr": [["cexpr","tk_punto","id"]],
+#     "index_expr": [["cexpr","tk_corch_izq","expr","tk_corch_der"]],
+#     "target":[["id"],["member_expr"],["index_expr"]]
+# }
+
+initial_symbol_grammar = "A"
+not_terminals = ["A","B"]
 
 grammar = {
-    "expr": [["expr_p2", "expr_aux"]],
-    "expr_aux": [["if", "expr", "else", "expr"], [""]],
-    "expr_p2": [["expr_p3", "expr_p2_aux"]],
-    "expr_p2_aux": [["or", "expr_p3", "expr_p2_aux"], [""]],
-    "expr_p3": [["expr_p4", "expr_p3_aux"]],
-    "expr_p3_aux": [["and", "expr_p4", "expr_p3_aux"], [""]],
-    "expr_p4": [["not", "expr_p4"], ["cexpr"]],
-    "cexpr":[["BUENASP6","cexpr_aux"]],
-    "cexpr_aux":[["OPBIN","BUENASP6"],[""]],
+    "A": [["B", "2"]],
+    "B": [["A", "3"], [""]]
 }
+
 
 # not {expr}
 # {expr} and {expr}
@@ -140,9 +168,10 @@ def PRED(no_terminal):
         pred_rules[no_terminal].append(lst_tmp)
 
 def main():
-    alpha = ["expr_p2"]  # Cadena de Símbolos Terminales y No terminales
-    debug = False
+    # alpha = ["expr_p2"]  # Cadena de Símbolos Terminales y No terminales
+    # debug = False
     for nt in not_terminals:
+        print(nt)
         PRED(nt)
 
     print(pred_rules)
