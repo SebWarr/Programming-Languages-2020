@@ -1,10 +1,11 @@
 initial_symbol_grammar = "expr"
-not_terminals = ["expr", "expr_aux", "expr_p2", "expr_p2_aux", "expr_p3", "expr_p3_aux", "expr_p4",
+not_terminals = ["literal","expr", "expr_aux", "expr_p2", "expr_p2_aux", "expr_p3", "expr_p3_aux", "expr_p4",
                  "cexpr","cexpr_nrec", "cexpr_tmp", "cexpr_aux","bin_op_log","cexpr_p6","cexpr_p6_aux","bin_op_p6","cexpr_p7",
                  "cexpr_p7_aux", "bin_op_p7","cexpr_p8", "cexpr_p9","cexpr_p9_aux", "expr_list_no_req",
                  "expr_list_0_more","target"]
 
 grammar = {
+    "literal": [["None"],["True"],["False"],["tk_numero"],["tk_cadena"]],
     "expr": [["expr_p2", "expr_aux"]],
     "expr_aux": [["if", "expr", "else", "expr"], [""]],
     "expr_p2": [["expr_p3", "expr_p2_aux"]],
