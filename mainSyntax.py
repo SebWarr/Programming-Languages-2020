@@ -1,5 +1,6 @@
 from mainLexer import Lexer, Token
 
+flagSintaxis = False
 initial_symbol_grammar = "expr"
 not_terminals = ["literal", "expr", "expr_aux", "expr_p2", "expr_p2_aux", "expr_p3", "expr_p3_aux", "expr_p4",
                  "cexpr", "cexpr_nrec", "cexpr_tmp", "cexpr_aux", "bin_op_log", "cexpr_p6", "cexpr_p6_aux", "bin_op_p6",
@@ -157,12 +158,14 @@ def PRED(no_terminal):
 
 
 def emparejar(token, token_esperado, lexer, i, j):
+    global flagSintaxis
     # Emparejar No Terminales
     if token == token_esperado:
-        token, i, j = lexer.getNextToken()
+        token, i, j = lexer.getNextToken(i, j)
     else:
         errorSintaxis(token, token_esperado, i, j)
-        token = -1  # Hubo un error
+        #token = -1  # Hubo un error
+        flagSintaxis = True
     return token, i, j
 
 
@@ -174,28 +177,44 @@ def errorSintaxis(token, lista_tokens_Esperados, i, j):
         "<" + i + "," + j + ">" + "Error sintactico: se encontro: '" + token + "' y se esperaba " + str_tmp[:-2] + ".")
 
 
-def nonTerminal(N, token, lexer,i, j):
-    for i, pd in enumerate(pred_rules[N]):
-        if token in pd:
-            for symbol in grammar[N][i]:
+def nonTerminal(N, token, lexer, i, j):
+    for idx, pd in enumerate(pred_rules[N]):
+        print(token, "Capa 1")
+        if token[0] in pd:
+            print(pd, "\n")
+            for symbol in grammar[N][idx]:
+                print(grammar[N][idx], symbol)
                 if symbol in not_terminals:
+                    print("Bajo al terminal: ", symbol, "\n")
                     nonTerminal(symbol, token, lexer, i, j)
                 else:
-                    emparejar(token, symbol, lexer,i, j)
+                    token, i, j = emparejar(token[0], symbol, lexer, i, j)
+                    print(token, "Capa 2", i, j)
+                    if i == -1 and j == -1:
+                        token = ("$", i, j)
+                    if flagSintaxis:
+                        return
             return
-    print("ERROR SINTACTICO")
+        print("No se encontró regla que se adapte a ese token", token, pd)
+
+
 
 def main():
     # for nt in not_terminals:
     #    PRED(nt)
     # print(pred_rules)
+
     lexer = Lexer("test.py")
     i = j = 0
+    for nt in not_terminals:
+        PRED(nt)
+
     with open("output.txt", "w") as file:
-        while i != -1 and j != -1:
-            token, i, j = lexer.getNextToken(i, j)
-            print(token)
-            # lexer.escrituraToken(file, token)
+        #while i != -1 and j != -1:
+        token, i, j = lexer.getNextToken(i, j)
+        #print(token, i, j)
+        nonTerminal("expr", token, lexer, i, j)
+        # lexer.escrituraToken(file, token)
 
 if __name__ == '__main__':
     main()
