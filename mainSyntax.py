@@ -47,7 +47,6 @@ def log(s, debug=0):
     if debug:
         print(s)
 
-
 def PRIMEROS(alpha, debug=0):
 
     alpha = [alpha] if type(alpha) is str else alpha
@@ -159,13 +158,22 @@ def PRED(no_terminal):
 
         pred_rules[no_terminal].append(lst_tmp)
 
+def nonTerminal(N):
+    for i, pd in enumerate(pred_rules[N]):
+        if token in pd:
+            for symbol in grammar[N][i]:
+                if symbol in not_terminals:
+                    nonTerminal(symbol)
+                else:
+                    emparejar(symbol)
+            return
+    print("ERROR SINTACTICO")
+
 def main():
     # alpha = ["expr_p2"]  # Cadena de Símbolos Terminales y No terminales
     # debug = False
     for nt in not_terminals:
         PRED(nt)
-
-    print(pred_rules)
 
 if __name__ == '__main__':
     main()
