@@ -47,7 +47,6 @@ def log(s, debug=0):
     if debug:
         print(s)
 
-
 def PRIMEROS(alpha, debug=0):
     alpha = [alpha] if type(alpha) is str else alpha
 
@@ -175,6 +174,17 @@ def errorSintaxis(token, lista_tokens_Esperados, i, j):
         "<" + i + "," + j + ">" + "Error sintactico: se encontro: '" + token + "' y se esperaba " + str_tmp[:-2] + ".")
 
 
+def nonTerminal(N, token, lexer,i, j):
+    for i, pd in enumerate(pred_rules[N]):
+        if token in pd:
+            for symbol in grammar[N][i]:
+                if symbol in not_terminals:
+                    nonTerminal(symbol, token, lexer, i, j)
+                else:
+                    emparejar(token, symbol, lexer,i, j)
+            return
+    print("ERROR SINTACTICO")
+
 def main():
     # for nt in not_terminals:
     #    PRED(nt)
@@ -186,7 +196,6 @@ def main():
             token, i, j = lexer.getNextToken(i, j)
             print(token)
             # lexer.escrituraToken(file, token)
-
 
 if __name__ == '__main__':
     main()
