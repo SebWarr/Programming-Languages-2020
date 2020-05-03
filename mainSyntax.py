@@ -4,7 +4,9 @@ flagSintaxis = False
 
 token = ""
 i = 0
-j= 0
+j = 0
+
+recursive_calls = []
 
 initial_symbol_grammar = "expr"
 not_terminals = ["literal", "expr", "expr_aux", "expr_p2", "expr_p2_aux", "expr_p3", "expr_p3_aux", "expr_p4",
@@ -105,6 +107,7 @@ def PRIMEROS(alpha, debug=0):
 
 
 def SIGUIENTES(no_terminal):
+    global recursive_calls
     set_siguientes = set()
     if no_terminal == initial_symbol_grammar:
         set_siguientes = set_siguientes.union(set("$"))
@@ -121,14 +124,20 @@ def SIGUIENTES(no_terminal):
 
                 if type(beta) == str:
                     beta = [beta]
+
                 primeros_beta = PRIMEROS(beta)
+                print("Se pide Primeros(" + str(beta) + ") = ", primeros_beta)
                 set_siguientes = set_siguientes.union(primeros_beta)
                 set_siguientes.remove("")
                 # print(set_siguientes)
                 # len(set_siguientes) no ha cambiado break
                 if "" in primeros_beta or beta == "":
+                    print("o bien epsilon esta en primeros_beta o beta es epsilon")
+                    print(nt, no_terminal)
                     # tmp_len = len(set_siguientes)
-                    if nt != no_terminal:  # Ni idea si sirve
+                    if nt not in recursive_calls:  # Ni idea si sirve # Se agrega union de conjuntos
+                        print("Como son distintos, pedimos Siguientes(" + nt + ")")
+                        recursive_calls.append(no_terminal)
                         set_siguientes = set_siguientes.union(SIGUIENTES(nt))
                     # if len(set_siguientes) == tmp_len:
                     #     break
@@ -145,11 +154,15 @@ def PRED(no_terminal):
     print(no_terminal)
     for rule in grammar[no_terminal]:
         set_prediccion = set()
+        print("Se pide Primeros(" + str(rule) + ")")
         primeros_alpha = PRIMEROS(rule)
+        print("primeros alpha = ", str(primeros_alpha))
 
         if "" in primeros_alpha:
             set_prediccion = set_prediccion.union(primeros_alpha)
             set_prediccion.remove("")
+            print("set Prediccion = ", str(set_prediccion))
+            print("Se pide siguientes(" + str(no_terminal) + ")")
             set_prediccion = set_prediccion.union(SIGUIENTES(no_terminal))
 
         else:
@@ -197,6 +210,7 @@ def nonTerminal(N, lexer):
         print(token, "Capa 1")
         if token[0] in pd:
             print(pd, "\n")
+            print("idx: ", idx, grammar[N], pred_rules[N])
             for symbol in grammar[N][idx]:
                 if flagSintaxis:
                     return
@@ -226,16 +240,15 @@ def nonTerminal(N, lexer):
 
 def main():
     print("aiuda")
-    global token,i,j
-    # for nt in not_terminals:
-    #    PRED(nt)
-    # print(pred_rules)
-    PRED("expr_aux")
-
-    lexer = Lexer("test.py")
+    global token,i,j, recursive_calls
+    print(pred_rules)
+    #PRED("expr")
+    #SIGUIENTES("expr")
     for nt in not_terminals:
+        recursive_calls = []
         PRED(nt)
-
+    print("Buenas Tardes")
+    lexer = Lexer("test.py")
     with open("output.txt", "w") as file:
         #while i != -1 and j != -1:
         token, i, j = lexer.getNextToken(i, j)
