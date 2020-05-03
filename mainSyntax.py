@@ -1,35 +1,39 @@
 from mainLexer import Lexer, Token
 
 flagSintaxis = False
+
+token = ""
+i = 0
+j= 0
+
 initial_symbol_grammar = "expr"
 not_terminals = ["literal", "expr", "expr_aux", "expr_p2", "expr_p2_aux", "expr_p3", "expr_p3_aux", "expr_p4",
                  "cexpr", "cexpr_nrec", "cexpr_tmp", "cexpr_aux", "bin_op_log", "cexpr_p6", "cexpr_p6_aux", "bin_op_p6",
-                 "cexpr_p7",
-                 "cexpr_p7_aux", "bin_op_p7", "cexpr_p8", "cexpr_p9", "cexpr_p9_aux", "expr_list_no_req",
+                 "cexpr_p7", "cexpr_p7_aux", "bin_op_p7", "cexpr_p8", "cexpr_p9", "cexpr_p9_aux", "expr_list_no_req",
                  "expr_list_0_more", "target"]
 
 grammar = {
     "literal": [["None"], ["True"], ["False"], ["tk_numero"], ["tk_cadena"]],
     "expr": [["expr_p2", "expr_aux"]],
-    "expr_aux": [["if", "expr", "else", "expr"], [""]],
+    "expr_aux": [["if", "expr", "else", "expr", "expr_aux"], [""]],
     "expr_p2": [["expr_p3", "expr_p2_aux"]],
-    "expr_p2_aux": [["or", "expr_p3", "expr_p2_aux"], [""]],
+    "expr_p2_aux": [["or", "expr", "expr_p2_aux"], [""]],
     "expr_p3": [["expr_p4", "expr_p3_aux"]],
-    "expr_p3_aux": [["and", "expr_p4", "expr_p3_aux"], [""]],
-    "expr_p4": [["not", "expr_p4"], ["cexpr"]],
+    "expr_p3_aux": [["and", "expr", "expr_p3_aux"], [""]],
+    "expr_p4": [["not", "expr"], ["cexpr"]],
     "cexpr": [["cexpr_tmp", "cexpr_nrec"]],
     "cexpr_nrec": [["tk_punto", "id", "cexpr_p9_aux", "cexpr_nrec"],
-                   ["tk_corch_izq", "expr", "tk_corch_der", "cexpr_nrec"]],
+                   ["tk_corch_izq", "expr", "tk_corch_der", "cexpr_nrec"], [""]],
     "cexpr_tmp": [["cexpr_p6", "cexpr_aux"]],
-    "cexpr_aux": [["bin_op_log", "cexpr_p6"], [""]],
-    "bin_op_log": [["igual"], ["diferente"], ["mayor"], ["menor"], ["mayor_igual"], ["menor_igual"], ["is"]],
+    "cexpr_aux": [["bin_op_log", "cexpr"], [""]],
+    "bin_op_log": [["tk_igual"], ["tk_diferente"], ["tk_mayor"], ["tk_menor"], ["tk_mayor_igual"], ["tk_menor_igual"], ["is"]],
     "cexpr_p6": [["cexpr_p7", "cexpr_p6_aux"]],
-    "cexpr_p6_aux": [["bin_op_p6", "cexpr_p7", "cexpr_p6_aux"], [""]],
+    "cexpr_p6_aux": [["bin_op_p6", "cexpr", "cexpr_p6_aux"], [""]],
     "bin_op_p6": [["tk_suma"], ["tk_menos"]],
     "cexpr_p7": [["cexpr_p8", "cexpr_p7_aux"]],
-    "cexpr_p7_aux": [["bin_op_p7", "cexpr_p8", "cexpr_p7_aux"], [""]],
+    "cexpr_p7_aux": [["bin_op_p7", "cexpr", "cexpr_p7_aux"], [""]],
     "bin_op_p7": [["tk_multiplicacion"], ["tk_division"], ["tk_modulo"]],
-    "cexpr_p8": [["tk_menos", "cexpr_p9"], ["cexpr_p9"]],
+    "cexpr_p8": [["tk_menos", "cexpr"], ["cexpr_p9"]],
     "cexpr_p9": [["id", "cexpr_p9_aux"], ["literal"], ["tk_corch_izq", "expr_list_no_req", "tk_corch_der"],
                  ["tk_par_izq", "expr", "tk_par_der"]],
     "cexpr_p9_aux": [["tk_par_izq", "expr_list_no_req", "tk_par_der"], [""]],
@@ -138,6 +142,7 @@ def SIGUIENTES(no_terminal):
 
 
 def PRED(no_terminal):
+    print(no_terminal)
     for rule in grammar[no_terminal]:
         set_prediccion = set()
         primeros_alpha = PRIMEROS(rule)
@@ -157,55 +162,77 @@ def PRED(no_terminal):
         pred_rules[no_terminal].append(lst_tmp)
 
 
-def emparejar(token, token_esperado, lexer, i, j):
-    global flagSintaxis
+def emparejar(token, token_esperado, lexer):
+    global i,j
+
+    print("\n\n\nEMPAREJARRRR!!!")
+    print(token,token_esperado)
     # Emparejar No Terminales
     if token == token_esperado:
         token, i, j = lexer.getNextToken(i, j)
+        print("af" , token)
     else:
-        errorSintaxis(token, token_esperado, i, j)
+        errorSintaxis([token_esperado])
         #token = -1  # Hubo un error
-        flagSintaxis = True
+    print(token,"\n\n\n")
     return token, i, j
 
 
-def errorSintaxis(token, lista_tokens_Esperados, i, j):
+def errorSintaxis(lista_tokens_Esperados):
+    global token,i,j, flagSintaxis
+    flagSintaxis= True
     str_tmp = ""
     for token_esperado in lista_tokens_Esperados:
         str_tmp += "'" + token_esperado + "', "
     print(
-        "<" + i + "," + j + ">" + "Error sintactico: se encontro: '" + token + "' y se esperaba " + str_tmp[:-2] + ".")
+        "<" + str(i) + "," + str(j) + ">" + "Error sintactico: se encontro: '" + str(token) + "' y se esperaba " + str(str_tmp[:-2]) + ".")
 
 
-def nonTerminal(N, token, lexer, i, j):
+def nonTerminal(N, lexer):
+
+    global token,i,j
     for idx, pd in enumerate(pred_rules[N]):
+        if flagSintaxis:
+            return
         print(token, "Capa 1")
         if token[0] in pd:
             print(pd, "\n")
             for symbol in grammar[N][idx]:
+                if flagSintaxis:
+                    return
                 print(grammar[N][idx], symbol)
                 if symbol in not_terminals:
                     print("Bajo al terminal: ", symbol, "\n")
-                    nonTerminal(symbol, token, lexer, i, j)
+                    nonTerminal(symbol, lexer)
+                    if flagSintaxis:
+                        return
+                elif symbol == "":
+                    print("cadena vacía")
+                    if flagSintaxis:
+                        return
                 else:
-                    token, i, j = emparejar(token[0], symbol, lexer, i, j)
+                    token, i, j = emparejar(token[0], symbol, lexer)
                     print(token, "Capa 2", i, j)
                     if i == -1 and j == -1:
                         token = ("$", i, j)
                     if flagSintaxis:
                         return
             return
-        print("No se encontró regla que se adapte a ese token", token, pd)
+    errorSintaxis(pd)
+    print("No se encontró regla que se adapte a ese token", token, pd)
+    return
 
 
 
 def main():
+    print("aiuda")
+    global token,i,j
     # for nt in not_terminals:
     #    PRED(nt)
     # print(pred_rules)
+    PRED("expr_aux")
 
     lexer = Lexer("test.py")
-    i = j = 0
     for nt in not_terminals:
         PRED(nt)
 
@@ -213,8 +240,9 @@ def main():
         #while i != -1 and j != -1:
         token, i, j = lexer.getNextToken(i, j)
         #print(token, i, j)
-        nonTerminal("expr", token, lexer, i, j)
+        nonTerminal("expr", lexer)
         # lexer.escrituraToken(file, token)
+        print("FIN DE ARCHIVO")
 
 if __name__ == '__main__':
     main()
