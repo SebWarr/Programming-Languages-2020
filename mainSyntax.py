@@ -10,9 +10,9 @@ recursive_calls = []
 
 initial_symbol_grammar = "expr"
 not_terminals = ["literal", "expr", "expr_aux", "expr_p2", "expr_p2_aux", "expr_p3", "expr_p3_aux", "expr_p4",
-                 "cexpr", "cexpr_nrec", "cexpr_tmp", "cexpr_aux", "bin_op_log", "cexpr_p6", "cexpr_p6_aux", "bin_op_p6",
-                 "cexpr_p7", "cexpr_p7_aux", "bin_op_p7", "cexpr_p8", "cexpr_p9", "cexpr_p9_aux", "expr_list_no_req",
-                 "expr_list_0_more", "target"]
+                 "cexpr", "cexpr_aux", "bin_op_log", "cexpr_p6", "cexpr_p6_aux", "bin_op_p6",
+                 "cexpr_p7", "cexpr_p7_aux", "bin_op_p7", "cexpr_p8", "cexpr_p9", "cexpr_p9_aux","cexpr_p10", "cexpr_p10_aux",
+                 "expr_list_no_req", "expr_list_0_more", "target"]
 
 grammar = {
     "literal": [["None"], ["True"], ["False"], ["tk_numero"], ["tk_cadena"]],
@@ -29,13 +29,7 @@ grammar = {
     # "cexpr_tmp": [["cexpr_p6", "cexpr_aux"]],
     # "cexpr_aux": [["bin_op_log", "cexpr_p6"], [""]],
     "cexpr": [["cexpr_p6", "cexpr_aux"]],
-    "cexpr_nrec": [["tk_punto", "id", "cexpr_p9_aux", "cexpr_nrec"],
-                   ["tk_corch_izq", "expr", "tk_corch_der", "cexpr_nrec"], [""]],
-    "cexpr_tmp": [["cexpr_p6", "cexpr_aux"]],
-    "cexpr_aux": [["tk_punto", "id", "cexpr_p9_aux","cexpr_aux"],
-                  ["tk_corch_izq", "expr", "tk_corch_der","cexpr_aux"],
-                  ["bin_op_log", "cexpr_p6","cexpr_aux"], [""]],
-
+    "cexpr_aux": [["bin_op_log", "cexpr_p6","cexpr_aux"], [""]],
     "bin_op_log": [["tk_igual"], ["tk_diferente"], ["tk_mayor"], ["tk_menor"], ["tk_mayor_igual"], ["tk_menor_igual"], ["is"]],
     "cexpr_p6": [["cexpr_p7", "cexpr_p6_aux"]],
     "cexpr_p6_aux": [["bin_op_p6", "cexpr_p7", "cexpr_p6_aux"], [""]],
@@ -44,9 +38,12 @@ grammar = {
     "cexpr_p7_aux": [["bin_op_p7", "cexpr_p8", "cexpr_p7_aux"], [""]],
     "bin_op_p7": [["tk_multiplicacion"], ["tk_division"], ["tk_modulo"]],
     "cexpr_p8": [["tk_menos", "cexpr_p8"], ["cexpr_p9"]],
-    "cexpr_p9": [["id", "cexpr_p9_aux"], ["literal"], ["tk_corch_izq", "expr_list_no_req", "tk_corch_der"],
+    "cexpr_p9": [["cexpr_p10","cexpr_p9_aux"]],
+    "cexpr_p9_aux": [["tk_punto", "id", "cexpr_p10_aux","cexpr_p9_aux"],
+                  ["tk_corch_izq", "expr", "tk_corch_der","cexpr_p9_aux"],[""]],
+    "cexpr_p10": [["id", "cexpr_p10_aux"], ["literal"], ["tk_corch_izq", "expr_list_no_req", "tk_corch_der"],
                  ["tk_par_izq", "expr", "tk_par_der"]],
-    "cexpr_p9_aux": [["tk_par_izq", "expr_list_no_req", "tk_par_der"], [""]],
+    "cexpr_p10_aux": [["tk_par_izq", "expr_list_no_req", "tk_par_der"], [""]],
     "expr_list_no_req": [["expr", "expr_list_0_more"], [""]],
     "expr_list_0_more": [["tk_coma", "expr", "expr_list_0_more"], [""]],
     "target": [["id"], ["member_expr"], ["index_expr"]]
@@ -259,8 +256,14 @@ def main():
         #while i != -1 and j != -1:
         token, i, j = lexer.getNextToken(i, j)
         #print(token, i, j)
-        nonTerminal("expr", lexer)
+        nonTerminal(initial_symbol_grammar, lexer)
         # lexer.escrituraToken(file, token)
-        print("FIN DE ARCHIVO")
+        if token[0] == '$':
+            if not flagSintaxis:
+                print("FIN DE ARCHIVO")
+        else:
+            errorSintaxis(["No se esperaba este token"])
+            print(token)
+        print(pred_rules)
 if __name__ == '__main__':
     main()

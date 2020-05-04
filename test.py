@@ -1,1 +1,1 @@
-a.b.b.v(a.sdf(asdf[--2+a+a+3+4+5+a.d()])) == a.s == a[True < f(]
+([a.b.b.v(a.sdf(asdf[--2+a+a+3+4+5+a.d(-2)])) == a.s == a[True < f()]])]
