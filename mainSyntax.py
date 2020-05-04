@@ -17,25 +17,33 @@ not_terminals = ["literal", "expr", "expr_aux", "expr_p2", "expr_p2_aux", "expr_
 grammar = {
     "literal": [["None"], ["True"], ["False"], ["tk_numero"], ["tk_cadena"]],
     "expr": [["expr_p2", "expr_aux"]],
-    "expr_aux": [["if", "expr", "else", "expr", "expr_aux"], [""]],
+    "expr_aux": [["if", "expr", "else", "expr_p2","expr_aux"], [""]],
     "expr_p2": [["expr_p3", "expr_p2_aux"]],
-    "expr_p2_aux": [["or", "expr", "expr_p2_aux"], [""]],
+    "expr_p2_aux": [["or", "expr_p3","expr_p2_aux"], [""]],
     "expr_p3": [["expr_p4", "expr_p3_aux"]],
-    "expr_p3_aux": [["and", "expr", "expr_p3_aux"], [""]],
-    "expr_p4": [["not", "expr"], ["cexpr"]],
-    "cexpr": [["cexpr_tmp", "cexpr_nrec"]],
+    "expr_p3_aux": [["and", "expr_p4","expr_p3_aux"], [""]],
+    "expr_p4": [["not", "expr_p4"], ["cexpr"]],
+    # "cexpr": [["cexpr_tmp", "cexpr_nrec"]],
+    # "cexpr_nrec": [["tk_punto", "id", "cexpr_p9_aux", "cexpr_nrec"],
+    #                ["tk_corch_izq", "expr", "tk_corch_der", "cexpr_nrec"], [""]],
+    # "cexpr_tmp": [["cexpr_p6", "cexpr_aux"]],
+    # "cexpr_aux": [["bin_op_log", "cexpr_p6"], [""]],
+    "cexpr": [["cexpr_p6", "cexpr_aux"]],
     "cexpr_nrec": [["tk_punto", "id", "cexpr_p9_aux", "cexpr_nrec"],
                    ["tk_corch_izq", "expr", "tk_corch_der", "cexpr_nrec"], [""]],
     "cexpr_tmp": [["cexpr_p6", "cexpr_aux"]],
-    "cexpr_aux": [["bin_op_log", "cexpr"], [""]],
+    "cexpr_aux": [["tk_punto", "id", "cexpr_p9_aux","cexpr_aux"],
+                  ["tk_corch_izq", "expr", "tk_corch_der","cexpr_aux"],
+                  ["bin_op_log", "cexpr_p6","cexpr_aux"], [""]],
+
     "bin_op_log": [["tk_igual"], ["tk_diferente"], ["tk_mayor"], ["tk_menor"], ["tk_mayor_igual"], ["tk_menor_igual"], ["is"]],
     "cexpr_p6": [["cexpr_p7", "cexpr_p6_aux"]],
-    "cexpr_p6_aux": [["bin_op_p6", "cexpr", "cexpr_p6_aux"], [""]],
+    "cexpr_p6_aux": [["bin_op_p6", "cexpr_p7", "cexpr_p6_aux"], [""]],
     "bin_op_p6": [["tk_suma"], ["tk_menos"]],
     "cexpr_p7": [["cexpr_p8", "cexpr_p7_aux"]],
-    "cexpr_p7_aux": [["bin_op_p7", "cexpr", "cexpr_p7_aux"], [""]],
+    "cexpr_p7_aux": [["bin_op_p7", "cexpr_p8", "cexpr_p7_aux"], [""]],
     "bin_op_p7": [["tk_multiplicacion"], ["tk_division"], ["tk_modulo"]],
-    "cexpr_p8": [["tk_menos", "cexpr"], ["cexpr_p9"]],
+    "cexpr_p8": [["tk_menos", "cexpr_p8"], ["cexpr_p9"]],
     "cexpr_p9": [["id", "cexpr_p9_aux"], ["literal"], ["tk_corch_izq", "expr_list_no_req", "tk_corch_der"],
                  ["tk_par_izq", "expr", "tk_par_der"]],
     "cexpr_p9_aux": [["tk_par_izq", "expr_list_no_req", "tk_par_der"], [""]],
@@ -210,7 +218,8 @@ def nonTerminal(N, lexer):
         print(token, "Capa 1")
         if token[0] in pd:
             print(pd, "\n")
-            print("idx: ", idx, grammar[N], pred_rules[N])
+            print(N)
+            print("idx: ", idx, grammar[N], "puta",pred_rules[N])
             for symbol in grammar[N][idx]:
                 if flagSintaxis:
                     return
@@ -239,11 +248,8 @@ def nonTerminal(N, lexer):
 
 
 def main():
-    print("aiuda")
     global token,i,j, recursive_calls
-    print(pred_rules)
-    #PRED("expr")
-    #SIGUIENTES("expr")
+
     for nt in not_terminals:
         recursive_calls = []
         PRED(nt)
@@ -256,6 +262,5 @@ def main():
         nonTerminal("expr", lexer)
         # lexer.escrituraToken(file, token)
         print("FIN DE ARCHIVO")
-
 if __name__ == '__main__':
     main()
