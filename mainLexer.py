@@ -122,11 +122,12 @@ class Lexer:
                     char = line[jdx]
                     # Indentaciones
                     if newLine:
-                        if tokenNewLine:
-                            tokenNewLine = False
-                            tokens_list.append(("NEWLINE", idx + 1, jdx))
-                            return tokens_list[-1], [], idx, jdx
+
                         if char != " " and char != "#":
+                            if tokenNewLine:
+                                tokenNewLine = False
+                                tokens_list.append(("NEWLINE", idx + 1, jdx))
+                                return tokens_list[-1], [], idx, jdx
                             newLine = False
                             tokenNewLine = True
                             if jdx > indentationStack[-1]:

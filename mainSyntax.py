@@ -8,13 +8,26 @@ j = 0
 
 recursive_calls = []
 
-initial_symbol_grammar = "expr"
-not_terminals = ["literal", "expr", "expr_aux", "expr_p2", "expr_p2_aux", "expr_p3", "expr_p3_aux", "expr_p4",
+initial_symbol_grammar = "stmt"
+not_terminals = ["stmt_0_more","stmt","elif_0_more","else_no_req", "simple_stmt","expr_no_req","target_0_more","block",
+                 "literal", "expr", "expr_aux", "expr_p2", "expr_p2_aux", "expr_p3", "expr_p3_aux", "expr_p4",
                  "cexpr", "cexpr_aux", "bin_op_log", "cexpr_p6", "cexpr_p6_aux", "bin_op_p6",
                  "cexpr_p7", "cexpr_p7_aux", "bin_op_p7", "cexpr_p8", "cexpr_p9", "cexpr_p9_aux","cexpr_p10", "cexpr_p10_aux",
                  "expr_list_no_req", "expr_list_0_more", "target"]
 
 grammar = {
+    "stmt_0_more":[["stmt","stmt_0_more"],[""]],
+    "stmt":[["simple_stmt"],["if","expr","tk_dos_puntos","block","elif_0_more","else_no_req"],
+            ["while","expr","tk_dos_puntos","block"],["for","id","in","expr","tk_dos_puntos","block"]],
+    #Lo de abajo se necesita luego, se comento porque por ahora no aparece NEWLINE
+    # "stmt":[["simple_stmt","NEWLINE"],["if","expr","tk_dos_puntos","block","elif_0_more","else_no_req"],
+    #         ["while","expr","tk_dos_puntos","block"],["for","id","in","expr","tk_dos_puntos","block"]],
+    "elif_0_more":[["elif","expr","tk_dos_puntos","block","elif_0_more"],[""]],
+    "else_no_req":[["else","tk_dos_puntos","block"],[""]],
+    "simple_stmt":[["pass"],["expr"],["return","expr_no_req"],["target","tk_asig","target_0_more","expr"]],
+    "expr_no_req":[["expr"],[""]],
+    "target_0_more":[["target","tk_asig","target_0_more"],[""]],
+    "block":[["NEWLINE","INDENT","stmt","stmt_0_more","DEDENT"]],
     "literal": [["None"], ["True"], ["False"], ["tk_numero"], ["tk_cadena"]],
     "expr": [["expr_p2", "expr_aux"]],
     "expr_aux": [["if", "expr", "else", "expr_p2","expr_aux"], [""]],
@@ -23,11 +36,6 @@ grammar = {
     "expr_p3": [["expr_p4", "expr_p3_aux"]],
     "expr_p3_aux": [["and", "expr_p4","expr_p3_aux"], [""]],
     "expr_p4": [["not", "expr_p4"], ["cexpr"]],
-    # "cexpr": [["cexpr_tmp", "cexpr_nrec"]],
-    # "cexpr_nrec": [["tk_punto", "id", "cexpr_p9_aux", "cexpr_nrec"],
-    #                ["tk_corch_izq", "expr", "tk_corch_der", "cexpr_nrec"], [""]],
-    # "cexpr_tmp": [["cexpr_p6", "cexpr_aux"]],
-    # "cexpr_aux": [["bin_op_log", "cexpr_p6"], [""]],
     "cexpr": [["cexpr_p6", "cexpr_aux"]],
     "cexpr_aux": [["bin_op_log", "cexpr_p6","cexpr_aux"], [""]],
     "bin_op_log": [["tk_igual"], ["tk_diferente"], ["tk_mayor"], ["tk_menor"], ["tk_mayor_igual"], ["tk_menor_igual"], ["is"]],
@@ -46,7 +54,8 @@ grammar = {
     "cexpr_p10_aux": [["tk_par_izq", "expr_list_no_req", "tk_par_der"], [""]],
     "expr_list_no_req": [["expr", "expr_list_0_more"], [""]],
     "expr_list_0_more": [["tk_coma", "expr", "expr_list_0_more"], [""]],
-    "target": [["id"], ["member_expr"], ["index_expr"]]
+    "target": [["id"], ["cexpr", "target_aux"]],
+    "target_aux":[["tk_punto","id"],["tk_corch_izq","expr","tk_corch_der"]]
 }
 
 pred_rules = {}
@@ -258,12 +267,12 @@ def main():
         #print(token, i, j)
         nonTerminal(initial_symbol_grammar, lexer)
         # lexer.escrituraToken(file, token)
-        if token[0] == '$':
-            if not flagSintaxis:
+        if not flagSintaxis:
+            if token[0] == '$':
                 print("FIN DE ARCHIVO")
-        else:
-            errorSintaxis(["No se esperaba este token"])
-            print(token)
-        print(pred_rules)
+            else:
+                errorSintaxis(["No se esperaba este token"])
+                print(token)
+
 if __name__ == '__main__':
     main()
