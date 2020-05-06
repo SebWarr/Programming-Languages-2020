@@ -1,0 +1,110 @@
+Prediction set for expr
+
+[['True', 'tk_par_iz', 'False', 'tk_numero', 'None', 'tk_menos', 'id', 'tk_corch_izq', 'tk_cadena'], ['not']]
+
+Prediction set for expr_rizq
+
+[['and'], ['or'], ['if'], ['tk_par_der', 'tk_corch_der', 'else', '$', 'tk_coma', 'if', 'and', 'or']]
+
+
+
+
+######## NOT DISJOINT PREDICTION SETS OF RULE expr_rizq ###########
+
+ SETS
+ ['and']
+ and
+ ['tk_par_der', 'tk_corch_der', 'else', '$', 'tk_coma', 'if', 'and', 'or']
+ WITH COMMON ELEMENT(S) {'and'}
+
+##################################################################
+
+ 
+
+
+######## NOT DISJOINT PREDICTION SETS OF RULE expr_rizq ###########
+
+ SETS
+ ['or']
+ and
+ ['tk_par_der', 'tk_corch_der', 'else', '$', 'tk_coma', 'if', 'and', 'or']
+ WITH COMMON ELEMENT(S) {'or'}
+
+##################################################################
+
+ 
+
+
+######## NOT DISJOINT PREDICTION SETS OF RULE expr_rizq ###########
+
+ SETS
+ ['if']
+ and
+ ['tk_par_der', 'tk_corch_der', 'else', '$', 'tk_coma', 'if', 'and', 'or']
+ WITH COMMON ELEMENT(S) {'if'}
+
+##################################################################
+
+ Prediction set for cexpr
+
+[['id'], ['True', 'None', 'tk_cadena', 'False', 'tk_numero'], ['tk_corch_izq'], ['tk_par_iz'], ['tk_menos']]
+
+Prediction set for expr_list_0_more
+
+[['tk_coma'], ['tk_par_der', 'tk_corch_der']]
+
+Prediction set for expr_list_no_req
+
+[['True', 'tk_par_iz', 'False', 'tk_numero', 'None', 'tk_menos', 'id', 'not', 'tk_corch_izq', 'tk_cadena'], ['tk_par_der', 'tk_corch_der']]
+
+Prediction set for cexpr_rizq
+
+[['tk_punto'], ['tk_corch_izq'], ['bin_op'], ['tk_par_der', 'tk_corch_der', 'tk_punto', 'else', '$', 'tk_coma', 'bin_op', 'if', 'and', 'tk_corch_izq', 'or']]
+
+
+
+
+######## NOT DISJOINT PREDICTION SETS OF RULE cexpr_rizq ###########
+
+ SETS
+ ['tk_punto']
+ and
+ ['tk_par_der', 'tk_corch_der', 'tk_punto', 'else', '$', 'tk_coma', 'bin_op', 'if', 'and', 'tk_corch_izq', 'or']
+ WITH COMMON ELEMENT(S) {'tk_punto'}
+
+##################################################################
+
+ 
+
+
+######## NOT DISJOINT PREDICTION SETS OF RULE cexpr_rizq ###########
+
+ SETS
+ ['tk_corch_izq']
+ and
+ ['tk_par_der', 'tk_corch_der', 'tk_punto', 'else', '$', 'tk_coma', 'bin_op', 'if', 'and', 'tk_corch_izq', 'or']
+ WITH COMMON ELEMENT(S) {'tk_corch_izq'}
+
+##################################################################
+
+ 
+
+
+######## NOT DISJOINT PREDICTION SETS OF RULE cexpr_rizq ###########
+
+ SETS
+ ['bin_op']
+ and
+ ['tk_par_der', 'tk_corch_der', 'tk_punto', 'else', '$', 'tk_coma', 'bin_op', 'if', 'and', 'tk_corch_izq', 'or']
+ WITH COMMON ELEMENT(S) {'bin_op'}
+
+##################################################################
+
+ Prediction set for id_fc
+
+[['tk_par_izq'], ['tk_par_der', 'tk_corch_der', 'tk_punto', 'else', '$', 'tk_coma', 'bin_op', 'tk_corch_izq', 'if', 'and', 'or']]
+
+Prediction set for literal
+
+[['None'], ['True'], ['False'], ['tk_numero'], ['tk_cadena']]
+

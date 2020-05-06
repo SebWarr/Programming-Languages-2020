@@ -1,0 +1,490 @@
+Siguientes de regla stmt_0_more
+{'DEDENT'}
+Siguientes de regla elif_0_more
+{'if', 'tk_corch_izq', 'False', 'pass', 'while', 'elif', 'return', 'id', 'DEDENT', 'tk_menos', 'tk_par_izq', 'True', 'else', 'for', 'not', 'tk_numero', 'tk_cadena', 'None', '$'}
+Siguientes de regla else_no_req
+{'if', 'tk_corch_izq', 'False', 'pass', 'while', 'elif', 'return', 'id', 'DEDENT', 'tk_menos', 'tk_par_izq', 'True', 'else', 'for', 'not', 'tk_numero', 'tk_cadena', 'None', '$'}
+Siguientes de regla expr_no_req
+{'if', 'tk_corch_izq', 'False', 'pass', 'while', 'elif', 'return', 'id', 'DEDENT', 'tk_menos', 'tk_par_izq', 'True', 'else', 'for', 'not', 'tk_numero', 'tk_cadena', 'None', '$'}
+Siguientes de regla target_0_more
+{'id', 'tk_menos', 'tk_par_izq', 'True', 'tk_corch_izq', 'False', 'not', 'tk_numero', 'tk_cadena', 'None'}
+Siguientes de regla expr_aux
+{'if', 'tk_dos_puntos', 'tk_corch_izq', 'False', 'pass', 'while', 'elif', 'return', 'id', 'DEDENT', 'tk_coma', 'tk_menos', 'tk_par_izq', 'True', 'else', 'for', 'tk_par_der', 'not', 'tk_corch_der', 'tk_numero', 'tk_cadena', 'None', '$'}
+Siguientes de regla expr_p2_aux
+{'if', 'tk_dos_puntos', 'tk_corch_izq', 'False', 'pass', 'while', 'elif', 'return', 'id', 'DEDENT', 'tk_coma', 'tk_menos', 'tk_par_izq', 'True', 'else', 'for', 'tk_par_der', 'not', 'tk_corch_der', 'tk_numero', 'tk_cadena', 'None', '$'}
+Siguientes de regla expr_p3_aux
+{'if', 'tk_dos_puntos', 'tk_corch_izq', 'False', 'pass', 'or', 'while', 'elif', 'return', 'id', 'DEDENT', 'tk_coma', 'tk_menos', 'tk_par_izq', 'True', 'else', 'for', 'tk_par_der', 'not', 'tk_corch_der', 'tk_numero', 'tk_cadena', 'None', '$'}
+Siguientes de regla cexpr_aux
+{'if', 'tk_dos_puntos', 'tk_corch_izq', 'False', 'pass', 'or', 'while', 'elif', 'return', 'id', 'target_aux', 'DEDENT', 'tk_coma', 'tk_menos', 'tk_par_izq', 'and', 'True', 'else', 'for', 'tk_par_der', 'not', 'tk_corch_der', 'tk_numero', 'tk_cadena', 'None', '$'}
+Siguientes de regla cexpr_p6_aux
+{'tk_menor', 'is', 'tk_dos_puntos', 'tk_corch_izq', 'False', 'pass', 'or', 'while', 'elif', 'return', 'id', 'target_aux', 'else', 'for', 'tk_par_der', 'not', 'tk_numero', 'tk_diferente', 'tk_menor_igual', 'if', 'tk_igual', 'DEDENT', 'tk_coma', 'tk_menos', 'tk_par_izq', 'tk_mayor_igual', 'and', 'True', 'tk_corch_der', 'tk_mayor', 'tk_cadena', 'None', '$'}
+Siguientes de regla cexpr_p7_aux
+{'tk_menor', 'is', 'tk_dos_puntos', 'tk_corch_izq', 'False', 'pass', 'or', 'while', 'elif', 'return', 'id', 'target_aux', 'else', 'for', 'tk_par_der', 'not', 'tk_numero', 'tk_diferente', 'tk_menor_igual', 'if', 'tk_suma', 'tk_igual', 'DEDENT', 'tk_coma', 'tk_menos', 'tk_par_izq', 'tk_mayor_igual', 'and', 'True', 'tk_corch_der', 'tk_mayor', 'tk_cadena', 'None', '$'}
+Siguientes de regla cexpr_p9_aux
+{'tk_menor', 'is', 'tk_dos_puntos', 'tk_modulo', 'tk_corch_izq', 'False', 'pass', 'or', 'while', 'elif', 'return', 'id', 'target_aux', 'else', 'for', 'tk_par_der', 'not', 'tk_numero', 'tk_diferente', 'tk_menor_igual', 'if', 'tk_suma', 'tk_division', 'tk_igual', 'tk_multiplicacion', 'DEDENT', 'tk_coma', 'tk_menos', 'tk_par_izq', 'tk_mayor_igual', 'and', 'True', 'tk_corch_der', 'tk_mayor', 'tk_cadena', 'None', '$'}
+Siguientes de regla cexpr_p10_aux
+{'tk_menor', 'is', 'tk_dos_puntos', 'tk_modulo', 'tk_corch_izq', 'False', 'pass', 'or', 'while', 'elif', 'return', 'id', 'target_aux', 'else', 'for', 'tk_par_der', 'not', 'tk_numero', 'tk_diferente', 'tk_menor_igual', 'if', 'tk_suma', 'tk_division', 'tk_punto', 'tk_igual', 'tk_multiplicacion', 'DEDENT', 'tk_coma', 'tk_menos', 'tk_par_izq', 'tk_mayor_igual', 'and', 'True', 'tk_corch_der', 'tk_mayor', 'tk_cadena', 'None', '$'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla elif_0_more
+{'True', 'for', '$', 'tk_menos', 'DEDENT', 'while', 'else', 'elif', 'tk_cadena', 'tk_par_izq', 'tk_numero', 'return', 'tk_corch_izq', 'if', 'pass', 'False', 'None', 'not', 'id'}
+Siguientes de regla elif_0_more
+{'elif', 'None', 'True', '$', 'tk_menos', 'return', 'for', 'while', 'tk_par_izq', 'tk_cadena', 'id', 'False', 'DEDENT', 'else', 'tk_numero', 'not', 'tk_corch_izq', 'if', 'pass'}
+Siguientes de regla elif_0_more
+{'for', 'while', 'tk_numero', 'else', 'tk_cadena', 'tk_menos', '$', 'if', 'None', 'not', 'tk_corch_izq', 'DEDENT', 'True', 'id', 'pass', 'False', 'elif', 'tk_par_izq', 'return'}
+Siguientes de regla stmt_0_more
+{'DEDENT'}
+Siguientes de regla elif_0_more
+{'tk_menos', '$', 'elif', 'DEDENT', 'None', 'tk_cadena', 'while', 'not', 'True', 'False', 'tk_numero', 'return', 'id', 'else', 'if', 'pass', 'tk_par_izq', 'tk_corch_izq', 'for'}
+Siguientes de regla else_no_req
+{'tk_menos', '$', 'elif', 'DEDENT', 'None', 'tk_cadena', 'while', 'not', 'True', 'False', 'tk_numero', 'return', 'id', 'if', 'pass', 'else', 'tk_par_izq', 'tk_corch_izq', 'for'}
+Siguientes de regla expr_no_req
+{'tk_menos', '$', 'elif', 'DEDENT', 'None', 'tk_cadena', 'while', 'not', 'True', 'False', 'tk_numero', 'return', 'id', 'if', 'pass', 'else', 'tk_par_izq', 'tk_corch_izq', 'for'}
+Siguientes de regla target_0_more
+{'tk_menos', 'True', 'False', 'None', 'tk_numero', 'id', 'tk_cadena', 'tk_par_izq', 'tk_corch_izq', 'not'}
+Siguientes de regla expr_aux
+{'tk_menos', '$', 'elif', 'DEDENT', 'None', 'tk_par_der', 'tk_coma', 'tk_cadena', 'tk_dos_puntos', 'while', 'not', 'True', 'False', 'tk_numero', 'return', 'tk_corch_der', 'id', 'if', 'pass', 'else', 'tk_par_izq', 'tk_corch_izq', 'for'}
+Siguientes de regla expr_p2_aux
+{'tk_menos', '$', 'elif', 'DEDENT', 'None', 'tk_par_der', 'tk_coma', 'tk_cadena', 'tk_dos_puntos', 'while', 'not', 'True', 'False', 'tk_numero', 'return', 'tk_corch_der', 'id', 'if', 'pass', 'else', 'tk_par_izq', 'tk_corch_izq', 'for'}
+Siguientes de regla expr_p3_aux
+{'tk_menos', '$', 'elif', 'DEDENT', 'None', 'tk_par_der', 'tk_coma', 'tk_cadena', 'tk_dos_puntos', 'while', 'not', 'or', 'True', 'False', 'tk_numero', 'return', 'tk_corch_der', 'id', 'if', 'pass', 'else', 'tk_par_izq', 'tk_corch_izq', 'for'}
+Siguientes de regla cexpr_aux
+{'tk_menos', 'target_aux', '$', 'elif', 'DEDENT', 'None', 'tk_par_der', 'tk_coma', 'tk_cadena', 'tk_dos_puntos', 'while', 'not', 'or', 'True', 'False', 'tk_numero', 'return', 'tk_corch_der', 'id', 'if', 'pass', 'else', 'tk_par_izq', 'tk_corch_izq', 'for', 'and'}
+Siguientes de regla cexpr_p6_aux
+{'tk_menor', '$', 'elif', 'DEDENT', 'None', 'while', 'tk_menor_igual', 'not', 'or', 'tk_diferente', 'True', 'tk_corch_der', 'if', 'is', 'for', 'and', 'tk_menos', 'target_aux', 'tk_igual', 'tk_par_der', 'tk_coma', 'tk_cadena', 'tk_dos_puntos', 'tk_mayor', 'False', 'tk_numero', 'return', 'id', 'else', 'pass', 'tk_mayor_igual', 'tk_par_izq', 'tk_corch_izq'}
+Siguientes de regla cexpr_p7_aux
+{'tk_menor', '$', 'elif', 'DEDENT', 'None', 'while', 'tk_menor_igual', 'not', 'or', 'tk_diferente', 'True', 'tk_suma', 'tk_corch_der', 'if', 'is', 'for', 'and', 'tk_menos', 'target_aux', 'tk_igual', 'tk_par_der', 'tk_coma', 'tk_cadena', 'tk_dos_puntos', 'tk_mayor', 'False', 'tk_numero', 'return', 'id', 'else', 'pass', 'tk_mayor_igual', 'tk_par_izq', 'tk_corch_izq'}
+Siguientes de regla cexpr_p9_aux
+{'tk_menor', '$', 'elif', 'DEDENT', 'None', 'while', 'tk_menor_igual', 'not', 'or', 'tk_diferente', 'True', 'tk_suma', 'tk_corch_der', 'if', 'is', 'for', 'and', 'tk_menos', 'target_aux', 'tk_igual', 'tk_modulo', 'tk_par_der', 'tk_division', 'tk_coma', 'tk_cadena', 'tk_dos_puntos', 'tk_mayor', 'False', 'tk_numero', 'tk_multiplicacion', 'return', 'id', 'else', 'pass', 'tk_mayor_igual', 'tk_par_izq', 'tk_corch_izq'}
+Siguientes de regla cexpr_p10_aux
+{'tk_menor', '$', 'elif', 'DEDENT', 'None', 'while', 'tk_menor_igual', 'not', 'or', 'tk_diferente', 'True', 'tk_suma', 'tk_punto', 'tk_corch_der', 'if', 'is', 'for', 'and', 'tk_menos', 'target_aux', 'tk_igual', 'tk_modulo', 'tk_par_der', 'tk_division', 'tk_coma', 'tk_cadena', 'tk_dos_puntos', 'tk_mayor', 'False', 'tk_numero', 'tk_multiplicacion', 'return', 'id', 'else', 'pass', 'tk_mayor_igual', 'tk_par_izq', 'tk_corch_izq'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_aux
+{'tk_corch_der', 'else', 'tk_coma', 'tk_par_der'}
+Siguientes de regla expr_p2_aux
+{'tk_corch_der', 'else', 'if', 'tk_coma', 'tk_par_der'}
+Siguientes de regla expr_p3_aux
+{'tk_corch_der', 'else', 'if', 'or', 'tk_coma', 'tk_par_der'}
+Siguientes de regla cexpr_aux
+{'tk_par_der', 'tk_corch_der', 'or', 'if', 'and', 'tk_coma', 'else'}
+Siguientes de regla cexpr_p6_aux
+{'tk_mayor', 'or', 'tk_diferente', 'tk_coma', 'tk_par_der', 'tk_menor_igual', 'else', 'and', 'is', 'tk_corch_der', 'tk_igual', 'tk_mayor_igual', 'if', 'tk_menor'}
+Siguientes de regla cexpr_p7_aux
+{'or', 'tk_diferente', 'tk_par_der', 'if', 'tk_menor', 'tk_menos', 'tk_mayor', 'tk_coma', 'tk_menor_igual', 'else', 'tk_suma', 'is', 'tk_corch_der', 'tk_igual', 'tk_mayor_igual', 'and'}
+Siguientes de regla cexpr_p9_aux
+{'or', 'tk_diferente', 'tk_par_der', 'tk_division', 'if', 'tk_menor', 'tk_menos', 'tk_multiplicacion', 'tk_mayor', 'tk_modulo', 'tk_coma', 'tk_menor_igual', 'else', 'tk_suma', 'is', 'tk_corch_der', 'tk_igual', 'tk_mayor_igual', 'and'}
+Siguientes de regla cexpr_p10_aux
+{'tk_corch_izq', 'or', 'tk_punto', 'tk_diferente', 'tk_par_der', 'tk_division', 'if', 'tk_menor', 'tk_menos', 'tk_mayor', 'tk_multiplicacion', 'tk_modulo', 'tk_coma', 'tk_menor_igual', 'else', 'tk_suma', 'is', 'tk_corch_der', 'tk_igual', 'tk_mayor_igual', 'and'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_aux
+{'stmt_0_more', 'tk_coma', 'tk_dos_puntos', 'tk_corch_der', '$', 'tk_par_der', 'else'}
+Siguientes de regla expr_p2_aux
+{'tk_coma', 'tk_corch_der', 'if', '$', 'tk_par_der', 'stmt_0_more', 'tk_dos_puntos', 'else'}
+Siguientes de regla expr_p3_aux
+{'tk_coma', 'or', 'tk_corch_der', 'if', '$', 'tk_par_der', 'stmt_0_more', 'tk_dos_puntos', 'else'}
+Siguientes de regla cexpr_aux
+{'tk_coma', 'or', 'tk_corch_der', 'if', '$', 'tk_par_der', 'stmt_0_more', 'tk_dos_puntos', 'and', 'else'}
+Siguientes de regla cexpr_p6_aux
+{'if', 'tk_par_der', 'tk_igual', 'tk_menor', 'tk_coma', 'or', 'tk_corch_der', '$', 'stmt_0_more', 'tk_mayor_igual', 'is', 'tk_dos_puntos', 'tk_menor_igual', 'tk_diferente', 'and', 'tk_mayor', 'else'}
+Siguientes de regla cexpr_p7_aux
+{'tk_suma', 'if', 'tk_par_der', 'tk_igual', 'tk_diferente', 'tk_menor', 'tk_coma', 'or', 'tk_corch_der', '$', 'stmt_0_more', 'tk_mayor_igual', 'is', 'tk_menos', 'tk_menor_igual', 'tk_dos_puntos', 'and', 'tk_mayor', 'else'}
+Siguientes de regla cexpr_p9_aux
+{'tk_suma', 'if', 'tk_par_der', 'tk_igual', 'tk_modulo', 'tk_multiplicacion', 'tk_menor', 'tk_coma', 'or', 'tk_corch_der', 'tk_division', '$', 'stmt_0_more', 'tk_mayor_igual', 'is', 'tk_menos', 'tk_menor_igual', 'tk_diferente', 'tk_dos_puntos', 'and', 'tk_mayor', 'else'}
+Siguientes de regla cexpr_p10_aux
+{'tk_punto', 'tk_suma', 'if', 'tk_par_der', 'tk_igual', 'tk_modulo', 'tk_multiplicacion', 'tk_menor', 'tk_coma', 'or', 'tk_corch_izq', 'tk_corch_der', 'tk_division', '$', 'stmt_0_more', 'tk_mayor_igual', 'is', 'tk_menos', 'tk_menor_igual', 'tk_diferente', 'tk_dos_puntos', 'and', 'tk_mayor', 'else'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla elif_0_more
+{'$', 'else', 'stmt_0_more'}
+Siguientes de regla else_no_req
+{'$', 'stmt_0_more'}
+Siguientes de regla expr_no_req
+{'$', 'stmt_0_more'}
+Siguientes de regla target_0_more
+{'None', 'tk_menos', 'id', 'not', 'True', 'False', 'tk_cadena', 'tk_corch_izq', 'tk_numero', 'tk_par_izq'}
+Siguientes de regla expr_aux
+{'tk_coma', 'tk_par_der', '$', 'stmt_0_more', 'else', 'tk_dos_puntos', 'tk_corch_der'}
+Siguientes de regla expr_p2_aux
+{'tk_par_der', '$', 'stmt_0_more', 'tk_coma', 'else', 'if', 'tk_corch_der', 'tk_dos_puntos'}
+Siguientes de regla expr_p3_aux
+{'tk_par_der', '$', 'else', 'tk_coma', 'or', 'stmt_0_more', 'if', 'tk_corch_der', 'tk_dos_puntos'}
+Siguientes de regla cexpr_aux
+{'tk_par_der', '$', 'else', 'tk_coma', 'or', 'stmt_0_more', 'if', 'tk_corch_der', 'tk_dos_puntos', 'and'}
+Siguientes de regla cexpr_p6_aux
+{'tk_par_der', 'tk_coma', 'tk_menor_igual', 'tk_diferente', 'is', 'else', 'stmt_0_more', 'tk_corch_der', 'tk_dos_puntos', 'tk_mayor', 'tk_menor', '$', 'tk_mayor_igual', 'tk_igual', 'or', 'if', 'and'}
+Siguientes de regla cexpr_p7_aux
+{'tk_par_der', 'tk_coma', 'tk_menor_igual', 'tk_diferente', 'is', 'else', 'stmt_0_more', 'tk_corch_der', 'tk_dos_puntos', 'tk_mayor', 'tk_menor', 'tk_menos', '$', 'tk_mayor_igual', 'tk_suma', 'tk_igual', 'or', 'if', 'and'}
+Siguientes de regla cexpr_p9_aux
+{'tk_par_der', 'tk_coma', 'tk_menor_igual', 'tk_diferente', 'is', 'else', 'stmt_0_more', 'tk_corch_der', 'tk_modulo', 'tk_dos_puntos', 'tk_mayor', 'tk_menor', 'tk_multiplicacion', 'tk_division', 'tk_menos', '$', 'tk_mayor_igual', 'tk_suma', 'tk_igual', 'or', 'if', 'and'}
+Siguientes de regla cexpr_p10_aux
+{'tk_par_der', 'tk_coma', 'tk_menor_igual', 'tk_diferente', 'is', 'else', 'stmt_0_more', 'tk_corch_der', 'tk_punto', 'tk_modulo', 'tk_dos_puntos', 'tk_mayor', 'tk_menor', 'tk_multiplicacion', 'tk_division', 'tk_menos', '$', 'tk_mayor_igual', 'tk_suma', 'tk_igual', 'or', 'tk_corch_izq', 'if', 'and'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla elif_0_more
+{'stmt_0_more', '$', 'else'}
+Siguientes de regla else_no_req
+{'stmt_0_more', '$'}
+Siguientes de regla expr_no_req
+{'stmt_0_more', '$'}
+Siguientes de regla target_0_more
+{'False', 'tk_corch_izq', 'tk_par_izq', 'not', 'id', 'tk_numero', 'None', 'True', 'tk_cadena', 'tk_menos'}
+Siguientes de regla expr_aux
+{'$', 'else', 'tk_corch_der', 'tk_coma', 'stmt_0_more', 'tk_par_der', 'tk_dos_puntos'}
+Siguientes de regla expr_p2_aux
+{'tk_corch_der', 'stmt_0_more', '$', 'else', 'tk_coma', 'tk_par_der', 'if', 'tk_dos_puntos'}
+Siguientes de regla expr_p3_aux
+{'tk_corch_der', 'or', 'stmt_0_more', '$', 'else', 'tk_coma', 'tk_par_der', 'if', 'tk_dos_puntos'}
+Siguientes de regla cexpr_aux
+{'tk_corch_der', 'and', 'or', 'tk_corch_izq', 'stmt_0_more', '$', 'else', 'tk_coma', 'tk_par_der', 'tk_punto', 'if', 'tk_dos_puntos'}
+Siguientes de regla cexpr_p6_aux
+{'and', 'tk_diferente', 'tk_menor', 'stmt_0_more', 'tk_igual', 'tk_mayor_igual', 'else', 'tk_menor_igual', 'tk_dos_puntos', 'tk_mayor', 'tk_corch_der', 'tk_corch_izq', 'or', 'is', '$', 'tk_coma', 'tk_par_der', 'tk_punto', 'if'}
+Siguientes de regla cexpr_p7_aux
+{'and', 'tk_diferente', 'tk_menor', 'stmt_0_more', 'tk_igual', 'tk_mayor_igual', 'else', 'tk_menor_igual', 'tk_menos', 'tk_dos_puntos', 'tk_mayor', 'tk_corch_der', 'tk_corch_izq', 'or', 'tk_suma', 'is', '$', 'tk_coma', 'tk_par_der', 'tk_punto', 'if'}
+Siguientes de regla cexpr_p9_aux
+{'tk_modulo', 'and', 'tk_diferente', 'tk_menor', 'stmt_0_more', 'tk_division', 'tk_igual', 'tk_mayor_igual', 'else', 'tk_menor_igual', 'tk_menos', 'tk_dos_puntos', 'tk_mayor', 'tk_multiplicacion', 'tk_corch_der', 'tk_corch_izq', 'or', 'tk_suma', 'is', '$', 'tk_coma', 'tk_par_der', 'tk_punto', 'if'}
+Siguientes de regla cexpr_p10_aux
+{'tk_modulo', 'and', 'tk_diferente', 'tk_menor', 'stmt_0_more', 'tk_division', 'tk_igual', 'tk_mayor_igual', 'else', 'tk_menor_igual', 'tk_menos', 'tk_dos_puntos', 'tk_mayor', 'tk_corch_izq', 'tk_multiplicacion', 'tk_corch_der', 'or', 'tk_suma', 'is', '$', 'tk_coma', 'tk_par_der', 'tk_punto', 'if'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla elif_0_more
+{'else', '$', 'stmt_0_more'}
+Siguientes de regla else_no_req
+{'$', 'stmt_0_more'}
+Siguientes de regla expr_no_req
+{'$', 'stmt_0_more'}
+Siguientes de regla target_0_more
+{'True', 'not', 'tk_par_izq', 'tk_cadena', 'tk_menos', 'False', 'tk_numero', 'id', 'None', 'tk_corch_izq'}
+Siguientes de regla expr_aux
+{'tk_par_der', 'tk_dos_puntos', 'else', '$', 'tk_coma', 'tk_corch_der', 'stmt_0_more'}
+Siguientes de regla expr_p2_aux
+{'tk_dos_puntos', '$', 'tk_coma', 'tk_corch_der', 'tk_par_der', 'if', 'else', 'stmt_0_more'}
+Siguientes de regla expr_p3_aux
+{'tk_dos_puntos', 'or', '$', 'tk_coma', 'tk_corch_der', 'tk_par_der', 'if', 'else', 'stmt_0_more'}
+Siguientes de regla cexpr_aux
+{'tk_punto', 'tk_dos_puntos', 'or', '$', 'tk_coma', 'and', 'tk_corch_der', 'tk_par_der', 'if', 'else', 'tk_corch_izq', 'stmt_0_more'}
+Siguientes de regla cexpr_p6_aux
+{'tk_dos_puntos', 'or', 'tk_coma', 'tk_corch_der', 'if', 'tk_mayor', 'tk_menor', 'tk_punto', 'tk_igual', '$', 'tk_mayor_igual', 'and', 'tk_par_der', 'tk_menor_igual', 'else', 'is', 'tk_diferente', 'tk_corch_izq', 'stmt_0_more'}
+Siguientes de regla cexpr_p7_aux
+{'tk_dos_puntos', 'or', 'tk_coma', 'tk_corch_der', 'if', 'tk_mayor', 'tk_menor', 'tk_suma', 'tk_punto', 'tk_igual', '$', 'tk_mayor_igual', 'and', 'tk_menos', 'tk_par_der', 'tk_menor_igual', 'else', 'is', 'tk_diferente', 'tk_corch_izq', 'stmt_0_more'}
+Siguientes de regla cexpr_p9_aux
+{'tk_dos_puntos', 'or', 'tk_coma', 'tk_corch_der', 'tk_division', 'if', 'tk_modulo', 'tk_mayor', 'tk_menor', 'tk_suma', 'tk_punto', 'tk_igual', '$', 'tk_multiplicacion', 'tk_mayor_igual', 'and', 'tk_menos', 'tk_par_der', 'tk_menor_igual', 'else', 'is', 'tk_diferente', 'tk_corch_izq', 'stmt_0_more'}
+Siguientes de regla cexpr_p10_aux
+{'tk_dos_puntos', 'tk_corch_izq', 'or', 'tk_coma', 'tk_corch_der', 'if', 'tk_modulo', 'tk_mayor', 'tk_punto', 'tk_menor', 'tk_suma', 'tk_igual', '$', 'tk_multiplicacion', 'tk_mayor_igual', 'and', 'tk_menos', 'tk_par_der', 'tk_menor_igual', 'else', 'is', 'tk_diferente', 'tk_division', 'stmt_0_more'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla elif_0_more
+{'stmt_0_more', 'else', '$'}
+Siguientes de regla else_no_req
+{'stmt_0_more', '$'}
+Siguientes de regla expr_no_req
+{'stmt_0_more', '$'}
+Siguientes de regla elif_0_more
+{'$', 'else', 'stmt_0_more'}
+Siguientes de regla else_no_req
+{'$', 'stmt_0_more'}
+Siguientes de regla expr_no_req
+{'$', 'stmt_0_more'}
+Siguientes de regla expr_aux
+{'$', 'else', 'tk_corch_der', 'tk_coma', 'tk_par_der', 'tk_dos_puntos', 'stmt_0_more'}
+Siguientes de regla expr_p2_aux
+{'stmt_0_more', '$', 'else', 'tk_corch_der', 'tk_coma', 'if', 'tk_par_der', 'tk_dos_puntos'}
+Siguientes de regla expr_p3_aux
+{'or', 'stmt_0_more', '$', 'else', 'tk_corch_der', 'tk_coma', 'if', 'tk_par_der', 'tk_dos_puntos'}
+Siguientes de regla cexpr_aux
+{'or', 'tk_punto', 'tk_corch_izq', 'stmt_0_more', '$', 'else', 'and', 'tk_corch_der', 'tk_coma', 'if', 'tk_par_der', 'tk_dos_puntos'}
+Siguientes de regla cexpr_p6_aux
+{'tk_corch_izq', 'stmt_0_more', 'tk_igual', '$', 'tk_corch_der', 'tk_menor_igual', 'tk_par_der', 'tk_punto', 'is', 'tk_mayor_igual', 'or', 'tk_menor', 'tk_diferente', 'else', 'and', 'tk_coma', 'tk_mayor', 'if', 'tk_dos_puntos'}
+Siguientes de regla cexpr_p7_aux
+{'tk_corch_izq', 'stmt_0_more', 'tk_menos', 'tk_igual', '$', 'tk_corch_der', 'tk_menor_igual', 'tk_par_der', 'tk_punto', 'tk_suma', 'is', 'tk_mayor_igual', 'or', 'tk_menor', 'tk_diferente', 'else', 'and', 'tk_coma', 'tk_mayor', 'if', 'tk_dos_puntos'}
+Siguientes de regla cexpr_p9_aux
+{'tk_corch_izq', 'stmt_0_more', 'tk_menos', 'tk_igual', '$', 'tk_corch_der', 'tk_menor_igual', 'tk_par_der', 'tk_punto', 'tk_suma', 'tk_modulo', 'is', 'tk_mayor_igual', 'or', 'tk_menor', 'tk_diferente', 'tk_multiplicacion', 'else', 'and', 'tk_coma', 'tk_mayor', 'if', 'tk_dos_puntos', 'tk_division'}
+Siguientes de regla cexpr_p10_aux
+{'tk_corch_izq', 'stmt_0_more', 'tk_menos', 'tk_igual', '$', 'tk_corch_der', 'tk_menor_igual', 'tk_par_der', 'tk_punto', 'tk_suma', 'tk_modulo', 'is', 'tk_mayor_igual', 'or', 'tk_menor', 'tk_diferente', 'tk_multiplicacion', 'else', 'and', 'tk_coma', 'tk_mayor', 'if', 'tk_dos_puntos', 'tk_division'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla stmt_0_more
+{'DEDENT'}
+Siguientes de regla elif_0_more
+{'id', 'DEDENT', '$', 'else', 'while', 'if', 'tk_numero', 'tk_par_izq', 'elif', 'tk_menos', 'None', 'False', 'tk_cadena', 'return', 'not', 'pass', 'True', 'tk_corch_izq', 'for'}
+Siguientes de regla else_no_req
+{'id', 'DEDENT', '$', 'else', 'while', 'if', 'tk_numero', 'tk_par_izq', 'elif', 'tk_menos', 'None', 'False', 'tk_cadena', 'return', 'not', 'pass', 'True', 'tk_corch_izq', 'for'}
+Siguientes de regla expr_no_req
+{'id', 'DEDENT', '$', 'else', 'while', 'if', 'tk_numero', 'tk_par_izq', 'elif', 'tk_menos', 'None', 'False', 'tk_cadena', 'return', 'not', 'pass', 'True', 'tk_corch_izq', 'for'}
+Siguientes de regla target_0_more
+{'tk_par_izq', 'id', 'tk_menos', 'None', 'False', 'tk_cadena', 'not', 'True', 'tk_corch_izq', 'tk_numero'}
+Siguientes de regla expr_aux
+{'id', 'DEDENT', '$', 'else', 'while', 'if', 'tk_numero', 'tk_coma', 'tk_dos_puntos', 'tk_corch_der', 'tk_par_izq', 'elif', 'tk_menos', 'None', 'False', 'tk_cadena', 'return', 'not', 'pass', 'tk_par_der', 'True', 'tk_corch_izq', 'for'}
+Siguientes de regla expr_p2_aux
+{'id', 'DEDENT', '$', 'else', 'while', 'if', 'tk_numero', 'tk_coma', 'tk_dos_puntos', 'tk_corch_der', 'tk_par_izq', 'elif', 'tk_menos', 'None', 'False', 'tk_cadena', 'return', 'not', 'pass', 'tk_par_der', 'True', 'tk_corch_izq', 'for'}
+Siguientes de regla expr_p3_aux
+{'id', 'DEDENT', '$', 'or', 'else', 'while', 'if', 'tk_numero', 'tk_coma', 'tk_dos_puntos', 'tk_corch_der', 'tk_par_izq', 'elif', 'tk_menos', 'None', 'False', 'tk_cadena', 'return', 'not', 'pass', 'tk_par_der', 'True', 'tk_corch_izq', 'for'}
+Siguientes de regla cexpr_aux
+{'id', 'DEDENT', '$', 'or', 'else', 'while', 'if', 'tk_numero', 'tk_coma', 'tk_dos_puntos', 'tk_corch_der', 'tk_par_izq', 'elif', 'tk_menos', 'None', 'False', 'tk_cadena', 'return', 'not', 'pass', 'tk_par_der', 'True', 'tk_corch_izq', 'for', 'and', 'target_aux'}
+Siguientes de regla cexpr_p6_aux
+{'DEDENT', '$', 'tk_mayor', 'else', 'while', 'tk_diferente', 'tk_menor', 'tk_dos_puntos', 'elif', 'is', 'tk_menos', 'False', 'tk_cadena', 'not', 'pass', 'tk_par_der', 'tk_mayor_igual', 'and', 'target_aux', 'id', 'or', 'if', 'tk_numero', 'tk_coma', 'tk_corch_der', 'tk_menor_igual', 'tk_par_izq', 'None', 'return', 'True', 'tk_corch_izq', 'tk_igual', 'for'}
+Siguientes de regla cexpr_p7_aux
+{'DEDENT', '$', 'tk_mayor', 'else', 'while', 'tk_diferente', 'tk_suma', 'tk_menor', 'tk_dos_puntos', 'elif', 'is', 'tk_menos', 'False', 'tk_cadena', 'not', 'pass', 'tk_par_der', 'tk_mayor_igual', 'and', 'target_aux', 'id', 'or', 'if', 'tk_numero', 'tk_coma', 'tk_corch_der', 'tk_menor_igual', 'tk_par_izq', 'None', 'return', 'True', 'tk_corch_izq', 'tk_igual', 'for'}
+Siguientes de regla cexpr_p9_aux
+{'tk_division', 'tk_multiplicacion', 'DEDENT', '$', 'tk_mayor', 'else', 'while', 'tk_diferente', 'tk_suma', 'tk_menor', 'tk_dos_puntos', 'elif', 'is', 'tk_menos', 'False', 'tk_cadena', 'not', 'pass', 'tk_par_der', 'tk_mayor_igual', 'and', 'target_aux', 'id', 'or', 'if', 'tk_numero', 'tk_coma', 'tk_corch_der', 'tk_menor_igual', 'tk_par_izq', 'None', 'return', 'tk_modulo', 'True', 'tk_corch_izq', 'tk_igual', 'for'}
+Siguientes de regla cexpr_p10_aux
+{'tk_division', 'tk_multiplicacion', 'DEDENT', '$', 'tk_mayor', 'else', 'while', 'tk_diferente', 'tk_suma', 'tk_menor', 'tk_dos_puntos', 'elif', 'is', 'tk_menos', 'False', 'tk_cadena', 'not', 'pass', 'tk_par_der', 'tk_mayor_igual', 'and', 'target_aux', 'id', 'tk_punto', 'or', 'if', 'tk_numero', 'tk_coma', 'tk_corch_der', 'tk_menor_igual', 'tk_par_izq', 'None', 'return', 'tk_modulo', 'True', 'tk_corch_izq', 'tk_igual', 'for'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla stmt_0_more
+{'DEDENT'}
+Siguientes de regla elif_0_more
+{'pass', 'return', 'False', 'id', 'True', 'tk_par_izq', 'elif', 'target', 'None', 'tk_corch_izq', 'not', 'tk_cadena', 'else', 'while', 'tk_numero', 'DEDENT', 'tk_menos', 'for', 'if', '$'}
+Siguientes de regla else_no_req
+{'pass', 'return', 'False', 'id', 'True', 'tk_par_izq', 'elif', 'target', 'None', 'tk_corch_izq', 'not', 'tk_cadena', 'while', 'tk_numero', 'DEDENT', 'else', 'tk_menos', 'for', 'if', '$'}
+Siguientes de regla expr_no_req
+{'pass', 'return', 'False', 'id', 'True', 'tk_par_izq', 'elif', 'target', 'None', 'tk_corch_izq', 'not', 'tk_cadena', 'while', 'tk_numero', 'DEDENT', 'else', 'tk_menos', 'for', 'if', '$'}
+Siguientes de regla target_0_more
+{'tk_cadena', 'False', 'id', 'tk_numero', 'True', 'tk_menos', 'tk_par_izq', 'None', 'tk_corch_izq', 'not'}
+Siguientes de regla expr_aux
+{'pass', 'return', 'False', 'id', 'True', 'tk_par_izq', 'elif', 'target', 'None', 'tk_corch_izq', 'tk_coma', 'not', 'tk_corch_der', 'tk_cadena', 'tk_dos_puntos', 'while', 'tk_numero', 'DEDENT', 'else', 'tk_menos', 'tk_par_der', 'for', 'if', '$'}
+Siguientes de regla expr_p2_aux
+{'pass', 'return', 'False', 'id', 'True', 'tk_par_izq', 'elif', 'target', 'None', 'tk_corch_izq', 'tk_coma', 'not', 'tk_corch_der', 'tk_cadena', 'tk_dos_puntos', 'while', 'tk_numero', 'DEDENT', 'else', 'tk_menos', 'tk_par_der', 'for', 'if', '$'}
+Siguientes de regla expr_p3_aux
+{'pass', 'return', 'False', 'id', 'True', 'tk_par_izq', 'elif', 'target', 'None', 'tk_corch_izq', 'tk_coma', 'not', 'or', 'tk_corch_der', 'tk_cadena', 'tk_dos_puntos', 'while', 'tk_numero', 'DEDENT', 'else', 'tk_menos', 'tk_par_der', 'for', 'if', '$'}
+Siguientes de regla cexpr_aux
+{'pass', 'return', 'False', 'id', 'True', 'tk_par_izq', 'elif', 'target', 'None', 'tk_corch_izq', 'tk_coma', 'not', 'and', 'or', 'tk_corch_der', 'tk_cadena', 'tk_dos_puntos', 'while', 'tk_numero', 'DEDENT', 'else', 'tk_menos', 'tk_par_der', 'for', 'if', '$'}
+Siguientes de regla cexpr_p6_aux
+{'return', 'tk_diferente', 'tk_par_izq', 'target', 'None', 'tk_mayor', 'tk_cadena', 'tk_numero', 'tk_mayor_igual', 'for', '$', 'pass', 'False', 'id', 'True', 'elif', 'is', 'tk_corch_izq', 'tk_coma', 'not', 'and', 'or', 'tk_corch_der', 'tk_dos_puntos', 'while', 'DEDENT', 'else', 'tk_par_der', 'tk_menos', 'if', 'tk_igual', 'tk_menor', 'tk_menor_igual'}
+Siguientes de regla cexpr_p7_aux
+{'return', 'tk_diferente', 'tk_par_izq', 'target', 'None', 'tk_mayor', 'tk_cadena', 'tk_numero', 'tk_mayor_igual', 'for', '$', 'pass', 'False', 'id', 'True', 'elif', 'is', 'tk_corch_izq', 'tk_coma', 'not', 'and', 'or', 'tk_corch_der', 'tk_dos_puntos', 'while', 'DEDENT', 'else', 'tk_par_der', 'tk_menos', 'if', 'tk_igual', 'tk_menor', 'tk_suma', 'tk_menor_igual'}
+Siguientes de regla cexpr_p9_aux
+{'return', 'tk_diferente', 'tk_par_izq', 'target', 'None', 'tk_mayor', 'tk_cadena', 'tk_numero', 'tk_mayor_igual', 'for', 'tk_division', '$', 'pass', 'False', 'id', 'True', 'elif', 'is', 'tk_multiplicacion', 'tk_corch_izq', 'tk_coma', 'not', 'and', 'tk_modulo', 'or', 'tk_corch_der', 'tk_dos_puntos', 'while', 'DEDENT', 'else', 'tk_par_der', 'tk_menos', 'if', 'tk_igual', 'tk_menor', 'tk_suma', 'tk_menor_igual'}
+Siguientes de regla cexpr_p10_aux
+{'return', 'tk_diferente', 'tk_par_izq', 'target', 'None', 'tk_mayor', 'tk_cadena', 'tk_numero', 'tk_mayor_igual', 'for', 'tk_punto', 'tk_division', '$', 'pass', 'False', 'id', 'True', 'elif', 'is', 'tk_multiplicacion', 'tk_corch_izq', 'tk_coma', 'not', 'and', 'tk_modulo', 'or', 'tk_corch_der', 'tk_dos_puntos', 'while', 'DEDENT', 'else', 'tk_par_der', 'tk_menos', 'if', 'tk_igual', 'tk_menor', 'tk_suma', 'tk_menor_igual'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla elif_0_more
+{'else', 'stmt_0_more', '$'}
+Siguientes de regla else_no_req
+{'stmt_0_more', '$'}
+Siguientes de regla expr_no_req
+{'stmt_0_more', '$'}
+Siguientes de regla target_0_more
+{'False', 'id', 'True', 'tk_par_izq', 'tk_menos', 'not', 'tk_corch_izq', 'tk_cadena', 'tk_numero', 'None'}
+Siguientes de regla expr_aux
+{'stmt_0_more', 'tk_coma', '$', 'tk_dos_puntos', 'else', 'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_p2_aux
+{'stmt_0_more', '$', 'tk_dos_puntos', 'else', 'tk_corch_der', 'tk_par_der', 'tk_coma', 'if'}
+Siguientes de regla expr_p3_aux
+{'stmt_0_more', '$', 'tk_dos_puntos', 'else', 'tk_corch_der', 'tk_par_der', 'tk_coma', 'if', 'or'}
+Siguientes de regla cexpr_aux
+{'stmt_0_more', '$', 'and', 'tk_dos_puntos', 'else', 'tk_corch_der', 'tk_par_der', 'tk_coma', 'if', 'or'}
+Siguientes de regla cexpr_p6_aux
+{'stmt_0_more', 'tk_menor', 'and', 'is', 'tk_corch_der', 'tk_igual', 'tk_menor_igual', 'if', '$', 'tk_diferente', 'tk_dos_puntos', 'else', 'tk_par_der', 'tk_coma', 'tk_mayor_igual', 'tk_mayor', 'or'}
+Siguientes de regla cexpr_p7_aux
+{'stmt_0_more', 'tk_menor', 'and', 'is', 'tk_corch_der', 'tk_menos', 'tk_suma', 'tk_igual', 'tk_menor_igual', 'if', '$', 'tk_diferente', 'tk_dos_puntos', 'else', 'tk_par_der', 'tk_coma', 'tk_mayor_igual', 'tk_mayor', 'or'}
+Siguientes de regla cexpr_p9_aux
+{'tk_division', 'stmt_0_more', 'tk_menor', 'and', 'is', 'tk_corch_der', 'tk_menos', 'tk_suma', 'tk_igual', 'tk_modulo', 'tk_menor_igual', 'if', '$', 'tk_multiplicacion', 'tk_diferente', 'tk_dos_puntos', 'else', 'tk_par_der', 'tk_coma', 'tk_mayor_igual', 'tk_mayor', 'or'}
+Siguientes de regla cexpr_p10_aux
+{'tk_division', 'stmt_0_more', 'tk_menor', 'and', 'is', 'tk_corch_der', 'tk_menos', 'tk_suma', 'tk_igual', 'tk_modulo', 'tk_menor_igual', 'if', '$', 'tk_multiplicacion', 'tk_diferente', 'tk_dos_puntos', 'else', 'tk_par_der', 'tk_corch_izq', 'tk_coma', 'tk_mayor_igual', 'tk_mayor', 'tk_punto', 'or'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla elif_0_more
+{'stmt_0_more', '$', 'else'}
+Siguientes de regla else_no_req
+{'stmt_0_more', '$'}
+Siguientes de regla expr_no_req
+{'stmt_0_more', '$'}
+Siguientes de regla target_0_more
+{'id', 'None', 'False', 'tk_corch_izq', 'tk_cadena', 'tk_par_izq', 'tk_menos', 'not', 'tk_numero', 'True'}
+Siguientes de regla expr_aux
+{'tk_par_der', 'tk_coma', '$', 'tk_dos_puntos', 'tk_corch_der', 'stmt_0_more', 'else'}
+Siguientes de regla expr_p2_aux
+{'tk_coma', 'tk_dos_puntos', 'stmt_0_more', 'else', 'tk_par_der', '$', 'if', 'tk_corch_der'}
+Siguientes de regla expr_p3_aux
+{'tk_coma', 'or', 'tk_dos_puntos', 'stmt_0_more', 'else', 'tk_par_der', '$', 'if', 'tk_corch_der'}
+Siguientes de regla cexpr_aux
+{'tk_coma', 'or', 'tk_dos_puntos', 'stmt_0_more', 'else', 'tk_par_der', '$', 'and', 'target_aux', 'if', 'tk_corch_der'}
+Siguientes de regla cexpr_p6_aux
+{'tk_coma', 'or', 'stmt_0_more', 'tk_mayor_igual', 'else', 'and', 'if', 'target_aux', 'tk_mayor', 'tk_dos_puntos', 'tk_igual', 'is', 'tk_menor_igual', 'tk_par_der', '$', 'tk_diferente', 'tk_menor', 'tk_corch_der'}
+Siguientes de regla cexpr_p7_aux
+{'tk_coma', 'or', 'stmt_0_more', 'tk_mayor_igual', 'else', 'and', 'tk_suma', 'if', 'target_aux', 'tk_mayor', 'tk_dos_puntos', 'tk_igual', 'is', 'tk_menor_igual', 'tk_par_der', '$', 'tk_menos', 'tk_diferente', 'tk_menor', 'tk_corch_der'}
+Siguientes de regla cexpr_p9_aux
+{'tk_coma', 'or', 'stmt_0_more', 'tk_multiplicacion', 'tk_mayor_igual', 'else', 'and', 'tk_suma', 'tk_modulo', 'if', 'target_aux', 'tk_mayor', 'tk_dos_puntos', 'tk_igual', 'tk_division', 'is', 'tk_menor_igual', 'tk_par_der', '$', 'tk_menos', 'tk_diferente', 'tk_menor', 'tk_corch_der'}
+Siguientes de regla cexpr_p10_aux
+{'tk_coma', 'or', 'stmt_0_more', 'tk_corch_izq', 'tk_multiplicacion', 'tk_mayor_igual', 'else', 'and', 'tk_suma', 'tk_modulo', 'if', 'target_aux', 'tk_mayor', 'tk_dos_puntos', 'tk_igual', 'tk_division', 'is', 'tk_menor_igual', 'tk_par_der', '$', 'tk_menos', 'tk_diferente', 'tk_punto', 'tk_menor', 'tk_corch_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla elif_0_more
+{'$', 'stmt_0_more', 'else'}
+Siguientes de regla else_no_req
+{'$', 'stmt_0_more'}
+Siguientes de regla expr_no_req
+{'$', 'stmt_0_more'}
+Siguientes de regla target_0_more
+{'False', 'True', 'tk_par_izq', 'tk_numero', 'None', 'not', 'tk_cadena', 'tk_corch_izq', 'id', 'tk_menos'}
+Siguientes de regla expr_aux
+{'$', 'tk_coma', 'tk_corch_der', 'stmt_0_more', 'else', 'tk_par_der', 'tk_dos_puntos'}
+Siguientes de regla expr_p2_aux
+{'tk_coma', 'tk_corch_der', '$', 'if', 'stmt_0_more', 'else', 'tk_par_der', 'tk_dos_puntos'}
+Siguientes de regla expr_p3_aux
+{'tk_coma', 'tk_corch_der', 'or', '$', 'if', 'stmt_0_more', 'else', 'tk_par_der', 'tk_dos_puntos'}
+Siguientes de regla cexpr_aux
+{'tk_coma', 'tk_corch_der', 'or', '$', 'if', 'stmt_0_more', 'else', 'tk_dos_puntos', 'tk_par_der', 'and'}
+Siguientes de regla cexpr_p6_aux
+{'tk_coma', 'tk_corch_der', 'tk_menor_igual', 'is', 'tk_mayor', 'tk_igual', 'tk_menor', '$', 'if', 'else', 'tk_diferente', 'tk_par_der', 'tk_mayor_igual', 'or', 'stmt_0_more', 'tk_dos_puntos', 'and'}
+Siguientes de regla cexpr_p7_aux
+{'tk_coma', 'tk_corch_der', 'tk_menor_igual', 'tk_suma', 'is', 'tk_mayor', 'tk_igual', 'tk_menor', '$', 'if', 'else', 'tk_diferente', 'tk_par_der', 'tk_mayor_igual', 'or', 'stmt_0_more', 'tk_dos_puntos', 'tk_menos', 'and'}
+Siguientes de regla cexpr_p9_aux
+{'tk_coma', 'tk_corch_der', 'tk_modulo', 'tk_menor_igual', 'tk_suma', 'is', 'tk_mayor', 'tk_igual', 'tk_multiplicacion', 'tk_menor', '$', 'if', 'else', 'tk_diferente', 'tk_par_der', 'tk_mayor_igual', 'or', 'stmt_0_more', 'tk_dos_puntos', 'tk_division', 'tk_menos', 'and'}
+Siguientes de regla cexpr_p10_aux
+{'tk_coma', 'tk_corch_der', 'tk_modulo', 'tk_menor_igual', 'tk_suma', 'is', 'tk_mayor', 'tk_igual', 'tk_multiplicacion', 'tk_menor', '$', 'tk_corch_izq', 'if', 'else', 'tk_diferente', 'tk_par_der', 'tk_punto', 'tk_mayor_igual', 'or', 'stmt_0_more', 'tk_dos_puntos', 'tk_division', 'tk_menos', 'and'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla elif_0_more
+{'stmt_0_more', '$', 'else'}
+Siguientes de regla else_no_req
+{'stmt_0_more', '$'}
+Siguientes de regla expr_no_req
+{'stmt_0_more', '$'}
+Siguientes de regla target_0_more
+{'None', 'tk_menos', 'id', 'tk_corch_izq', 'tk_par_izq', 'True', 'tk_numero', 'False', 'not', 'tk_cadena'}
+Siguientes de regla expr_aux
+{'tk_corch_der', 'tk_dos_puntos', 'else', 'stmt_0_more', '$', 'tk_coma', 'tk_par_der'}
+Siguientes de regla expr_p2_aux
+{'tk_corch_der', 'tk_dos_puntos', 'else', 'stmt_0_more', 'if', '$', 'tk_coma', 'tk_par_der'}
+Siguientes de regla expr_p3_aux
+{'tk_corch_der', 'or', 'tk_dos_puntos', 'else', 'stmt_0_more', 'if', '$', 'tk_coma', 'tk_par_der'}
+Siguientes de regla cexpr_aux
+{'tk_corch_der', 'or', 'tk_dos_puntos', 'and', 'else', 'stmt_0_more', 'if', '$', 'tk_coma', 'tk_par_der'}
+Siguientes de regla cexpr_p6_aux
+{'tk_corch_der', 'or', 'tk_igual', 'tk_mayor', 'tk_menor_igual', 'stmt_0_more', 'if', 'tk_menor', 'is', 'tk_coma', 'tk_par_der', 'tk_diferente', 'tk_mayor_igual', 'tk_dos_puntos', 'and', 'else', '$'}
+Siguientes de regla cexpr_p7_aux
+{'tk_corch_der', 'or', 'tk_igual', 'tk_mayor', 'tk_suma', 'tk_menor_igual', 'stmt_0_more', 'if', 'tk_menor', 'is', 'tk_coma', 'tk_par_der', 'tk_diferente', 'tk_menos', 'tk_mayor_igual', 'tk_dos_puntos', 'and', 'else', '$'}
+Siguientes de regla cexpr_p9_aux
+{'tk_corch_der', 'tk_division', 'or', 'tk_igual', 'tk_mayor', 'tk_suma', 'tk_menor_igual', 'stmt_0_more', 'if', 'tk_menor', 'is', 'tk_coma', 'tk_par_der', 'tk_diferente', 'tk_menos', 'tk_mayor_igual', 'tk_dos_puntos', 'and', 'else', 'tk_multiplicacion', '$', 'tk_modulo'}
+Siguientes de regla cexpr_p10_aux
+{'tk_corch_der', 'tk_division', 'or', 'tk_igual', 'tk_punto', 'tk_mayor', 'tk_suma', 'tk_menor_igual', 'stmt_0_more', 'if', 'tk_menor', 'is', 'tk_coma', 'tk_par_der', 'tk_diferente', 'tk_menos', 'tk_corch_izq', 'tk_mayor_igual', 'tk_dos_puntos', 'and', 'else', 'tk_multiplicacion', '$', 'tk_modulo'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla elif_0_more
+{'stmt_0_more', '$', 'else'}
+Siguientes de regla else_no_req
+{'stmt_0_more', '$'}
+Siguientes de regla expr_no_req
+{'stmt_0_more', '$'}
+Siguientes de regla target_0_more
+{'False', 'not', 'None', 'tk_menos', 'tk_cadena', 'tk_par_izq', 'id', 'True', 'tk_corch_izq', 'tk_numero'}
+Siguientes de regla expr_aux
+{'tk_corch_der', 'else', 'tk_dos_puntos', 'stmt_0_more', 'tk_coma', '$', 'tk_par_der'}
+Siguientes de regla expr_p2_aux
+{'tk_corch_der', 'else', 'tk_dos_puntos', 'stmt_0_more', 'tk_coma', '$', 'if', 'tk_par_der'}
+Siguientes de regla expr_p3_aux
+{'tk_corch_der', 'else', 'tk_dos_puntos', 'stmt_0_more', 'tk_coma', '$', 'if', 'or', 'tk_par_der'}
+Siguientes de regla cexpr_aux
+{'tk_corch_der', 'else', 'tk_dos_puntos', 'stmt_0_more', 'tk_coma', '$', 'if', 'or', 'target_aux', 'tk_par_der', 'and'}
+Siguientes de regla cexpr_p6_aux
+{'tk_corch_der', 'tk_menor', 'tk_menor_igual', 'tk_mayor', 'stmt_0_more', '$', 'and', 'is', 'else', 'tk_dos_puntos', 'tk_mayor_igual', 'tk_coma', 'tk_igual', 'tk_diferente', 'if', 'or', 'target_aux', 'tk_par_der'}
+Siguientes de regla cexpr_p7_aux
+{'tk_corch_der', 'tk_menor', 'tk_menor_igual', 'tk_menos', 'tk_mayor', 'stmt_0_more', '$', 'and', 'is', 'else', 'tk_dos_puntos', 'tk_mayor_igual', 'tk_coma', 'tk_igual', 'tk_diferente', 'if', 'tk_suma', 'or', 'target_aux', 'tk_par_der'}
+Siguientes de regla cexpr_p9_aux
+{'tk_corch_der', 'tk_menor', 'tk_menor_igual', 'tk_menos', 'tk_mayor', 'stmt_0_more', '$', 'tk_multiplicacion', 'tk_modulo', 'and', 'is', 'else', 'tk_dos_puntos', 'tk_mayor_igual', 'tk_coma', 'tk_igual', 'tk_diferente', 'tk_division', 'if', 'tk_suma', 'or', 'target_aux', 'tk_par_der'}
+Siguientes de regla cexpr_p10_aux
+{'tk_corch_der', 'tk_menor', 'tk_menor_igual', 'tk_menos', 'tk_mayor', 'stmt_0_more', '$', 'tk_multiplicacion', 'tk_modulo', 'and', 'tk_punto', 'is', 'else', 'tk_dos_puntos', 'tk_mayor_igual', 'tk_coma', 'tk_igual', 'tk_diferente', 'tk_division', 'if', 'tk_suma', 'or', 'tk_corch_izq', 'target_aux', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla stmt_0_more
+{'DEDENT'}
+Siguientes de regla elif_0_more
+{'tk_numero', 'else', 'tk_menos', 'tk_cadena', 'if', 'while', 'tk_par_izq', '$', 'id', 'DEDENT', 'for', 'tk_corch_izq', 'pass', 'None', 'True', 'return', 'elif', 'not', 'False'}
+Siguientes de regla else_no_req
+{'tk_numero', 'else', 'tk_menos', 'tk_cadena', 'if', 'while', 'tk_par_izq', '$', 'id', 'DEDENT', 'for', 'tk_corch_izq', 'pass', 'None', 'True', 'return', 'elif', 'not', 'False'}
+Siguientes de regla expr_no_req
+{'tk_numero', 'else', 'tk_menos', 'tk_cadena', 'if', 'while', 'tk_par_izq', '$', 'id', 'DEDENT', 'for', 'tk_corch_izq', 'pass', 'None', 'True', 'return', 'elif', 'not', 'False'}
+Siguientes de regla target_0_more
+{'tk_numero', 'tk_corch_izq', 'tk_menos', 'tk_cadena', 'None', 'True', 'tk_par_izq', 'not', 'id', 'False'}
+Siguientes de regla expr_aux
+{'tk_numero', 'else', 'tk_menos', 'tk_cadena', 'if', 'while', 'tk_par_izq', '$', 'id', 'DEDENT', 'for', 'tk_coma', 'tk_corch_izq', 'pass', 'None', 'True', 'return', 'elif', 'tk_par_der', 'tk_corch_der', 'not', 'False', 'tk_dos_puntos'}
+Siguientes de regla expr_p2_aux
+{'tk_numero', 'else', 'tk_menos', 'tk_cadena', 'if', 'while', 'tk_par_izq', '$', 'id', 'DEDENT', 'for', 'tk_coma', 'tk_corch_izq', 'pass', 'None', 'True', 'return', 'elif', 'tk_par_der', 'tk_corch_der', 'not', 'False', 'tk_dos_puntos'}
+Siguientes de regla expr_p3_aux
+{'tk_numero', 'else', 'tk_menos', 'tk_cadena', 'if', 'while', 'tk_par_izq', '$', 'id', 'or', 'DEDENT', 'for', 'tk_coma', 'tk_corch_izq', 'pass', 'None', 'True', 'return', 'elif', 'tk_par_der', 'tk_corch_der', 'not', 'False', 'tk_dos_puntos'}
+Siguientes de regla cexpr_aux
+{'tk_numero', 'else', 'target_aux', 'tk_menos', 'tk_cadena', 'if', 'while', 'and', 'tk_par_izq', '$', 'id', 'or', 'DEDENT', 'for', 'tk_coma', 'tk_corch_izq', 'pass', 'None', 'True', 'return', 'elif', 'tk_par_der', 'tk_corch_der', 'not', 'False', 'tk_dos_puntos'}
+Siguientes de regla cexpr_p6_aux
+{'else', 'tk_cadena', 'tk_mayor_igual', 'or', 'DEDENT', 'for', 'tk_corch_izq', 'None', 'return', 'elif', 'tk_igual', 'not', 'False', 'tk_dos_puntos', 'tk_numero', 'target_aux', 'tk_menos', 'tk_mayor', 'if', 'while', 'tk_menor_igual', 'and', 'tk_par_izq', '$', 'id', 'is', 'tk_coma', 'pass', 'True', 'tk_diferente', 'tk_par_der', 'tk_corch_der', 'tk_menor'}
+Siguientes de regla cexpr_p7_aux
+{'else', 'tk_cadena', 'tk_mayor_igual', 'or', 'DEDENT', 'for', 'tk_corch_izq', 'None', 'return', 'elif', 'tk_igual', 'not', 'False', 'tk_suma', 'tk_dos_puntos', 'tk_numero', 'target_aux', 'tk_menos', 'tk_mayor', 'if', 'while', 'tk_menor_igual', 'and', 'tk_par_izq', '$', 'id', 'is', 'tk_coma', 'pass', 'True', 'tk_diferente', 'tk_par_der', 'tk_corch_der', 'tk_menor'}
+Siguientes de regla cexpr_p9_aux
+{'else', 'tk_multiplicacion', 'tk_cadena', 'tk_mayor_igual', 'or', 'DEDENT', 'for', 'tk_corch_izq', 'None', 'return', 'elif', 'tk_igual', 'not', 'False', 'tk_suma', 'tk_dos_puntos', 'tk_numero', 'target_aux', 'tk_menos', 'tk_mayor', 'if', 'while', 'tk_menor_igual', 'and', 'tk_division', 'tk_par_izq', '$', 'id', 'is', 'tk_coma', 'pass', 'True', 'tk_diferente', 'tk_par_der', 'tk_corch_der', 'tk_modulo', 'tk_menor'}
+Siguientes de regla cexpr_p10_aux
+{'else', 'tk_multiplicacion', 'tk_cadena', 'tk_mayor_igual', 'or', 'DEDENT', 'for', 'tk_corch_izq', 'None', 'return', 'elif', 'tk_igual', 'not', 'False', 'tk_suma', 'tk_dos_puntos', 'tk_numero', 'target_aux', 'tk_menos', 'tk_mayor', 'if', 'while', 'tk_menor_igual', 'and', 'tk_division', 'tk_par_izq', '$', 'id', 'is', 'tk_punto', 'tk_coma', 'pass', 'True', 'tk_diferente', 'tk_par_der', 'tk_corch_der', 'tk_modulo', 'tk_menor'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_rizq
+{'tk_par_der', 'and', 'tk_corch_der', 'else', 'or', 'if', 'tk_coma', '$'}
+Siguientes de regla cexpr_rizq
+{'bin_op', 'tk_par_der', 'tk_punto', 'and', 'tk_corch_izq', 'tk_corch_der', 'else', 'or', 'if', 'tk_coma', '$'}
+Siguientes de regla id_fc
+{'bin_op', 'tk_coma', 'tk_par_der', 'tk_punto', 'and', 'tk_corch_der', 'else', 'or', 'if', 'tk_corch_izq', '$'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla Ep
+{'$'}
+Siguientes de regla cexpr_rizq
+{'tk_coma', 'and', 'tk_corch_izq', 'tk_corch_der', '$', 'tk_par_der', 'bin_op', 'tk_punto', 'if', 'else', 'or'}
+Siguientes de regla expr_rizq
+{'if', 'or', 'tk_corch_der', 'else', '$', 'tk_coma', 'and', 'tk_par_der'}
+Siguientes de regla expr_rizq
+{'$', 'else', 'tk_corch_der', 'tk_par_der', 'or', 'and', 'if', 'tk_coma'}
+Siguientes de regla expr_rizq
+{'or', 'else', 'tk_par_der', 'tk_corch_der', 'and', 'if', 'tk_coma', '$'}
+Siguientes de regla cexpr_rizq
+{'or', 'tk_punto', 'else', 'tk_corch_izq', 'tk_par_der', 'tk_corch_der', 'and', 'if', 'tk_coma', 'bin_op', '$'}
+Siguientes de regla id_fc
+{'tk_punto', 'or', 'else', 'tk_corch_izq', 'tk_par_der', 'tk_corch_der', 'and', 'if', 'tk_coma', 'bin_op', '$'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_rizq
+{'tk_par_der', 'tk_corch_der', 'else', '$', 'tk_coma', 'if', 'and', 'or'}
+Siguientes de regla cexpr_rizq
+{'tk_par_der', 'tk_corch_der', 'tk_punto', 'else', '$', 'tk_coma', 'bin_op', 'if', 'and', 'tk_corch_izq', 'or'}
+Siguientes de regla id_fc
+{'tk_par_der', 'tk_corch_der', 'tk_punto', 'else', '$', 'tk_coma', 'bin_op', 'tk_corch_izq', 'if', 'and', 'or'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}

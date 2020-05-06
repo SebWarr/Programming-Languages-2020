@@ -8,12 +8,34 @@ j = 0
 
 recursive_calls = []
 
-initial_symbol_grammar = "stmt"
-not_terminals = ["stmt_0_more","stmt","elif_0_more","else_no_req", "simple_stmt","expr_no_req","target_0_more","block",
+""" initial_symbol_grammar = 'E'
+not_terminals = ['E','Ep']
+grammar = {
+    'Ep':[['tk_suma','tk_num','Ep'],['']],
+    'E':[['tk_num','Ep']]
+} """
+
+initial_symbol_grammar = 'expr'
+not_terminals = ['expr','expr_rizq','cexpr','cexpr_rizq',
+                'id_fc','literal','expr_list_0_more','expr_list_no_req']
+grammar = {
+            'expr':[['cexpr','expr_rizq'],['not','expr','expr_rizq']],
+            'expr_rizq':[['and','expr','expr_rizq'],['or','expr','expr_rizq'],['if','expr','else','expr_rizq'],['']],
+            #'expr_fc':[['and','expr'],['or','expr'],['if','expr','else','expr']],
+            'cexpr':[['id','id_fc','cexpr_rizq'],['literal','cexpr_rizq'],['tk_corch_izq','expr_list_no_req','tk_corch_der','cexpr_rizq'],['tk_par_iz','expr','tk_par_der','cexpr_rizq'],['tk_menos','cexpr','cexpr_rizq']],
+            'expr_list_0_more' :[['tk_coma', 'expr_list_0_more'], ['']],
+            'expr_list_no_req' :[['expr', 'expr_list_0_more'], ['']],
+            'cexpr_rizq': [['tk_punto','id','id_fc','cexpr_rizq'],['tk_corch_izq','expr','tk_corch_der','cexpr_rizq'],['bin_op','cexpr','cexpr_rizq'],['']],
+            #'cexpr_fc':[['tk_punto','id','id_fc'],['tk_corch_izq','expr','tk_corch_der'],['bin_op','cexpr']],
+            'id_fc':[['tk_par_izq','expr_list_no_req','tk_par_der'],['']],
+            "literal": [["None"], ["True"], ["False"], ["tk_numero"], ["tk_cadena"]]
+} 
+""" initial_symbol_grammar = "stmt"
+not_terminals = ["stmt","stmt_0_more","elif_0_more","else_no_req", "simple_stmt","expr_no_req","target_0_more","block",
                  "literal", "expr", "expr_aux", "expr_p2", "expr_p2_aux", "expr_p3", "expr_p3_aux", "expr_p4",
                  "cexpr", "cexpr_aux", "bin_op_log", "cexpr_p6", "cexpr_p6_aux", "bin_op_p6",
                  "cexpr_p7", "cexpr_p7_aux", "bin_op_p7", "cexpr_p8", "cexpr_p9", "cexpr_p9_aux","cexpr_p10", "cexpr_p10_aux",
-                 "expr_list_no_req", "expr_list_0_more", "target"]
+                 "expr_list_no_req", "expr_list_0_more","target" ]
 
 grammar = {
     "stmt_0_more":[["stmt","stmt_0_more"],[""]],
@@ -56,7 +78,7 @@ grammar = {
     "expr_list_0_more": [["tk_coma", "expr", "expr_list_0_more"], [""]],
     "target": [["id"], ["cexpr", "target_aux"]],
     "target_aux":[["tk_punto","id"],["tk_corch_izq","expr","tk_corch_der"]]
-}
+}  """
 
 pred_rules = {}
 
@@ -170,6 +192,8 @@ def PRED(no_terminal):
         set_prediccion = set()
         print("Se pide Primeros(" + str(rule) + ")")
         primeros_alpha = PRIMEROS(rule)
+        with open("firsts.txt", "a") as file:
+            file.write('Primeros de regla {}\n{}\n'.format(no_terminal,primeros_alpha))
         print("primeros alpha = ", str(primeros_alpha))
 
         if "" in primeros_alpha:
@@ -177,7 +201,10 @@ def PRED(no_terminal):
             set_prediccion.remove("")
             print("set Prediccion = ", str(set_prediccion))
             print("Se pide siguientes(" + str(no_terminal) + ")")
-            set_prediccion = set_prediccion.union(SIGUIENTES(no_terminal))
+            followings = SIGUIENTES(no_terminal)
+            with open("Followings.txt", "a") as file:
+                file.write('Siguientes de regla {}\n{}\n'.format(no_terminal,followings))
+            set_prediccion = set_prediccion.union(followings)
 
         else:
             set_prediccion = set_prediccion.union(primeros_alpha)
@@ -259,8 +286,19 @@ def main():
     for nt in not_terminals:
         recursive_calls = []
         PRED(nt)
-    print("Buenas Tardes")
-    lexer = Lexer("test.py")
+    ## Checking LL1 propiety of disjoints sets in PRED sets
+    ## predictions.txt helps visualize the interjection problems and PRED sets for each rule       
+
+    with open("predictions.txt", "w") as file:
+        for key,value in pred_rules.items():
+            file.write('Prediction set for {}\n\n{}\n\n'.format(key, value))     
+            for i in range(len(value)):
+                for j in range(i+1,len(value)):
+                    inter = set(value[i]).intersection(set(value[j]))
+                    if len(inter)!=0:
+                        file.write('\n\n\n######## NOT DISJOINT PREDICTION SETS OF RULE {} ###########\n\n SETS\n {}\n and\n {}\n WITH COMMON ELEMENT(S) {}'.format(key,value[i],value[j],inter))
+                        file.write('\n\n##################################################################\n\n ')
+    """ lexer = Lexer("test.py")
     with open("output.txt", "w") as file:
         #while i != -1 and j != -1:
         token, i, j = lexer.getNextToken(i, j)
@@ -272,7 +310,7 @@ def main():
                 print("FIN DE ARCHIVO")
             else:
                 errorSintaxis(["No se esperaba este token"])
-                print(token)
+                print(token) """
 
 if __name__ == '__main__':
     main()
