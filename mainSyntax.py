@@ -16,6 +16,40 @@ grammar = {
 } """
 
 initial_symbol_grammar = 'expr'
+not_terminals = ['expr','aux','aux2','expr_r', 'cexpr','cexpr_r',
+                'cexpr_idfc','literal','expr_list_0_more','expr_list_no_req',
+                'stmt','elif_0oM','else_0o1','simple_stmt','id_fc_simple','simple_stmt_fccexpr',
+                'target_1oM','target_cexpr_fc','expr_0o1','block','stmt_0_more','target_fc','target_id_fc'
+                ]
+grammar = {
+            'expr':[['cexpr','expr_r'],['not','aux']],
+            'aux':[['not','aux'],['cexpr','expr_r']],
+            'aux2':[['tk_menos','aux2'],['id','cexpr_idfc'],['literal','cexpr_r'],['tk_corch_iz','expr_list_no_req','tk_corch_der','cexpr_r'],['tk_par_izq','expr','tk_par_der','cexpr_r']],
+            'expr_r':[['and','aux'],['or','aux'],['if','expr','else','aux'],['']], 
+            'cexpr':[['id','cexpr_idfc'],['literal','cexpr_r'],['tk_corch_iz','expr_list_no_req','tk_corch_der','cexpr_r'],['tk_par_izq','expr','tk_par_der','cexpr_r'],['tk_menos','aux2']],
+            'cexpr_r':[['bin_op','aux2'],['tk_punto','id','cexpr_idfc'],['tk_corch_izq','expr','tk_corch_der','cexpr_r'],['']],
+            'cexpr_idfc':[['cexpr_r'],['tk_par_izq','expr_list_no_req','tk_par_der','cexpr_r']],
+            'expr_list_0_more' :[['tk_coma', 'expr_list_0_more'], ['']],
+            'expr_list_no_req' :[['expr', 'expr_list_0_more'], ['']],
+            "literal": [["None"], ["True"], ["False"], ["tk_numero"], ["tk_cadena"]],
+            #'target': [['id','target_id_fc'], ['literal','cexpr_r','target_fc'],['tk_corch_izq','expr_list_no_req','tk_corch_der','cexpr_r','target_fc'],['tk_par_izq','expr','tk_par_der','cexpr_r','target_fc'],['tk_menos','aux2','target_fc']],
+            'target_fc':[['tk_punto','id'],['tk_corch_izq','expr','tk_corch_der']],
+            'target_id_fc':[['cexpr_idfc','target_fc'],['']],
+            'stmt': [['simple_stmt', 'NEWLINE'],['if','expr','tk_dos_puntos','block','elif_0oM','else_0o1'],['while','expr','tk_dos_puntos','block'],['for','id','in','expr','tk_dos_puntos','block']],
+            'elif_0oM':[['elif','expr','tk_puntos','block','elif_0oM'],['']],
+            'else_0o1':[['else','tk_dos_puntos','block'],['']],
+            'simple_stmt':[['pass'],['id','id_fc_simple'],['literal','cexpr_r','simple_stmt_fccexpr'],['tk_corch_izq','expr_list_no_req','tk_corch_der','cexpr_r','simple_stmt_fccexpr'],['tk_par_izq','expr','tk_par_der','cexpr_r','simple_stmt_fccexpr'],['tk_menos','aux2','simple_stmt_fccexpr'],['not','aux'],['return','expr_0o1']],
+            'id_fc_simple':[['cexpr_idfc','simple_stmt_fccexpr'],['tk_asignacion','target_1oM','expr']],
+            'simple_stmt_fccexpr':[['expr_r'],['tk_punto','id','tk_asignacion','target_1oM','expr'],['tk_corch_izq','expr','tk_corch_der','tk_asignacion','target_1oM','expr']],
+            'target_1oM':[['id','tk_asignacion','target_1oM'],['cexpr','target_cexpr_fc'],['']],
+            'target_cexpr_fc':[['tk_punto','id','target_1oM'],['tk_corch_izq','expr','tk_corch_der','tk_asignacion','target_1oM']],
+            'expr_0o1':[['expr'],['']],
+            'block':[['NEWLINE','INDENT','stmt','stmt_0_more','DEDENT']],
+            'stmt_0_more':[['stmt','stmt_0_more'],['']]
+
+} 
+
+""" initial_symbol_grammar = 'expr'
 not_terminals = ['expr','expr_rizq','cexpr','cexpr_rizq',
                 'id_fc','literal','expr_list_0_more','expr_list_no_req']
 grammar = {
@@ -29,7 +63,7 @@ grammar = {
             #'cexpr_fc':[['tk_punto','id','id_fc'],['tk_corch_izq','expr','tk_corch_der'],['bin_op','cexpr']],
             'id_fc':[['tk_par_izq','expr_list_no_req','tk_par_der'],['']],
             "literal": [["None"], ["True"], ["False"], ["tk_numero"], ["tk_cadena"]]
-} 
+}  """
 """ initial_symbol_grammar = "stmt"
 not_terminals = ["stmt","stmt_0_more","elif_0_more","else_no_req", "simple_stmt","expr_no_req","target_0_more","block",
                  "literal", "expr", "expr_aux", "expr_p2", "expr_p2_aux", "expr_p3", "expr_p3_aux", "expr_p4",
@@ -76,8 +110,8 @@ grammar = {
     "cexpr_p10_aux": [["tk_par_izq", "expr_list_no_req", "tk_par_der"], [""]],
     "expr_list_no_req": [["expr", "expr_list_0_more"], [""]],
     "expr_list_0_more": [["tk_coma", "expr", "expr_list_0_more"], [""]],
-    "target": [["id"], ["cexpr", "target_aux"]],
-    "target_aux":[["tk_punto","id"],["tk_corch_izq","expr","tk_corch_der"]]
+    #"target": [["id"], ["cexpr", "target_aux"]],
+    #"target_aux":[["tk_punto","id"],["tk_corch_izq","expr","tk_corch_der"]]
 }  """
 
 pred_rules = {}
@@ -297,7 +331,7 @@ def main():
                     inter = set(value[i]).intersection(set(value[j]))
                     if len(inter)!=0:
                         file.write('\n\n\n######## NOT DISJOINT PREDICTION SETS OF RULE {} ###########\n\n SETS\n {}\n and\n {}\n WITH COMMON ELEMENT(S) {}'.format(key,value[i],value[j],inter))
-                        file.write('\n\n##################################################################\n\n ')
+                        file.write('\n\n##################################################################\n\n ') 
     """ lexer = Lexer("test.py")
     with open("output.txt", "w") as file:
         #while i != -1 and j != -1:
@@ -310,7 +344,7 @@ def main():
                 print("FIN DE ARCHIVO")
             else:
                 errorSintaxis(["No se esperaba este token"])
-                print(token) """
+                print(token)  """
 
 if __name__ == '__main__':
     main()

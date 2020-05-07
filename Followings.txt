@@ -488,3 +488,289 @@ Siguientes de regla expr_list_0_more
 {'tk_par_der', 'tk_corch_der'}
 Siguientes de regla expr_list_no_req
 {'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_r
+{'tk_corch_der', 'tk_coma', 'else', '$', 'tk_par_der'}
+Siguientes de regla cexpr_r
+{'tk_corch_der', 'if', 'tk_punto', 'else', 'and', 'tk_corch_izq', 'or', 'tk_coma', '$', 'bin_op', 'tk_par_der'}
+Siguientes de regla cexpr_idfc
+{'tk_corch_der', 'if', 'tk_punto', 'else', 'and', 'tk_corch_izq', 'or', 'tk_coma', '$', 'bin_op', 'tk_par_der'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_r
+{'else', 'tk_coma', '$', 'tk_par_der', 'tk_corch_der'}
+Siguientes de regla cexpr_r
+{'bin_op', '$', 'tk_par_der', 'or', 'and', 'else', 'tk_corch_izq', 'tk_coma', 'if', 'tk_punto', 'tk_corch_der'}
+Siguientes de regla cexpr_idfc
+{'bin_op', '$', 'tk_par_der', 'or', 'and', 'else', 'tk_corch_izq', 'tk_coma', 'if', 'tk_punto', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_r
+{'tk_coma', 'tk_corch_der', 'tk_par_der', '$', 'else'}
+Siguientes de regla cexpr_r
+{'bin_op', 'tk_corch_der', 'tk_par_der', 'tk_corch_izq', 'tk_punto', 'and', 'tk_coma', 'or', '$', 'if', 'else'}
+Siguientes de regla cexpr_idfc
+{'bin_op', 'tk_corch_der', 'tk_par_der', 'tk_corch_izq', 'tk_punto', 'and', 'tk_coma', 'or', '$', 'if', 'else'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_r
+{'$', 'tk_coma', 'tk_par_der', 'tk_corch_der', 'else'}
+Siguientes de regla cexpr_r
+{'tk_coma', 'else', 'tk_punto', 'tk_corch_izq', 'and', 'bin_op', '$', 'or', 'tk_par_der', 'if', 'tk_corch_der'}
+Siguientes de regla cexpr_idfc
+{'tk_corch_der', 'tk_coma', 'tk_punto', 'tk_corch_izq', 'and', 'bin_op', '$', 'or', 'tk_par_der', 'if', 'else'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_r
+{'tk_coma', 'else', 'tk_par_der', 'tk_corch_der', '$'}
+Siguientes de regla cexpr_r
+{'if', 'tk_coma', 'and', 'tk_par_der', 'bin_op', '$', 'tk_corch_izq', 'tk_punto', 'else', 'or', 'tk_corch_der'}
+Siguientes de regla cexpr_idfc
+{'if', 'tk_coma', 'and', 'tk_par_der', 'bin_op', '$', 'tk_corch_izq', 'tk_punto', 'else', 'or', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_r
+{'else', 'tk_par_der', 'tk_coma', 'tk_corch_der', '$'}
+Siguientes de regla cexpr_r
+{'and', 'tk_par_der', 'tk_coma', 'or', 'tk_corch_der', '$', 'else', 'if'}
+Siguientes de regla cexpr_idfc
+{'and', 'tk_par_der', 'tk_coma', 'or', 'tk_corch_der', '$', 'else', 'if'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_r
+{'tk_coma', '$', 'else', 'tk_par_der', 'tk_corch_der'}
+Siguientes de regla cexpr_r
+{'else', 'tk_corch_der', 'or', 'tk_coma', 'and', 'if', '$', 'tk_par_der'}
+Siguientes de regla cexpr_idfc
+{'else', 'tk_corch_der', 'or', 'tk_coma', 'and', 'if', '$', 'tk_par_der'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_r
+{'tk_coma', '$', 'else', 'tk_corch_der', 'tk_par_der'}
+Siguientes de regla cexpr_r
+{'tk_corch_der', 'and', 'else', 'tk_coma', '$', 'if', 'or', 'tk_par_der'}
+Siguientes de regla cexpr_idfc
+{'and', 'if', 'else', 'tk_coma', '$', 'tk_corch_der', 'or', 'tk_par_der'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_r
+{'tk_corch_der', '$', 'else', 'tk_coma', 'tk_par_der'}
+Siguientes de regla cexpr_r
+{'tk_corch_der', '$', 'if', 'and', 'or', 'else', 'tk_coma', 'tk_par_der'}
+Siguientes de regla cexpr_idfc
+{'tk_corch_der', '$', 'if', 'and', 'or', 'else', 'tk_coma', 'tk_par_der'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_r
+{'tk_par_der', '$', 'tk_corch_der', 'else', 'tk_coma'}
+Siguientes de regla cexpr_r
+{'tk_par_der', 'and', '$', 'tk_corch_der', 'else', 'or', 'tk_coma', 'if'}
+Siguientes de regla cexpr_idfc
+{'tk_par_der', 'and', '$', 'tk_corch_der', 'else', 'or', 'tk_coma', 'if'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_r
+{'tk_coma', 'tk_par_der', 'else', 'tk_corch_der', '$'}
+Siguientes de regla cexpr_r
+{'if', 'or', 'tk_corch_der', 'tk_coma', '$', 'else', 'tk_par_der', 'and'}
+Siguientes de regla cexpr_idfc
+{'if', 'or', 'tk_corch_der', 'tk_coma', '$', 'else', 'tk_par_der', 'and'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_r
+{'$', 'else', 'tk_coma', 'tk_corch_der', 'tk_par_der'}
+Siguientes de regla cexpr_r
+{'or', '$', 'if', 'tk_coma', 'else', 'and', 'tk_corch_der', 'tk_par_der'}
+Siguientes de regla cexpr_idfc
+{'or', '$', 'if', 'tk_coma', 'else', 'and', 'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_r
+{'tk_par_der', 'tk_coma', 'tk_corch_der', '$', 'else'}
+Siguientes de regla cexpr_r
+{'if', 'tk_corch_der', 'else', 'tk_par_der', 'tk_coma', 'or', '$', 'and'}
+Siguientes de regla cexpr_idfc
+{'if', 'tk_corch_der', 'else', 'tk_par_der', 'tk_coma', 'or', '$', 'and'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_r
+{'$', 'else', 'tk_par_der', 'tk_corch_der', 'tk_coma'}
+Siguientes de regla cexpr_r
+{'else', 'or', 'tk_corch_der', '$', 'tk_par_der', 'if', 'and', 'tk_coma'}
+Siguientes de regla cexpr_idfc
+{'else', 'or', 'tk_corch_der', 'if', '$', 'tk_par_der', 'and', 'tk_coma'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_r
+{'tk_coma', 'tk_corch_der', '$', 'tk_par_der', 'else'}
+Siguientes de regla cexpr_r
+{'tk_coma', '$', 'and', 'tk_par_der', 'or', 'tk_corch_der', 'if', 'else'}
+Siguientes de regla cexpr_idfc
+{'tk_coma', '$', 'and', 'tk_par_der', 'or', 'tk_corch_der', 'if', 'else'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_r
+{'tk_coma', 'else', '$', 'tk_corch_der', 'tk_par_der'}
+Siguientes de regla cexpr_r
+{'tk_coma', 'or', 'and', 'tk_par_der', 'else', '$', 'if', 'tk_corch_der'}
+Siguientes de regla cexpr_idfc
+{'tk_coma', 'or', 'and', 'tk_par_der', 'else', '$', 'if', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_r
+{'else', '$', 'tk_coma', 'tk_par_der', 'tk_corch_der'}
+Siguientes de regla cexpr_r
+{'or', 'else', '$', 'if', 'and', 'tk_corch_der', 'tk_coma', 'tk_par_der'}
+Siguientes de regla cexpr_idfc
+{'or', 'else', '$', 'if', 'and', 'tk_corch_der', 'tk_coma', 'tk_par_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_r
+{'else', 'tk_coma', '$', 'tk_par_der', 'tk_corch_der'}
+Siguientes de regla cexpr_r
+{'or', 'and', 'if', 'tk_corch_der', 'else', 'tk_coma', '$', 'tk_par_der'}
+Siguientes de regla cexpr_idfc
+{'or', 'and', 'if', 'else', 'tk_coma', 'tk_par_der', '$', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_r
+{'tk_coma', 'else', 'tk_par_der', '$', 'tk_corch_der'}
+Siguientes de regla cexpr_r
+{'and', 'else', 'tk_corch_der', 'or', 'if', 'tk_coma', 'tk_par_der', '$'}
+Siguientes de regla cexpr_idfc
+{'and', 'else', 'tk_corch_der', 'or', 'if', 'tk_coma', 'tk_par_der', '$'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_r
+{'tk_corch_der', '$', 'tk_coma', 'else', 'tk_par_der'}
+Siguientes de regla cexpr_r
+{'$', 'and', 'tk_corch_der', 'if', 'tk_coma', 'else', 'or', 'tk_par_der'}
+Siguientes de regla cexpr_idfc
+{'$', 'and', 'tk_corch_der', 'if', 'tk_coma', 'else', 'or', 'tk_par_der'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_r
+{'$', 'tk_par_der', 'else', 'tk_coma', 'tk_corch_der'}
+Siguientes de regla cexpr_r
+{'$', 'or', 'tk_corch_izq', 'tk_punto', 'and', 'if', 'tk_par_der', 'else', 'tk_coma', 'tk_corch_der'}
+Siguientes de regla cexpr_idfc
+{'$', 'or', 'tk_corch_izq', 'tk_punto', 'and', 'if', 'tk_par_der', 'else', 'tk_coma', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_r
+{'$', 'tk_corch_der', 'else', 'tk_par_der', 'tk_coma'}
+Siguientes de regla cexpr_r
+{'tk_par_der', '$', 'tk_corch_der', 'if', 'else', 'and', 'or', 'tk_coma'}
+Siguientes de regla cexpr_idfc
+{'tk_par_der', '$', 'tk_corch_der', 'if', 'else', 'and', 'or', 'tk_coma'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_r
+{'else', '$', 'tk_par_der', 'tk_coma', 'tk_corch_der'}
+Siguientes de regla cexpr_r
+{'tk_punto', 'tk_coma', 'tk_corch_izq', 'and', 'else', '$', 'or', 'tk_par_der', 'if', 'tk_corch_der'}
+Siguientes de regla cexpr_idfc
+{'tk_punto', 'tk_coma', 'tk_corch_izq', 'and', 'else', '$', 'or', 'tk_par_der', 'if', 'tk_corch_der'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla target_id_fc
+set()
+Siguientes de regla target_id_fc
+set()
+Siguientes de regla expr_r
+{'tk_par_der', 'else', 'tk_coma', 'tk_corch_der', '$', 'tk_puntos', 'tk_dos_puntos', 'NEWLINE'}
+Siguientes de regla cexpr_r
+{'target_fc', 'tk_par_der', 'else', 'tk_coma', 'tk_corch_der', '$', 'or', 'tk_puntos', 'tk_corch_izq', 'tk_punto', 'and', 'if', 'tk_dos_puntos', 'NEWLINE'}
+Siguientes de regla cexpr_idfc
+{'target_fc', 'tk_corch_der', '$', 'or', 'tk_corch_izq', 'NEWLINE', 'tk_par_der', 'else', 'tk_coma', 'tk_puntos', 'tk_punto', 'and', 'if', 'tk_dos_puntos'}
+Siguientes de regla expr_list_0_more
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla elif_0oM
+{'tk_numero', 'return', 'True', 'None', 'elif', 'tk_corch_izq', 'for', 'while', 'else', 'False', 'not', 'tk_cadena', 'id', 'tk_par_izq', 'pass', 'DEDENT', 'if', 'tk_menos'}
+Siguientes de regla else_0o1
+{'tk_numero', 'return', 'True', 'None', 'elif', 'tk_corch_izq', 'for', 'while', 'False', 'else', 'not', 'tk_cadena', 'id', 'tk_par_izq', 'pass', 'DEDENT', 'if', 'tk_menos'}
+Siguientes de regla id_fc_simple
+{'NEWLINE'}
+Siguientes de regla simple_stmt_fccexpr
+{'NEWLINE'}
+Siguientes de regla target_1oM
+{'False', 'tk_numero', 'True', 'None', 'not', 'tk_cadena', 'id', 'tk_corch_iz', 'tk_par_izq', 'tk_menos'}
+Siguientes de regla expr_0o1
+{'NEWLINE'}
+Siguientes de regla stmt_0_more
+{'DEDENT'}
+Siguientes de regla expr_r
+{'NEWLINE', 'tk_puntos', 'tk_dos_puntos', '$', 'tk_coma', 'tk_corch_der', 'else', 'tk_par_der'}
+Siguientes de regla cexpr_r
+{'or', 'NEWLINE', 'tk_puntos', 'tk_dos_puntos', 'tk_corch_izq', '$', 'tk_coma', 'tk_punto', 'and', 'if', 'tk_corch_der', 'else', 'tk_par_der'}
+Siguientes de regla cexpr_idfc
+{'NEWLINE', 'tk_puntos', 'tk_dos_puntos', '$', 'tk_coma', 'if', 'tk_par_der', 'or', 'tk_corch_izq', 'tk_punto', 'and', 'tk_corch_der', 'else'}
+Siguientes de regla expr_list_0_more
+{'tk_corch_der', 'tk_par_der'}
+Siguientes de regla expr_list_no_req
+{'tk_par_der', 'tk_corch_der'}
+Siguientes de regla elif_0oM
+{'return', 'while', 'tk_menos', 'elif', 'if', 'id', 'tk_cadena', 'tk_numero', 'tk_par_izq', 'False', 'DEDENT', 'tk_corch_izq', 'None', 'pass', 'not', 'for', 'else', 'True'}
+Siguientes de regla else_0o1
+{'return', 'while', 'tk_menos', 'elif', 'if', 'id', 'tk_numero', 'tk_par_izq', 'False', 'DEDENT', 'pass', 'tk_corch_izq', 'None', 'tk_cadena', 'not', 'for', 'else', 'True'}
+Siguientes de regla id_fc_simple
+{'NEWLINE'}
+Siguientes de regla simple_stmt_fccexpr
+{'NEWLINE'}
+Siguientes de regla target_1oM
+{'tk_corch_iz', 'tk_menos', 'tk_numero', 'None', 'id', 'tk_cadena', 'not', 'tk_par_izq', 'False', 'True'}
+Siguientes de regla expr_0o1
+{'NEWLINE'}
+Siguientes de regla stmt_0_more
+{'DEDENT'}
+Siguientes de regla target_id_fc
+set()
+Siguientes de regla target_id_fc
+set()
