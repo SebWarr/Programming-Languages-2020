@@ -4244,3 +4244,2517 @@ Primeros de regla target_id_fc
 {'', 'tk_par_izq', 'bin_op', 'tk_corch_izq', 'tk_punto'}
 Primeros de regla target_id_fc
 {''}
+Primeros de regla expr
+{'tk_menos', 'False', 'None', 'tk_par_izq', 'tk_corch_iz', 'tk_cadena', 'id', 'tk_numero', 'True'}
+Primeros de regla expr
+{'not'}
+Primeros de regla aux
+{'not'}
+Primeros de regla aux
+{'tk_menos', 'False', 'None', 'tk_par_izq', 'tk_corch_iz', 'tk_cadena', 'id', 'tk_numero', 'True'}
+Primeros de regla aux2
+{'tk_menos'}
+Primeros de regla aux2
+{'id'}
+Primeros de regla aux2
+{'tk_cadena', 'False', 'tk_numero', 'None', 'True'}
+Primeros de regla aux2
+{'tk_corch_iz'}
+Primeros de regla aux2
+{'tk_par_izq'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'tk_cadena', 'False', 'tk_numero', 'None', 'True'}
+Primeros de regla cexpr
+{'tk_corch_iz'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla cexpr_r
+{'bin_op'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla cexpr_idfc
+{'', 'bin_op', 'tk_corch_izq', 'tk_punto'}
+Primeros de regla cexpr_idfc
+{'tk_par_izq'}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr_list_0_more
+{'tk_coma'}
+Primeros de regla expr_list_0_more
+{''}
+Primeros de regla expr_list_no_req
+{'tk_menos', 'False', 'not', 'None', 'tk_par_izq', 'tk_corch_iz', 'tk_cadena', 'id', 'tk_numero', 'True'}
+Primeros de regla expr_list_no_req
+{''}
+Primeros de regla stmt
+{'pass', 'return', 'tk_menos', 'False', 'not', 'None', 'tk_par_izq', 'tk_cadena', 'id', 'tk_numero', 'tk_corch_izq', 'True'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla elif_0oM
+{'elif'}
+Primeros de regla elif_0oM
+{''}
+Primeros de regla else_0o1
+{'else'}
+Primeros de regla else_0o1
+{''}
+Primeros de regla simple_stmt
+{'pass'}
+Primeros de regla simple_stmt
+{'id'}
+Primeros de regla simple_stmt
+{'tk_cadena', 'False', 'tk_numero', 'None', 'True'}
+Primeros de regla simple_stmt
+{'tk_corch_izq'}
+Primeros de regla simple_stmt
+{'tk_par_izq'}
+Primeros de regla simple_stmt
+{'tk_menos'}
+Primeros de regla simple_stmt
+{'not'}
+Primeros de regla simple_stmt
+{'return'}
+Primeros de regla id_fc_simple
+{'', 'tk_par_izq', 'bin_op', 'tk_punto', 'tk_corch_izq'}
+Primeros de regla id_fc_simple
+{'tk_asignacion'}
+Primeros de regla simple_stmt_fccexpr
+{'or', '', 'if', 'and'}
+Primeros de regla simple_stmt_fccexpr
+{'tk_punto'}
+Primeros de regla simple_stmt_fccexpr
+{'tk_corch_izq'}
+Primeros de regla target_1oM
+{'id'}
+Primeros de regla target_1oM
+{'tk_menos', 'False', 'None', 'tk_par_izq', 'tk_corch_iz', 'tk_cadena', 'id', 'tk_numero', 'True'}
+Primeros de regla target_1oM
+{''}
+Primeros de regla target_cexpr_fc
+{'tk_punto'}
+Primeros de regla target_cexpr_fc
+{'tk_corch_izq'}
+Primeros de regla expr_0o1
+{'tk_menos', 'False', 'not', 'None', 'tk_par_izq', 'tk_corch_iz', 'tk_cadena', 'id', 'tk_numero', 'True'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_0_more
+{'pass', 'return', 'tk_menos', 'False', 'not', 'while', 'None', 'tk_par_izq', 'if', 'tk_cadena', 'id', 'for', 'tk_numero', 'tk_corch_izq', 'True'}
+Primeros de regla stmt_0_more
+{''}
+Primeros de regla target_fc
+{'tk_punto'}
+Primeros de regla target_fc
+{'tk_corch_izq'}
+Primeros de regla target_id_fc
+{'', 'tk_par_izq', 'bin_op', 'tk_punto', 'tk_corch_izq'}
+Primeros de regla target_id_fc
+{''}
+Primeros de regla expr
+{'id', 'tk_menos', 'True', 'tk_numero', 'tk_cadena', 'None', 'tk_corch_iz', 'False', 'tk_par_izq'}
+Primeros de regla expr
+{'not'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'True', 'tk_numero', 'tk_cadena', 'None', 'False'}
+Primeros de regla cexpr
+{'tk_corch_iz'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla cexpr_r
+{'bin_op'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla cexpr_idfc
+{'tk_punto', '', 'bin_op', 'tk_corch_izq'}
+Primeros de regla cexpr_idfc
+{'tk_par_izq'}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr_list_0_more
+{'tk_coma'}
+Primeros de regla expr_list_0_more
+{''}
+Primeros de regla expr_list_no_req
+{'not', 'id', 'tk_menos', 'True', 'tk_numero', 'tk_cadena', 'None', 'tk_corch_iz', 'False', 'tk_par_izq'}
+Primeros de regla expr_list_no_req
+{''}
+Primeros de regla stmt
+{'pass', 'not', 'id', 'tk_menos', 'True', 'tk_numero', 'return', 'tk_cadena', 'None', 'False', 'tk_corch_izq', 'tk_par_izq'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla elif_0oM
+{'elif'}
+Primeros de regla elif_0oM
+{''}
+Primeros de regla else_0o1
+{'else'}
+Primeros de regla else_0o1
+{''}
+Primeros de regla simple_stmt
+{'pass'}
+Primeros de regla simple_stmt
+{'id'}
+Primeros de regla simple_stmt
+{'True', 'tk_numero', 'tk_cadena', 'None', 'False'}
+Primeros de regla simple_stmt
+{'tk_corch_izq'}
+Primeros de regla simple_stmt
+{'tk_par_izq'}
+Primeros de regla simple_stmt
+{'tk_menos'}
+Primeros de regla simple_stmt
+{'not'}
+Primeros de regla simple_stmt
+{'return'}
+Primeros de regla id_fc_simple
+{'tk_punto', '', 'bin_op', 'tk_par_izq', 'tk_corch_izq'}
+Primeros de regla id_fc_simple
+{'tk_asignacion'}
+Primeros de regla simple_stmt_fccexpr
+{'or', '', 'if', 'and'}
+Primeros de regla simple_stmt_fccexpr
+{'tk_punto'}
+Primeros de regla simple_stmt_fccexpr
+{'tk_corch_izq'}
+Primeros de regla target_1oM
+{'id'}
+Primeros de regla target_1oM
+{'id', 'tk_menos', 'True', 'tk_numero', 'tk_cadena', 'None', 'tk_corch_iz', 'False', 'tk_par_izq'}
+Primeros de regla target_1oM
+{''}
+Primeros de regla target_cexpr_fc
+{'tk_punto'}
+Primeros de regla target_cexpr_fc
+{'tk_corch_izq'}
+Primeros de regla expr_0o1
+{'not', 'id', 'tk_menos', 'True', 'tk_numero', 'tk_cadena', 'None', 'tk_corch_iz', 'False', 'tk_par_izq'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_0_more
+{'pass', 'while', 'if', 'not', 'id', 'for', 'tk_menos', 'True', 'tk_numero', 'return', 'tk_cadena', 'None', 'False', 'tk_corch_izq', 'tk_par_izq'}
+Primeros de regla stmt_0_more
+{''}
+Primeros de regla target_fc
+{'tk_punto'}
+Primeros de regla target_fc
+{'tk_corch_izq'}
+Primeros de regla target_id_fc
+{'tk_punto', '', 'bin_op', 'tk_par_izq', 'tk_corch_izq'}
+Primeros de regla target_id_fc
+{''}
+Primeros de regla expr
+{'tk_corch_iz', 'tk_menos', 'False', 'id', 'tk_numero', 'None', 'tk_par_izq', 'tk_cadena', 'True'}
+Primeros de regla expr
+{'not'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'tk_numero', 'None', 'tk_cadena', 'False', 'True'}
+Primeros de regla cexpr
+{'tk_corch_iz'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla cexpr_r
+{'bin_op'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla cexpr_idfc
+{'bin_op', '', 'tk_corch_izq', 'tk_punto'}
+Primeros de regla cexpr_idfc
+{'tk_par_izq'}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr_list_0_more
+{'tk_coma'}
+Primeros de regla expr_list_0_more
+{''}
+Primeros de regla expr_list_no_req
+{'tk_corch_iz', 'tk_menos', 'False', 'not', 'id', 'tk_numero', 'None', 'tk_par_izq', 'tk_cadena', 'True'}
+Primeros de regla expr_list_no_req
+{''}
+Primeros de regla stmt
+{'tk_menos', 'tk_corch_izq', 'False', 'not', 'return', 'id', 'tk_numero', 'pass', 'None', 'tk_par_izq', 'tk_cadena', 'True'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla elif_0oM
+{'elif'}
+Primeros de regla elif_0oM
+{''}
+Primeros de regla else_0o1
+{'else'}
+Primeros de regla else_0o1
+{''}
+Primeros de regla simple_stmt
+{'pass'}
+Primeros de regla simple_stmt
+{'id'}
+Primeros de regla simple_stmt
+{'tk_numero', 'None', 'tk_cadena', 'False', 'True'}
+Primeros de regla simple_stmt
+{'tk_corch_izq'}
+Primeros de regla simple_stmt
+{'tk_par_izq'}
+Primeros de regla simple_stmt
+{'tk_menos'}
+Primeros de regla simple_stmt
+{'not'}
+Primeros de regla simple_stmt
+{'return'}
+Primeros de regla id_fc_simple
+{'bin_op', '', 'tk_corch_izq', 'tk_par_izq', 'tk_punto'}
+Primeros de regla id_fc_simple
+{'tk_asignacion'}
+Primeros de regla simple_stmt_fccexpr
+{'if', '', 'or', 'and'}
+Primeros de regla simple_stmt_fccexpr
+{'tk_punto'}
+Primeros de regla simple_stmt_fccexpr
+{'tk_corch_izq'}
+Primeros de regla target_1oM
+{'id'}
+Primeros de regla target_1oM
+{'tk_corch_iz', 'tk_menos', 'False', 'id', 'tk_numero', 'None', 'tk_par_izq', 'tk_cadena', 'True'}
+Primeros de regla target_1oM
+{''}
+Primeros de regla target_cexpr_fc
+{'tk_punto'}
+Primeros de regla target_cexpr_fc
+{'tk_corch_izq'}
+Primeros de regla expr_0o1
+{'tk_corch_iz', 'tk_menos', 'False', 'not', 'id', 'tk_numero', 'None', 'tk_par_izq', 'tk_cadena', 'True'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_0_more
+{'tk_menos', 'tk_corch_izq', 'False', 'not', 'return', 'while', 'if', 'id', 'for', 'tk_numero', 'pass', 'None', 'tk_par_izq', 'tk_cadena', 'True'}
+Primeros de regla stmt_0_more
+{''}
+Primeros de regla target_fc
+{'tk_punto'}
+Primeros de regla target_fc
+{'tk_corch_izq'}
+Primeros de regla target_id_fc
+{'bin_op', '', 'tk_corch_izq', 'tk_punto'}
+Primeros de regla target_id_fc
+{'tk_par_izq'}
+Primeros de regla target_id_fc
+{''}
+Primeros de regla target_aux
+{'bin_op'}
+Primeros de regla target_aux
+{'tk_punto'}
+Primeros de regla target_aux
+{'tk_corch_izq'}
+Primeros de regla target_aux_coexprco_fc
+{'bin_op', 'tk_corch_izq', 'tk_punto'}
+Primeros de regla target_aux_coexprco_fc
+{''}
+Primeros de regla target_aux_pid_fc
+{'bin_op', 'tk_corch_izq', 'tk_punto'}
+Primeros de regla target_aux_pid_fc
+{'tk_par_izq'}
+Primeros de regla target_aux_pid_fc
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'None', 'False', 'True', 'tk_numero', 'tk_cadena'}
+Primeros de regla cexpr
+{'tk_corch_iz'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla cexpr_r
+{'bin_op'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla cexpr_r
+{'tk_menor', 'tk_menos', 'tk_multiplicacion', 'division', 'tk_igual', 'tk_suma', 'tk_mayor_igual', 'tk_mayor', 'is', 'tk_menor_igual', 'tk_diferente', 'tk_modulo'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla stmt
+{'pass'}
+Primeros de regla stmt
+{'not', 'tk_par_izq', 'tk_menos', 'literalcexpr_r', 'tk_corch_izq', 'id'}
+Primeros de regla stmt
+{'return'}
+Primeros de regla stmt
+{'id'}
+Primeros de regla stmt
+{'tk_par_izq', 'tk_menos', 'literalcexpr_r', 'tk_corch_izq', 'id'}
+Primeros de regla stmt
+{'tk_par_izq', 'tk_menos', 'literalcexpr_r', 'tk_corch_izq', 'id'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla expr_0o1
+{'not', 'tk_par_izq', 'tk_menos', 'literalcexpr_r', 'tk_corch_izq', 'id'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla id_igual_1oM
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{''}
+Primeros de regla cexpr_pu_1oM
+{'tk_par_izq', 'tk_menos', 'literalcexpr_r', 'tk_corch_izq', 'id'}
+Primeros de regla cexpr_pu_1oM_fc
+{'tk_par_izq', 'tk_menos', 'literalcexpr_r', 'tk_corch_izq', 'id'}
+Primeros de regla cexpr_pu_1oM_fc
+{''}
+Primeros de regla cexpr_par_1oM
+{'tk_par_izq', 'tk_menos', 'literalcexpr_r', 'tk_corch_izq', 'id'}
+Primeros de regla cexpr_par_1oM_fc
+{'tk_par_izq', 'tk_menos', 'literalcexpr_r', 'tk_corch_izq', 'id'}
+Primeros de regla cexpr_par_1oM_fc
+{''}
+Primeros de regla else_dosp_block_0o1
+{'else'}
+Primeros de regla else_dosp_block_0o1
+{''}
+Primeros de regla elif_expr_0oM
+{'elif'}
+Primeros de regla elif_expr_0oM
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_1oM
+{'tk_par_izq', 'for', 'literalcexpr_r', 'not', 'return', 'if', 'tk_menos', 'while', 'pass', 'tk_corch_izq', 'id'}
+Primeros de regla stmt_1oM_fc
+{'tk_par_izq', 'for', 'literalcexpr_r', 'not', 'return', 'if', 'tk_menos', 'while', 'pass', 'tk_corch_izq', 'id'}
+Primeros de regla stmt_1oM_fc
+{''}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr
+{'tk_par_izq', 'tk_menos', 'literalcexpr_r', 'tk_corch_izq', 'id'}
+Primeros de regla expr
+{'not'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'literalcexpr_r'}
+Primeros de regla cexpr
+{'tk_corch_izq'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla fc_id_cexpr
+{'', 'tk_menor', 'tk_punto', 'tk_diferente', 'tk_mayor_igual', 'tk_igual', 'is', 'tk_corch_izq', 'tk_suma', 'tk_menos', 'division', 'tk_mayor', 'tk_multiplicacion', 'tk_menor_igual', 'tk_modulo'}
+Primeros de regla fc_id_cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr_r
+{'tk_menor', 'tk_diferente', 'tk_mayor_igual', 'tk_igual', 'is', 'tk_suma', 'tk_menos', 'division', 'tk_mayor', 'tk_multiplicacion', 'tk_menor_igual', 'tk_modulo'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla fc_dotid_cexpr_r
+{'', 'tk_menor', 'tk_punto', 'tk_diferente', 'tk_mayor_igual', 'tk_igual', 'is', 'tk_corch_izq', 'tk_suma', 'tk_menos', 'division', 'tk_mayor', 'tk_multiplicacion', 'tk_menor_igual', 'tk_modulo'}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_par_izq'}
+Primeros de regla coma_expr_0oM
+{'tk_coma'}
+Primeros de regla coma_expr_0oM
+{''}
+Primeros de regla expr_coma_expr_0oM_0o1
+{'not', 'tk_par_izq', 'tk_menos', 'literalcexpr_r', 'tk_corch_izq', 'id'}
+Primeros de regla expr_coma_expr_0oM_0o1
+{''}
+Primeros de regla bin_op
+{'tk_suma'}
+Primeros de regla bin_op
+{'tk_menos'}
+Primeros de regla bin_op
+{'tk_multiplicacion'}
+Primeros de regla bin_op
+{'division'}
+Primeros de regla bin_op
+{'tk_modulo'}
+Primeros de regla bin_op
+{'tk_igual'}
+Primeros de regla bin_op
+{'tk_diferente'}
+Primeros de regla bin_op
+{'tk_menor_igual'}
+Primeros de regla bin_op
+{'tk_mayor_igual'}
+Primeros de regla bin_op
+{'tk_menor'}
+Primeros de regla bin_op
+{'tk_mayor'}
+Primeros de regla bin_op
+{'is'}
+Primeros de regla stmt
+{'pass'}
+Primeros de regla stmt
+{'literalcexpr_r', 'not', 'tk_corch_izq', 'tk_menos', 'id', 'tk_par_izq'}
+Primeros de regla stmt
+{'return'}
+Primeros de regla stmt
+{'id'}
+Primeros de regla stmt
+{' "cexpr", tk_punto'}
+Primeros de regla stmt
+{' "cexpr",tk_corch_izq'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla expr_0o1
+{'literalcexpr_r', 'not', 'tk_corch_izq', 'tk_menos', 'id', 'tk_par_izq'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla id_igual_1oM
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{''}
+Primeros de regla cexpr_pu_1oM
+{' "cexpr", tk_punto'}
+Primeros de regla cexpr_pu_1oM_fc
+{' "cexpr", tk_punto'}
+Primeros de regla cexpr_pu_1oM_fc
+{''}
+Primeros de regla cexpr_par_1oM
+{' "cexpr",tk_corch_izq'}
+Primeros de regla cexpr_par_1oM_fc
+{' "cexpr",tk_corch_izq'}
+Primeros de regla cexpr_par_1oM_fc
+{''}
+Primeros de regla else_dosp_block_0o1
+{'else'}
+Primeros de regla else_dosp_block_0o1
+{''}
+Primeros de regla elif_expr_0oM
+{'elif'}
+Primeros de regla elif_expr_0oM
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_1oM
+{'for', 'not', 'while', 'tk_menos', 'pass', 'literalcexpr_r', 'return', ' "cexpr", tk_punto', 'tk_corch_izq', ' "cexpr",tk_corch_izq', 'id', 'tk_par_izq', 'if'}
+Primeros de regla stmt_1oM_fc
+{'for', 'not', 'while', 'tk_menos', 'pass', 'literalcexpr_r', 'return', ' "cexpr", tk_punto', 'tk_corch_izq', ' "cexpr",tk_corch_izq', 'id', 'tk_par_izq', 'if'}
+Primeros de regla stmt_1oM_fc
+{''}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr
+{'literalcexpr_r', 'tk_corch_izq', 'tk_menos', 'id', 'tk_par_izq'}
+Primeros de regla expr
+{'not'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'literalcexpr_r'}
+Primeros de regla cexpr
+{'tk_corch_izq'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla fc_id_cexpr
+{'', 'tk_mayor_igual', 'tk_diferente', 'is', 'tk_menos', 'division', 'tk_menor_igual', 'tk_punto', 'tk_suma', 'tk_multiplicacion', 'tk_menor', 'tk_mayor', 'tk_igual', 'tk_corch_izq', 'tk_modulo'}
+Primeros de regla fc_id_cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr_r
+{'tk_mayor_igual', 'tk_diferente', 'is', 'tk_menos', 'division', 'tk_menor_igual', 'tk_suma', 'tk_multiplicacion', 'tk_menor', 'tk_mayor', 'tk_igual', 'tk_modulo'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla fc_dotid_cexpr_r
+{'', 'tk_mayor_igual', 'tk_diferente', 'is', 'tk_menos', 'division', 'tk_menor_igual', 'tk_punto', 'tk_suma', 'tk_multiplicacion', 'tk_menor', 'tk_mayor', 'tk_igual', 'tk_corch_izq', 'tk_modulo'}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_par_izq'}
+Primeros de regla coma_expr_0oM
+{'tk_coma'}
+Primeros de regla coma_expr_0oM
+{''}
+Primeros de regla expr_coma_expr_0oM_0o1
+{'literalcexpr_r', 'not', 'tk_corch_izq', 'tk_menos', 'id', 'tk_par_izq'}
+Primeros de regla expr_coma_expr_0oM_0o1
+{''}
+Primeros de regla bin_op
+{'tk_suma'}
+Primeros de regla bin_op
+{'tk_menos'}
+Primeros de regla bin_op
+{'tk_multiplicacion'}
+Primeros de regla bin_op
+{'division'}
+Primeros de regla bin_op
+{'tk_modulo'}
+Primeros de regla bin_op
+{'tk_igual'}
+Primeros de regla bin_op
+{'tk_diferente'}
+Primeros de regla bin_op
+{'tk_menor_igual'}
+Primeros de regla bin_op
+{'tk_mayor_igual'}
+Primeros de regla bin_op
+{'tk_menor'}
+Primeros de regla bin_op
+{'tk_mayor'}
+Primeros de regla bin_op
+{'is'}
+Primeros de regla stmt
+{'pass'}
+Primeros de regla stmt
+{'False', 'tk_cadena', 'tk_corch_izq', 'id', 'True', 'tk_par_izq', 'tk_menos', 'not', 'tk_numero', 'None'}
+Primeros de regla stmt
+{'return'}
+Primeros de regla stmt
+{'id'}
+Primeros de regla stmt
+{' "cexpr", tk_punto'}
+Primeros de regla stmt
+{' "cexpr",tk_corch_izq'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla expr_0o1
+{'False', 'tk_cadena', 'tk_corch_izq', 'id', 'True', 'tk_par_izq', 'tk_menos', 'not', 'tk_numero', 'None'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla id_igual_1oM
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{''}
+Primeros de regla cexpr_pu_1oM
+{' "cexpr", tk_punto'}
+Primeros de regla cexpr_pu_1oM_fc
+{' "cexpr", tk_punto'}
+Primeros de regla cexpr_pu_1oM_fc
+{''}
+Primeros de regla cexpr_par_1oM
+{' "cexpr",tk_corch_izq'}
+Primeros de regla cexpr_par_1oM_fc
+{' "cexpr",tk_corch_izq'}
+Primeros de regla cexpr_par_1oM_fc
+{''}
+Primeros de regla else_dosp_block_0o1
+{'else'}
+Primeros de regla else_dosp_block_0o1
+{''}
+Primeros de regla elif_expr_0oM
+{'elif'}
+Primeros de regla elif_expr_0oM
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_1oM
+{'False', 'for', 'tk_corch_izq', 'id', 'tk_menos', 'True', 'return', 'not', 'None', ' "cexpr", tk_punto', ' "cexpr",tk_corch_izq', 'tk_cadena', 'tk_par_izq', 'tk_numero', 'pass', 'while', 'if'}
+Primeros de regla stmt_1oM_fc
+{'False', 'for', 'tk_corch_izq', 'id', 'tk_menos', 'True', 'return', 'not', 'None', ' "cexpr", tk_punto', ' "cexpr",tk_corch_izq', 'tk_cadena', 'tk_par_izq', 'tk_numero', 'pass', 'while', 'if'}
+Primeros de regla stmt_1oM_fc
+{''}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr
+{'False', 'tk_cadena', 'tk_corch_izq', 'id', 'True', 'tk_par_izq', 'tk_menos', 'tk_numero', 'None'}
+Primeros de regla expr
+{'not'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'False', 'None', 'tk_cadena', 'True', 'tk_numero'}
+Primeros de regla cexpr
+{'tk_corch_izq'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla fc_id_cexpr
+{'', 'tk_suma', 'tk_diferente', 'tk_mayor_igual', 'tk_corch_izq', 'tk_igual', 'tk_menos', 'tk_menor', 'tk_multiplicacion', 'is', 'tk_mayor', 'tk_modulo', 'tk_punto', 'tk_menor_igual', 'division'}
+Primeros de regla fc_id_cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr_r
+{'tk_suma', 'tk_diferente', 'tk_mayor_igual', 'tk_igual', 'tk_menos', 'tk_menor', 'tk_multiplicacion', 'is', 'tk_mayor', 'tk_modulo', 'tk_menor_igual', 'division'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla fc_dotid_cexpr_r
+{'', 'tk_suma', 'tk_diferente', 'tk_mayor_igual', 'tk_corch_izq', 'tk_igual', 'tk_menos', 'tk_menor', 'tk_multiplicacion', 'is', 'tk_mayor', 'tk_modulo', 'tk_punto', 'tk_menor_igual', 'division'}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_par_izq'}
+Primeros de regla coma_expr_0oM
+{'tk_coma'}
+Primeros de regla coma_expr_0oM
+{''}
+Primeros de regla expr_coma_expr_0oM_0o1
+{'False', 'tk_cadena', 'tk_corch_izq', 'id', 'True', 'tk_par_izq', 'tk_menos', 'not', 'tk_numero', 'None'}
+Primeros de regla expr_coma_expr_0oM_0o1
+{''}
+Primeros de regla bin_op
+{'tk_suma'}
+Primeros de regla bin_op
+{'tk_menos'}
+Primeros de regla bin_op
+{'tk_multiplicacion'}
+Primeros de regla bin_op
+{'division'}
+Primeros de regla bin_op
+{'tk_modulo'}
+Primeros de regla bin_op
+{'tk_igual'}
+Primeros de regla bin_op
+{'tk_diferente'}
+Primeros de regla bin_op
+{'tk_menor_igual'}
+Primeros de regla bin_op
+{'tk_mayor_igual'}
+Primeros de regla bin_op
+{'tk_menor'}
+Primeros de regla bin_op
+{'tk_mayor'}
+Primeros de regla bin_op
+{'is'}
+Primeros de regla stmt
+{'pass'}
+Primeros de regla stmt
+{'True', 'tk_corch_izq', 'False', 'not', 'id', 'tk_menos', 'tk_numero', 'tk_par_izq', 'None', 'tk_cadena'}
+Primeros de regla stmt
+{'return'}
+Primeros de regla stmt
+{'id'}
+Primeros de regla stmt
+{'True', 'tk_corch_izq', 'False', 'id', 'tk_menos', 'tk_numero', 'tk_par_izq', 'None', 'tk_cadena'}
+Primeros de regla stmt
+{'cexpr_cor'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla expr_0o1
+{'True', 'tk_corch_izq', 'False', 'not', 'id', 'tk_menos', 'tk_numero', 'tk_par_izq', 'None', 'tk_cadena'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla id_igual_1oM
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{''}
+Primeros de regla cexpr_pu_1oM
+{'True', 'tk_corch_izq', 'False', 'id', 'tk_menos', 'tk_numero', 'tk_par_izq', 'None', 'tk_cadena'}
+Primeros de regla cexpr_pu_1oM_fc
+{'True', 'tk_corch_izq', 'False', 'id', 'tk_menos', 'tk_numero', 'tk_par_izq', 'None', 'tk_cadena'}
+Primeros de regla cexpr_pu_1oM_fc
+{''}
+Primeros de regla cexpr_pid
+{'id'}
+Primeros de regla cexpr_pid
+{'True', 'tk_numero', 'False', 'None', 'tk_cadena'}
+Primeros de regla cexpr_pid
+{'tk_corch_izq'}
+Primeros de regla cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid
+{'tk_menos'}
+Primeros de regla idfc_cexpr_pid
+{'tk_menor', 'tk_corch_izq', 'tk_punto', 'is', 'tk_diferente', 'tk_suma', 'division', 'tk_menos', 'tk_mayor', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_igual'}
+Primeros de regla idfc_cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid_r
+{'tk_menor', 'is', 'tk_diferente', 'tk_suma', 'division', 'tk_menos', 'tk_mayor', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_igual'}
+Primeros de regla cexpr_pid_r
+{'tk_punto'}
+Primeros de regla cexpr_pid_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_menor', 'tk_corch_izq', 'tk_punto', 'is', 'tk_diferente', 'tk_suma', 'division', 'tk_menos', 'tk_mayor', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_igual'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_par_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{''}
+Primeros de regla cexpr_par_1oM
+{'cexpr_cor'}
+Primeros de regla cexpr_par_1oM_fc
+{'cexpr_cor'}
+Primeros de regla cexpr_par_1oM_fc
+{''}
+Primeros de regla else_dosp_block_0o1
+{'else'}
+Primeros de regla else_dosp_block_0o1
+{''}
+Primeros de regla elif_expr_0oM
+{'elif'}
+Primeros de regla elif_expr_0oM
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_1oM
+{'tk_corch_izq', 'True', 'False', 'not', 'for', 'id', 'while', 'pass', 'tk_menos', 'return', 'tk_numero', 'tk_par_izq', 'cexpr_cor', 'None', 'if', 'tk_cadena'}
+Primeros de regla stmt_1oM_fc
+{'tk_corch_izq', 'for', 'id', 'pass', 'tk_par_izq', 'True', 'False', 'not', 'while', 'tk_menos', 'return', 'tk_numero', 'cexpr_cor', 'None', 'if', 'tk_cadena'}
+Primeros de regla stmt_1oM_fc
+{''}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr
+{'True', 'tk_corch_izq', 'False', 'id', 'tk_menos', 'tk_numero', 'tk_par_izq', 'None', 'tk_cadena'}
+Primeros de regla expr
+{'not'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'True', 'tk_numero', 'False', 'None', 'tk_cadena'}
+Primeros de regla cexpr
+{'tk_corch_izq'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla fc_id_cexpr
+{'tk_menor', '', 'tk_corch_izq', 'tk_punto', 'is', 'tk_diferente', 'tk_suma', 'division', 'tk_menos', 'tk_mayor', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_igual'}
+Primeros de regla fc_id_cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr_r
+{'tk_menor', 'is', 'tk_diferente', 'tk_suma', 'division', 'tk_menos', 'tk_mayor', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_igual'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_menor', '', 'tk_corch_izq', 'tk_punto', 'is', 'tk_diferente', 'tk_suma', 'division', 'tk_menos', 'tk_mayor', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_igual'}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_par_izq'}
+Primeros de regla coma_expr_0oM
+{'tk_coma'}
+Primeros de regla coma_expr_0oM
+{''}
+Primeros de regla expr_coma_expr_0oM_0o1
+{'True', 'tk_corch_izq', 'False', 'not', 'id', 'tk_menos', 'tk_numero', 'tk_par_izq', 'None', 'tk_cadena'}
+Primeros de regla expr_coma_expr_0oM_0o1
+{''}
+Primeros de regla bin_op
+{'tk_suma'}
+Primeros de regla bin_op
+{'tk_menos'}
+Primeros de regla bin_op
+{'tk_multiplicacion'}
+Primeros de regla bin_op
+{'division'}
+Primeros de regla bin_op
+{'tk_modulo'}
+Primeros de regla bin_op
+{'tk_igual'}
+Primeros de regla bin_op
+{'tk_diferente'}
+Primeros de regla bin_op
+{'tk_menor_igual'}
+Primeros de regla bin_op
+{'tk_mayor_igual'}
+Primeros de regla bin_op
+{'tk_menor'}
+Primeros de regla bin_op
+{'tk_mayor'}
+Primeros de regla bin_op
+{'is'}
+Primeros de regla stmt
+{'pass'}
+Primeros de regla stmt
+{'tk_par_izq', 'id', 'None', 'False', 'tk_menos', 'tk_corch_izq', 'not', 'tk_numero', 'tk_cadena', 'True'}
+Primeros de regla stmt
+{'return'}
+Primeros de regla stmt
+{'id'}
+Primeros de regla stmt
+{'tk_par_izq', 'id', 'None', 'False', 'tk_menos', 'tk_corch_izq', 'tk_numero', 'tk_cadena', 'True'}
+Primeros de regla stmt
+{'tk_par_izq', 'id', 'None', 'False', 'tk_menos', 'tk_corch_izq', 'tk_numero', 'tk_cadena', 'True'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla expr_0o1
+{'tk_par_izq', 'id', 'None', 'False', 'tk_menos', 'tk_corch_izq', 'not', 'tk_numero', 'tk_cadena', 'True'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla id_igual_1oM
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{''}
+Primeros de regla cexpr_pu_1oM
+{'tk_par_izq', 'id', 'None', 'False', 'tk_menos', 'tk_corch_izq', 'tk_numero', 'tk_cadena', 'True'}
+Primeros de regla cexpr_pu_1oM_fc
+{'tk_par_izq', 'id', 'None', 'False', 'tk_menos', 'tk_corch_izq', 'tk_numero', 'tk_cadena', 'True'}
+Primeros de regla cexpr_pu_1oM_fc
+{''}
+Primeros de regla cexpr_pid
+{'id'}
+Primeros de regla cexpr_pid
+{'tk_numero', 'tk_cadena', 'None', 'False', 'True'}
+Primeros de regla cexpr_pid
+{'tk_corch_izq'}
+Primeros de regla cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid
+{'tk_menos'}
+Primeros de regla idfc_cexpr_pid
+{'tk_punto', 'tk_menor_igual', 'tk_mayor_igual', 'tk_suma', 'tk_menor', 'tk_igual', 'tk_menos', 'division', 'tk_modulo', 'tk_corch_izq', 'tk_mayor', 'tk_multiplicacion', 'tk_diferente', 'is'}
+Primeros de regla idfc_cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid_r
+{'tk_menor_igual', 'tk_mayor_igual', 'tk_suma', 'tk_menor', 'tk_igual', 'tk_menos', 'division', 'tk_modulo', 'tk_mayor', 'tk_multiplicacion', 'tk_diferente', 'is'}
+Primeros de regla cexpr_pid_r
+{'tk_punto'}
+Primeros de regla cexpr_pid_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_punto', 'tk_menor_igual', 'tk_mayor_igual', 'tk_suma', 'tk_menor', 'tk_igual', 'tk_menos', 'division', 'tk_modulo', 'tk_corch_izq', 'tk_mayor', 'tk_multiplicacion', 'tk_diferente', 'is'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_par_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{''}
+Primeros de regla cexpr_par_1oM
+{'tk_par_izq', 'id', 'None', 'False', 'tk_menos', 'tk_corch_izq', 'tk_numero', 'tk_cadena', 'True'}
+Primeros de regla cexpr_cor
+{'id'}
+Primeros de regla cexpr_cor
+{'tk_numero', 'tk_cadena', 'None', 'False', 'True'}
+Primeros de regla cexpr_cor
+{'tk_corch_izq'}
+Primeros de regla cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor
+{'tk_menos'}
+Primeros de regla idfc_cexpr_cor
+{'tk_punto', 'tk_menor_igual', 'tk_mayor_igual', 'tk_suma', 'tk_menor', 'tk_igual', 'tk_menos', 'division', 'tk_modulo', 'tk_corch_izq', 'tk_mayor', 'tk_multiplicacion', 'tk_diferente', 'is'}
+Primeros de regla idfc_cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor_r
+{'tk_menor_igual', 'tk_mayor_igual', 'tk_suma', 'tk_menor', 'tk_igual', 'tk_menos', 'division', 'tk_modulo', 'tk_mayor', 'tk_multiplicacion', 'tk_diferente', 'is'}
+Primeros de regla cexpr_cor_r
+{'tk_punto'}
+Primeros de regla cexpr_cor_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_cor_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_cor_r
+{'tk_par_izq'}
+Primeros de regla coexprco_cexpr_cor_r
+{'tk_punto', 'tk_menor_igual', 'tk_mayor_igual', 'tk_suma', 'tk_menor', 'tk_igual', 'tk_menos', 'division', 'tk_modulo', 'tk_corch_izq', 'tk_mayor', 'tk_multiplicacion', 'tk_diferente', 'is'}
+Primeros de regla coexprco_cexpr_cor_r
+{''}
+Primeros de regla cexpr_par_1oM_fc
+{'tk_par_izq', 'id', 'None', 'False', 'tk_menos', 'tk_corch_izq', 'tk_numero', 'tk_cadena', 'True'}
+Primeros de regla cexpr_par_1oM_fc
+{''}
+Primeros de regla else_dosp_block_0o1
+{'else'}
+Primeros de regla else_dosp_block_0o1
+{''}
+Primeros de regla elif_expr_0oM
+{'elif'}
+Primeros de regla elif_expr_0oM
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_1oM
+{'return', 'tk_par_izq', 'id', 'None', 'False', 'tk_menos', 'not', 'tk_corch_izq', 'if', 'tk_numero', 'tk_cadena', 'pass', 'while', 'for', 'True'}
+Primeros de regla stmt_1oM_fc
+{'return', 'tk_par_izq', 'id', 'None', 'False', 'tk_menos', 'not', 'tk_corch_izq', 'if', 'tk_numero', 'tk_cadena', 'pass', 'while', 'for', 'True'}
+Primeros de regla stmt_1oM_fc
+{''}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr
+{'tk_par_izq', 'id', 'None', 'False', 'tk_menos', 'tk_corch_izq', 'tk_numero', 'tk_cadena', 'True'}
+Primeros de regla expr
+{'not'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'tk_numero', 'tk_cadena', 'None', 'False', 'True'}
+Primeros de regla cexpr
+{'tk_corch_izq'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla fc_id_cexpr
+{'', 'tk_punto', 'tk_menor_igual', 'tk_mayor_igual', 'tk_suma', 'tk_menor', 'tk_igual', 'tk_menos', 'division', 'tk_modulo', 'tk_corch_izq', 'tk_mayor', 'tk_multiplicacion', 'tk_diferente', 'is'}
+Primeros de regla fc_id_cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr_r
+{'tk_menor_igual', 'tk_mayor_igual', 'tk_suma', 'tk_menor', 'tk_igual', 'tk_menos', 'division', 'tk_modulo', 'tk_mayor', 'tk_multiplicacion', 'tk_diferente', 'is'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla fc_dotid_cexpr_r
+{'', 'tk_punto', 'tk_menor_igual', 'tk_mayor_igual', 'tk_suma', 'tk_menor', 'tk_igual', 'tk_menos', 'division', 'tk_modulo', 'tk_corch_izq', 'tk_mayor', 'tk_multiplicacion', 'tk_diferente', 'is'}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_par_izq'}
+Primeros de regla coma_expr_0oM
+{'tk_coma'}
+Primeros de regla coma_expr_0oM
+{''}
+Primeros de regla expr_coma_expr_0oM_0o1
+{'tk_par_izq', 'id', 'None', 'False', 'tk_menos', 'tk_corch_izq', 'not', 'tk_numero', 'tk_cadena', 'True'}
+Primeros de regla expr_coma_expr_0oM_0o1
+{''}
+Primeros de regla bin_op
+{'tk_suma'}
+Primeros de regla bin_op
+{'tk_menos'}
+Primeros de regla bin_op
+{'tk_multiplicacion'}
+Primeros de regla bin_op
+{'division'}
+Primeros de regla bin_op
+{'tk_modulo'}
+Primeros de regla bin_op
+{'tk_igual'}
+Primeros de regla bin_op
+{'tk_diferente'}
+Primeros de regla bin_op
+{'tk_menor_igual'}
+Primeros de regla bin_op
+{'tk_mayor_igual'}
+Primeros de regla bin_op
+{'tk_menor'}
+Primeros de regla bin_op
+{'tk_mayor'}
+Primeros de regla bin_op
+{'is'}
+Primeros de regla stmt
+{'pass'}
+Primeros de regla stmt
+{'True', 'not', 'tk_cadena', 'tk_numero', 'tk_menos', 'None', 'id', 'tk_par_izq', 'tk_corch_izq', 'False'}
+Primeros de regla stmt
+{'return'}
+Primeros de regla stmt
+{'id'}
+Primeros de regla stmt
+{'True', 'tk_cadena', 'tk_numero', 'tk_menos', 'None', 'id', 'tk_par_izq', 'tk_corch_izq', 'False'}
+Primeros de regla stmt
+{'True', 'tk_cadena', 'tk_numero', 'tk_menos', 'None', 'id', 'tk_par_izq', 'tk_corch_izq', 'False'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla expr_0o1
+{'True', 'not', 'tk_cadena', 'tk_numero', 'tk_menos', 'None', 'id', 'tk_par_izq', 'tk_corch_izq', 'False'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla id_igual_1oM
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{''}
+Primeros de regla cexpr_pu_1oM
+{'True', 'tk_cadena', 'tk_numero', 'tk_menos', 'None', 'id', 'tk_par_izq', 'tk_corch_izq', 'False'}
+Primeros de regla cexpr_pu_1oM_fc
+{'True', 'tk_cadena', 'tk_numero', 'tk_menos', 'None', 'id', 'tk_par_izq', 'tk_corch_izq', 'False'}
+Primeros de regla cexpr_pu_1oM_fc
+{''}
+Primeros de regla cexpr_pid
+{'id'}
+Primeros de regla cexpr_pid
+{'True', 'None', 'tk_cadena', 'tk_numero', 'False'}
+Primeros de regla cexpr_pid
+{'tk_corch_izq'}
+Primeros de regla cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid
+{'tk_menos'}
+Primeros de regla idfc_cexpr_pid
+{'tk_menor', 'tk_corch_izq', 'tk_mayor_igual', 'tk_menor_igual', 'tk_suma', 'division', 'tk_multiplicacion', 'tk_punto', 'tk_mayor', 'is', 'tk_diferente', 'tk_modulo', 'tk_igual', 'tk_menos'}
+Primeros de regla idfc_cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid_r
+{'tk_menor', 'tk_mayor_igual', 'tk_menor_igual', 'tk_suma', 'division', 'tk_multiplicacion', 'tk_mayor', 'is', 'tk_diferente', 'tk_modulo', 'tk_igual', 'tk_menos'}
+Primeros de regla cexpr_pid_r
+{'tk_punto'}
+Primeros de regla cexpr_pid_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_menor', 'tk_corch_izq', 'tk_mayor_igual', 'tk_menor_igual', 'tk_suma', 'division', 'tk_multiplicacion', 'tk_punto', 'tk_mayor', 'is', 'tk_diferente', 'tk_modulo', 'tk_igual', 'tk_menos'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_par_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{''}
+Primeros de regla cexpr_par_1oM
+{'True', 'tk_cadena', 'tk_numero', 'tk_menos', 'None', 'id', 'tk_par_izq', 'tk_corch_izq', 'False'}
+Primeros de regla cexpr_cor
+{'id'}
+Primeros de regla cexpr_cor
+{'True', 'None', 'tk_cadena', 'tk_numero', 'False'}
+Primeros de regla cexpr_cor
+{'tk_corch_izq'}
+Primeros de regla cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor
+{'tk_menos'}
+Primeros de regla idfc_cexpr_cor
+{'tk_menor', 'tk_corch_izq', 'tk_mayor_igual', 'tk_menor_igual', 'tk_suma', 'division', 'tk_multiplicacion', 'tk_punto', 'tk_mayor', 'is', 'tk_diferente', 'tk_modulo', 'tk_igual', 'tk_menos'}
+Primeros de regla idfc_cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor_r
+{'tk_menor', 'tk_mayor_igual', 'tk_menor_igual', 'tk_suma', 'division', 'tk_multiplicacion', 'tk_mayor', 'is', 'tk_diferente', 'tk_modulo', 'tk_igual', 'tk_menos'}
+Primeros de regla cexpr_cor_r
+{'tk_punto'}
+Primeros de regla cexpr_cor_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_cor_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_cor_r
+{'tk_par_izq'}
+Primeros de regla coexprco_cexpr_cor_r
+{'tk_menor', 'tk_corch_izq', 'tk_mayor_igual', 'tk_menor_igual', 'tk_suma', 'division', 'tk_multiplicacion', 'tk_punto', 'tk_mayor', 'is', 'tk_diferente', 'tk_modulo', 'tk_igual', 'tk_menos'}
+Primeros de regla coexprco_cexpr_cor_r
+{''}
+Primeros de regla cexpr_par_1oM_fc
+{'True', 'tk_cadena', 'tk_numero', 'tk_menos', 'None', 'id', 'tk_par_izq', 'tk_corch_izq', 'False'}
+Primeros de regla cexpr_par_1oM_fc
+{''}
+Primeros de regla else_dosp_block_0o1
+{'else'}
+Primeros de regla else_dosp_block_0o1
+{''}
+Primeros de regla elif_expr_0oM
+{'elif'}
+Primeros de regla elif_expr_0oM
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_1oM
+{'True', 'for', 'not', 'pass', 'tk_cadena', 'tk_numero', 'if', 'tk_menos', 'None', 'id', 'while', 'tk_par_izq', 'tk_corch_izq', 'return', 'False'}
+Primeros de regla stmt_1oM_fc
+{'True', 'for', 'not', 'pass', 'tk_cadena', 'tk_numero', 'if', 'tk_menos', 'None', 'id', 'while', 'tk_par_izq', 'tk_corch_izq', 'return', 'False'}
+Primeros de regla stmt_1oM_fc
+{''}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr
+{'True', 'tk_cadena', 'tk_numero', 'tk_menos', 'None', 'id', 'tk_par_izq', 'tk_corch_izq', 'False'}
+Primeros de regla expr
+{'not'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'True', 'None', 'tk_cadena', 'tk_numero', 'False'}
+Primeros de regla cexpr
+{'tk_corch_izq'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla fc_id_cexpr
+{'tk_menor', 'tk_corch_izq', 'tk_mayor_igual', '', 'tk_menor_igual', 'tk_suma', 'division', 'tk_multiplicacion', 'tk_punto', 'tk_mayor', 'is', 'tk_diferente', 'tk_modulo', 'tk_igual', 'tk_menos'}
+Primeros de regla fc_id_cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr_r
+{'tk_menor', 'tk_mayor_igual', 'tk_menor_igual', 'tk_suma', 'division', 'tk_multiplicacion', 'tk_mayor', 'is', 'tk_diferente', 'tk_modulo', 'tk_igual', 'tk_menos'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_menor', 'tk_corch_izq', 'tk_mayor_igual', '', 'tk_menor_igual', 'tk_suma', 'division', 'tk_multiplicacion', 'tk_punto', 'tk_mayor', 'is', 'tk_diferente', 'tk_modulo', 'tk_igual', 'tk_menos'}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_par_izq'}
+Primeros de regla coma_expr_0oM
+{'tk_coma'}
+Primeros de regla coma_expr_0oM
+{''}
+Primeros de regla expr_coma_expr_0oM_0o1
+{'True', 'not', 'tk_cadena', 'tk_numero', 'tk_menos', 'None', 'id', 'tk_par_izq', 'tk_corch_izq', 'False'}
+Primeros de regla expr_coma_expr_0oM_0o1
+{''}
+Primeros de regla bin_op
+{'tk_suma'}
+Primeros de regla bin_op
+{'tk_menos'}
+Primeros de regla bin_op
+{'tk_multiplicacion'}
+Primeros de regla bin_op
+{'division'}
+Primeros de regla bin_op
+{'tk_modulo'}
+Primeros de regla bin_op
+{'tk_igual'}
+Primeros de regla bin_op
+{'tk_diferente'}
+Primeros de regla bin_op
+{'tk_menor_igual'}
+Primeros de regla bin_op
+{'tk_mayor_igual'}
+Primeros de regla bin_op
+{'tk_menor'}
+Primeros de regla bin_op
+{'tk_mayor'}
+Primeros de regla bin_op
+{'is'}
+Primeros de regla stmt
+{'pass'}
+Primeros de regla stmt
+{'None', 'True', 'id', 'False', 'tk_cadena', 'tk_menos', 'not', 'tk_corch_izq', 'tk_numero', 'tk_par_izq'}
+Primeros de regla stmt
+{'return'}
+Primeros de regla stmt
+{'id'}
+Primeros de regla stmt
+{'None', 'True', 'id', 'False', 'tk_cadena', 'tk_menos', 'tk_corch_izq', 'tk_numero', 'tk_par_izq'}
+Primeros de regla stmt
+{'None', 'True', 'id', 'False', 'tk_cadena', 'tk_menos', 'tk_corch_izq', 'tk_numero', 'tk_par_izq'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla expr_0o1
+{'None', 'True', 'id', 'False', 'tk_cadena', 'tk_menos', 'not', 'tk_corch_izq', 'tk_numero', 'tk_par_izq'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla id_igual_1oM
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{''}
+Primeros de regla cexpr_pu_1oM
+{'None', 'True', 'id', 'False', 'tk_cadena', 'tk_menos', 'tk_corch_izq', 'tk_numero', 'tk_par_izq'}
+Primeros de regla cexpr_pu_1oM_fc
+{'None', 'True', 'id', 'False', 'tk_cadena', 'tk_menos', 'tk_corch_izq', 'tk_numero', 'tk_par_izq'}
+Primeros de regla cexpr_pu_1oM_fc
+{''}
+Primeros de regla cexpr_pid
+{'id'}
+Primeros de regla cexpr_pid
+{'False', 'tk_cadena', 'None', 'True', 'tk_numero'}
+Primeros de regla cexpr_pid
+{'tk_corch_izq'}
+Primeros de regla cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid
+{'tk_menos'}
+Primeros de regla idfc_cexpr_pid
+{'tk_punto', 'tk_modulo', 'tk_suma', 'tk_menor', 'tk_multiplicacion', 'tk_menos', 'tk_menor_igual', 'tk_mayor_igual', 'tk_igual', 'tk_corch_izq', 'division', 'is', 'tk_mayor', 'tk_diferente'}
+Primeros de regla idfc_cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid_r
+{'tk_modulo', 'tk_suma', 'tk_menor', 'tk_multiplicacion', 'tk_menos', 'tk_menor_igual', 'tk_mayor_igual', 'tk_igual', 'division', 'is', 'tk_mayor', 'tk_diferente'}
+Primeros de regla cexpr_pid_r
+{'tk_punto'}
+Primeros de regla cexpr_pid_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_punto', 'tk_modulo', 'tk_suma', 'tk_menor', 'tk_multiplicacion', 'tk_menos', 'tk_menor_igual', 'tk_mayor_igual', 'tk_igual', 'tk_corch_izq', 'division', 'is', 'tk_mayor', 'tk_diferente'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_par_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{''}
+Primeros de regla cexpr_par_1oM
+{'None', 'True', 'id', 'False', 'tk_cadena', 'tk_menos', 'tk_corch_izq', 'tk_numero', 'tk_par_izq'}
+Primeros de regla cexpr_cor
+{'id'}
+Primeros de regla cexpr_cor
+{'False', 'tk_cadena', 'None', 'True', 'tk_numero'}
+Primeros de regla cexpr_cor
+{'tk_corch_izq'}
+Primeros de regla cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor
+{'tk_menos'}
+Primeros de regla idfc_cexpr_cor
+{'tk_punto', 'tk_modulo', 'tk_suma', 'tk_menor', 'tk_multiplicacion', 'tk_menos', 'tk_menor_igual', 'tk_mayor_igual', 'tk_igual', 'tk_corch_izq', 'division', 'is', 'tk_mayor', 'tk_diferente'}
+Primeros de regla idfc_cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor_r
+{'tk_modulo', 'tk_suma', 'tk_menor', 'tk_multiplicacion', 'tk_menos', 'tk_menor_igual', 'tk_mayor_igual', 'tk_igual', 'division', 'is', 'tk_mayor', 'tk_diferente'}
+Primeros de regla cexpr_cor_r
+{'tk_punto'}
+Primeros de regla cexpr_cor_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_cor_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_cor_r
+{'tk_par_izq'}
+Primeros de regla coexprco_cexpr_cor_r
+{'tk_punto', 'tk_modulo', 'tk_suma', 'tk_menor', 'tk_multiplicacion', 'tk_menos', 'tk_menor_igual', 'tk_mayor_igual', 'tk_igual', 'tk_corch_izq', 'division', 'is', 'tk_mayor', 'tk_diferente'}
+Primeros de regla coexprco_cexpr_cor_r
+{''}
+Primeros de regla cexpr_par_1oM_fc
+{'None', 'True', 'id', 'False', 'tk_cadena', 'tk_menos', 'tk_corch_izq', 'tk_numero', 'tk_par_izq'}
+Primeros de regla cexpr_par_1oM_fc
+{''}
+Primeros de regla else_dosp_block_0o1
+{'else'}
+Primeros de regla else_dosp_block_0o1
+{''}
+Primeros de regla elif_expr_0oM
+{'elif'}
+Primeros de regla elif_expr_0oM
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_1oM
+{'pass', 'None', 'True', 'id', 'False', 'tk_cadena', 'tk_menos', 'not', 'return', 'while', 'for', 'if', 'tk_corch_izq', 'tk_numero', 'tk_par_izq'}
+Primeros de regla stmt_1oM_fc
+{'pass', 'None', 'True', 'id', 'False', 'tk_cadena', 'tk_menos', 'not', 'return', 'while', 'for', 'if', 'tk_corch_izq', 'tk_numero', 'tk_par_izq'}
+Primeros de regla stmt_1oM_fc
+{''}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr
+{'None', 'True', 'id', 'False', 'tk_cadena', 'tk_menos', 'tk_corch_izq', 'tk_numero', 'tk_par_izq'}
+Primeros de regla expr
+{'not'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'False', 'tk_cadena', 'None', 'True', 'tk_numero'}
+Primeros de regla cexpr
+{'tk_corch_izq'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla fc_id_cexpr
+{'tk_punto', '', 'tk_modulo', 'tk_suma', 'tk_menor', 'tk_multiplicacion', 'tk_menos', 'tk_menor_igual', 'tk_mayor_igual', 'tk_igual', 'tk_corch_izq', 'division', 'is', 'tk_mayor', 'tk_diferente'}
+Primeros de regla fc_id_cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr_r
+{'tk_modulo', 'tk_suma', 'tk_menor', 'tk_multiplicacion', 'tk_menos', 'tk_menor_igual', 'tk_mayor_igual', 'tk_igual', 'division', 'is', 'tk_mayor', 'tk_diferente'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_punto', '', 'tk_modulo', 'tk_suma', 'tk_menor', 'tk_multiplicacion', 'tk_menos', 'tk_menor_igual', 'tk_mayor_igual', 'tk_igual', 'tk_corch_izq', 'division', 'is', 'tk_mayor', 'tk_diferente'}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_par_izq'}
+Primeros de regla coma_expr_0oM
+{'tk_coma'}
+Primeros de regla coma_expr_0oM
+{''}
+Primeros de regla expr_coma_expr_0oM_0o1
+{'None', 'True', 'id', 'False', 'tk_cadena', 'tk_menos', 'not', 'tk_corch_izq', 'tk_numero', 'tk_par_izq'}
+Primeros de regla expr_coma_expr_0oM_0o1
+{''}
+Primeros de regla bin_op
+{'tk_suma'}
+Primeros de regla bin_op
+{'tk_menos'}
+Primeros de regla bin_op
+{'tk_multiplicacion'}
+Primeros de regla bin_op
+{'division'}
+Primeros de regla bin_op
+{'tk_modulo'}
+Primeros de regla bin_op
+{'tk_igual'}
+Primeros de regla bin_op
+{'tk_diferente'}
+Primeros de regla bin_op
+{'tk_menor_igual'}
+Primeros de regla bin_op
+{'tk_mayor_igual'}
+Primeros de regla bin_op
+{'tk_menor'}
+Primeros de regla bin_op
+{'tk_mayor'}
+Primeros de regla bin_op
+{'is'}
+Primeros de regla stmt
+{'pass'}
+Primeros de regla stmt
+{'False', 'id', 'None', 'not', 'tk_numero', 'tk_par_izq', 'True', 'tk_cadena', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla stmt
+{'return'}
+Primeros de regla stmt
+{'id'}
+Primeros de regla stmt
+{'False', 'id', 'None', 'tk_numero', 'tk_par_izq', 'True', 'tk_cadena', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla stmt
+{'False', 'id', 'None', 'tk_numero', 'tk_par_izq', 'True', 'tk_cadena', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla expr_0o1
+{'False', 'id', 'None', 'not', 'tk_numero', 'tk_par_izq', 'True', 'tk_cadena', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla id_igual_1oM
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{''}
+Primeros de regla cexpr_pu_1oM
+{'False', 'id', 'None', 'tk_numero', 'tk_par_izq', 'True', 'tk_cadena', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla cexpr_pu_1oM_fc
+{'False', 'id', 'None', 'tk_numero', 'tk_par_izq', 'True', 'tk_cadena', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla cexpr_pu_1oM_fc
+{''}
+Primeros de regla cexpr_pid
+{'id'}
+Primeros de regla cexpr_pid
+{'False', 'tk_numero', 'True', 'tk_cadena', 'None'}
+Primeros de regla cexpr_pid
+{'tk_corch_izq'}
+Primeros de regla cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid
+{'tk_menos'}
+Primeros de regla idfc_cexpr_pid
+{'tk_menor', 'tk_mayor_igual', 'tk_suma', 'is', 'tk_diferente', 'division', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_mayor', 'tk_igual', 'tk_punto', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla idfc_cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid_r
+{'tk_menor', 'tk_mayor_igual', 'tk_suma', 'is', 'tk_diferente', 'division', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_mayor', 'tk_igual', 'tk_menos'}
+Primeros de regla cexpr_pid_r
+{'tk_punto'}
+Primeros de regla cexpr_pid_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_menor', 'tk_mayor_igual', 'tk_suma', 'is', 'tk_diferente', 'division', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_mayor', 'tk_igual', 'tk_punto', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_par_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{''}
+Primeros de regla cexpr_par_1oM
+{'False', 'id', 'None', 'tk_numero', 'tk_par_izq', 'True', 'tk_cadena', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla cexpr_cor
+{'id'}
+Primeros de regla cexpr_cor
+{'False', 'tk_numero', 'True', 'tk_cadena', 'None'}
+Primeros de regla cexpr_cor
+{'tk_corch_izq'}
+Primeros de regla cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor
+{'tk_menos'}
+Primeros de regla idfc_cexpr_cor
+{'tk_menor', 'tk_mayor_igual', 'tk_suma', 'is', 'tk_diferente', 'division', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_mayor', 'tk_igual', 'tk_punto', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla idfc_cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor_r
+{'tk_menor', 'tk_mayor_igual', 'tk_suma', 'is', 'tk_diferente', 'division', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_mayor', 'tk_igual', 'tk_menos'}
+Primeros de regla cexpr_cor_r
+{'tk_punto'}
+Primeros de regla cexpr_cor_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_cor_r
+{'', 'tk_menor', 'tk_mayor_igual', 'tk_suma', 'is', 'tk_diferente', 'division', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_mayor', 'tk_igual', 'tk_punto', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_cor_r
+{'tk_par_izq'}
+Primeros de regla coexprco_cexpr_cor_r
+{'tk_menor', 'tk_mayor_igual', 'tk_suma', 'is', 'tk_diferente', 'division', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_mayor', 'tk_igual', 'tk_punto', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla coexprco_cexpr_cor_r
+{''}
+Primeros de regla cexpr_par_1oM_fc
+{'False', 'id', 'None', 'tk_numero', 'tk_par_izq', 'True', 'tk_cadena', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla cexpr_par_1oM_fc
+{''}
+Primeros de regla else_dosp_block_0o1
+{'else'}
+Primeros de regla else_dosp_block_0o1
+{''}
+Primeros de regla elif_expr_0oM
+{'elif'}
+Primeros de regla elif_expr_0oM
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_1oM
+{'return', 'False', 'while', 'for', 'pass', 'if', 'id', 'None', 'not', 'tk_numero', 'tk_par_izq', 'True', 'tk_cadena', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla stmt_1oM_fc
+{'return', 'False', 'while', 'for', 'pass', 'if', 'id', 'None', 'not', 'tk_numero', 'tk_par_izq', 'True', 'tk_cadena', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla stmt_1oM_fc
+{''}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr
+{'False', 'id', 'None', 'tk_numero', 'tk_par_izq', 'True', 'tk_cadena', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla expr
+{'not'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'False', 'tk_numero', 'True', 'tk_cadena', 'None'}
+Primeros de regla cexpr
+{'tk_corch_izq'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla fc_id_cexpr
+{'', 'tk_menor', 'tk_mayor_igual', 'tk_suma', 'is', 'tk_diferente', 'division', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_mayor', 'tk_igual', 'tk_punto', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla fc_id_cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr_r
+{'tk_menor', 'tk_mayor_igual', 'tk_suma', 'is', 'tk_diferente', 'division', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_mayor', 'tk_igual', 'tk_menos'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla fc_dotid_cexpr_r
+{'', 'tk_menor', 'tk_mayor_igual', 'tk_suma', 'is', 'tk_diferente', 'division', 'tk_multiplicacion', 'tk_modulo', 'tk_menor_igual', 'tk_mayor', 'tk_igual', 'tk_punto', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_par_izq'}
+Primeros de regla coma_expr_0oM
+{'tk_coma'}
+Primeros de regla coma_expr_0oM
+{''}
+Primeros de regla expr_coma_expr_0oM_0o1
+{'False', 'id', 'None', 'not', 'tk_numero', 'tk_par_izq', 'True', 'tk_cadena', 'tk_menos', 'tk_corch_izq'}
+Primeros de regla expr_coma_expr_0oM_0o1
+{''}
+Primeros de regla bin_op
+{'tk_suma'}
+Primeros de regla bin_op
+{'tk_menos'}
+Primeros de regla bin_op
+{'tk_multiplicacion'}
+Primeros de regla bin_op
+{'division'}
+Primeros de regla bin_op
+{'tk_modulo'}
+Primeros de regla bin_op
+{'tk_igual'}
+Primeros de regla bin_op
+{'tk_diferente'}
+Primeros de regla bin_op
+{'tk_menor_igual'}
+Primeros de regla bin_op
+{'tk_mayor_igual'}
+Primeros de regla bin_op
+{'tk_menor'}
+Primeros de regla bin_op
+{'tk_mayor'}
+Primeros de regla bin_op
+{'is'}
+Primeros de regla stmt
+{'pass'}
+Primeros de regla stmt
+{'tk_cadena', 'tk_menos', 'True', 'tk_par_izq', 'False', 'id', 'tk_numero', 'None', 'not', 'tk_corch_izq'}
+Primeros de regla stmt
+{'return'}
+Primeros de regla stmt
+{'id'}
+Primeros de regla stmt
+{'tk_cadena', 'tk_menos', 'True', 'tk_par_izq', 'False', 'id', 'tk_numero', 'None', 'tk_corch_izq'}
+Primeros de regla stmt
+{'tk_cadena', 'tk_menos', 'True', 'tk_par_izq', 'False', 'id', 'tk_numero', 'None', 'tk_corch_izq'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla expr_0o1
+{'tk_cadena', 'tk_menos', 'True', 'tk_par_izq', 'False', 'id', 'tk_numero', 'None', 'not', 'tk_corch_izq'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla id_igual_1oM
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{''}
+Primeros de regla cexpr_pu_1oM
+{'tk_cadena', 'tk_menos', 'True', 'tk_par_izq', 'False', 'id', 'tk_numero', 'None', 'tk_corch_izq'}
+Primeros de regla cexpr_pu_1oM_fc
+{'tk_cadena', 'tk_menos', 'True', 'tk_par_izq', 'False', 'id', 'tk_numero', 'None', 'tk_corch_izq'}
+Primeros de regla cexpr_pu_1oM_fc
+{''}
+Primeros de regla cexpr_pid
+{'id'}
+Primeros de regla cexpr_pid
+{'tk_cadena', 'tk_numero', 'None', 'True', 'False'}
+Primeros de regla cexpr_pid
+{'tk_corch_izq'}
+Primeros de regla cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid
+{'tk_menos'}
+Primeros de regla idfc_cexpr_pid
+{'tk_multiplicacion', 'tk_mayor', 'tk_menos', 'tk_punto', 'tk_igual', 'tk_suma', 'tk_corch_izq', 'tk_modulo', 'tk_mayor_igual', 'tk_menor_igual', 'tk_diferente', 'is', 'division', 'tk_menor'}
+Primeros de regla idfc_cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid_r
+{'tk_multiplicacion', 'tk_mayor', 'tk_menos', 'tk_igual', 'tk_suma', 'tk_modulo', 'tk_mayor_igual', 'tk_menor_igual', 'tk_diferente', 'is', 'division', 'tk_menor'}
+Primeros de regla cexpr_pid_r
+{'tk_punto'}
+Primeros de regla cexpr_pid_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_multiplicacion', 'tk_mayor', 'tk_menos', 'tk_punto', 'tk_igual', 'tk_suma', 'tk_corch_izq', 'tk_modulo', 'tk_mayor_igual', 'tk_menor_igual', 'tk_diferente', 'is', 'division', 'tk_menor'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_par_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{''}
+Primeros de regla cexpr_par_1oM
+{'tk_cadena', 'tk_menos', 'True', 'tk_par_izq', 'False', 'id', 'tk_numero', 'None', 'tk_corch_izq'}
+Primeros de regla cexpr_cor
+{'id'}
+Primeros de regla cexpr_cor
+{'tk_cadena', 'tk_numero', 'None', 'True', 'False'}
+Primeros de regla cexpr_cor
+{'tk_corch_izq'}
+Primeros de regla cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor
+{'tk_menos'}
+Primeros de regla idfc_cexpr_cor
+{'tk_multiplicacion', 'tk_mayor', 'tk_menos', 'tk_punto', 'tk_igual', 'tk_suma', 'tk_corch_izq', 'tk_modulo', 'tk_mayor_igual', 'tk_menor_igual', 'tk_diferente', 'is', 'division', 'tk_menor'}
+Primeros de regla idfc_cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor_r
+{'tk_multiplicacion', 'tk_mayor', 'tk_menos', 'tk_igual', 'tk_suma', 'tk_modulo', 'tk_mayor_igual', 'tk_menor_igual', 'tk_diferente', 'is', 'division', 'tk_menor'}
+Primeros de regla cexpr_cor_r
+{'tk_punto'}
+Primeros de regla cexpr_cor_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_cor_r
+{'', 'tk_multiplicacion', 'tk_mayor', 'tk_menos', 'tk_punto', 'tk_igual', 'tk_suma', 'tk_corch_izq', 'tk_modulo', 'tk_mayor_igual', 'tk_menor_igual', 'tk_diferente', 'is', 'division', 'tk_menor'}
+Primeros de regla pidfc_cexpr_cor_r
+{'tk_par_izq'}
+Primeros de regla coexprco_cexpr_cor_r
+{'tk_multiplicacion', 'tk_mayor', 'tk_menos', 'tk_punto', 'tk_igual', 'tk_suma', 'tk_corch_izq', 'tk_modulo', 'tk_mayor_igual', 'tk_menor_igual', 'tk_diferente', 'is', 'division', 'tk_menor'}
+Primeros de regla coexprco_cexpr_cor_r
+{''}
+Primeros de regla cexpr_par_1oM_fc
+{'tk_cadena', 'tk_menos', 'True', 'tk_par_izq', 'False', 'id', 'tk_numero', 'None', 'tk_corch_izq'}
+Primeros de regla cexpr_par_1oM_fc
+{''}
+Primeros de regla else_dosp_block_0o1
+{'else'}
+Primeros de regla else_dosp_block_0o1
+{''}
+Primeros de regla elif_expr_0oM
+{'elif'}
+Primeros de regla elif_expr_0oM
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_1oM
+{'if', 'tk_cadena', 'while', 'tk_menos', 'for', 'tk_par_izq', 'False', 'tk_corch_izq', 'pass', 'id', 'return', 'tk_numero', 'None', 'not', 'True'}
+Primeros de regla stmt_1oM_fc
+{'if', 'tk_cadena', 'while', 'tk_menos', 'for', 'tk_par_izq', 'False', 'tk_corch_izq', 'pass', 'id', 'return', 'tk_numero', 'None', 'not', 'True'}
+Primeros de regla stmt_1oM_fc
+{''}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr
+{'tk_cadena', 'tk_menos', 'True', 'tk_par_izq', 'False', 'id', 'tk_numero', 'None', 'tk_corch_izq'}
+Primeros de regla expr
+{'not'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'tk_cadena', 'tk_numero', 'None', 'True', 'False'}
+Primeros de regla cexpr
+{'tk_corch_izq'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla fc_id_cexpr
+{'', 'tk_multiplicacion', 'tk_mayor', 'tk_menos', 'tk_punto', 'tk_igual', 'tk_suma', 'tk_corch_izq', 'tk_modulo', 'tk_mayor_igual', 'tk_menor_igual', 'tk_diferente', 'is', 'division', 'tk_menor'}
+Primeros de regla fc_id_cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr_r
+{'tk_multiplicacion', 'tk_mayor', 'tk_menos', 'tk_igual', 'tk_suma', 'tk_modulo', 'tk_mayor_igual', 'tk_menor_igual', 'tk_diferente', 'is', 'division', 'tk_menor'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla fc_dotid_cexpr_r
+{'', 'tk_multiplicacion', 'tk_mayor', 'tk_menos', 'tk_punto', 'tk_igual', 'tk_suma', 'tk_corch_izq', 'tk_modulo', 'tk_mayor_igual', 'tk_menor_igual', 'tk_diferente', 'is', 'division', 'tk_menor'}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_par_izq'}
+Primeros de regla coma_expr_0oM
+{'tk_coma'}
+Primeros de regla coma_expr_0oM
+{''}
+Primeros de regla expr_coma_expr_0oM_0o1
+{'tk_cadena', 'tk_menos', 'True', 'tk_par_izq', 'False', 'id', 'tk_numero', 'None', 'not', 'tk_corch_izq'}
+Primeros de regla expr_coma_expr_0oM_0o1
+{''}
+Primeros de regla bin_op
+{'tk_suma'}
+Primeros de regla bin_op
+{'tk_menos'}
+Primeros de regla bin_op
+{'tk_multiplicacion'}
+Primeros de regla bin_op
+{'division'}
+Primeros de regla bin_op
+{'tk_modulo'}
+Primeros de regla bin_op
+{'tk_igual'}
+Primeros de regla bin_op
+{'tk_diferente'}
+Primeros de regla bin_op
+{'tk_menor_igual'}
+Primeros de regla bin_op
+{'tk_mayor_igual'}
+Primeros de regla bin_op
+{'tk_menor'}
+Primeros de regla bin_op
+{'tk_mayor'}
+Primeros de regla bin_op
+{'is'}
+Primeros de regla stmt
+{'pass'}
+Primeros de regla stmt
+{'False', 'tk_numero', 'tk_menos', 'None', 'True', 'tk_par_izq', 'tk_cadena', 'not', 'id', 'tk_corch_izq'}
+Primeros de regla stmt
+{'return'}
+Primeros de regla stmt
+{'id'}
+Primeros de regla stmt
+{'False', 'tk_numero', 'tk_menos', 'None', 'True', 'tk_par_izq', 'tk_cadena', 'id', 'tk_corch_izq'}
+Primeros de regla stmt
+{'False', 'tk_numero', 'tk_menos', 'None', 'True', 'tk_par_izq', 'tk_cadena', 'id', 'tk_corch_izq'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla expr_0o1
+{'False', 'tk_numero', 'tk_menos', 'None', 'True', 'tk_par_izq', 'tk_cadena', 'not', 'id', 'tk_corch_izq'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla id_igual_1oM
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{''}
+Primeros de regla cexpr_pu_1oM
+{'False', 'tk_numero', 'tk_menos', 'None', 'True', 'tk_par_izq', 'tk_cadena', 'id', 'tk_corch_izq'}
+Primeros de regla cexpr_pu_1oM_fc
+{'False', 'tk_numero', 'tk_menos', 'None', 'True', 'tk_par_izq', 'tk_cadena', 'id', 'tk_corch_izq'}
+Primeros de regla cexpr_pu_1oM_fc
+{''}
+Primeros de regla cexpr_pid
+{'id'}
+Primeros de regla cexpr_pid
+{'False', 'tk_numero', 'tk_cadena', 'None', 'True'}
+Primeros de regla cexpr_pid
+{'tk_corch_izq'}
+Primeros de regla cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid
+{'tk_menos'}
+Primeros de regla idfc_cexpr_pid
+{'tk_menor_igual', 'tk_menos', 'is', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_suma', 'tk_punto', 'tk_diferente', 'tk_mayor', 'tk_corch_izq', 'tk_modulo', 'division', 'tk_menor', 'tk_igual'}
+Primeros de regla idfc_cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid_r
+{'tk_menor_igual', 'tk_menos', 'is', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_suma', 'tk_diferente', 'tk_mayor', 'tk_modulo', 'division', 'tk_menor', 'tk_igual'}
+Primeros de regla cexpr_pid_r
+{'tk_punto'}
+Primeros de regla cexpr_pid_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_menor_igual', 'tk_menos', 'is', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_suma', 'tk_punto', 'tk_diferente', 'tk_mayor', 'tk_corch_izq', 'tk_modulo', 'division', 'tk_menor', 'tk_igual'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_par_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{''}
+Primeros de regla cexpr_par_1oM
+{'False', 'tk_numero', 'tk_menos', 'None', 'True', 'tk_par_izq', 'tk_cadena', 'id', 'tk_corch_izq'}
+Primeros de regla cexpr_cor
+{'id'}
+Primeros de regla cexpr_cor
+{'False', 'tk_numero', 'tk_cadena', 'None', 'True'}
+Primeros de regla cexpr_cor
+{'tk_corch_izq'}
+Primeros de regla cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor
+{'tk_menos'}
+Primeros de regla idfc_cexpr_cor
+{'tk_menor_igual', 'tk_menos', 'is', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_suma', 'tk_punto', 'tk_diferente', 'tk_mayor', 'tk_corch_izq', 'tk_modulo', 'division', 'tk_menor', 'tk_igual'}
+Primeros de regla idfc_cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor_r
+{'tk_menor_igual', 'tk_menos', 'is', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_suma', 'tk_diferente', 'tk_mayor', 'tk_modulo', 'division', 'tk_menor', 'tk_igual'}
+Primeros de regla cexpr_cor_r
+{'tk_punto'}
+Primeros de regla cexpr_cor_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_cor_r
+{'', 'tk_menor_igual', 'tk_menos', 'is', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_suma', 'tk_punto', 'tk_diferente', 'tk_mayor', 'tk_corch_izq', 'tk_modulo', 'division', 'tk_menor', 'tk_igual'}
+Primeros de regla pidfc_cexpr_cor_r
+{'tk_par_izq'}
+Primeros de regla coexprco_cexpr_cor_r
+{'tk_menor_igual', 'tk_menos', 'is', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_suma', 'tk_punto', 'tk_diferente', 'tk_mayor', 'tk_corch_izq', 'tk_modulo', 'division', 'tk_menor', 'tk_igual'}
+Primeros de regla coexprco_cexpr_cor_r
+{''}
+Primeros de regla cexpr_par_1oM_fc
+{'False', 'tk_numero', 'tk_menos', 'None', 'True', 'tk_par_izq', 'tk_cadena', 'id', 'tk_corch_izq'}
+Primeros de regla cexpr_par_1oM_fc
+{''}
+Primeros de regla else_dosp_block_0o1
+{'else'}
+Primeros de regla else_dosp_block_0o1
+{''}
+Primeros de regla elif_expr_0oM
+{'elif'}
+Primeros de regla elif_expr_0oM
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_1oM
+{'False', 'tk_numero', 'tk_menos', 'for', 'while', 'None', 'True', 'pass', 'tk_par_izq', 'tk_cadena', 'not', 'id', 'tk_corch_izq', 'if', 'return'}
+Primeros de regla stmt_1oM_fc
+{'False', 'tk_numero', 'tk_menos', 'for', 'while', 'None', 'True', 'pass', 'tk_par_izq', 'tk_cadena', 'not', 'id', 'tk_corch_izq', 'if', 'return'}
+Primeros de regla stmt_1oM_fc
+{''}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr
+{'False', 'tk_numero', 'tk_menos', 'None', 'True', 'tk_par_izq', 'tk_cadena', 'id', 'tk_corch_izq'}
+Primeros de regla expr
+{'not'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'False', 'tk_numero', 'tk_cadena', 'None', 'True'}
+Primeros de regla cexpr
+{'tk_corch_izq'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla fc_id_cexpr
+{'', 'tk_menor_igual', 'tk_menos', 'is', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_suma', 'tk_punto', 'tk_diferente', 'tk_mayor', 'tk_corch_izq', 'tk_modulo', 'division', 'tk_menor', 'tk_igual'}
+Primeros de regla fc_id_cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr_r
+{'tk_menor_igual', 'tk_menos', 'is', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_suma', 'tk_diferente', 'tk_mayor', 'tk_modulo', 'division', 'tk_menor', 'tk_igual'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla fc_dotid_cexpr_r
+{'', 'tk_menor_igual', 'tk_menos', 'is', 'tk_mayor_igual', 'tk_multiplicacion', 'tk_suma', 'tk_punto', 'tk_diferente', 'tk_mayor', 'tk_corch_izq', 'tk_modulo', 'division', 'tk_menor', 'tk_igual'}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_par_izq'}
+Primeros de regla coma_expr_0oM
+{'tk_coma'}
+Primeros de regla coma_expr_0oM
+{''}
+Primeros de regla expr_coma_expr_0oM_0o1
+{'False', 'tk_numero', 'tk_menos', 'None', 'True', 'tk_par_izq', 'tk_cadena', 'not', 'id', 'tk_corch_izq'}
+Primeros de regla expr_coma_expr_0oM_0o1
+{''}
+Primeros de regla bin_op
+{'tk_suma'}
+Primeros de regla bin_op
+{'tk_menos'}
+Primeros de regla bin_op
+{'tk_multiplicacion'}
+Primeros de regla bin_op
+{'division'}
+Primeros de regla bin_op
+{'tk_modulo'}
+Primeros de regla bin_op
+{'tk_igual'}
+Primeros de regla bin_op
+{'tk_diferente'}
+Primeros de regla bin_op
+{'tk_menor_igual'}
+Primeros de regla bin_op
+{'tk_mayor_igual'}
+Primeros de regla bin_op
+{'tk_menor'}
+Primeros de regla bin_op
+{'tk_mayor'}
+Primeros de regla bin_op
+{'is'}
+Primeros de regla stmt
+{'pass'}
+Primeros de regla stmt
+{'tk_cadena', 'tk_numero', 'tk_corch_izq', 'not', 'id', 'tk_par_izq', 'tk_menos', 'True', 'False', 'None'}
+Primeros de regla stmt
+{'return'}
+Primeros de regla stmt
+{'id'}
+Primeros de regla stmt
+{'tk_cadena', 'tk_numero', 'tk_corch_izq', 'id', 'tk_par_izq', 'tk_menos', 'True', 'False', 'None'}
+Primeros de regla stmt
+{'tk_cadena', 'tk_numero', 'tk_corch_izq', 'id', 'tk_par_izq', 'tk_menos', 'True', 'False', 'None'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla expr_0o1
+{'tk_cadena', 'tk_numero', 'tk_corch_izq', 'not', 'id', 'tk_par_izq', 'tk_menos', 'True', 'False', 'None'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla id_igual_1oM
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{''}
+Primeros de regla cexpr_pu_1oM
+{'tk_cadena', 'tk_numero', 'tk_corch_izq', 'id', 'tk_par_izq', 'tk_menos', 'True', 'False', 'None'}
+Primeros de regla cexpr_pu_1oM_fc
+{'tk_cadena', 'tk_numero', 'tk_corch_izq', 'id', 'tk_par_izq', 'tk_menos', 'True', 'False', 'None'}
+Primeros de regla cexpr_pu_1oM_fc
+{''}
+Primeros de regla cexpr_pid
+{'id'}
+Primeros de regla cexpr_pid
+{'tk_cadena', 'tk_numero', 'True', 'False', 'None'}
+Primeros de regla cexpr_pid
+{'tk_corch_izq'}
+Primeros de regla cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid
+{'tk_menos'}
+Primeros de regla idfc_cexpr_pid
+{'is', 'tk_corch_izq', 'tk_suma', 'tk_diferente', 'tk_mayor', 'tk_mayor_igual', 'tk_punto', 'tk_menos', 'tk_igual', 'tk_modulo', 'tk_multiplicacion', 'tk_menor', 'division', 'tk_menor_igual'}
+Primeros de regla idfc_cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid_r
+{'is', 'tk_suma', 'tk_diferente', 'tk_mayor', 'tk_mayor_igual', 'tk_menos', 'tk_igual', 'tk_modulo', 'tk_multiplicacion', 'tk_menor', 'division', 'tk_menor_igual'}
+Primeros de regla cexpr_pid_r
+{'tk_punto'}
+Primeros de regla cexpr_pid_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{'is', 'tk_corch_izq', 'tk_suma', 'tk_diferente', 'tk_mayor', 'tk_mayor_igual', 'tk_punto', 'tk_menos', 'tk_igual', 'tk_modulo', 'tk_multiplicacion', 'tk_menor', 'division', 'tk_menor_igual'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_par_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{''}
+Primeros de regla cexpr_par_1oM
+{'tk_cadena', 'tk_numero', 'tk_corch_izq', 'id', 'tk_par_izq', 'tk_menos', 'True', 'False', 'None'}
+Primeros de regla cexpr_cor
+{'id'}
+Primeros de regla cexpr_cor
+{'tk_cadena', 'tk_numero', 'True', 'False', 'None'}
+Primeros de regla cexpr_cor
+{'tk_corch_izq'}
+Primeros de regla cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor
+{'tk_menos'}
+Primeros de regla idfc_cexpr_cor
+{'is', 'tk_corch_izq', 'tk_suma', 'tk_diferente', 'tk_mayor', 'tk_mayor_igual', 'tk_punto', 'tk_menos', 'tk_igual', 'tk_modulo', 'tk_multiplicacion', 'tk_menor', 'division', 'tk_menor_igual'}
+Primeros de regla idfc_cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor_r
+{'is', 'tk_suma', 'tk_diferente', 'tk_mayor', 'tk_mayor_igual', 'tk_menos', 'tk_igual', 'tk_modulo', 'tk_multiplicacion', 'tk_menor', 'division', 'tk_menor_igual'}
+Primeros de regla cexpr_cor_r
+{'tk_punto'}
+Primeros de regla cexpr_cor_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_cor_r
+{'', 'is', 'tk_corch_izq', 'tk_suma', 'tk_diferente', 'tk_mayor', 'tk_mayor_igual', 'tk_punto', 'tk_menos', 'tk_igual', 'tk_modulo', 'tk_multiplicacion', 'tk_menor', 'division', 'tk_menor_igual'}
+Primeros de regla pidfc_cexpr_cor_r
+{'tk_par_izq'}
+Primeros de regla coexprco_cexpr_cor_r
+{'is', 'tk_corch_izq', 'tk_suma', 'tk_diferente', 'tk_mayor', 'tk_mayor_igual', 'tk_punto', 'tk_menos', 'tk_igual', 'tk_modulo', 'tk_multiplicacion', 'tk_menor', 'division', 'tk_menor_igual'}
+Primeros de regla coexprco_cexpr_cor_r
+{''}
+Primeros de regla cexpr_par_1oM_fc
+{'tk_cadena', 'tk_numero', 'tk_corch_izq', 'id', 'tk_par_izq', 'tk_menos', 'True', 'False', 'None'}
+Primeros de regla cexpr_par_1oM_fc
+{''}
+Primeros de regla else_dosp_block_0o1
+{'else'}
+Primeros de regla else_dosp_block_0o1
+{''}
+Primeros de regla elif_expr_0oM
+{'elif'}
+Primeros de regla elif_expr_0oM
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_1oM
+{'tk_cadena', 'tk_numero', 'tk_corch_izq', 'for', 'not', 'if', 'while', 'id', 'tk_par_izq', 'tk_menos', 'return', 'pass', 'True', 'False', 'None'}
+Primeros de regla stmt_1oM_fc
+{'tk_cadena', 'tk_numero', 'tk_corch_izq', 'for', 'not', 'if', 'while', 'id', 'tk_par_izq', 'tk_menos', 'return', 'pass', 'True', 'False', 'None'}
+Primeros de regla stmt_1oM_fc
+{''}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr
+{'tk_cadena', 'tk_numero', 'tk_corch_izq', 'id', 'tk_par_izq', 'tk_menos', 'True', 'False', 'None'}
+Primeros de regla expr
+{'not'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'tk_cadena', 'tk_numero', 'True', 'False', 'None'}
+Primeros de regla cexpr
+{'tk_corch_izq'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla fc_id_cexpr
+{'', 'is', 'tk_corch_izq', 'tk_suma', 'tk_diferente', 'tk_mayor', 'tk_mayor_igual', 'tk_punto', 'tk_menos', 'tk_igual', 'tk_modulo', 'tk_multiplicacion', 'tk_menor', 'division', 'tk_menor_igual'}
+Primeros de regla fc_id_cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr_r
+{'is', 'tk_suma', 'tk_diferente', 'tk_mayor', 'tk_mayor_igual', 'tk_menos', 'tk_igual', 'tk_modulo', 'tk_multiplicacion', 'tk_menor', 'division', 'tk_menor_igual'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla fc_dotid_cexpr_r
+{'', 'is', 'tk_corch_izq', 'tk_suma', 'tk_diferente', 'tk_mayor', 'tk_mayor_igual', 'tk_punto', 'tk_menos', 'tk_igual', 'tk_modulo', 'tk_multiplicacion', 'tk_menor', 'division', 'tk_menor_igual'}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_par_izq'}
+Primeros de regla coma_expr_0oM
+{'tk_coma'}
+Primeros de regla coma_expr_0oM
+{''}
+Primeros de regla expr_coma_expr_0oM_0o1
+{'tk_cadena', 'tk_numero', 'tk_corch_izq', 'not', 'id', 'tk_par_izq', 'tk_menos', 'True', 'False', 'None'}
+Primeros de regla expr_coma_expr_0oM_0o1
+{''}
+Primeros de regla bin_op
+{'tk_suma'}
+Primeros de regla bin_op
+{'tk_menos'}
+Primeros de regla bin_op
+{'tk_multiplicacion'}
+Primeros de regla bin_op
+{'division'}
+Primeros de regla bin_op
+{'tk_modulo'}
+Primeros de regla bin_op
+{'tk_igual'}
+Primeros de regla bin_op
+{'tk_diferente'}
+Primeros de regla bin_op
+{'tk_menor_igual'}
+Primeros de regla bin_op
+{'tk_mayor_igual'}
+Primeros de regla bin_op
+{'tk_menor'}
+Primeros de regla bin_op
+{'tk_mayor'}
+Primeros de regla bin_op
+{'is'}
+Primeros de regla stmt
+{'pass'}
+Primeros de regla stmt
+{'False', 'True', 'tk_numero', 'tk_corch_izq', 'None', 'id', 'not', 'tk_par_izq', 'tk_menos', 'tk_cadena'}
+Primeros de regla stmt
+{'return'}
+Primeros de regla stmt
+{'id'}
+Primeros de regla stmt
+{'False', 'True', 'tk_numero', 'tk_corch_izq', 'None', 'id', 'tk_par_izq', 'tk_menos', 'tk_cadena'}
+Primeros de regla stmt
+{'False', 'True', 'tk_numero', 'tk_corch_izq', 'None', 'id', 'tk_par_izq', 'tk_menos', 'tk_cadena'}
+Primeros de regla stmt
+{'if'}
+Primeros de regla stmt
+{'while'}
+Primeros de regla stmt
+{'for'}
+Primeros de regla expr_0o1
+{'False', 'True', 'tk_numero', 'tk_corch_izq', 'None', 'id', 'not', 'tk_par_izq', 'tk_menos', 'tk_cadena'}
+Primeros de regla expr_0o1
+{''}
+Primeros de regla id_igual_1oM
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{'id'}
+Primeros de regla id_igual_1oM_fc
+{''}
+Primeros de regla cexpr_pu_1oM
+{'False', 'True', 'tk_numero', 'tk_corch_izq', 'None', 'id', 'tk_par_izq', 'tk_menos', 'tk_cadena'}
+Primeros de regla cexpr_pu_1oM_fc
+{'False', 'True', 'tk_numero', 'tk_corch_izq', 'None', 'id', 'tk_par_izq', 'tk_menos', 'tk_cadena'}
+Primeros de regla cexpr_pu_1oM_fc
+{''}
+Primeros de regla cexpr_pid
+{'id'}
+Primeros de regla cexpr_pid
+{'None', 'False', 'True', 'tk_numero', 'tk_cadena'}
+Primeros de regla cexpr_pid
+{'tk_corch_izq'}
+Primeros de regla cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid
+{'tk_menos'}
+Primeros de regla idfc_cexpr_pid
+{'is', 'tk_modulo', 'tk_corch_izq', 'tk_multiplicacion', 'tk_diferente', 'tk_menor', 'tk_punto', 'tk_mayor_igual', 'division', 'tk_menos', 'tk_menor_igual', 'tk_suma', 'tk_igual', 'tk_mayor'}
+Primeros de regla idfc_cexpr_pid
+{'tk_par_izq'}
+Primeros de regla cexpr_pid_r
+{'is', 'tk_modulo', 'tk_multiplicacion', 'tk_diferente', 'tk_menor', 'tk_mayor_igual', 'division', 'tk_menos', 'tk_menor_igual', 'tk_suma', 'tk_igual', 'tk_mayor'}
+Primeros de regla cexpr_pid_r
+{'tk_punto'}
+Primeros de regla cexpr_pid_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{'is', 'tk_modulo', 'tk_corch_izq', 'tk_multiplicacion', 'tk_diferente', 'tk_menor', 'tk_punto', 'tk_mayor_igual', 'division', 'tk_menos', 'tk_menor_igual', 'tk_suma', 'tk_igual', 'tk_mayor'}
+Primeros de regla pidfc_cexpr_pid_r
+{'tk_par_izq'}
+Primeros de regla pidfc_cexpr_pid_r
+{''}
+Primeros de regla cexpr_par_1oM
+{'False', 'True', 'tk_numero', 'tk_corch_izq', 'None', 'id', 'tk_par_izq', 'tk_menos', 'tk_cadena'}
+Primeros de regla cexpr_cor
+{'id'}
+Primeros de regla cexpr_cor
+{'None', 'False', 'True', 'tk_numero', 'tk_cadena'}
+Primeros de regla cexpr_cor
+{'tk_corch_izq'}
+Primeros de regla cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor
+{'tk_menos'}
+Primeros de regla idfc_cexpr_cor
+{'is', 'tk_modulo', 'tk_corch_izq', 'tk_multiplicacion', 'tk_diferente', 'tk_menor', 'tk_punto', 'tk_mayor_igual', 'division', 'tk_menos', 'tk_menor_igual', 'tk_suma', 'tk_igual', 'tk_mayor'}
+Primeros de regla idfc_cexpr_cor
+{'tk_par_izq'}
+Primeros de regla cexpr_cor_r
+{'is', 'tk_modulo', 'tk_multiplicacion', 'tk_diferente', 'tk_menor', 'tk_mayor_igual', 'division', 'tk_menos', 'tk_menor_igual', 'tk_suma', 'tk_igual', 'tk_mayor'}
+Primeros de regla cexpr_cor_r
+{'tk_punto'}
+Primeros de regla cexpr_cor_r
+{'tk_corch_izq'}
+Primeros de regla pidfc_cexpr_cor_r
+{'', 'is', 'tk_modulo', 'tk_corch_izq', 'tk_multiplicacion', 'tk_diferente', 'tk_menor', 'tk_punto', 'tk_mayor_igual', 'division', 'tk_menos', 'tk_menor_igual', 'tk_suma', 'tk_igual', 'tk_mayor'}
+Primeros de regla pidfc_cexpr_cor_r
+{'tk_par_izq'}
+Primeros de regla coexprco_cexpr_cor_r
+{'is', 'tk_modulo', 'tk_corch_izq', 'tk_multiplicacion', 'tk_diferente', 'tk_menor', 'tk_punto', 'tk_mayor_igual', 'division', 'tk_menos', 'tk_menor_igual', 'tk_suma', 'tk_igual', 'tk_mayor'}
+Primeros de regla coexprco_cexpr_cor_r
+{''}
+Primeros de regla cexpr_par_1oM_fc
+{'False', 'True', 'tk_numero', 'tk_corch_izq', 'None', 'id', 'tk_par_izq', 'tk_menos', 'tk_cadena'}
+Primeros de regla cexpr_par_1oM_fc
+{''}
+Primeros de regla else_dosp_block_0o1
+{'else'}
+Primeros de regla else_dosp_block_0o1
+{''}
+Primeros de regla elif_expr_0oM
+{'elif'}
+Primeros de regla elif_expr_0oM
+{''}
+Primeros de regla block
+{'NEWLINE'}
+Primeros de regla stmt_1oM
+{'False', 'True', 'tk_numero', 'pass', 'tk_corch_izq', 'while', 'None', 'id', 'not', 'return', 'tk_par_izq', 'for', 'tk_menos', 'tk_cadena', 'if'}
+Primeros de regla stmt_1oM_fc
+{'False', 'True', 'tk_numero', 'pass', 'tk_corch_izq', 'while', 'None', 'id', 'not', 'return', 'tk_par_izq', 'for', 'tk_menos', 'tk_cadena', 'if'}
+Primeros de regla stmt_1oM_fc
+{''}
+Primeros de regla literal
+{'None'}
+Primeros de regla literal
+{'True'}
+Primeros de regla literal
+{'False'}
+Primeros de regla literal
+{'tk_numero'}
+Primeros de regla literal
+{'tk_cadena'}
+Primeros de regla expr
+{'False', 'True', 'tk_numero', 'tk_corch_izq', 'None', 'id', 'tk_par_izq', 'tk_menos', 'tk_cadena'}
+Primeros de regla expr
+{'not'}
+Primeros de regla expr_r
+{'and'}
+Primeros de regla expr_r
+{'or'}
+Primeros de regla expr_r
+{'if'}
+Primeros de regla expr_r
+{''}
+Primeros de regla cexpr
+{'id'}
+Primeros de regla cexpr
+{'None', 'False', 'True', 'tk_numero', 'tk_cadena'}
+Primeros de regla cexpr
+{'tk_corch_izq'}
+Primeros de regla cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr
+{'tk_menos'}
+Primeros de regla fc_id_cexpr
+{'', 'is', 'tk_modulo', 'tk_corch_izq', 'tk_multiplicacion', 'tk_diferente', 'tk_menor', 'tk_punto', 'tk_mayor_igual', 'division', 'tk_menos', 'tk_menor_igual', 'tk_suma', 'tk_igual', 'tk_mayor'}
+Primeros de regla fc_id_cexpr
+{'tk_par_izq'}
+Primeros de regla cexpr_r
+{'is', 'tk_modulo', 'tk_multiplicacion', 'tk_diferente', 'tk_menor', 'tk_mayor_igual', 'division', 'tk_menos', 'tk_menor_igual', 'tk_suma', 'tk_igual', 'tk_mayor'}
+Primeros de regla cexpr_r
+{'tk_punto'}
+Primeros de regla cexpr_r
+{'tk_corch_izq'}
+Primeros de regla cexpr_r
+{''}
+Primeros de regla fc_dotid_cexpr_r
+{'', 'is', 'tk_modulo', 'tk_corch_izq', 'tk_multiplicacion', 'tk_diferente', 'tk_menor', 'tk_punto', 'tk_mayor_igual', 'division', 'tk_menos', 'tk_menor_igual', 'tk_suma', 'tk_igual', 'tk_mayor'}
+Primeros de regla fc_dotid_cexpr_r
+{'tk_par_izq'}
+Primeros de regla coma_expr_0oM
+{'tk_coma'}
+Primeros de regla coma_expr_0oM
+{''}
+Primeros de regla expr_coma_expr_0oM_0o1
+{'False', 'True', 'tk_numero', 'tk_corch_izq', 'None', 'id', 'not', 'tk_par_izq', 'tk_menos', 'tk_cadena'}
+Primeros de regla expr_coma_expr_0oM_0o1
+{''}
+Primeros de regla bin_op
+{'tk_suma'}
+Primeros de regla bin_op
+{'tk_menos'}
+Primeros de regla bin_op
+{'tk_multiplicacion'}
+Primeros de regla bin_op
+{'division'}
+Primeros de regla bin_op
+{'tk_modulo'}
+Primeros de regla bin_op
+{'tk_igual'}
+Primeros de regla bin_op
+{'tk_diferente'}
+Primeros de regla bin_op
+{'tk_menor_igual'}
+Primeros de regla bin_op
+{'tk_mayor_igual'}
+Primeros de regla bin_op
+{'tk_menor'}
+Primeros de regla bin_op
+{'tk_mayor'}
+Primeros de regla bin_op
+{'is'}
