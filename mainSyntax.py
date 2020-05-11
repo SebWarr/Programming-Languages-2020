@@ -5,8 +5,35 @@ flagSintaxis = False
 token = ""
 i = 0
 j = 0
-
 recursive_calls = []
+
+dict_tk_conversion = {
+    "tk_suma": "+",
+    "tk_multiplicacion": "*",
+    "tk_modulo": "%",
+    "tk_par_izq": "(",
+    "tk_par_der": ")",
+    "tk_punto": ".",
+    "tk_coma": ",",
+    "tk_dos_puntos": ":",
+    "tk_corch_izq": "[",
+    "tk_corch_der": "]",
+    "tk_llave_izq": "{",
+    "tk_llave_der": "}",
+    "tk_diferente": "!=",
+    "tk_division": "//",
+    "tk_ejecuta": "->",
+    "tk_menor_igual": "<=",
+    "tk_mayor_igual": ">=",
+    "tk_igual": "==",
+    "tk_asig": "=",
+    "tk_menor": "<",
+    "tk_mayor": ">",
+    "tk_numero": "número",
+    "tk_cadena": "string",
+    "tk_menos": "-"
+}
+
 
 initial_symbol_grammar = "program"
 not_terminals = ["program", "tipo", "declaracion",
@@ -351,9 +378,26 @@ def errorSintaxis(lista_tokens_Esperados):
     str_tmp = ""
     for pred in lista_tokens_Esperados:
         for token_esperado in pred:
-            str_tmp += "'" + token_esperado + "', "
+            try:
+                str_tmp += "'" + dict_tk_conversion[token_esperado] + "', "
+            except KeyError:
+                str_tmp += "'" + token_esperado + "', "
+    token_found = str(token[0])
+    try:
+        token_found = dict_tk_conversion[str(token[0])]
+    except KeyError:
+        pass
+
+    # tokens_expected = []
+    # for i in str_tmp[:-2].split(", "):
+    #     try:
+    #         tokens_expected.append(dict_tk_conversion[i])
+    #     except KeyError:
+    #         tokens_expected.append(i)
+
+    # print(tokens_expected)
     print(
-        "<" + str(i+1) + "," + str(j) + ">" + "Error sintactico: se encontró: '" + str(token[0]) + "' y se esperaba " + str(
+        "<" + str(i+1) + "," + str(j) + ">" + " Error sintactico: se encontró: '" + token_found + "' y se esperaba " + str(
             str_tmp[:-2]) + ".")
 
 
