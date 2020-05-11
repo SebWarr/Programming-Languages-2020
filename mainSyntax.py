@@ -17,8 +17,8 @@ not_terminals = ["program", "tipo", "declaracion",
                  'salida_aux', 'id_fc_aux', 'no_terminal_aux', 'operators', 'tk_corch_izq_fc',
                  'global_declaracion', 'nonlocal_declaracion', 'declaracion_asignacion_fc', 'print_statement',
                  'conditional_statement_1', 'conditional_statement_2', 'conditional_statement_3',
-                 'statement', 'conditional_block', 'newline1_fc', 'newline2_fc', 'newline2star_fc',
-                 'loop_block', 'block_sin_epsilon', 'block_con_epsilon', 'identaciones_bse',
+                 'statement', 'conditional_block', 'newline1_fc', 'newline2_fc', "expr_list_no_req_cor",
+                 'loop_block', 'block_sin_epsilon', 'block_con_epsilon', 'identaciones_bse',"expr_list_0_more_cor",
                  'function_block', 'coma_fc', 'block_0o1', 'argumentos_star', 'argumentos_0o1',
                  'return_aux',"function_fc","return_0o1","ejecucion","return_statement","fc_return","class_block",
                  "id_object","dedent_0o1"
@@ -95,7 +95,7 @@ grammar = {
         [""]
     ],
     'conditional_statement_1': [
-        ['if', 'expr', 'tk_dos_puntos', 'NEWLINE', 'INDENT', 'block_sin_epsilon', 'newline1_fc']
+        ['if', 'expr', 'tk_dos_puntos', 'NEWLINE', 'INDENT', 'block_sin_epsilon', "dedent_0o1", 'newline1_fc']
     ],
     'newline1_fc': [
         ['DEDENT'],
@@ -107,12 +107,8 @@ grammar = {
         ["loop_block"]
     ],
     'newline2_fc': [
-        ['NEWLINE', 'DEDENT', 'newline2star_fc'],
+        ['NEWLINE', 'DEDENT'],
         ['DEDENT']
-    ],
-    'newline2star_fc': [
-       # ['conditional_statement_2'],
-        ['']
     ],
     'conditional_statement_3': [
         ['else', 'tk_dos_puntos', 'NEWLINE', 'INDENT', 'block_sin_epsilon', "newline1_fc"],
@@ -128,7 +124,7 @@ grammar = {
         ['pass']
     ],
     'conditional_block': [
-        ['conditional_statement_1', 'conditional_statement_2']
+        ['conditional_statement_1','conditional_statement_2']
     ],
     'loop_block': [
         ['while', 'expr', 'tk_dos_puntos', 'NEWLINE', 'INDENT', 'block_sin_epsilon'],
@@ -222,12 +218,13 @@ grammar = {
     "cexpr_p9": [["cexpr_p10", "cexpr_p9_aux"]],
     "cexpr_p9_aux": [["tk_punto", "id", "cexpr_p10_aux", "cexpr_p9_aux"],
                      ["tk_corch_izq", "expr", "tk_corch_der", "cexpr_p9_aux"], [""]],
-    "cexpr_p10": [["id", "cexpr_p10_aux"], ["literal"], ["tk_corch_izq", "expr_list_no_req", "tk_corch_der"],
+    "expr_list_no_req_cor":[["expr", "expr_list_0_more_cor"], [""]],
+    "expr_list_0_more_cor": [["tk_coma", "expr", "expr_list_0_more_cor"], [""]],
+    "cexpr_p10": [["id", "cexpr_p10_aux"], ["literal"], ["tk_corch_izq", "expr_list_no_req_cor", "tk_corch_der"],
                   ["tk_par_izq", "expr", "tk_par_der"], ["len", "tk_par_izq", "cexpr", "tk_par_der"],["self"]],
     "cexpr_p10_aux": [["tk_par_izq", "expr_list_no_req", "tk_par_der"], [""]],
     "expr_list_no_req": [["expr", "expr_list_0_more"], [""]],
-    "expr_list_0_more": [["tk_coma", "expr", "expr_list_0_more"], [""]],
-
+    "expr_list_0_more": [["tk_coma", "expr", "expr_list_0_more"], [""]]
 }
 
 pred_rules = {}
@@ -341,20 +338,22 @@ def emparejar(token, token_esperado, lexer):
     # Emparejar No Terminales
     if token == token_esperado:
         token, i, j = lexer.getNextToken(i, j)
-        # print("af" , token)
     else:
-        errorSintaxis([token_esperado])
+        errorSintaxis([[token_esperado]])
     return token, i, j
 
 
 def errorSintaxis(lista_tokens_Esperados):
     global token, i, j, flagSintaxis
     flagSintaxis = True
+    if i==-2 and j ==-2:
+        return
     str_tmp = ""
-    for token_esperado in lista_tokens_Esperados:
-        str_tmp += "'" + token_esperado + "', "
+    for pred in lista_tokens_Esperados:
+        for token_esperado in pred:
+            str_tmp += "'" + token_esperado + "', "
     print(
-        "<" + str(i+1) + "," + str(j) + ">" + "Error sintactico: se encontro: '" + str(token) + "' y se esperaba " + str(
+        "<" + str(i+1) + "," + str(j) + ">" + "Error sintactico: se encontró: '" + str(token[0]) + "' y se esperaba " + str(
             str_tmp[:-2]) + ".")
 
 
@@ -376,12 +375,18 @@ def nonTerminal(N, lexer):
                         return
                 else:
                     token, i, j = emparejar(token[0], symbol, lexer)
-                    if i == -1 and j == -1:
+                    if i == -1 and j == -1: # Fin de archivo
                         token = ("$", i, j)
+                    if i == -2 and j == -2: # Error lexico
+                        flagSintaxis==True
                     if flagSintaxis:
                         return
+
             return
-    errorSintaxis(pd)
+    tokensEsperados=[]
+    for k in pred_rules[N]:
+        tokensEsperados.append(k)
+    errorSintaxis(tokensEsperados)
     return
 
 def main():
@@ -400,7 +405,7 @@ def main():
                 print("El analisis sintactico ha finalizado exitosamente.")
             else:
                 errorSintaxis(["No se esperaba este token"])
-                print(token)
+                # print(token)
 
 if __name__ == '__main__':
     main()

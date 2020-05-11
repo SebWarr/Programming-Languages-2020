@@ -89,14 +89,14 @@ class Lexer:
 
     def print_lexical_error(self, idx, jdx, char, token_buffer):
         tokens_list.append(f">>>Error léxico(linea:{idx + 1},posicion:{jdx + 1})")
-        print("Se ha encontrado un error léxico en:", idx + 1, jdx + 1, char)
-        return tokens_list[-1], [], -1, -1
+        print(f">>>Error léxico(linea:{idx + 1},posicion:{jdx + 1})")
+        return tokens_list[-1], [], -2, -2
 
 
     def print_indentation_error(self, idx, jdx):
-        tokens_list.append(f">>>Error de indentacion (linea:{idx + 1},posicion:{jdx + 1})")
-        print("Se ha encontrado un error de indentacion en:", idx + 1, jdx + 1)
-        return tokens_list[-1], [], -1, -1
+        tokens_list.append(f">>>Error léxico de indentacion (linea:{idx + 1},posicion:{jdx + 1})")
+        print(f">>>Error léxico de indentacion (linea:{idx + 1},posicion:{jdx + 1})")
+        return tokens_list[-1], [], -2, -2
 
 
     def lexical_analysis(self, input_string, token_buffer, i=0, j=0):
