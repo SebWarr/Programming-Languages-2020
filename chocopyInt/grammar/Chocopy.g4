@@ -3,93 +3,93 @@ grammar Chocopy;
 tokens { INDENT, DEDENT }
 
 @lexer::members {
-  // A queue where extra tokens are pushed on (see the NEWLINE lexer rule).
-  private java.util.LinkedList<Token> tokens = new java.util.LinkedList<>();
-  // The stack that keeps track of the indentation level.
-  private java.util.Stack<Integer> indents = new java.util.Stack<>();
-  // The amount of opened braces, brackets and parenthesis.
-  private int opened = 0;
-  // The most recently produced token.
-  private Token lastToken = null;
-  @Override
-  public void emit(Token t) {
-    super.setToken(t);
-    tokens.offer(t);
-  }
+     // A queue where extra tokens are pushed on (see the NEWLINE lexer rule).
+     private java.util.LinkedList<Token> tokens = new java.util.LinkedList<>();
+     // The stack that keeps track of the indentation level.
+     private java.util.Stack<Integer> indents = new java.util.Stack<>();
+     // The amount of opened braces, brackets and parenthesis.
+     private int opened = 0;
+     // The most recently produced token.
+     private Token lastToken = null;
+     @Override
+     public void emit(Token t) {
+       super.setToken(t);
+       tokens.offer(t);
+     }
 
-  @Override
-  public Token nextToken() {
-    // Check if the end-of-file is ahead and there are still some DEDENTS expected.
-    if (_input.LA(1) == EOF && !this.indents.isEmpty()) {
-      // Remove any trailing EOF tokens from our buffer.
-      for (int i = tokens.size() - 1; i >= 0; i--) {
-        if (tokens.get(i).getType() == EOF) {
-          tokens.remove(i);
-        }
-      }
+     @Override
+     public Token nextToken() {
+       // Check if the end-of-file is ahead and there are still some DEDENTS expected.
+       if (_input.LA(1) == EOF && !this.indents.isEmpty()) {
+         // Remove any trailing EOF tokens from our buffer.
+         for (int i = tokens.size() - 1; i >= 0; i--) {
+           if (tokens.get(i).getType() == EOF) {
+             tokens.remove(i);
+           }
+         }
 
-      // First emit an extra line break that serves as the end of the statement.
-      this.emit(commonToken(Python3Parser.NEWLINE, "\n"));
+         // First emit an extra line break that serves as the end of the statement.
+         this.emit(commonToken(ChocopyParser.NEWLINE, "\n"));
 
-      // Now emit as much DEDENT tokens as needed.
-      while (!indents.isEmpty()) {
-        this.emit(createDedent());
-        indents.pop();
-      }
+         // Now emit as much DEDENT tokens as needed.
+         while (!indents.isEmpty()) {
+           this.emit(createDedent());
+           indents.pop();
+         }
 
-      // Put the EOF back on the token stream.
-      this.emit(commonToken(Python3Parser.EOF, "<EOF>"));
-    }
+         // Put the EOF back on the token stream.
+         this.emit(commonToken(ChocopyParser.EOF, "<EOF>"));
+       }
 
-    Token next = super.nextToken();
+       Token next = super.nextToken();
 
-    if (next.getChannel() == Token.DEFAULT_CHANNEL) {
-      // Keep track of the last token on the default channel.
-      this.lastToken = next;
-    }
+       if (next.getChannel() == Token.DEFAULT_CHANNEL) {
+         // Keep track of the last token on the default channel.
+         this.lastToken = next;
+       }
 
-    return tokens.isEmpty() ? next : tokens.poll();
-  }
+       return tokens.isEmpty() ? next : tokens.poll();
+     }
 
-  private Token createDedent() {
-    CommonToken dedent = commonToken(Python3Parser.DEDENT, "");
-    dedent.setLine(this.lastToken.getLine());
-    return dedent;
-  }
+     private Token createDedent() {
+       CommonToken dedent = commonToken(ChocopyParser.DEDENT, "");
+       dedent.setLine(this.lastToken.getLine());
+       return dedent;
+     }
 
-  private CommonToken commonToken(int type, String text) {
-    int stop = this.getCharIndex() - 1;
-    int start = text.isEmpty() ? stop : stop - text.length() + 1;
-    return new CommonToken(this._tokenFactorySourcePair, type, DEFAULT_TOKEN_CHANNEL, start, stop);
-  }
+     private CommonToken commonToken(int type, String text) {
+       int stop = this.getCharIndex() - 1;
+       int start = text.isEmpty() ? stop : stop - text.length() + 1;
+       return new CommonToken(this._tokenFactorySourcePair, type, DEFAULT_TOKEN_CHANNEL, start, stop);
+     }
 
-  // Calculates the indentation of the provided spaces, taking the
-  // following rules into account:
-  //
-  // "Tabs are replaced (from left to right) by one to eight spaces
-  //  such that the total number of characters up to and including
-  //  the replacement is a multiple of eight [...]"
-  //
-  //  -- https://docs.python.org/3.1/reference/lexical_analysis.html#indentation
-  static int getIndentationCount(String spaces) {
-    int count = 0;
-    for (char ch : spaces.toCharArray()) {
-      switch (ch) {
-        case '\t':
-          count += 8 - (count % 8);
-          break;
-        default:
-          // A normal space char.
-          count++;
-      }
-    }
+     // Calculates the indentation of the provided spaces, taking the
+     // following rules into account:
+     //
+     // "Tabs are replaced (from left to right) by one to eight spaces
+     //  such that the total number of characters up to and including
+     //  the replacement is a multiple of eight [...]"
+     //
+     //  -- https://docs.python.org/3.1/reference/lexical_analysis.html#indentation
+     static int getIndentationCount(String spaces) {
+       int count = 0;
+       for (char ch : spaces.toCharArray()) {
+         switch (ch) {
+           case '\t':
+             count += 8 - (count % 8);
+             break;
+           default:
+             // A normal space char.
+             count++;
+         }
+       }
 
-    return count;
-  }
+       return count;
+     }
 
-  boolean atStartOfInput() {
-    return super.getCharPositionInLine() == 0 && super.getLine() == 1;
-  }
+     boolean atStartOfInput() {
+       return super.getCharPositionInLine() == 0 && super.getLine() == 1;
+     }
 }
 
 
@@ -101,11 +101,11 @@ class_def : CLASS ID PAR_IZQ ID PAR_DER DOS_PUNTOS NEWLINE INDENT class_body DED
 class_body : PASS NEWLINE
             | (var_def | func_def)+;
 
-func_def : DEF ID PAR_IZQ (typed_var (COMA typed_var)*)? PAR_DER (EJECUTA type)? DOS_PUNTOS NEWLINE INDENT func_body DEDENT;
+func_def : DEF ID PAR_IZQ ((typed_var) (COMA typed_var)*)? PAR_DER (EJECUTA type)? DOS_PUNTOS NEWLINE INDENT func_body DEDENT;
 
 func_body : (global_decl | nonlocal_decl | var_def | func_def)* stmt+;
 
-typed_var : ID DOS_PUNTOS type;
+typed_var : ID DOS_PUNTOS type | SELF DOS_PUNTOS type;
 
 type : ID | STRING | COR_IZQ type COR_DER;   // TODO PENDIENTE EL IDSTRING
 
@@ -115,7 +115,7 @@ nonlocal_decl : NONLOCAL ID NEWLINE;
 
 var_def : typed_var ASIG literal NEWLINE;
 
-stmt : simple_stmt NEWLINE
+stmt : simple_stmt (NEWLINE)?
         | IF expr DOS_PUNTOS block (ELIF expr DOS_PUNTOS block)* (ELSE DOS_PUNTOS block)?
         | WHILE expr DOS_PUNTOS block
         | FOR ID IN expr DOS_PUNTOS block;
@@ -123,7 +123,10 @@ stmt : simple_stmt NEWLINE
 simple_stmt : PASS
             | expr
             | RETURN (expr)?
-            | (target ASIG)+ expr;
+            | (target ASIG)+ expr
+            | stmtprint;
+
+stmtprint : PRINT PAR_IZQ expr PAR_DER;
 
 block : NEWLINE INDENT stmt+ DEDENT;
 
@@ -240,21 +243,40 @@ expr_list_no_req: expr expr_list_0_more
 expr_list_0_more: COMA expr expr_list_0_more
                 |/*epsilon*/;
 
-member_expr : cexpr PUNTO ID;
+member_expr : cexpr PUNTO ID
+              |SELF PUNTO ID;
 
-index_expr : cexpr COR_IZQ expr COR_DER;
+
+index_expr : cexpr COR_IZQ expr COR_DER
+            |SELF COR_IZQ expr COR_DER;
 
 target : ID
+        |SELF
         | member_expr
         | index_expr;
-
 
 n:ASIG|IGUAL;
 // TOKEN
 
+SKIP_
+ : ( SPACES | COMMENT | LINE_JOINING) -> skip
+ ;
+
+COMMENT
+ : '#' ~[\r\n\f]*
+ ;
+
+SPACES
+ : [ \t]+
+ ;
+
+LINE_JOINING
+ : '\\' SPACES? ( '\r'? '\n' | '\r' )
+ ;
+
 CLASS: 'class';
 
-
+PRINT: 'print';
 
 PAR_IZQ: '(';
 
@@ -263,44 +285,41 @@ PAR_DER: ')';
 DOS_PUNTOS: ':';
 
 NEWLINE
- : ( {atStartOfInput()}?   SPACES
-   | ( '\r'? '\n' | '\r' | '\f' ) SPACES?
-   )
-   {
-     String newLine = getText().replaceAll("[^\r\n\f]+", "");
-     String spaces = getText().replaceAll("[\r\n\f]+", "");
+    : ( {atStartOfInput()}?   SPACES
+      | ( '\r'? '\n' | '\r' ) SPACES?
+      )
+      {
+        String newLine = getText().replaceAll("[^\r\n]+", "");
+        String spaces = getText().replaceAll("[\r\n]+", "");
+        int next = _input.LA(1);
+        if (opened > 0 || next == '\r' || next == '\n' || next == '#') {
+          // If we're inside a list or on a blank line, ignore all indents,
+          // dedents and line breaks.
+          skip();
+        }
+        else {
+          emit(commonToken(NEWLINE, newLine));
+          int indent = getIndentationCount(spaces);
+          int previous = indents.isEmpty() ? 0 : indents.peek();
+          if (indent == previous) {
+            // skip indents of the same size as the present indent-size
+            skip();
+          }
+          else if (indent > previous) {
+            indents.push(indent);
+            emit(commonToken(ChocopyParser.INDENT, spaces));
+          }
+          else {
+            // Possibly emit more than 1 DEDENT token.
+            while(!indents.isEmpty() && indents.peek() > indent) {
+              this.emit(createDedent());
+              indents.pop();
+            }
+          }
+        }
+      }
+    ;
 
-     // Strip newlines inside open clauses except if we are near EOF. We keep NEWLINEs near EOF to
-     // satisfy the final newline needed by the single_put rule used by the REPL.
-     int next = _input.LA(1);
-     int nextnext = _input.LA(2);
-     if (opened > 0 || (nextnext != -1 && (next == '\r' || next == '\n' || next == '\f' || next == '#'))) {
-       // If we're inside a list or on a blank line, ignore all indents,
-       // dedents and line breaks.
-       skip();
-     }
-     else {
-       emit(commonToken(NEWLINE, newLine));
-       int indent = getIndentationCount(spaces);
-       int previous = indents.isEmpty() ? 0 : indents.peek();
-       if (indent == previous) {
-         // skip indents of the same size as the present indent-size
-         skip();
-       }
-       else if (indent > previous) {
-         indents.push(indent);
-         emit(commonToken(Python3Parser.INDENT, spaces));
-       }
-       else {
-         // Possibly emit more than 1 DEDENT token.
-         while(!indents.isEmpty() && indents.peek() > indent) {
-           this.emit(createDedent());
-           indents.pop();
-         }
-       }
-     }
-   }
- ;
 
 //NEWLINE: '\n'; //TODO ESTA UNA MIERDA x3
 //
@@ -348,7 +367,7 @@ TRUE: 'True';
 
 FALSE:'False';
 
-INTEGER:[1-9][0-9]*; //TODO FALTA EL LIMITE SUPERIOR
+INTEGER: [1-9][0-9]*|'0' ; //TODO FALTA EL LIMITE SUPERIOR
 
 NOT:'not';
 
@@ -370,11 +389,6 @@ MODULO:'%';
 
 IGUAL:'==';
 
-
-
-
-
-
 DIFERENTE:'!=';
 
 MENOR_IGUAL:'<=';
@@ -392,13 +406,5 @@ LEN:'len';
 SELF:'self';
 
 ID: ([A-Z]|[a-z]|'_')([0-9]|[a-z]|[A-Z]|'_')*;
-
-SKIP_
- : ( SPACES | COMMENT | LINE_JOINING ) -> skip
- ;
-
-fragment SPACES
- : [ \t]+
- ;
 
 //TODO FALTA PRINT
