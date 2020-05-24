@@ -1,4 +1,4 @@
-// Generated from /home/brayan/Documentos/UNAL/Semestre 9/Lenguajes/compilador/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
+// Generated from /home/minorin/Documents/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -423,13 +423,85 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCexpr_op_log(ChocopyParser.Cexpr_op_logContext ctx) { }
+	@Override public void enterCexpr_igual(ChocopyParser.Cexpr_igualContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCexpr_op_log(ChocopyParser.Cexpr_op_logContext ctx) { }
+	@Override public void exitCexpr_igual(ChocopyParser.Cexpr_igualContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCexpr_diferente(ChocopyParser.Cexpr_diferenteContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCexpr_diferente(ChocopyParser.Cexpr_diferenteContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCexpr_mayor(ChocopyParser.Cexpr_mayorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCexpr_mayor(ChocopyParser.Cexpr_mayorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCexpr_menor(ChocopyParser.Cexpr_menorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCexpr_menor(ChocopyParser.Cexpr_menorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCexpr_mayor_igual(ChocopyParser.Cexpr_mayor_igualContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCexpr_mayor_igual(ChocopyParser.Cexpr_mayor_igualContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCexpr_menor_igual(ChocopyParser.Cexpr_menor_igualContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCexpr_menor_igual(ChocopyParser.Cexpr_menor_igualContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCexpr_is(ChocopyParser.Cexpr_isContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCexpr_is(ChocopyParser.Cexpr_isContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -447,85 +519,13 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBin_op_log_igual(ChocopyParser.Bin_op_log_igualContext ctx) { }
+	@Override public void enterP6_resta(ChocopyParser.P6_restaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBin_op_log_igual(ChocopyParser.Bin_op_log_igualContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBin_op_log_diferente(ChocopyParser.Bin_op_log_diferenteContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBin_op_log_diferente(ChocopyParser.Bin_op_log_diferenteContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBin_op_log_mayor(ChocopyParser.Bin_op_log_mayorContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBin_op_log_mayor(ChocopyParser.Bin_op_log_mayorContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBin_op_log_menor(ChocopyParser.Bin_op_log_menorContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBin_op_log_menor(ChocopyParser.Bin_op_log_menorContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBin_op_log_mayor_igual(ChocopyParser.Bin_op_log_mayor_igualContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBin_op_log_mayor_igual(ChocopyParser.Bin_op_log_mayor_igualContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBin_op_log_menor_igual(ChocopyParser.Bin_op_log_menor_igualContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBin_op_log_menor_igual(ChocopyParser.Bin_op_log_menor_igualContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBin_op_log_is(ChocopyParser.Bin_op_log_isContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBin_op_log_is(ChocopyParser.Bin_op_log_isContext ctx) { }
+	@Override public void exitP6_resta(ChocopyParser.P6_restaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -543,37 +543,13 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterP6_op_p6(ChocopyParser.P6_op_p6Context ctx) { }
+	@Override public void enterP6_suma(ChocopyParser.P6_sumaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitP6_op_p6(ChocopyParser.P6_op_p6Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBin_op_p6_suma(ChocopyParser.Bin_op_p6_sumaContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBin_op_p6_suma(ChocopyParser.Bin_op_p6_sumaContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBin_op_p6_menos(ChocopyParser.Bin_op_p6_menosContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBin_op_p6_menos(ChocopyParser.Bin_op_p6_menosContext ctx) { }
+	@Override public void exitP6_suma(ChocopyParser.P6_sumaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -591,49 +567,37 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterP7_op_p8(ChocopyParser.P7_op_p8Context ctx) { }
+	@Override public void enterP7_mod(ChocopyParser.P7_modContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitP7_op_p8(ChocopyParser.P7_op_p8Context ctx) { }
+	@Override public void exitP7_mod(ChocopyParser.P7_modContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBin_op_p7_mult(ChocopyParser.Bin_op_p7_multContext ctx) { }
+	@Override public void enterP7_mult(ChocopyParser.P7_multContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBin_op_p7_mult(ChocopyParser.Bin_op_p7_multContext ctx) { }
+	@Override public void exitP7_mult(ChocopyParser.P7_multContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBin_op_p7_div(ChocopyParser.Bin_op_p7_divContext ctx) { }
+	@Override public void enterP7_div(ChocopyParser.P7_divContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBin_op_p7_div(ChocopyParser.Bin_op_p7_divContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBin_op_p7_mod(ChocopyParser.Bin_op_p7_modContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBin_op_p7_mod(ChocopyParser.Bin_op_p7_modContext ctx) { }
+	@Override public void exitP7_div(ChocopyParser.P7_divContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

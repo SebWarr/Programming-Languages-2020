@@ -188,34 +188,44 @@ expr_p4: NOT expr_p4    #expr_p4_not
         |cexpr          #expr_p4_cexpr
         ;
 
-cexpr: cexpr_p6 bin_op_log cexpr_p6     #cexpr_op_log
-        |cexpr_p6                       #p6
+cexpr: cexpr_p6 IGUAL cexpr_p6             #cexpr_igual
+        |cexpr_p6 DIFERENTE cexpr_p6       #cexpr_diferente
+        |cexpr_p6 MAYOR cexpr_p6           #cexpr_mayor
+        |cexpr_p6 MENOR cexpr_p6           #cexpr_menor
+        |cexpr_p6 MAYOR_IGUAL cexpr_p6     #cexpr_mayor_igual
+        |cexpr_p6 MENOR_IGUAL cexpr_p6     #cexpr_menor_igual
+        |cexpr_p6 IS cexpr_p6              #cexpr_is
+        |cexpr_p6  🐍   🐍                     #p6
         ;
 
-bin_op_log: IGUAL           #bin_op_log_igual
-            |DIFERENTE      #bin_op_log_diferente
-            |MAYOR          #bin_op_log_mayor
-            |MENOR          #bin_op_log_menor
-            |MAYOR_IGUAL    #bin_op_log_mayor_igual
-            |MENOR_IGUAL    #bin_op_log_menor_igual
-            |IS             #bin_op_log_is
+//bin_op_log: IGUAL           #bin_op_log_igual
+//            |DIFERENTE      #bin_op_log_diferente
+//            |MAYOR          #bin_op_log_mayor
+//            |MENOR          #bin_op_log_menor
+//            |MAYOR_IGUAL    #bin_op_log_mayor_igual
+//            |MENOR_IGUAL    #bin_op_log_menor_igual
+//            |IS             #bin_op_log_is
+//            ;
+
+cexpr_p6: cexpr_p6 SUMA cexpr_p7             #p6_suma
+            |cexpr_p6 MENOS cexpr_p7         #p6_resta
+            |cexpr_p7                        #p7
             ;
 
-cexpr_p6: cexpr_p6 bin_op_p6 cexpr_p7   #p6_op_p6
-            |cexpr_p7                   #p7
-            ;
+//bin_op_p6:  SUMA    #bin_op_p6_suma
+//            |MENOS  #bin_op_p6_menos
+//            ;
 
-bin_op_p6: SUMA     #bin_op_p6_suma
-            |MENOS  #bin_op_p6_menos
-            ;
-
-cexpr_p7: cexpr_p7 bin_op_p7 cexpr_p8       #p7_op_p8
+cexpr_p7: cexpr_p7 MULTIPLICACION cexpr_p8  #p7_mult
+            |cexpr_p7 DIVISION cexpr_p8     #p7_div
+            |cexpr_p7 MODULO cexpr_p8       #p7_mod
             |cexpr_p8                       #p8
             ;
-bin_op_p7: MULTIPLICACION   #bin_op_p7_mult
-            |DIVISION       #bin_op_p7_div
-            |MODULO         #bin_op_p7_mod
-            ;
+
+//bin_op_p7: MULTIPLICACION   #bin_op_p7_mult
+//            |DIVISION       #bin_op_p7_div
+//            |MODULO         #bin_op_p7_mod
+//            ;
 
 cexpr_p8: MENOS cexpr_p8    #cexpr_p8_menos
             |cexpr_p9       #cexpr_p8_cexpr_p9

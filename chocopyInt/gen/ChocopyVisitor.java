@@ -1,4 +1,4 @@
-// Generated from /home/brayan/Documentos/UNAL/Semestre 9/Lenguajes/compilador/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
+// Generated from /home/minorin/Documents/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -238,12 +238,54 @@ public interface ChocopyVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpr_p4_cexpr(ChocopyParser.Expr_p4_cexprContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code cexpr_op_log}
+	 * Visit a parse tree produced by the {@code cexpr_igual}
 	 * labeled alternative in {@link ChocopyParser#cexpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCexpr_op_log(ChocopyParser.Cexpr_op_logContext ctx);
+	T visitCexpr_igual(ChocopyParser.Cexpr_igualContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code cexpr_diferente}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCexpr_diferente(ChocopyParser.Cexpr_diferenteContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code cexpr_mayor}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCexpr_mayor(ChocopyParser.Cexpr_mayorContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code cexpr_menor}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCexpr_menor(ChocopyParser.Cexpr_menorContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code cexpr_mayor_igual}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCexpr_mayor_igual(ChocopyParser.Cexpr_mayor_igualContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code cexpr_menor_igual}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCexpr_menor_igual(ChocopyParser.Cexpr_menor_igualContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code cexpr_is}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCexpr_is(ChocopyParser.Cexpr_isContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code p6}
 	 * labeled alternative in {@link ChocopyParser#cexpr}.
@@ -252,54 +294,12 @@ public interface ChocopyVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitP6(ChocopyParser.P6Context ctx);
 	/**
-	 * Visit a parse tree produced by the {@code bin_op_log_igual}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
+	 * Visit a parse tree produced by the {@code p6_resta}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p6}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBin_op_log_igual(ChocopyParser.Bin_op_log_igualContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code bin_op_log_diferente}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBin_op_log_diferente(ChocopyParser.Bin_op_log_diferenteContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code bin_op_log_mayor}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBin_op_log_mayor(ChocopyParser.Bin_op_log_mayorContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code bin_op_log_menor}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBin_op_log_menor(ChocopyParser.Bin_op_log_menorContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code bin_op_log_mayor_igual}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBin_op_log_mayor_igual(ChocopyParser.Bin_op_log_mayor_igualContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code bin_op_log_menor_igual}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBin_op_log_menor_igual(ChocopyParser.Bin_op_log_menor_igualContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code bin_op_log_is}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBin_op_log_is(ChocopyParser.Bin_op_log_isContext ctx);
+	T visitP6_resta(ChocopyParser.P6_restaContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code p7}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p6}.
@@ -308,26 +308,12 @@ public interface ChocopyVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitP7(ChocopyParser.P7Context ctx);
 	/**
-	 * Visit a parse tree produced by the {@code p6_op_p6}
+	 * Visit a parse tree produced by the {@code p6_suma}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p6}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitP6_op_p6(ChocopyParser.P6_op_p6Context ctx);
-	/**
-	 * Visit a parse tree produced by the {@code bin_op_p6_suma}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p6}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBin_op_p6_suma(ChocopyParser.Bin_op_p6_sumaContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code bin_op_p6_menos}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p6}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBin_op_p6_menos(ChocopyParser.Bin_op_p6_menosContext ctx);
+	T visitP6_suma(ChocopyParser.P6_sumaContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code p8}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
@@ -336,33 +322,26 @@ public interface ChocopyVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitP8(ChocopyParser.P8Context ctx);
 	/**
-	 * Visit a parse tree produced by the {@code p7_op_p8}
+	 * Visit a parse tree produced by the {@code p7_mod}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitP7_op_p8(ChocopyParser.P7_op_p8Context ctx);
+	T visitP7_mod(ChocopyParser.P7_modContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code bin_op_p7_mult}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p7}.
+	 * Visit a parse tree produced by the {@code p7_mult}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBin_op_p7_mult(ChocopyParser.Bin_op_p7_multContext ctx);
+	T visitP7_mult(ChocopyParser.P7_multContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code bin_op_p7_div}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p7}.
+	 * Visit a parse tree produced by the {@code p7_div}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBin_op_p7_div(ChocopyParser.Bin_op_p7_divContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code bin_op_p7_mod}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p7}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBin_op_p7_mod(ChocopyParser.Bin_op_p7_modContext ctx);
+	T visitP7_div(ChocopyParser.P7_divContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code cexpr_p8_menos}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p8}.

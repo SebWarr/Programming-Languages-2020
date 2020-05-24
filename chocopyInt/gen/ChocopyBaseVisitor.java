@@ -1,4 +1,4 @@
-// Generated from /home/brayan/Documentos/UNAL/Semestre 9/Lenguajes/compilador/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
+// Generated from /home/minorin/Documents/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -254,7 +254,49 @@ public class ChocopyBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCexpr_op_log(ChocopyParser.Cexpr_op_logContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCexpr_igual(ChocopyParser.Cexpr_igualContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitCexpr_diferente(ChocopyParser.Cexpr_diferenteContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitCexpr_mayor(ChocopyParser.Cexpr_mayorContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitCexpr_menor(ChocopyParser.Cexpr_menorContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitCexpr_mayor_igual(ChocopyParser.Cexpr_mayor_igualContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitCexpr_menor_igual(ChocopyParser.Cexpr_menor_igualContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitCexpr_is(ChocopyParser.Cexpr_isContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -268,49 +310,7 @@ public class ChocopyBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBin_op_log_igual(ChocopyParser.Bin_op_log_igualContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitBin_op_log_diferente(ChocopyParser.Bin_op_log_diferenteContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitBin_op_log_mayor(ChocopyParser.Bin_op_log_mayorContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitBin_op_log_menor(ChocopyParser.Bin_op_log_menorContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitBin_op_log_mayor_igual(ChocopyParser.Bin_op_log_mayor_igualContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitBin_op_log_menor_igual(ChocopyParser.Bin_op_log_menor_igualContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitBin_op_log_is(ChocopyParser.Bin_op_log_isContext ctx) { return visitChildren(ctx); }
+	@Override public T visitP6_resta(ChocopyParser.P6_restaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -324,21 +324,7 @@ public class ChocopyBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitP6_op_p6(ChocopyParser.P6_op_p6Context ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitBin_op_p6_suma(ChocopyParser.Bin_op_p6_sumaContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitBin_op_p6_menos(ChocopyParser.Bin_op_p6_menosContext ctx) { return visitChildren(ctx); }
+	@Override public T visitP6_suma(ChocopyParser.P6_sumaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -352,28 +338,21 @@ public class ChocopyBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitP7_op_p8(ChocopyParser.P7_op_p8Context ctx) { return visitChildren(ctx); }
+	@Override public T visitP7_mod(ChocopyParser.P7_modContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBin_op_p7_mult(ChocopyParser.Bin_op_p7_multContext ctx) { return visitChildren(ctx); }
+	@Override public T visitP7_mult(ChocopyParser.P7_multContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBin_op_p7_div(ChocopyParser.Bin_op_p7_divContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitBin_op_p7_mod(ChocopyParser.Bin_op_p7_modContext ctx) { return visitChildren(ctx); }
+	@Override public T visitP7_div(ChocopyParser.P7_divContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

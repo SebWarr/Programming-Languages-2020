@@ -1,4 +1,4 @@
-// Generated from /home/brayan/Documentos/UNAL/Semestre 9/Lenguajes/compilador/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
+// Generated from /home/minorin/Documents/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -395,17 +395,89 @@ public interface ChocopyListener extends ParseTreeListener {
 	 */
 	void exitExpr_p4_cexpr(ChocopyParser.Expr_p4_cexprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code cexpr_op_log}
+	 * Enter a parse tree produced by the {@code cexpr_igual}
 	 * labeled alternative in {@link ChocopyParser#cexpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterCexpr_op_log(ChocopyParser.Cexpr_op_logContext ctx);
+	void enterCexpr_igual(ChocopyParser.Cexpr_igualContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code cexpr_op_log}
+	 * Exit a parse tree produced by the {@code cexpr_igual}
 	 * labeled alternative in {@link ChocopyParser#cexpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitCexpr_op_log(ChocopyParser.Cexpr_op_logContext ctx);
+	void exitCexpr_igual(ChocopyParser.Cexpr_igualContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code cexpr_diferente}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterCexpr_diferente(ChocopyParser.Cexpr_diferenteContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code cexpr_diferente}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitCexpr_diferente(ChocopyParser.Cexpr_diferenteContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code cexpr_mayor}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterCexpr_mayor(ChocopyParser.Cexpr_mayorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code cexpr_mayor}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitCexpr_mayor(ChocopyParser.Cexpr_mayorContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code cexpr_menor}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterCexpr_menor(ChocopyParser.Cexpr_menorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code cexpr_menor}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitCexpr_menor(ChocopyParser.Cexpr_menorContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code cexpr_mayor_igual}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterCexpr_mayor_igual(ChocopyParser.Cexpr_mayor_igualContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code cexpr_mayor_igual}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitCexpr_mayor_igual(ChocopyParser.Cexpr_mayor_igualContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code cexpr_menor_igual}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterCexpr_menor_igual(ChocopyParser.Cexpr_menor_igualContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code cexpr_menor_igual}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitCexpr_menor_igual(ChocopyParser.Cexpr_menor_igualContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code cexpr_is}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterCexpr_is(ChocopyParser.Cexpr_isContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code cexpr_is}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitCexpr_is(ChocopyParser.Cexpr_isContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code p6}
 	 * labeled alternative in {@link ChocopyParser#cexpr}.
@@ -419,89 +491,17 @@ public interface ChocopyListener extends ParseTreeListener {
 	 */
 	void exitP6(ChocopyParser.P6Context ctx);
 	/**
-	 * Enter a parse tree produced by the {@code bin_op_log_igual}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
+	 * Enter a parse tree produced by the {@code p6_resta}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p6}.
 	 * @param ctx the parse tree
 	 */
-	void enterBin_op_log_igual(ChocopyParser.Bin_op_log_igualContext ctx);
+	void enterP6_resta(ChocopyParser.P6_restaContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code bin_op_log_igual}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
+	 * Exit a parse tree produced by the {@code p6_resta}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p6}.
 	 * @param ctx the parse tree
 	 */
-	void exitBin_op_log_igual(ChocopyParser.Bin_op_log_igualContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code bin_op_log_diferente}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 */
-	void enterBin_op_log_diferente(ChocopyParser.Bin_op_log_diferenteContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code bin_op_log_diferente}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 */
-	void exitBin_op_log_diferente(ChocopyParser.Bin_op_log_diferenteContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code bin_op_log_mayor}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 */
-	void enterBin_op_log_mayor(ChocopyParser.Bin_op_log_mayorContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code bin_op_log_mayor}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 */
-	void exitBin_op_log_mayor(ChocopyParser.Bin_op_log_mayorContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code bin_op_log_menor}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 */
-	void enterBin_op_log_menor(ChocopyParser.Bin_op_log_menorContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code bin_op_log_menor}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 */
-	void exitBin_op_log_menor(ChocopyParser.Bin_op_log_menorContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code bin_op_log_mayor_igual}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 */
-	void enterBin_op_log_mayor_igual(ChocopyParser.Bin_op_log_mayor_igualContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code bin_op_log_mayor_igual}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 */
-	void exitBin_op_log_mayor_igual(ChocopyParser.Bin_op_log_mayor_igualContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code bin_op_log_menor_igual}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 */
-	void enterBin_op_log_menor_igual(ChocopyParser.Bin_op_log_menor_igualContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code bin_op_log_menor_igual}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 */
-	void exitBin_op_log_menor_igual(ChocopyParser.Bin_op_log_menor_igualContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code bin_op_log_is}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 */
-	void enterBin_op_log_is(ChocopyParser.Bin_op_log_isContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code bin_op_log_is}
-	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
-	 * @param ctx the parse tree
-	 */
-	void exitBin_op_log_is(ChocopyParser.Bin_op_log_isContext ctx);
+	void exitP6_resta(ChocopyParser.P6_restaContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code p7}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p6}.
@@ -515,41 +515,17 @@ public interface ChocopyListener extends ParseTreeListener {
 	 */
 	void exitP7(ChocopyParser.P7Context ctx);
 	/**
-	 * Enter a parse tree produced by the {@code p6_op_p6}
+	 * Enter a parse tree produced by the {@code p6_suma}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p6}.
 	 * @param ctx the parse tree
 	 */
-	void enterP6_op_p6(ChocopyParser.P6_op_p6Context ctx);
+	void enterP6_suma(ChocopyParser.P6_sumaContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code p6_op_p6}
+	 * Exit a parse tree produced by the {@code p6_suma}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p6}.
 	 * @param ctx the parse tree
 	 */
-	void exitP6_op_p6(ChocopyParser.P6_op_p6Context ctx);
-	/**
-	 * Enter a parse tree produced by the {@code bin_op_p6_suma}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p6}.
-	 * @param ctx the parse tree
-	 */
-	void enterBin_op_p6_suma(ChocopyParser.Bin_op_p6_sumaContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code bin_op_p6_suma}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p6}.
-	 * @param ctx the parse tree
-	 */
-	void exitBin_op_p6_suma(ChocopyParser.Bin_op_p6_sumaContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code bin_op_p6_menos}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p6}.
-	 * @param ctx the parse tree
-	 */
-	void enterBin_op_p6_menos(ChocopyParser.Bin_op_p6_menosContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code bin_op_p6_menos}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p6}.
-	 * @param ctx the parse tree
-	 */
-	void exitBin_op_p6_menos(ChocopyParser.Bin_op_p6_menosContext ctx);
+	void exitP6_suma(ChocopyParser.P6_sumaContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code p8}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
@@ -563,53 +539,41 @@ public interface ChocopyListener extends ParseTreeListener {
 	 */
 	void exitP8(ChocopyParser.P8Context ctx);
 	/**
-	 * Enter a parse tree produced by the {@code p7_op_p8}
+	 * Enter a parse tree produced by the {@code p7_mod}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
 	 * @param ctx the parse tree
 	 */
-	void enterP7_op_p8(ChocopyParser.P7_op_p8Context ctx);
+	void enterP7_mod(ChocopyParser.P7_modContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code p7_op_p8}
+	 * Exit a parse tree produced by the {@code p7_mod}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
 	 * @param ctx the parse tree
 	 */
-	void exitP7_op_p8(ChocopyParser.P7_op_p8Context ctx);
+	void exitP7_mod(ChocopyParser.P7_modContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code bin_op_p7_mult}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p7}.
+	 * Enter a parse tree produced by the {@code p7_mult}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
 	 * @param ctx the parse tree
 	 */
-	void enterBin_op_p7_mult(ChocopyParser.Bin_op_p7_multContext ctx);
+	void enterP7_mult(ChocopyParser.P7_multContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code bin_op_p7_mult}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p7}.
+	 * Exit a parse tree produced by the {@code p7_mult}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
 	 * @param ctx the parse tree
 	 */
-	void exitBin_op_p7_mult(ChocopyParser.Bin_op_p7_multContext ctx);
+	void exitP7_mult(ChocopyParser.P7_multContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code bin_op_p7_div}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p7}.
+	 * Enter a parse tree produced by the {@code p7_div}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
 	 * @param ctx the parse tree
 	 */
-	void enterBin_op_p7_div(ChocopyParser.Bin_op_p7_divContext ctx);
+	void enterP7_div(ChocopyParser.P7_divContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code bin_op_p7_div}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p7}.
+	 * Exit a parse tree produced by the {@code p7_div}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
 	 * @param ctx the parse tree
 	 */
-	void exitBin_op_p7_div(ChocopyParser.Bin_op_p7_divContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code bin_op_p7_mod}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p7}.
-	 * @param ctx the parse tree
-	 */
-	void enterBin_op_p7_mod(ChocopyParser.Bin_op_p7_modContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code bin_op_p7_mod}
-	 * labeled alternative in {@link ChocopyParser#bin_op_p7}.
-	 * @param ctx the parse tree
-	 */
-	void exitBin_op_p7_mod(ChocopyParser.Bin_op_p7_modContext ctx);
+	void exitP7_div(ChocopyParser.P7_divContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code cexpr_p8_menos}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p8}.
