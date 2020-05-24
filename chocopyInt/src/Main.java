@@ -18,6 +18,8 @@ public class Main {
             ChocopyParser parser = new ChocopyParser(tokens);
             ParseTree tree = parser.program(); // comienza el análisis en la regla inicial
             System.out.println(tree.toStringTree(parser)); // imprime el árbol en forma textual
+            MyVisitor<Object> loader = new MyVisitor<Object>();
+            loader.visit(tree);
         } catch (Exception e){
             System.err.println("Error (Test): " + e);
         }
