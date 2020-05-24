@@ -98,22 +98,22 @@ program : (var_def | func_def | class_def)* stmt*;
 
 class_def : CLASS ID PAR_IZQ ID PAR_DER DOS_PUNTOS NEWLINE INDENT class_body DEDENT;
 
-class_body : PASS NEWLINE #class_body_pass
-            | (var_def | func_def)+ #class_body_var_func
+class_body : PASS NEWLINE               #class_body_pass
+            | (var_def | func_def)+     #class_body_var_func
             ;
 
 func_def : DEF ID PAR_IZQ ((typed_var) (COMA typed_var)*)? PAR_DER (EJECUTA type)? DOS_PUNTOS NEWLINE INDENT func_body DEDENT;
 
 func_body : (global_decl | nonlocal_decl | var_def | func_def)* stmt+;
 
-typed_var : ID DOS_PUNTOS type  #typed_var_id
-            | SELF DOS_PUNTOS type #typed_var_self
+typed_var : ID DOS_PUNTOS type          #typed_var_id
+            | SELF DOS_PUNTOS type      #typed_var_self
             ;
 
-type : ID #type_id
-        | STRING #type_string
-        | COR_IZQ type COR_DER #type_cor_izq
-        ;   // TODO PENDIENTE EL IDSTRING
+type : ID                           #type_id
+        | STRING                    #type_string
+        | COR_IZQ type COR_DER      #type_cor_izq
+        ;
 
 global_decl : GLOBAL ID NEWLINE;
 
@@ -121,17 +121,17 @@ nonlocal_decl : NONLOCAL ID NEWLINE;
 
 var_def : typed_var ASIG literal NEWLINE;
 
-stmt : simple_stmt (NEWLINE)? #stmt_simple_stmt
-        | IF expr DOS_PUNTOS block (ELIF expr DOS_PUNTOS block)* (ELSE DOS_PUNTOS block)? #stmt_if
-        | WHILE expr DOS_PUNTOS block #stmt_while
-        | FOR ID IN expr DOS_PUNTOS block #stmt_for
+stmt : simple_stmt (NEWLINE)?                                                               #stmt_simple_stmt
+        | IF expr DOS_PUNTOS block (ELIF expr DOS_PUNTOS block)* (ELSE DOS_PUNTOS block)?   #stmt_if
+        | WHILE expr DOS_PUNTOS block                                                       #stmt_while
+        | FOR ID IN expr DOS_PUNTOS block                                                   #stmt_for
         ;
 
-simple_stmt : PASS #simple_stmt_pass
-            | expr #simple_stmt_expr
-            | RETURN (expr)? #simple_stmt_return
-            | (target ASIG)+ expr #simple_stmt_asig
-            | stmtprint #simple_stmt_print
+simple_stmt : PASS                  #simple_stmt_pass
+            | expr                  #simple_stmt_expr
+            | RETURN (expr)?        #simple_stmt_return
+            | (target ASIG)+ expr   #simple_stmt_asig
+            | stmtprint             #simple_stmt_print
             ;
 
 stmtprint : PRINT PAR_IZQ expr PAR_DER;
@@ -172,119 +172,91 @@ literal : (NONE
 //        | MENOR
 //        | MAYOR
 //        | IS;
-expr: expr_p2 expr_aux;
-
-expr_aux: IF expr ELSE expr_p2 expr_aux #expr_aux_if
-        |/*epsilon*/ #expr_aux_eps;
-
-expr_p2: expr_p3 expr_p2_aux;
-
-expr_p2_aux: OR expr_p3 expr_p2_aux #expr_p2_aux_or
-            |/*epsilon*/ #expr_p2_aux_eps
-            ;
-
-expr_p3: expr_p4 expr_p3_aux;
-
-expr_p3_aux: AND expr_p4 expr_p3_aux #expr_p3_aux_and
-            |/*epsilon*/ #expr_p3_aux_eps
-            ;
-
-expr_p4: NOT expr_p4 #expr_p4_not
-        |cexpr #expr_p4_cexpr
-        ;
-
-cexpr: cexpr_p6 cexpr_aux;
-
-cexpr_aux: bin_op_log cexpr_p6 cexpr_aux #cexpr_aux_bin
-            |/*epsilon*/ #cexpr_aux_eps
-            ;
-
-bin_op_log: IGUAL #bin_op_log_igual
-            |DIFERENTE #bin_op_log_diferente
-            |MAYOR #bin_op_log_mayor
-            |MENOR #bin_op_log_menor
-            |MAYOR_IGUAL #bin_op_log_mayor_igual
-            |MENOR_IGUAL #bin_op_log_menor_igual
-            |IS #bin_op_log_is
-            ;
-
-cexpr_p6: cexpr_p7 cexpr_p6_aux;
-
-cexpr_p6_aux: bin_op_p6 cexpr_p7 cexpr_p6_aux #cexpr_p6_aux_bin
-              |/*epsilon*/ #cexpr_p6_aux_eps
-              ;
-
-bin_op_p6: SUMA #bin_op_p6_suma
-            |MENOS #bin_op_p6_menos
-            ;
-
-cexpr_p7: cexpr_p8 cexpr_p7_aux;
-
-cexpr_p7_aux: bin_op_p7 cexpr_p8 cexpr_p7_aux #cexpr_p7_aux_bin
-            |/*epsilon*/ #cexpr_p7_aux_eps
-            ;
-
-bin_op_p7: MULTIPLICACION #bin_op_p7_mult
-            |DIVISION #bin_op_p7_div
-            |MODULO #bin_op_p7_mod
-            ;
-
-cexpr_p8: MENOS cexpr_p8 #cexpr_p8_menos
-            |cexpr_p9 #cexpr_p8_cexpr_p9
-            ;
-
-cexpr_p9: cexpr_p10 cexpr_p9_aux;
-
-cexpr_p9_aux: PUNTO ID cexpr_p10_aux cexpr_p9_aux #cexpr_p9_aux_punto
-            | COR_IZQ expr COR_DER cexpr_p9_aux #cexpr_p9_aux_cor_izq
-            |/*epsilon*/ #cexpr_p9_aux_eps
-            ;
-
-expr_list_no_req_cor:expr expr_list_0_more_cor #expr_list_no_req_cor_expr
-                    |/*epsilon*/ #expr_list_no_req_cor_eps;
-
-expr_list_0_more_cor: COMA expr expr_list_0_more_cor #expr_list_0_more_cor_coma
-                    |/*epsilon*/ #expr_list_0_more_cor_eps;
-
-cexpr_p10: ID cexpr_p10_aux #cexpr_p10_id
-        |literal #cexpr_p10_literal
-        |COR_IZQ expr_list_no_req_cor COR_DER #cexpr_p10_cor
-        |PAR_IZQ expr PAR_DER #cexpr_p10_par
-        |LEN PAR_IZQ cexpr PAR_DER #cexpr_p10_len
-        |SELF #cexpr_p10_self
-        ;// TODO NO ESTOY SEGURO DE SELF
-
-cexpr_p10_aux: PAR_IZQ expr_list_no_req PAR_DER #cexpr_p10_aux_par
-            |/*epsilon*/ #cexpr_p10_aux_eps
-            ;
-
-expr_list_no_req: expr expr_list_0_more #expr_list_no_req_expr
-                |/*epsilon*/ #expr_list_no_req_eps
-                ;
-
-expr_list_0_more: COMA expr expr_list_0_more #expr_list_0_more_coma
-                |/*epsilon*/ #expr_list_0_more_eps
-                ;
-
-member_expr : cexpr PUNTO ID #member_expr_cexpr
-              |SELF PUNTO ID #member_expr_self
-              ;
-
-
-index_expr : cexpr COR_IZQ expr COR_DER #index_expr_cexpr
-            |SELF COR_IZQ expr COR_DER #index_expr_self
-            ;
-
-target : ID #target_id
-        |SELF #target_self
-        | member_expr #target_member
-        | index_expr #target_index_expr
-        ;
-
-n: ASIG #n_asig
-    |IGUAL #n_igual
+expr: expr_p2 IF expr ELSE expr     #expr_if
+    |expr_p2                        #p2
     ;
-// TOKEN
+
+expr_p2: expr_p2 OR expr_p3     #p2_or
+        |expr_p3                #p3
+        ;
+
+expr_p3: expr_p3 AND expr_p4    #p3_and
+        |expr_p4                #p4
+        ;
+
+expr_p4: NOT expr_p4    #expr_p4_not
+        |cexpr          #expr_p4_cexpr
+        ;
+
+cexpr: cexpr_p6 bin_op_log cexpr_p6     #cexpr_op_log
+        |cexpr_p6                       #p6
+        ;
+
+bin_op_log: IGUAL           #bin_op_log_igual
+            |DIFERENTE      #bin_op_log_diferente
+            |MAYOR          #bin_op_log_mayor
+            |MENOR          #bin_op_log_menor
+            |MAYOR_IGUAL    #bin_op_log_mayor_igual
+            |MENOR_IGUAL    #bin_op_log_menor_igual
+            |IS             #bin_op_log_is
+            ;
+
+cexpr_p6: cexpr_p6 bin_op_p6 cexpr_p7   #p6_op_p6
+            |cexpr_p7                   #p7
+            ;
+
+bin_op_p6: SUMA     #bin_op_p6_suma
+            |MENOS  #bin_op_p6_menos
+            ;
+
+cexpr_p7: cexpr_p7 bin_op_p7 cexpr_p8       #p7_op_p8
+            |cexpr_p8                       #p8
+            ;
+bin_op_p7: MULTIPLICACION   #bin_op_p7_mult
+            |DIVISION       #bin_op_p7_div
+            |MODULO         #bin_op_p7_mod
+            ;
+
+cexpr_p8: MENOS cexpr_p8    #cexpr_p8_menos
+            |cexpr_p9       #cexpr_p8_cexpr_p9
+            ;
+
+cexpr_p9: cexpr_p10 (PUNTO ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?)*     #p10_punto
+        | cexpr_p10 (COR_IZQ expr COR_DER)*                                 #p10_cor
+        | cexpr_p10                                                         #p10
+        ;
+
+//cexpr_p9: cexpr_p10 cexpr_p9_aux;
+//
+//cexpr_p9_aux: PUNTO ID cexpr_p10_aux cexpr_p9_aux #cexpr_p9_aux_punto
+//            | COR_IZQ expr COR_DER cexpr_p9_aux #cexpr_p9_aux_cor_izq
+//            |/*epsilon*/ #cexpr_p9_aux_eps
+//            ;
+
+cexpr_p10: ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?   #cexpr_p10_id
+        |literal                                        #cexpr_p10_literal
+        |COR_IZQ (expr (COMA expr)*)? COR_DER           #cexpr_p10_cor
+        |PAR_IZQ expr PAR_DER                           #cexpr_p10_par
+        |LEN PAR_IZQ cexpr PAR_DER                      #cexpr_p10_len
+        |SELF                                           #cexpr_p10_self
+        ;
+
+member_expr : cexpr PUNTO ID    #member_expr_cexpr
+              |SELF PUNTO ID    #member_expr_self
+              ;
+
+index_expr : cexpr COR_IZQ expr COR_DER     #index_expr_cexpr
+            |SELF COR_IZQ expr COR_DER      #index_expr_self
+            ;
+
+target : ID             #target_id
+        |SELF           #target_self
+        | member_expr   #target_member
+        | index_expr    #target_index_expr
+        ;
+
+
+// TOKENS
 
 SKIP_
  : ( SPACES | COMMENT | LINE_JOINING) -> skip

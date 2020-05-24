@@ -1,4 +1,4 @@
-// Generated from /home/minorin/Documents/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
+// Generated from /home/brayan/Documentos/UNAL/Semestre 9/Lenguajes/compilador/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -299,107 +299,77 @@ public interface ChocopyListener extends ParseTreeListener {
 	 */
 	void exitLiteral(ChocopyParser.LiteralContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ChocopyParser#expr}.
+	 * Enter a parse tree produced by the {@code expr_if}
+	 * labeled alternative in {@link ChocopyParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr(ChocopyParser.ExprContext ctx);
+	void enterExpr_if(ChocopyParser.Expr_ifContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ChocopyParser#expr}.
+	 * Exit a parse tree produced by the {@code expr_if}
+	 * labeled alternative in {@link ChocopyParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr(ChocopyParser.ExprContext ctx);
+	void exitExpr_if(ChocopyParser.Expr_ifContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code expr_aux_if}
-	 * labeled alternative in {@link ChocopyParser#expr_aux}.
+	 * Enter a parse tree produced by the {@code p2}
+	 * labeled alternative in {@link ChocopyParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr_aux_if(ChocopyParser.Expr_aux_ifContext ctx);
+	void enterP2(ChocopyParser.P2Context ctx);
 	/**
-	 * Exit a parse tree produced by the {@code expr_aux_if}
-	 * labeled alternative in {@link ChocopyParser#expr_aux}.
+	 * Exit a parse tree produced by the {@code p2}
+	 * labeled alternative in {@link ChocopyParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr_aux_if(ChocopyParser.Expr_aux_ifContext ctx);
+	void exitP2(ChocopyParser.P2Context ctx);
 	/**
-	 * Enter a parse tree produced by the {@code expr_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#expr_aux}.
+	 * Enter a parse tree produced by the {@code p2_or}
+	 * labeled alternative in {@link ChocopyParser#expr_p2}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr_aux_eps(ChocopyParser.Expr_aux_epsContext ctx);
+	void enterP2_or(ChocopyParser.P2_orContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code expr_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#expr_aux}.
+	 * Exit a parse tree produced by the {@code p2_or}
+	 * labeled alternative in {@link ChocopyParser#expr_p2}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr_aux_eps(ChocopyParser.Expr_aux_epsContext ctx);
+	void exitP2_or(ChocopyParser.P2_orContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ChocopyParser#expr_p2}.
+	 * Enter a parse tree produced by the {@code p3}
+	 * labeled alternative in {@link ChocopyParser#expr_p2}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr_p2(ChocopyParser.Expr_p2Context ctx);
+	void enterP3(ChocopyParser.P3Context ctx);
 	/**
-	 * Exit a parse tree produced by {@link ChocopyParser#expr_p2}.
+	 * Exit a parse tree produced by the {@code p3}
+	 * labeled alternative in {@link ChocopyParser#expr_p2}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr_p2(ChocopyParser.Expr_p2Context ctx);
+	void exitP3(ChocopyParser.P3Context ctx);
 	/**
-	 * Enter a parse tree produced by the {@code expr_p2_aux_or}
-	 * labeled alternative in {@link ChocopyParser#expr_p2_aux}.
+	 * Enter a parse tree produced by the {@code p3_and}
+	 * labeled alternative in {@link ChocopyParser#expr_p3}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr_p2_aux_or(ChocopyParser.Expr_p2_aux_orContext ctx);
+	void enterP3_and(ChocopyParser.P3_andContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code expr_p2_aux_or}
-	 * labeled alternative in {@link ChocopyParser#expr_p2_aux}.
+	 * Exit a parse tree produced by the {@code p3_and}
+	 * labeled alternative in {@link ChocopyParser#expr_p3}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr_p2_aux_or(ChocopyParser.Expr_p2_aux_orContext ctx);
+	void exitP3_and(ChocopyParser.P3_andContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code expr_p2_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#expr_p2_aux}.
+	 * Enter a parse tree produced by the {@code p4}
+	 * labeled alternative in {@link ChocopyParser#expr_p3}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr_p2_aux_eps(ChocopyParser.Expr_p2_aux_epsContext ctx);
+	void enterP4(ChocopyParser.P4Context ctx);
 	/**
-	 * Exit a parse tree produced by the {@code expr_p2_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#expr_p2_aux}.
+	 * Exit a parse tree produced by the {@code p4}
+	 * labeled alternative in {@link ChocopyParser#expr_p3}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr_p2_aux_eps(ChocopyParser.Expr_p2_aux_epsContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ChocopyParser#expr_p3}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_p3(ChocopyParser.Expr_p3Context ctx);
-	/**
-	 * Exit a parse tree produced by {@link ChocopyParser#expr_p3}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_p3(ChocopyParser.Expr_p3Context ctx);
-	/**
-	 * Enter a parse tree produced by the {@code expr_p3_aux_and}
-	 * labeled alternative in {@link ChocopyParser#expr_p3_aux}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_p3_aux_and(ChocopyParser.Expr_p3_aux_andContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code expr_p3_aux_and}
-	 * labeled alternative in {@link ChocopyParser#expr_p3_aux}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_p3_aux_and(ChocopyParser.Expr_p3_aux_andContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code expr_p3_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#expr_p3_aux}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_p3_aux_eps(ChocopyParser.Expr_p3_aux_epsContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code expr_p3_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#expr_p3_aux}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_p3_aux_eps(ChocopyParser.Expr_p3_aux_epsContext ctx);
+	void exitP4(ChocopyParser.P4Context ctx);
 	/**
 	 * Enter a parse tree produced by the {@code expr_p4_not}
 	 * labeled alternative in {@link ChocopyParser#expr_p4}.
@@ -425,39 +395,29 @@ public interface ChocopyListener extends ParseTreeListener {
 	 */
 	void exitExpr_p4_cexpr(ChocopyParser.Expr_p4_cexprContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ChocopyParser#cexpr}.
+	 * Enter a parse tree produced by the {@code cexpr_op_log}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterCexpr(ChocopyParser.CexprContext ctx);
+	void enterCexpr_op_log(ChocopyParser.Cexpr_op_logContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ChocopyParser#cexpr}.
+	 * Exit a parse tree produced by the {@code cexpr_op_log}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitCexpr(ChocopyParser.CexprContext ctx);
+	void exitCexpr_op_log(ChocopyParser.Cexpr_op_logContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code cexpr_aux_bin}
-	 * labeled alternative in {@link ChocopyParser#cexpr_aux}.
+	 * Enter a parse tree produced by the {@code p6}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterCexpr_aux_bin(ChocopyParser.Cexpr_aux_binContext ctx);
+	void enterP6(ChocopyParser.P6Context ctx);
 	/**
-	 * Exit a parse tree produced by the {@code cexpr_aux_bin}
-	 * labeled alternative in {@link ChocopyParser#cexpr_aux}.
+	 * Exit a parse tree produced by the {@code p6}
+	 * labeled alternative in {@link ChocopyParser#cexpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitCexpr_aux_bin(ChocopyParser.Cexpr_aux_binContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code cexpr_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#cexpr_aux}.
-	 * @param ctx the parse tree
-	 */
-	void enterCexpr_aux_eps(ChocopyParser.Cexpr_aux_epsContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code cexpr_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#cexpr_aux}.
-	 * @param ctx the parse tree
-	 */
-	void exitCexpr_aux_eps(ChocopyParser.Cexpr_aux_epsContext ctx);
+	void exitP6(ChocopyParser.P6Context ctx);
 	/**
 	 * Enter a parse tree produced by the {@code bin_op_log_igual}
 	 * labeled alternative in {@link ChocopyParser#bin_op_log}.
@@ -543,39 +503,29 @@ public interface ChocopyListener extends ParseTreeListener {
 	 */
 	void exitBin_op_log_is(ChocopyParser.Bin_op_log_isContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ChocopyParser#cexpr_p6}.
+	 * Enter a parse tree produced by the {@code p7}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p6}.
 	 * @param ctx the parse tree
 	 */
-	void enterCexpr_p6(ChocopyParser.Cexpr_p6Context ctx);
+	void enterP7(ChocopyParser.P7Context ctx);
 	/**
-	 * Exit a parse tree produced by {@link ChocopyParser#cexpr_p6}.
+	 * Exit a parse tree produced by the {@code p7}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p6}.
 	 * @param ctx the parse tree
 	 */
-	void exitCexpr_p6(ChocopyParser.Cexpr_p6Context ctx);
+	void exitP7(ChocopyParser.P7Context ctx);
 	/**
-	 * Enter a parse tree produced by the {@code cexpr_p6_aux_bin}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p6_aux}.
+	 * Enter a parse tree produced by the {@code p6_op_p6}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p6}.
 	 * @param ctx the parse tree
 	 */
-	void enterCexpr_p6_aux_bin(ChocopyParser.Cexpr_p6_aux_binContext ctx);
+	void enterP6_op_p6(ChocopyParser.P6_op_p6Context ctx);
 	/**
-	 * Exit a parse tree produced by the {@code cexpr_p6_aux_bin}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p6_aux}.
+	 * Exit a parse tree produced by the {@code p6_op_p6}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p6}.
 	 * @param ctx the parse tree
 	 */
-	void exitCexpr_p6_aux_bin(ChocopyParser.Cexpr_p6_aux_binContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code cexpr_p6_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p6_aux}.
-	 * @param ctx the parse tree
-	 */
-	void enterCexpr_p6_aux_eps(ChocopyParser.Cexpr_p6_aux_epsContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code cexpr_p6_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p6_aux}.
-	 * @param ctx the parse tree
-	 */
-	void exitCexpr_p6_aux_eps(ChocopyParser.Cexpr_p6_aux_epsContext ctx);
+	void exitP6_op_p6(ChocopyParser.P6_op_p6Context ctx);
 	/**
 	 * Enter a parse tree produced by the {@code bin_op_p6_suma}
 	 * labeled alternative in {@link ChocopyParser#bin_op_p6}.
@@ -601,39 +551,29 @@ public interface ChocopyListener extends ParseTreeListener {
 	 */
 	void exitBin_op_p6_menos(ChocopyParser.Bin_op_p6_menosContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ChocopyParser#cexpr_p7}.
+	 * Enter a parse tree produced by the {@code p8}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
 	 * @param ctx the parse tree
 	 */
-	void enterCexpr_p7(ChocopyParser.Cexpr_p7Context ctx);
+	void enterP8(ChocopyParser.P8Context ctx);
 	/**
-	 * Exit a parse tree produced by {@link ChocopyParser#cexpr_p7}.
+	 * Exit a parse tree produced by the {@code p8}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
 	 * @param ctx the parse tree
 	 */
-	void exitCexpr_p7(ChocopyParser.Cexpr_p7Context ctx);
+	void exitP8(ChocopyParser.P8Context ctx);
 	/**
-	 * Enter a parse tree produced by the {@code cexpr_p7_aux_bin}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p7_aux}.
+	 * Enter a parse tree produced by the {@code p7_op_p8}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
 	 * @param ctx the parse tree
 	 */
-	void enterCexpr_p7_aux_bin(ChocopyParser.Cexpr_p7_aux_binContext ctx);
+	void enterP7_op_p8(ChocopyParser.P7_op_p8Context ctx);
 	/**
-	 * Exit a parse tree produced by the {@code cexpr_p7_aux_bin}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p7_aux}.
+	 * Exit a parse tree produced by the {@code p7_op_p8}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p7}.
 	 * @param ctx the parse tree
 	 */
-	void exitCexpr_p7_aux_bin(ChocopyParser.Cexpr_p7_aux_binContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code cexpr_p7_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p7_aux}.
-	 * @param ctx the parse tree
-	 */
-	void enterCexpr_p7_aux_eps(ChocopyParser.Cexpr_p7_aux_epsContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code cexpr_p7_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p7_aux}.
-	 * @param ctx the parse tree
-	 */
-	void exitCexpr_p7_aux_eps(ChocopyParser.Cexpr_p7_aux_epsContext ctx);
+	void exitP7_op_p8(ChocopyParser.P7_op_p8Context ctx);
 	/**
 	 * Enter a parse tree produced by the {@code bin_op_p7_mult}
 	 * labeled alternative in {@link ChocopyParser#bin_op_p7}.
@@ -695,99 +635,41 @@ public interface ChocopyListener extends ParseTreeListener {
 	 */
 	void exitCexpr_p8_cexpr_p9(ChocopyParser.Cexpr_p8_cexpr_p9Context ctx);
 	/**
-	 * Enter a parse tree produced by {@link ChocopyParser#cexpr_p9}.
+	 * Enter a parse tree produced by the {@code p10_punto}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p9}.
 	 * @param ctx the parse tree
 	 */
-	void enterCexpr_p9(ChocopyParser.Cexpr_p9Context ctx);
+	void enterP10_punto(ChocopyParser.P10_puntoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ChocopyParser#cexpr_p9}.
+	 * Exit a parse tree produced by the {@code p10_punto}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p9}.
 	 * @param ctx the parse tree
 	 */
-	void exitCexpr_p9(ChocopyParser.Cexpr_p9Context ctx);
+	void exitP10_punto(ChocopyParser.P10_puntoContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code cexpr_p9_aux_punto}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p9_aux}.
+	 * Enter a parse tree produced by the {@code p10_cor}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p9}.
 	 * @param ctx the parse tree
 	 */
-	void enterCexpr_p9_aux_punto(ChocopyParser.Cexpr_p9_aux_puntoContext ctx);
+	void enterP10_cor(ChocopyParser.P10_corContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code cexpr_p9_aux_punto}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p9_aux}.
+	 * Exit a parse tree produced by the {@code p10_cor}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p9}.
 	 * @param ctx the parse tree
 	 */
-	void exitCexpr_p9_aux_punto(ChocopyParser.Cexpr_p9_aux_puntoContext ctx);
+	void exitP10_cor(ChocopyParser.P10_corContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code cexpr_p9_aux_cor_izq}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p9_aux}.
+	 * Enter a parse tree produced by the {@code p10}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p9}.
 	 * @param ctx the parse tree
 	 */
-	void enterCexpr_p9_aux_cor_izq(ChocopyParser.Cexpr_p9_aux_cor_izqContext ctx);
+	void enterP10(ChocopyParser.P10Context ctx);
 	/**
-	 * Exit a parse tree produced by the {@code cexpr_p9_aux_cor_izq}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p9_aux}.
+	 * Exit a parse tree produced by the {@code p10}
+	 * labeled alternative in {@link ChocopyParser#cexpr_p9}.
 	 * @param ctx the parse tree
 	 */
-	void exitCexpr_p9_aux_cor_izq(ChocopyParser.Cexpr_p9_aux_cor_izqContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code cexpr_p9_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p9_aux}.
-	 * @param ctx the parse tree
-	 */
-	void enterCexpr_p9_aux_eps(ChocopyParser.Cexpr_p9_aux_epsContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code cexpr_p9_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p9_aux}.
-	 * @param ctx the parse tree
-	 */
-	void exitCexpr_p9_aux_eps(ChocopyParser.Cexpr_p9_aux_epsContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code expr_list_no_req_cor_expr}
-	 * labeled alternative in {@link ChocopyParser#expr_list_no_req_cor}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_list_no_req_cor_expr(ChocopyParser.Expr_list_no_req_cor_exprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code expr_list_no_req_cor_expr}
-	 * labeled alternative in {@link ChocopyParser#expr_list_no_req_cor}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_list_no_req_cor_expr(ChocopyParser.Expr_list_no_req_cor_exprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code expr_list_no_req_cor_eps}
-	 * labeled alternative in {@link ChocopyParser#expr_list_no_req_cor}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_list_no_req_cor_eps(ChocopyParser.Expr_list_no_req_cor_epsContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code expr_list_no_req_cor_eps}
-	 * labeled alternative in {@link ChocopyParser#expr_list_no_req_cor}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_list_no_req_cor_eps(ChocopyParser.Expr_list_no_req_cor_epsContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code expr_list_0_more_cor_coma}
-	 * labeled alternative in {@link ChocopyParser#expr_list_0_more_cor}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_list_0_more_cor_coma(ChocopyParser.Expr_list_0_more_cor_comaContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code expr_list_0_more_cor_coma}
-	 * labeled alternative in {@link ChocopyParser#expr_list_0_more_cor}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_list_0_more_cor_coma(ChocopyParser.Expr_list_0_more_cor_comaContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code expr_list_0_more_cor_eps}
-	 * labeled alternative in {@link ChocopyParser#expr_list_0_more_cor}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_list_0_more_cor_eps(ChocopyParser.Expr_list_0_more_cor_epsContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code expr_list_0_more_cor_eps}
-	 * labeled alternative in {@link ChocopyParser#expr_list_0_more_cor}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_list_0_more_cor_eps(ChocopyParser.Expr_list_0_more_cor_epsContext ctx);
+	void exitP10(ChocopyParser.P10Context ctx);
 	/**
 	 * Enter a parse tree produced by the {@code cexpr_p10_id}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p10}.
@@ -860,78 +742,6 @@ public interface ChocopyListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCexpr_p10_self(ChocopyParser.Cexpr_p10_selfContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code cexpr_p10_aux_par}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p10_aux}.
-	 * @param ctx the parse tree
-	 */
-	void enterCexpr_p10_aux_par(ChocopyParser.Cexpr_p10_aux_parContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code cexpr_p10_aux_par}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p10_aux}.
-	 * @param ctx the parse tree
-	 */
-	void exitCexpr_p10_aux_par(ChocopyParser.Cexpr_p10_aux_parContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code cexpr_p10_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p10_aux}.
-	 * @param ctx the parse tree
-	 */
-	void enterCexpr_p10_aux_eps(ChocopyParser.Cexpr_p10_aux_epsContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code cexpr_p10_aux_eps}
-	 * labeled alternative in {@link ChocopyParser#cexpr_p10_aux}.
-	 * @param ctx the parse tree
-	 */
-	void exitCexpr_p10_aux_eps(ChocopyParser.Cexpr_p10_aux_epsContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code expr_list_no_req_expr}
-	 * labeled alternative in {@link ChocopyParser#expr_list_no_req}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_list_no_req_expr(ChocopyParser.Expr_list_no_req_exprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code expr_list_no_req_expr}
-	 * labeled alternative in {@link ChocopyParser#expr_list_no_req}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_list_no_req_expr(ChocopyParser.Expr_list_no_req_exprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code expr_list_no_req_eps}
-	 * labeled alternative in {@link ChocopyParser#expr_list_no_req}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_list_no_req_eps(ChocopyParser.Expr_list_no_req_epsContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code expr_list_no_req_eps}
-	 * labeled alternative in {@link ChocopyParser#expr_list_no_req}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_list_no_req_eps(ChocopyParser.Expr_list_no_req_epsContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code expr_list_0_more_coma}
-	 * labeled alternative in {@link ChocopyParser#expr_list_0_more}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_list_0_more_coma(ChocopyParser.Expr_list_0_more_comaContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code expr_list_0_more_coma}
-	 * labeled alternative in {@link ChocopyParser#expr_list_0_more}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_list_0_more_coma(ChocopyParser.Expr_list_0_more_comaContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code expr_list_0_more_eps}
-	 * labeled alternative in {@link ChocopyParser#expr_list_0_more}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_list_0_more_eps(ChocopyParser.Expr_list_0_more_epsContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code expr_list_0_more_eps}
-	 * labeled alternative in {@link ChocopyParser#expr_list_0_more}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_list_0_more_eps(ChocopyParser.Expr_list_0_more_epsContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code member_expr_cexpr}
 	 * labeled alternative in {@link ChocopyParser#member_expr}.
@@ -1028,28 +838,4 @@ public interface ChocopyListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitTarget_index_expr(ChocopyParser.Target_index_exprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code n_asig}
-	 * labeled alternative in {@link ChocopyParser#n}.
-	 * @param ctx the parse tree
-	 */
-	void enterN_asig(ChocopyParser.N_asigContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code n_asig}
-	 * labeled alternative in {@link ChocopyParser#n}.
-	 * @param ctx the parse tree
-	 */
-	void exitN_asig(ChocopyParser.N_asigContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code n_igual}
-	 * labeled alternative in {@link ChocopyParser#n}.
-	 * @param ctx the parse tree
-	 */
-	void enterN_igual(ChocopyParser.N_igualContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code n_igual}
-	 * labeled alternative in {@link ChocopyParser#n}.
-	 * @param ctx the parse tree
-	 */
-	void exitN_igual(ChocopyParser.N_igualContext ctx);
 }

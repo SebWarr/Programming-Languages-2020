@@ -22,24 +22,16 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
 
     @Override
     public T visitCexpr_p10_literal(ChocopyParser.Cexpr_p10_literalContext ctx) {
-        System.out.println("Soy un literal" + ctx.literal().getText());
-        Integer aux = null;
-        aux = Integer.parseInt(ctx.literal().getText());
+        System.out.println("Soy un literal " + ctx.literal().getText());
+        String aux = ctx.literal().getText();
         return (T) aux;
         //OJO
         //return super.visitCexpr_p10_literal(ctx);
     }
 
-//    @Override
-//    public Object visitCexpr_p10_cor(ChocopyParser.Cexpr_p10_corContext ctx) {
-//        ArrayList<Integer> lista = new ArrayList<>();
-//        System.out.println("Soy una Lista");
-//        System.out.println(ctx.expr_list_no_req_cor());
-//        return super.visitCexpr_p10_cor(ctx);
-//    }
-
     @Override
     public T visitCexpr_p10_self(ChocopyParser.Cexpr_p10_selfContext ctx) {
+        System.out.println("soy self");
         return (T) ctx.SELF();
     }
 
@@ -56,37 +48,24 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
 //        return super.visitGlobal_decl(ctx);
 //    }
 
-
-//    @Override
-//    public T visitCexpr_p9_aux_eps(ChocopyParser.Cexpr_p9_aux_epsContext ctx) {
-//        System.out.println("Soy un Epsilom");
-//       // System.out.println(super.visitCexpr_p9_aux_eps(ctx));
-//        System.out.println(ctx);
-//        return (T) ctx.getText() ;
-//    }
-
-    @Override
-    public T visitCexpr_p9(ChocopyParser.Cexpr_p9Context ctx) {
-        //System.out.println(ctx.start);
-        //System.out.println(ctx.cexpr_p10());
-       // System.out.println(ctx.getText());
-        //Object prueba = visitChildren(ctx.cexpr_p10());
-        //prueba = ctx.children.toString()
-        System.out.println(ctx.cexpr_p10().getText());
-        System.out.println("Buenas");
-        System.out.println(visitChildren(ctx));
-        Integer prueba1 =  Integer.parseInt((String)visitChildren(ctx));
-        System.out.println("Debería llegar" + prueba1);
-        return (T) prueba1;
-    }
-
     @Override
     public T visitCexpr_p8_menos(ChocopyParser.Cexpr_p8_menosContext ctx) {
-        Object resExpr = visitChildren(ctx);
-        System.out.println("sdfbvgsdfb" + resExpr);
-        int expr = Integer.parseInt((String) resExpr);
-        System.out.println(expr);
-        expr *= -1;
-        return (T) (Object) expr;
+        System.out.println("soyp8menos");
+        try {
+//            Integer number = Integer.parseInt(ctx.cexpr_p8().getText());
+            int number = (int)Double.parseDouble((String)visitChildren(ctx));
+            number *= -1;
+            System.out.println(number);
+            return (T)((Double)(double)number).toString();
+        } catch (NumberFormatException nfe){
+            return super.visitCexpr_p8_menos(ctx);
+        }
     }
+
+    @Override
+    public T visitCexpr_p8_cexpr_p9(ChocopyParser.Cexpr_p8_cexpr_p9Context ctx) {
+        System.out.println("soyp8p9");
+        return visitChildren(ctx);
+    }
+
 }

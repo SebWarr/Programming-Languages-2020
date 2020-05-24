@@ -1,4 +1,4 @@
-// Generated from /home/minorin/Documents/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
+// Generated from /home/brayan/Documentos/UNAL/Semestre 9/Lenguajes/compilador/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -327,109 +327,73 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr(ChocopyParser.ExprContext ctx) { }
+	@Override public void enterExpr_if(ChocopyParser.Expr_ifContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpr(ChocopyParser.ExprContext ctx) { }
+	@Override public void exitExpr_if(ChocopyParser.Expr_ifContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr_aux_if(ChocopyParser.Expr_aux_ifContext ctx) { }
+	@Override public void enterP2(ChocopyParser.P2Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpr_aux_if(ChocopyParser.Expr_aux_ifContext ctx) { }
+	@Override public void exitP2(ChocopyParser.P2Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr_aux_eps(ChocopyParser.Expr_aux_epsContext ctx) { }
+	@Override public void enterP2_or(ChocopyParser.P2_orContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpr_aux_eps(ChocopyParser.Expr_aux_epsContext ctx) { }
+	@Override public void exitP2_or(ChocopyParser.P2_orContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr_p2(ChocopyParser.Expr_p2Context ctx) { }
+	@Override public void enterP3(ChocopyParser.P3Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpr_p2(ChocopyParser.Expr_p2Context ctx) { }
+	@Override public void exitP3(ChocopyParser.P3Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr_p2_aux_or(ChocopyParser.Expr_p2_aux_orContext ctx) { }
+	@Override public void enterP3_and(ChocopyParser.P3_andContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpr_p2_aux_or(ChocopyParser.Expr_p2_aux_orContext ctx) { }
+	@Override public void exitP3_and(ChocopyParser.P3_andContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr_p2_aux_eps(ChocopyParser.Expr_p2_aux_epsContext ctx) { }
+	@Override public void enterP4(ChocopyParser.P4Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpr_p2_aux_eps(ChocopyParser.Expr_p2_aux_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterExpr_p3(ChocopyParser.Expr_p3Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpr_p3(ChocopyParser.Expr_p3Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterExpr_p3_aux_and(ChocopyParser.Expr_p3_aux_andContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpr_p3_aux_and(ChocopyParser.Expr_p3_aux_andContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterExpr_p3_aux_eps(ChocopyParser.Expr_p3_aux_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpr_p3_aux_eps(ChocopyParser.Expr_p3_aux_epsContext ctx) { }
+	@Override public void exitP4(ChocopyParser.P4Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -459,37 +423,25 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCexpr(ChocopyParser.CexprContext ctx) { }
+	@Override public void enterCexpr_op_log(ChocopyParser.Cexpr_op_logContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCexpr(ChocopyParser.CexprContext ctx) { }
+	@Override public void exitCexpr_op_log(ChocopyParser.Cexpr_op_logContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCexpr_aux_bin(ChocopyParser.Cexpr_aux_binContext ctx) { }
+	@Override public void enterP6(ChocopyParser.P6Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCexpr_aux_bin(ChocopyParser.Cexpr_aux_binContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCexpr_aux_eps(ChocopyParser.Cexpr_aux_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCexpr_aux_eps(ChocopyParser.Cexpr_aux_epsContext ctx) { }
+	@Override public void exitP6(ChocopyParser.P6Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -579,37 +531,25 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCexpr_p6(ChocopyParser.Cexpr_p6Context ctx) { }
+	@Override public void enterP7(ChocopyParser.P7Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCexpr_p6(ChocopyParser.Cexpr_p6Context ctx) { }
+	@Override public void exitP7(ChocopyParser.P7Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCexpr_p6_aux_bin(ChocopyParser.Cexpr_p6_aux_binContext ctx) { }
+	@Override public void enterP6_op_p6(ChocopyParser.P6_op_p6Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCexpr_p6_aux_bin(ChocopyParser.Cexpr_p6_aux_binContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCexpr_p6_aux_eps(ChocopyParser.Cexpr_p6_aux_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCexpr_p6_aux_eps(ChocopyParser.Cexpr_p6_aux_epsContext ctx) { }
+	@Override public void exitP6_op_p6(ChocopyParser.P6_op_p6Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -639,37 +579,25 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCexpr_p7(ChocopyParser.Cexpr_p7Context ctx) { }
+	@Override public void enterP8(ChocopyParser.P8Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCexpr_p7(ChocopyParser.Cexpr_p7Context ctx) { }
+	@Override public void exitP8(ChocopyParser.P8Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCexpr_p7_aux_bin(ChocopyParser.Cexpr_p7_aux_binContext ctx) { }
+	@Override public void enterP7_op_p8(ChocopyParser.P7_op_p8Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCexpr_p7_aux_bin(ChocopyParser.Cexpr_p7_aux_binContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCexpr_p7_aux_eps(ChocopyParser.Cexpr_p7_aux_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCexpr_p7_aux_eps(ChocopyParser.Cexpr_p7_aux_epsContext ctx) { }
+	@Override public void exitP7_op_p8(ChocopyParser.P7_op_p8Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -735,97 +663,37 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCexpr_p9(ChocopyParser.Cexpr_p9Context ctx) { }
+	@Override public void enterP10_punto(ChocopyParser.P10_puntoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCexpr_p9(ChocopyParser.Cexpr_p9Context ctx) { }
+	@Override public void exitP10_punto(ChocopyParser.P10_puntoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCexpr_p9_aux_punto(ChocopyParser.Cexpr_p9_aux_puntoContext ctx) { }
+	@Override public void enterP10_cor(ChocopyParser.P10_corContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCexpr_p9_aux_punto(ChocopyParser.Cexpr_p9_aux_puntoContext ctx) { }
+	@Override public void exitP10_cor(ChocopyParser.P10_corContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCexpr_p9_aux_cor_izq(ChocopyParser.Cexpr_p9_aux_cor_izqContext ctx) { }
+	@Override public void enterP10(ChocopyParser.P10Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCexpr_p9_aux_cor_izq(ChocopyParser.Cexpr_p9_aux_cor_izqContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCexpr_p9_aux_eps(ChocopyParser.Cexpr_p9_aux_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCexpr_p9_aux_eps(ChocopyParser.Cexpr_p9_aux_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterExpr_list_no_req_cor_expr(ChocopyParser.Expr_list_no_req_cor_exprContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpr_list_no_req_cor_expr(ChocopyParser.Expr_list_no_req_cor_exprContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterExpr_list_no_req_cor_eps(ChocopyParser.Expr_list_no_req_cor_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpr_list_no_req_cor_eps(ChocopyParser.Expr_list_no_req_cor_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterExpr_list_0_more_cor_coma(ChocopyParser.Expr_list_0_more_cor_comaContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpr_list_0_more_cor_coma(ChocopyParser.Expr_list_0_more_cor_comaContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterExpr_list_0_more_cor_eps(ChocopyParser.Expr_list_0_more_cor_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpr_list_0_more_cor_eps(ChocopyParser.Expr_list_0_more_cor_epsContext ctx) { }
+	@Override public void exitP10(ChocopyParser.P10Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -898,78 +766,6 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCexpr_p10_self(ChocopyParser.Cexpr_p10_selfContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCexpr_p10_aux_par(ChocopyParser.Cexpr_p10_aux_parContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCexpr_p10_aux_par(ChocopyParser.Cexpr_p10_aux_parContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCexpr_p10_aux_eps(ChocopyParser.Cexpr_p10_aux_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCexpr_p10_aux_eps(ChocopyParser.Cexpr_p10_aux_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterExpr_list_no_req_expr(ChocopyParser.Expr_list_no_req_exprContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpr_list_no_req_expr(ChocopyParser.Expr_list_no_req_exprContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterExpr_list_no_req_eps(ChocopyParser.Expr_list_no_req_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpr_list_no_req_eps(ChocopyParser.Expr_list_no_req_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterExpr_list_0_more_coma(ChocopyParser.Expr_list_0_more_comaContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpr_list_0_more_coma(ChocopyParser.Expr_list_0_more_comaContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterExpr_list_0_more_eps(ChocopyParser.Expr_list_0_more_epsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpr_list_0_more_eps(ChocopyParser.Expr_list_0_more_epsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1066,30 +862,6 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitTarget_index_expr(ChocopyParser.Target_index_exprContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterN_asig(ChocopyParser.N_asigContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitN_asig(ChocopyParser.N_asigContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterN_igual(ChocopyParser.N_igualContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitN_igual(ChocopyParser.N_igualContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
