@@ -119,6 +119,7 @@ global_decl : GLOBAL ID NEWLINE;
 
 nonlocal_decl : NONLOCAL ID NEWLINE;
 
+// TODO HACER MANANA
 var_def : typed_var ASIG literal NEWLINE;
 
 stmt :  simple_stmt (NEWLINE)?                                                              #stmt_simple_stmt

@@ -1,2 +1,4 @@
-for l in lista:
-    pass
+i:int=""
+for i in [11, 22, 22]:
+    if i == 22:
+        print("Soy yo otra vez Diosito")

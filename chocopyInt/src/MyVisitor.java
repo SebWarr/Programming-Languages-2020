@@ -1,6 +1,8 @@
 import java.net.SocketImpl;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     //🐍 Epicness
@@ -47,6 +49,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         table.put("a", "int¿1");
         table.put("b", "bool¿False");
         table.put("c", "bool¿True");
+        table.put("i", "int¿0");
     }
 
     public void Sout(String str) {
@@ -100,6 +103,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
 
     @Override
     public T visitCexpr_p10_cor(ChocopyParser.Cexpr_p10_corContext ctx) {
+        //TODO: Lista con tipo object
         ArrayList<String> arreglo = new ArrayList<>();
         if (ctx.expr() != null) {
             String ex = ctx.expr(0).getText();
@@ -329,6 +333,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     }
 
     //TODO: ERROR RARO SIEMPRE BOTA ERROR SEMÁNTICO EN 1,ULTIMO
+    //TODO: Agregar tipos de listas
     @Override
     public T visitSimple_stmt_asig(ChocopyParser.Simple_stmt_asigContext ctx) {
         int size = ctx.target().size();
@@ -458,25 +463,115 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     public T visitStmt_for(ChocopyParser.Stmt_forContext ctx) {
         // | FOR ID IN expr DOS_PUNTOS block
         // table.put("t","int¿0");
-/*
-        int size = Integer.parseInt(visit(ctx.expr()).toString());
-        String st = visit(ctx.cexpr()).toString();
+        String visit = visit(ctx.expr()).toString();
+        String tipo_tmp = "";
+        //int size = Integer.parseInt(visit);
         int ans = -1;
-        if (lengthsTable.containsKey(st))
-            ans = (Integer) lengthsTable.get(st);
-        if (st.charAt(0) != '"' && st.charAt(0) != '[') {
-            int line = ctx.LEN().getSymbol().getCharPositionInLine();
-            int col = ctx.LEN().getSymbol().getCharPositionInLine() + 1;
-            System.err.printf("<%d, %d> Error Semantico, no se puede sacar len al objeto dado: " + st + " ", line, col);
+        if (lengthsTable.containsKey(visit)){
+            ans = (Integer) lengthsTable.get(visit);
+            //String num = "[22,True,'Perro',None,66,77]";
+            String str[] = visit.substring(1,visit.length()-1).split(",");
+            List<String> al = new ArrayList<String>();
+            al = Arrays.asList(str);
+
+            boolean is_Integer = false;
+            boolean is_String = false;
+            boolean is_Boolean = false;
+            boolean is_Object = false;
+
+            for(Object i: al){
+                try{
+                    int prueba = Integer.parseInt(i.toString().replace(" ", ""));
+                    is_Integer = true;
+                    if (is_Boolean || is_String){
+                        is_Object = true;
+                        break;
+                    }
+
+                }catch(Exception e){
+                    try{
+                        String tmp = i.toString().replace(" ", "");
+                        if (tmp.equals("True") || tmp.equals("False")){
+                            is_Boolean = true;
+                            if (is_Integer || is_String){
+                                is_Object = true;
+                                break;
+                            }
+                        }else{
+                            throw new Exception("Excepcion para que pase al catch siguiente");
+                        }
+
+                    }catch(Exception e1){
+                        Sout("El valor de Object es: " + i.toString().replace(" ", ""));
+                        if(i.toString().replace(" ", "").charAt(0) != '"'){
+                            int line = ctx.IN().getSymbol().getCharPositionInLine();
+                            int col = ctx.IN().getSymbol().getCharPositionInLine() + 4;
+                            System.err.printf("<%d, %d> Error Semantico, Solo se permiten listas con Strings, Enteros o Booleanos", line, col);
+                            System.exit(-1);
+                        }
+                        is_String= true;
+                    }
+                }
+            }
+
+            if(is_Object){
+                tipo_tmp = "Object";
+            }else if (is_Integer){
+                tipo_tmp = "int";
+            }else if (is_Boolean){
+                tipo_tmp = "bool";
+            }else{
+                tipo_tmp = "str";
+            }
+            Sout("Soy un null pointer " + tipo_tmp + " " + ans);
+        }
+
+        if (visit.charAt(0) != '"' && visit.charAt(0) != '[') {
+            int line = ctx.IN().getSymbol().getCharPositionInLine();
+            int col = ctx.IN().getSymbol().getCharPositionInLine() + 4;
+            System.err.printf("<%d, %d> Error Semantico, no se puede iterar sobre: " + visit + " ", line, col);
             System.exit(-1);
         }
-        if (st.charAt(0) == '"')
-            ans = st.length() - 2;
-        Sout("La longitud de mi polla en km es: " + (ans));
-        for(int  t = 0 ; t<size;i++){
+        if (visit.charAt(0) == '"'){
+            ans = visit.length() - 2;
+            tipo_tmp = "str";
+        }
 
-        }*/
-        return super.visitStmt_for(ctx);
+        Sout("La longitud de mi polla en km es: " + (ans));
+        Sout(ctx.ID().toString());
+        String[] arreglo =  getTypeValue(ctx.ID().getText());
+
+        if(!arreglo[0].equals(tipo_tmp)){
+            int line = ctx.IN().getSymbol().getCharPositionInLine();
+            int col = ctx.IN().getSymbol().getCharPositionInLine() + 4;
+            System.err.printf("<%d, %d> Error Semantico, El tipo del iterador: " + arreglo[0] + " ", line, col);
+            System.exit(-1);
+        }
+        Sout("Buenas Tardes");
+        String str[] = visit.substring(1,visit.length()-1).split(",");
+        List<String> al = new ArrayList<String>();
+        al = Arrays.asList(str);
+        Sout("Buenas Tardes");
+
+        for(Object i : al){
+            if (i.toString().replace(" ", "").charAt(0) == '"'){
+                //Sout("Yo soy i: " + i.toString().replace(" ", "") + ":");
+                if (i.toString().charAt(0) == ' '){
+                    table.put(ctx.ID().getText(), arreglo[0]+"¿"+i.toString().substring(2, i.toString().length()-1));
+                }else{
+                    table.put(ctx.ID().getText(), arreglo[0]+"¿"+i.toString().substring(1, i.toString().length()-1));
+
+                }
+            }else{
+                Sout("Yo soy i: " + i.toString()+ ":");
+                table.put(ctx.ID().getText(), arreglo[0]+"¿"+i.toString().replace(" ", ""));
+
+            }
+
+            visit(ctx.block());
+        }
+       // return super.visitStmt_for(ctx);
+        return null;
     }
 
     @Override
@@ -485,6 +580,3 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         return super.visitProgram(ctx);
     }
 }
-
-
-
