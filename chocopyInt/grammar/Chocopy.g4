@@ -121,7 +121,7 @@ nonlocal_decl : NONLOCAL ID NEWLINE;
 
 var_def : typed_var ASIG literal NEWLINE;
 
-stmt : simple_stmt (NEWLINE)?                                                               #stmt_simple_stmt
+stmt :  simple_stmt (NEWLINE)?                                                              #stmt_simple_stmt
         | IF expr DOS_PUNTOS block (ELIF expr DOS_PUNTOS block)* (ELSE DOS_PUNTOS block)?   #stmt_if
         | WHILE expr DOS_PUNTOS block                                                       #stmt_while
         | FOR ID IN expr DOS_PUNTOS block                                                   #stmt_for
@@ -129,7 +129,7 @@ stmt : simple_stmt (NEWLINE)?                                                   
 
 simple_stmt : PASS                  #simple_stmt_pass
             | expr                  #simple_stmt_expr
-            | RETURN (expr)?        #simple_stmt_return
+            | RETURN (expr)?        #simple_stmt_return  //TODO: VERIFICAR BREAKING FUNCIONES
             | (target ASIG)+ expr   #simple_stmt_asig
             | stmtprint             #simple_stmt_print
             ;
@@ -195,7 +195,7 @@ cexpr: cexpr_p6 IGUAL cexpr_p6             #cexpr_igual
         |cexpr_p6 MAYOR_IGUAL cexpr_p6     #cexpr_mayor_igual
         |cexpr_p6 MENOR_IGUAL cexpr_p6     #cexpr_menor_igual
         |cexpr_p6 IS cexpr_p6              #cexpr_is
-        |cexpr_p6  🐍   🐍                     #p6
+        |cexpr_p6                          #p6
         ;
 
 //bin_op_log: IGUAL           #bin_op_log_igual
@@ -231,8 +231,8 @@ cexpr_p8: MENOS cexpr_p8    #cexpr_p8_menos
             |cexpr_p9       #cexpr_p8_cexpr_p9
             ;
 
-cexpr_p9: cexpr_p10 (PUNTO ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?)*     #p10_punto
-        | cexpr_p10 (COR_IZQ expr COR_DER)*                                 #p10_cor
+cexpr_p9: cexpr_p10 (PUNTO ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?)*     #p10_punto //TODO:
+        | cexpr_p10 (COR_IZQ expr COR_DER)*                                 #p10_cor  //TODO:
         | cexpr_p10                                                         #p10
         ;
 
@@ -243,7 +243,7 @@ cexpr_p9: cexpr_p10 (PUNTO ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?)*     #p10
 //            |/*epsilon*/ #cexpr_p9_aux_eps
 //            ;
 
-cexpr_p10: ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?   #cexpr_p10_id
+cexpr_p10: ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?   #cexpr_p10_id   //TODO:
         |literal                                        #cexpr_p10_literal
         |COR_IZQ (expr (COMA expr)*)? COR_DER           #cexpr_p10_cor
         |PAR_IZQ expr PAR_DER                           #cexpr_p10_par
@@ -251,6 +251,8 @@ cexpr_p10: ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?   #cexpr_p10_id
         |SELF                                           #cexpr_p10_self
         ;
 
+
+/*
 member_expr : cexpr PUNTO ID    #member_expr_cexpr
               |SELF PUNTO ID    #member_expr_self
               ;
@@ -258,13 +260,22 @@ member_expr : cexpr PUNTO ID    #member_expr_cexpr
 index_expr : cexpr COR_IZQ expr COR_DER     #index_expr_cexpr
             |SELF COR_IZQ expr COR_DER      #index_expr_self
             ;
-
-target : ID             #target_id
-        |SELF           #target_self
-        | member_expr   #target_member
-        | index_expr    #target_index_expr
+*/
+target : ID                             #target_id
+        |SELF                           #target_self
+        |cexpr PUNTO ID                 #member_expr_cexpr
+        |SELF PUNTO ID                  #member_expr_self
+        |cexpr COR_IZQ expr COR_DER     #index_expr_cexpr
+        |SELF COR_IZQ expr COR_DER      #index_expr_self
         ;
 
+/*
+x=4
+x=5
+b=2
+x=b
+print(x) <-2
+*/
 
 // TOKENS
 
