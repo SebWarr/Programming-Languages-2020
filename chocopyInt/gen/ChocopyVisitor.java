@@ -1,4 +1,4 @@
-// Generated from C:/Users/oscam/Desktop/Programming-Languages-2020/chocopyInt/grammar\Chocopy.g4 by ANTLR 4.8
+// Generated from /home/minorin/Documents/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -420,34 +420,6 @@ public interface ChocopyVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCexpr_p10_self(ChocopyParser.Cexpr_p10_selfContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code member_expr_cexpr}
-	 * labeled alternative in {@link ChocopyParser#member_expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMember_expr_cexpr(ChocopyParser.Member_expr_cexprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code member_expr_self}
-	 * labeled alternative in {@link ChocopyParser#member_expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMember_expr_self(ChocopyParser.Member_expr_selfContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code index_expr_cexpr}
-	 * labeled alternative in {@link ChocopyParser#index_expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIndex_expr_cexpr(ChocopyParser.Index_expr_cexprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code index_expr_self}
-	 * labeled alternative in {@link ChocopyParser#index_expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIndex_expr_self(ChocopyParser.Index_expr_selfContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code target_id}
 	 * labeled alternative in {@link ChocopyParser#target}.
 	 * @param ctx the parse tree
@@ -462,17 +434,31 @@ public interface ChocopyVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTarget_self(ChocopyParser.Target_selfContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code target_member}
+	 * Visit a parse tree produced by the {@code member_expr_cexpr}
 	 * labeled alternative in {@link ChocopyParser#target}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTarget_member(ChocopyParser.Target_memberContext ctx);
+	T visitMember_expr_cexpr(ChocopyParser.Member_expr_cexprContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code target_index_expr}
+	 * Visit a parse tree produced by the {@code member_expr_self}
 	 * labeled alternative in {@link ChocopyParser#target}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTarget_index_expr(ChocopyParser.Target_index_exprContext ctx);
+	T visitMember_expr_self(ChocopyParser.Member_expr_selfContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code index_expr_cexpr}
+	 * labeled alternative in {@link ChocopyParser#target}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIndex_expr_cexpr(ChocopyParser.Index_expr_cexprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code index_expr_self}
+	 * labeled alternative in {@link ChocopyParser#target}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIndex_expr_self(ChocopyParser.Index_expr_selfContext ctx);
 }

@@ -1,4 +1,4 @@
-// Generated from C:/Users/oscam/Desktop/Programming-Languages-2020/chocopyInt/grammar\Chocopy.g4 by ANTLR 4.8
+// Generated from /home/minorin/Documents/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -735,6 +735,30 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterTarget_id(ChocopyParser.Target_idContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTarget_id(ChocopyParser.Target_idContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTarget_self(ChocopyParser.Target_selfContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTarget_self(ChocopyParser.Target_selfContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterMember_expr_cexpr(ChocopyParser.Member_expr_cexprContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -778,54 +802,6 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitIndex_expr_self(ChocopyParser.Index_expr_selfContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTarget_id(ChocopyParser.Target_idContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTarget_id(ChocopyParser.Target_idContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTarget_self(ChocopyParser.Target_selfContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTarget_self(ChocopyParser.Target_selfContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTarget_member(ChocopyParser.Target_memberContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTarget_member(ChocopyParser.Target_memberContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTarget_index_expr(ChocopyParser.Target_index_exprContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTarget_index_expr(ChocopyParser.Target_index_exprContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

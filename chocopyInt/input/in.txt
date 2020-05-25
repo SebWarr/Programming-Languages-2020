@@ -1,4 +1,9 @@
-i:int=""
-for i in [11, 22, 22]:
-    if i == 22:
-        print("Soy yo otra vez Diosito")
+def a():
+    i:int = 0
+    print("Mi Anvorgesa Belli")
+    for i in [2, 3, 4]:
+        if i%2==0:
+            print("Soy un par")
+        else:
+            print("Soy un impar")
+    return

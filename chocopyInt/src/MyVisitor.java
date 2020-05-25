@@ -315,8 +315,8 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         } else {
             System.out.println("Esto es una sentencia Print: " + ex);
         }
-
-        return super.visitStmtprint(ctx);
+        return null;
+//        return super.visitStmtprint(ctx);
     }
 
     @Override
@@ -542,7 +542,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         String[] arreglo =  getTypeValue(ctx.ID().getText());
 
         if(!arreglo[0].equals(tipo_tmp)){
-            int line = ctx.IN().getSymbol().getCharPositionInLine();
+            int line = ctx.IN().getSymbol().getLine();
             int col = ctx.IN().getSymbol().getCharPositionInLine() + 4;
             System.err.printf("<%d, %d> Error Semantico, El tipo del iterador: " + arreglo[0] + " ", line, col);
             System.exit(-1);
@@ -576,7 +576,115 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
 
     @Override
     public T visitProgram(ChocopyParser.ProgramContext ctx) {
-        agregar(table);
+//        agregar(table);
         return super.visitProgram(ctx);
+    }
+
+    @Override
+    public T visitVar_def(ChocopyParser.Var_defContext ctx) {
+        String var_def = visit(ctx.typed_var()).toString();
+        Sout(var_def);
+        String lit = ctx.literal().getText();
+        Sout(lit);
+        String[] tmp = var_def.split(":");
+
+        try{
+            if(tmp[1].equals("int")){
+                int prueba = Integer.parseInt(lit);
+            }else if (tmp[1].equals("bool")){
+                if (lit.equals("True") || lit.equals("False")){
+                   Boolean prueba2 = Boolean.parseBoolean(lit);
+                }
+            }else if (tmp[1].equals("str")){
+                if (lit.charAt(0)== '"'){
+                    String prueba3 = lit.substring(1,lit.length()-1);
+                }
+
+            }else if (tmp[1].charAt(0) == '[' && lit.equals("None")){
+                Sout("Es un None");
+            }else{
+                throw new Exception();
+            }
+        }catch(Exception e){
+            int line = ctx.ASIG().getSymbol().getLine();
+            int col = ctx.ASIG().getSymbol().getCharPositionInLine() + 3;
+            System.err.printf("<%d, %d> Error Semantico, El tipo de la declaración debe ser igual al tipo de la variable: " + tmp[0] + " ", line, col);
+            System.exit(-1);
+        }
+
+        table.put(tmp[0], tmp[1]+"¿"+lit);
+        Sout(table.get(tmp[0]));
+
+        return null;
+    }
+
+    @Override
+    public T visitTyped_var_id(ChocopyParser.Typed_var_idContext ctx) {
+
+        String tipo = ctx.type().getText();
+        if (table.containsKey(ctx.ID().getText())) {
+
+            int line = ctx.ID().getSymbol().getLine();
+            int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
+
+            System.err.printf("<%d, %d> Error Semantico, la variable con nombre: \"" + ctx.ID().getText() + "\" ya ha sido declarada", line, col);
+            System.exit(-1);
+
+        }else{
+
+            table.put(ctx.ID().getText(), tipo+"¿");
+        }
+        return (T) (ctx.ID().getText()+":"+tipo);
+    }
+
+    @Override
+    public T visitTyped_var_self(ChocopyParser.Typed_var_selfContext ctx) {
+        String tipo = ctx.type().getText();
+        if (table.containsKey(tipo)) {
+
+            int line = ctx.DOS_PUNTOS().getSymbol().getLine();
+            int col = ctx.DOS_PUNTOS().getSymbol().getCharPositionInLine() + 3;
+
+            System.err.printf("<%d, %d> Error Semantico, la clase nombrada: " + tipo + " no ha sido declarada", line, col);
+            System.exit(-1);
+
+        }else{
+            table.put(tipo, "Object¿");
+        }
+        return (T) (tipo+":Object");
+    }
+
+    @Override
+    public T visitFunc_body(ChocopyParser.Func_bodyContext ctx) {
+        int size = ctx.var_def().size();
+        for (int i = 0; i < size; i++) {
+            visit(ctx.var_def(i));
+        }
+        size = ctx.stmt().size();
+        for (int i = 0; i < size; i++) {
+            visit(ctx.stmt(i));
+        }
+
+        return null;
+        //return super.visitFunc_body(ctx);
+    }
+
+    @Override
+    public T visitFunc_def(ChocopyParser.Func_defContext ctx) {
+        if(ctx.typed_var()!= null){
+            int size = ctx.typed_var().size();
+            for (int i = 0; i< size; i++){
+                visit(ctx.typed_var(i));
+            }
+        }
+
+        if (ctx.type()!=null){
+            //Agregar al HashMap de Funciones (Retorna Valor) que va a hacer brayan
+        }else{
+            //Agregar al HashMap de Funciones (Retorno vacio) que va a hacer brayan
+        }
+        visit(ctx.func_body()); // Esto debe retornar algo y debe ser el tipo
+        //Return
+        return null;
     }
 }

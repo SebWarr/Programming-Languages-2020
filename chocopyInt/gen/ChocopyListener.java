@@ -1,4 +1,4 @@
-// Generated from C:/Users/oscam/Desktop/Programming-Languages-2020/chocopyInt/grammar\Chocopy.g4 by ANTLR 4.8
+// Generated from /home/minorin/Documents/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -707,54 +707,6 @@ public interface ChocopyListener extends ParseTreeListener {
 	 */
 	void exitCexpr_p10_self(ChocopyParser.Cexpr_p10_selfContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code member_expr_cexpr}
-	 * labeled alternative in {@link ChocopyParser#member_expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterMember_expr_cexpr(ChocopyParser.Member_expr_cexprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code member_expr_cexpr}
-	 * labeled alternative in {@link ChocopyParser#member_expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitMember_expr_cexpr(ChocopyParser.Member_expr_cexprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code member_expr_self}
-	 * labeled alternative in {@link ChocopyParser#member_expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterMember_expr_self(ChocopyParser.Member_expr_selfContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code member_expr_self}
-	 * labeled alternative in {@link ChocopyParser#member_expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitMember_expr_self(ChocopyParser.Member_expr_selfContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code index_expr_cexpr}
-	 * labeled alternative in {@link ChocopyParser#index_expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterIndex_expr_cexpr(ChocopyParser.Index_expr_cexprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code index_expr_cexpr}
-	 * labeled alternative in {@link ChocopyParser#index_expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitIndex_expr_cexpr(ChocopyParser.Index_expr_cexprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code index_expr_self}
-	 * labeled alternative in {@link ChocopyParser#index_expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterIndex_expr_self(ChocopyParser.Index_expr_selfContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code index_expr_self}
-	 * labeled alternative in {@link ChocopyParser#index_expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitIndex_expr_self(ChocopyParser.Index_expr_selfContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code target_id}
 	 * labeled alternative in {@link ChocopyParser#target}.
 	 * @param ctx the parse tree
@@ -779,27 +731,51 @@ public interface ChocopyListener extends ParseTreeListener {
 	 */
 	void exitTarget_self(ChocopyParser.Target_selfContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code target_member}
+	 * Enter a parse tree produced by the {@code member_expr_cexpr}
 	 * labeled alternative in {@link ChocopyParser#target}.
 	 * @param ctx the parse tree
 	 */
-	void enterTarget_member(ChocopyParser.Target_memberContext ctx);
+	void enterMember_expr_cexpr(ChocopyParser.Member_expr_cexprContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code target_member}
+	 * Exit a parse tree produced by the {@code member_expr_cexpr}
 	 * labeled alternative in {@link ChocopyParser#target}.
 	 * @param ctx the parse tree
 	 */
-	void exitTarget_member(ChocopyParser.Target_memberContext ctx);
+	void exitMember_expr_cexpr(ChocopyParser.Member_expr_cexprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code target_index_expr}
+	 * Enter a parse tree produced by the {@code member_expr_self}
 	 * labeled alternative in {@link ChocopyParser#target}.
 	 * @param ctx the parse tree
 	 */
-	void enterTarget_index_expr(ChocopyParser.Target_index_exprContext ctx);
+	void enterMember_expr_self(ChocopyParser.Member_expr_selfContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code target_index_expr}
+	 * Exit a parse tree produced by the {@code member_expr_self}
 	 * labeled alternative in {@link ChocopyParser#target}.
 	 * @param ctx the parse tree
 	 */
-	void exitTarget_index_expr(ChocopyParser.Target_index_exprContext ctx);
+	void exitMember_expr_self(ChocopyParser.Member_expr_selfContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code index_expr_cexpr}
+	 * labeled alternative in {@link ChocopyParser#target}.
+	 * @param ctx the parse tree
+	 */
+	void enterIndex_expr_cexpr(ChocopyParser.Index_expr_cexprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code index_expr_cexpr}
+	 * labeled alternative in {@link ChocopyParser#target}.
+	 * @param ctx the parse tree
+	 */
+	void exitIndex_expr_cexpr(ChocopyParser.Index_expr_cexprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code index_expr_self}
+	 * labeled alternative in {@link ChocopyParser#target}.
+	 * @param ctx the parse tree
+	 */
+	void enterIndex_expr_self(ChocopyParser.Index_expr_selfContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code index_expr_self}
+	 * labeled alternative in {@link ChocopyParser#target}.
+	 * @param ctx the parse tree
+	 */
+	void exitIndex_expr_self(ChocopyParser.Index_expr_selfContext ctx);
 }
