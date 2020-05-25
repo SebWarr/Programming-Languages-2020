@@ -92,15 +92,50 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
                     System.err.printf("<%d, %d> Error Semantico, el número de parametros no es correcto", line, col);
                     System.exit(-1);
                 }
+                Sout("SOY UN CHAMPIÑON");
+                String vis = visit(context.func_body()).toString();
+                Sout("visssss"+vis);
+                Sout("type"+context.type().getText());
+                if(vis.equals("$") && context.type() != null){
+                    int line = ctx.ID().getSymbol().getLine();
+                    int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
 
-                if(!context.type().toString().equals(visit(context.func_body()).toString())){
+                    System.err.printf("<%d, %d> Error Semantico, el número de parametros no es correcto", line, col);
+                    System.exit(-1);
+                }else{
+                    String type = context.type().getText();
+                    try {
+                        int number = Integer.parseInt(vis);
+                        if (!type.equals("int")) {
+                            int line = ctx.ID().getSymbol().getLine();
+                            int col = ctx.ID().getSymbol().getCharPositionInLine();
+                            System.err.printf("<%d, %d> Error Semantico, el tipo de retorno y la expresion no son iguales para la funcion"+ctx.ID(), line, col);
+                            System.exit(-1);
+                        }
+                    } catch (Exception exprIsNotNumber) {
+                        int line = ctx.ID().getSymbol().getLine();
+                        int col = ctx.ID().getSymbol().getCharPositionInLine();
+                        if (vis.equals("True") || vis.equals("False")){
+                            if (!type.equals("bool")) {
+                                line = ctx.ID().getSymbol().getLine();
+                                col = ctx.ID().getSymbol().getCharPositionInLine();
+                                System.err.printf("<%d, %d> Error Semantico, el tipo de retorno y la expresion no son iguales para la funcion"+ctx.ID(), line, col);
+                                System.exit(-1);
+                            }
+                        }else if (!type.equals("str")) {
+                            line = ctx.ID().getSymbol().getLine();
+                            col = ctx.ID().getSymbol().getCharPositionInLine();
+                            System.err.printf("<%d, %d> Error Semantico, el tipo de retorno y la expresion no son iguales para la funcion"+ctx.ID(), line, col);
+                            System.exit(-1);
+                        } // TODO FALTA TIPO NONE
+                    }
+
                     int line = ctx.ID().getSymbol().getLine();
                     int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
 
                     System.err.printf("<%d, %d> Error Semantico, el tipo de retorno no coincide con el valor de retorno", line, col);
                     System.exit(-1);
                 }
-//                if context.func_body().stmt()
             }
         } else {
            if (table.get(name) == null) {
@@ -691,17 +726,22 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         size = ctx.stmt().size();
         for (int i = 0; i < size; i++) {
             try{
-                String ans = visit(ctx.stmt(i)).toString();
+                Object tmp = visit(ctx.stmt(i));
+                Sout("PUTA"+tmp.toString());
+                String ans = tmp.toString();
                 String[] retorno = ans.split("¿");
-                if (retorno[0]=="return"){
+                if (retorno[0].equals("return")){
                     try {
                         String x = retorno[1];
+                        Sout("ESTO ES XXXXXX " + x);
                         return (T)x;
                     }catch (Exception e){
-                        return null;
+                        Sout("ESTO ES $$$$$$$4444 ");
+                        return (T)"$";
                     }
                 }
             }catch(Exception e){
+                continue;
             }
         }
 
