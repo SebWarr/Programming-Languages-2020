@@ -1,9 +1,15 @@
-def a():
-    i:int = 0
-    print("Mi Anvorgesa Belli")
-    for i in [2, 3, 4]:
-        if i%2==0:
-            print("Soy un par")
-        else:
-            print("Soy un impar")
-    return
+def a(j:int) -> bool:
+    t:int=0
+    for t in [2,3]:
+        j = j+t
+        return
+        print(j)
+
+    print(j+5)
+
+
+def b(h:int,m:int):
+    print(h+m)
+    return m+2
+
+a(1)

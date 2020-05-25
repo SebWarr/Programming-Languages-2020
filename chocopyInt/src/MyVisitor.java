@@ -8,6 +8,10 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     //🐍 Epicness
     HashMap<String, String> table = new HashMap<>();
 
+    HashMap<String, Object> classFunTable = new HashMap<>();
+
+    HashMap<String, String> returnTable = new HashMap<>();
+
     public String[] getTypeValue(String key) {
         //USAR SABIAMENTE: *NOOOO* USAR SI NO SE HA VERIFICADO QUE LA LLAVE ESTÁ EN EL MAPA
         String tp = table.get(key);
@@ -61,34 +65,56 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
 
     @Override
     public T visitCexpr_p10_id(ChocopyParser.Cexpr_p10_idContext ctx) {
+        //TODO VERIFICAR TIPOS
 
         String name = ctx.ID().getText();
 
-
-
-        if (table.get(name) == null) {
-
-            int line = ctx.ID().getSymbol().getLine();
-            int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
-
-            System.err.printf("<%d, %d> Error Semantico, la variable con nombre: \"" + name + "\" no ha sido declarada", line, col);
-            System.exit(-1);
-
-        } else if (ctx.PAR_IZQ() != null) {
+       if (ctx.PAR_IZQ() != null) {
             Sout("Por acá Estuve");
-            //TODO:functions
-//            if(ctx.expr()!=null){
-//                String ex = ctx.expr().get(0).getText();
-//                int len_comas = ctx.COMA().size();
-//                for(int i = 0; i<len_comas; i++){
-//                    def a(2,3):
-//                        return 2+3
-//                }
-//            }
+            if (classFunTable.get(name)==null) {
 
+                int line = ctx.ID().getSymbol().getLine();
+                int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
+
+                System.err.printf("<%d, %d> Error Semantico, la funcion con nombre: \"" + name + "\" no ha sido declarada", line, col);
+                System.exit(-1);
+            } else {
+                ChocopyParser.Func_defContext context = (ChocopyParser.Func_defContext)classFunTable.get(name);
+                if (context.typed_var().size() == ctx.expr().size()){
+                    for (int i = 0; i < context.typed_var().size(); i++) {
+                        String[] idTipo= visit(context.typed_var(i)).toString().split(":");
+                        table.put(idTipo[0],idTipo[1]+"¿"+visit(ctx.expr(i)).toString());
+                    }
+                }else{
+                    int line = ctx.ID().getSymbol().getLine();
+                    int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
+
+                    System.err.printf("<%d, %d> Error Semantico, el número de parametros no es correcto", line, col);
+                    System.exit(-1);
+                }
+
+                if(!context.type().toString().equals(visit(context.func_body()).toString())){
+                    int line = ctx.ID().getSymbol().getLine();
+                    int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
+
+                    System.err.printf("<%d, %d> Error Semantico, el tipo de retorno no coincide con el valor de retorno", line, col);
+                    System.exit(-1);
+                }
+//                if context.func_body().stmt()
+            }
         } else {
-            String id = getTypeValue(ctx.ID().getText())[1];
-            return (T) id;
+           if (table.get(name) == null) {
+
+               int line = ctx.ID().getSymbol().getLine();
+               int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
+
+               System.err.printf("<%d, %d> Error Semantico, la variable con nombre: \"" + name + "\" no ha sido declarada", line, col);
+               System.exit(-1);
+
+           } else {
+               String id = getTypeValue(ctx.ID().getText())[1];
+               return (T) id;
+           }
         }
         return super.visitCexpr_p10_id(ctx);
     }
@@ -327,7 +353,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     @Override
     public T visitSimple_stmt_return(ChocopyParser.Simple_stmt_returnContext ctx) {
         if (ctx.expr() != null) {
-            return (visit(ctx.expr()));
+            return (T)("return¿"+visit(ctx.expr()).toString());
         }
         return super.visitSimple_stmt_return(ctx); //CUIDADO ROMPER FUNCIONES
     }
@@ -394,7 +420,9 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
                 Sout("Valor después de asignacion de la variable: " + target + "  " + table.get(target));
             }
         }
-        return super.visitSimple_stmt_asig(ctx);
+        // TODO PRUEBA
+        //        return super.visitSimple_stmt_asig(ctx);
+        return null;
     }
 
     @Override
@@ -413,12 +441,12 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         return null;
     }
 
-    /*
-        @Override
-        public T visitStmt_simple_stmt(ChocopyParser.Stmt_simple_stmtContext ctx) {
-            return (T) super.visit(ctx.simple_stmt());
-        }
-    */
+
+    @Override
+    public T visitStmt_simple_stmt(ChocopyParser.Stmt_simple_stmtContext ctx) {
+        return (T) super.visit(ctx.simple_stmt());
+    }
+
     @Override
     public T visitStmt_if(ChocopyParser.Stmt_ifContext ctx) {
         String con1 = visit(ctx.expr(0)).toString();
@@ -662,7 +690,19 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         }
         size = ctx.stmt().size();
         for (int i = 0; i < size; i++) {
-            visit(ctx.stmt(i));
+            try{
+                String ans = visit(ctx.stmt(i)).toString();
+                String[] retorno = ans.split("¿");
+                if (retorno[0]=="return"){
+                    try {
+                        String x = retorno[1];
+                        return (T)x;
+                    }catch (Exception e){
+                        return null;
+                    }
+                }
+            }catch(Exception e){
+            }
         }
 
         return null;
@@ -674,17 +714,32 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         if(ctx.typed_var()!= null){
             int size = ctx.typed_var().size();
             for (int i = 0; i< size; i++){
-                visit(ctx.typed_var(i));
+                //visit(ctx.typed_var(i));
             }
         }
 
-        if (ctx.type()!=null){
-            //Agregar al HashMap de Funciones (Retorna Valor) que va a hacer brayan
-        }else{
-            //Agregar al HashMap de Funciones (Retorno vacio) que va a hacer brayan
-        }
-        visit(ctx.func_body()); // Esto debe retornar algo y debe ser el tipo
+//        if (ctx.type()!=null){
+//            //Agregar al HashMap de Funciones (Retorna Valor) que va a hacer brayan
+//            returnTable.put(ctx.ID().getText(),ctx.type().getText());
+//        }else{
+//            //Agregar al HashMap de Funciones (Retorno vacio) que va a hacer brayan
+//
+//        }
+        classFunTable.put(ctx.ID().getText(),ctx);
+        //visit(ctx.func_body()); // Esto debe retornar algo y debe ser el tipo
         //Return
         return null;
+    }
+
+    @Override
+    public T visitClass_def(ChocopyParser.Class_defContext ctx) {
+
+        return super.visitClass_def(ctx);
+    }
+
+    @Override
+    public T visitClass_body_var_func(ChocopyParser.Class_body_var_funcContext ctx) {
+        Sout("sadfadf");
+        return super.visitClass_body_var_func(ctx);
     }
 }
