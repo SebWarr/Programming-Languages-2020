@@ -64,9 +64,9 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
                     if (data.equals("None")) {
                         result = "None";
                     }else{
-                        System.out.println("Llegue a evaluar OBJ COSA");
+                        System.out.println("Llegue a evaluar OBJ COSA " + data);
 
-                        if (data.equals("retorno de la funcion visitFunc_body")){
+                        if (data.equals("retorno de la funcion visitFunc_body") || data.equals("null")){
                             result = "Retorno Vacío de Funcion";
                         }else{
                             result = "ERROR";
@@ -112,6 +112,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
 //            HashMap<String,String> localTable = stackTables.pop(); //para variables
             HashMap<String,String> localTable = stackTables.peek(); //para variables
             Sout("Tengo un Parentesis Izquierdo");
+            Sout("Revisaré el name "+ name);
             if (!localHash.containsKey(name)) {
                 int line = ctx.ID().getSymbol().getLine();
                 int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
@@ -119,8 +120,11 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
                 System.exit(-1);
             } else {
                 ArrayList<String> local_vars = new ArrayList<>();
+
                 ChocopyParser.Func_defContext context = (ChocopyParser.Func_defContext) localHash.get(name);
-                Sout("TypedVar"+context.typed_var(0).getText());
+                Sout("Aca voy");
+                //Sout("TypedVar"+context.typed_var(0).getText());
+                Sout("Aca voy2");
                 if (context.typed_var().size() == ctx.expr().size()) {
                     ArrayList<String> argumentos = new ArrayList<>();
 
@@ -169,22 +173,25 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
                         int col = ctx.ID().getSymbol().getCharPositionInLine();
                         System.err.printf("<%d, %d> Error Semantico, el tipo de retorno y la expresion no son iguales para la funcion " + ctx.ID(), line, col);
                         System.exit(-1);
+                    }else{
+                        Sout("Mi Vis es: " + vis);
+                        String type = context.type().getText(); // Acá se muere
+                        Sout("Mi Vis_type is: " + vis_type);
+                        Sout("Soy Type: " + type);
+                        if(!vis_type.equals(type)){
+                            int line = ctx.ID().getSymbol().getLine();
+                            int col = ctx.ID().getSymbol().getCharPositionInLine();
+                            System.err.printf("<%d, %d> Error Semantico, el tipo de retorno y la expresion no son iguales para la funcion " + ctx.ID(), line, col);
+                            System.exit(-1);
+                        }else if(vis_type.equals("ERROR")){
+                            int line = ctx.ID().getSymbol().getLine();
+                            int col = ctx.ID().getSymbol().getCharPositionInLine();
+                            System.err.printf("<%d, %d> Error Semantico, expresion  " +vis+" no tiene un tipo de dato valido" + ctx.ID(), line, col);
+                            System.exit(-1);
+                        }
+
                     }
-                    Sout("Mi Vis es: " + vis);
-                    String type = context.type().getText(); // Acá se muere
-                    Sout("Mi Vis_type is: " + vis_type);
-                    Sout("Soy Type: " + type);
-                    if(!vis_type.equals(type)){
-                        int line = ctx.ID().getSymbol().getLine();
-                        int col = ctx.ID().getSymbol().getCharPositionInLine();
-                        System.err.printf("<%d, %d> Error Semantico, el tipo de retorno y la expresion no son iguales para la funcion " + ctx.ID(), line, col);
-                        System.exit(-1);
-                    }else if(vis_type.equals("ERROR")){
-                        int line = ctx.ID().getSymbol().getLine();
-                        int col = ctx.ID().getSymbol().getCharPositionInLine();
-                        System.err.printf("<%d, %d> Error Semantico, expresion  " +vis+" no tiene un tipo de dato valido" + ctx.ID(), line, col);
-                        System.exit(-1);
-                    }
+
                     Sout("Fin de Verificación de Tipos de Variables");
                     return (T) vis;
                 }
@@ -375,6 +382,16 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
             }
             int line = ctx.MODULO().getSymbol().getLine();
             System.err.printf("<%d, %d> Error Semantico, no se puede obtener el modulo de dos objetos de tipo " + type_a + " y "+type_b, line, col);
+            System.exit(-1);
+        }else if( b.equals("0")){
+            int col = -1;
+            if(!type_a.equals("int")) {
+                col = ctx.MODULO().getSymbol().getCharPositionInLine()-2;
+            }else{
+                col = ctx.MODULO().getSymbol().getCharPositionInLine()+2;
+            }
+            int line = ctx.MODULO().getSymbol().getLine();
+            System.err.printf("<%d, %d> Error Semantico, no se puede obtener el modulo 0 de un número", line, col);
             System.exit(-1);
         }
         //TODO: Propiedades del módulo
@@ -1228,35 +1245,5 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         // x[0]-> 1
     }
 
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,260 @@
+// Como se esta haciendo validación de las funciones es importantes que esten declaradas antes de llamarlas
+//Todavía no funciona ni el global/nonlocal
+
+-------------------------
+// No se puede hacer esto 
+-------------------------
+y:[object] = None
+y = [None]
+-------------------------
+
+
+-------------------------
+// No se puede acceder a una posicion en una lista por indice (Si se puede actualizar pero no retornar)
+// Ver Caso que si funciona en ejemplos
+-------------------------
+d:[int] = None
+d = [1,2,3,4,5,6,7,8,9]
+print(d[0])
+-------------------------
+
+
+-------------------------
+//Esto debería botar error
+-------------------------
+print(None)
+-------------------------
+
+
+-------------------------
+// Esto se putea porque no encuentra retorno
+-------------------------
+def f(x:bool) -> int:
+    c:int= 1
+    d:int= 2
+    if(x):
+        return c
+    else:
+        return d
+-------------------------
+
+-------------------------
+// Esto siempre retorna d (No retorna al encontrar sentencia de retorno dentro de if)
+
+def f(x:bool) -> int:
+    c:int= 1
+    d:int= 2
+    if x:
+        return c
+    return d
+-------------------------
+
+
+-------------------------
+//No encuentra g (No se guardan varias funciones dentro del mismo scope)
+def h():
+    print("start h")
+    print("end h")
+    return
+
+def g():
+    print("start g")
+    h()
+    print("end g")
+    return
+
+def f() -> int:
+    print("start f")
+    g()
+    print("end f")
+    return 42
+
+print(h())
+print(g())
+print(f())
+-------------------------
+
+
+-------------------------
+// Clases y Objetos
+si permite declaralos y revisa su estructura, pero no los "crea" ni permite su creación como tipo,
+tampoco permite acceder a sus atributos con id.id.
+Tampoco se tiene la función "IS"
+Tampoco se tiene el Scope de cada objeto por separado (como debería ser), ej:
+
+x:A = None
+y:A = None
+x.atributo1 = 3
+y.atributo1 = 5
+print(x.atributo1) # Esto debería botar 3
+
+-------------------------
+class bar(object):
+    p: bool = True
+
+    def baz(self:"bar", xx: [int]) -> str:
+        global count
+        x:int = 0
+        y:int = 1
+
+        def qux(y: int) -> object:
+            nonlocal x
+            if x > y:
+                x = -1
+
+        for x in xx:
+            self.p = x == 2
+
+        qux(0)
+        count = count + 1
+
+        while x <= 0:
+            if self.p:
+                xx[0] = xx[1]
+                self.p = not self.p
+                x = x + 1
+            elif foo("Long"[0]) == 1:
+                self.p = self is None
+
+        return "Nope"
+
+
+
+
+-------------------------
+
+-----------------------------------
+Funciona
+-----------------------------------
+
+a:int = 10000
+b:int = 2
+h:str = ""
+c:int = 0
+s:str = "Hello"
+f:bool = True
+x:[int] = None
+
+x = [1, 2]
+x[0] = 3
+x[1] = 4
+print(f)
+c = (c + 2 // b) *  (a - 42)
+f = False
+
+print (c)
+#print(x)  # No se Puede Imprimir Un Arreglo
+print(s)
+print (c) # Si se le ponen mas argumentos arroja error
+
+
+z: int = 3
+j: int = 1
+g:int = 0
+d:[int] = None
+i:int = 2
+
+if z >= j:
+    print(z)
+else:
+    print(z-1)
+    
+for g in [1, 2, 3]:
+    print(g)
+        
+print(3 if (1==2) else 4)
+
+
+def baz(h:int) -> int:
+    b:int=0
+    c:int=5
+
+    def f(x:bool) -> int:
+        c:int= 1
+        d:int= 2
+        if x:
+            print(c)
+        return d
+
+    b = 3
+    print("Carnaval")
+    print(f(True))
+    print(c)
+    return b
+
+
+a:int = 0
+print("Hola Amigos")
+#print(f(True))
+a = baz(55)
+print(a)
+
 x:[str] = None
 i:str = ""
 x = ["hola","como","estoy"]
 x[2] = "estas"
 for i in x:
     print(i)
+
+
+
+print(42 // 0)
+##############################
+# No se Puede dividir entre 0
+##############################
+
+
+
+
+def f(x:int) -> int:
+
+    def g(y:int, z:int):
+        def h(msg: str) -> str:
+            return msg
+        h("h")
+        print("start g")
+        print(y)
+        print(z)
+        print("end g")
+        return
+
+    print("start f")
+    print(x)
+    g(1, x)
+    print("end f")
+    return x
+
+
+print(f(4))
+##############################
+# Funciones anidadas
+############################
+
+
+
+print(42 % 0)
+############################
+#Error Número Modulo 0
+############################
+
+
+
+
+print(3 if True else 4)
+print(3 if False else 4)
+############################
+#Expresiones condicionales ternarias
+############################
+
+
+
+def f() -> int:
+  x:int = 1
+  return x
+
+print(f())
+############################
+# Scope de las Variables locales
+############################
+
+
