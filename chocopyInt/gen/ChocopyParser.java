@@ -1,4 +1,4 @@
-// Generated from /home/minorin/Documents/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
+// Generated from C:/Users/oscam/Desktop/Semántico/Programming-Languages-2020/chocopyInt/grammar\Chocopy.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;

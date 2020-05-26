@@ -1,16 +1,38 @@
+import org.antlr.v4.runtime.RuleContext;
+
+import javax.xml.transform.Source;
 import java.net.SocketImpl;
 import java.util.*;
 
 public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     //🐍 Epicness
+
+    //GLOBAL VARIABLES
+
+    Boolean flag = true;
+
+    HashMap<String, Object> lengthsTable = new HashMap<>();
+
     HashMap<String, String> table = new HashMap<>();
 
     HashMap<String, Object> classFunTable = new HashMap<>();
 
     HashMap<String, String> returnTable = new HashMap<>();
 
+    //FUNCIONES AUXILIARES
     public String[] getTypeValue(String key) {
         //USAR SABIAMENTE: *NOOOO* USAR SI NO SE HA VERIFICADO QUE LA LLAVE ESTÁ EN EL MAPA
+        /*
+        * <String,String>
+           Funcion que devuelve el valor de las variables
+           "x","int:6"
+            String st = table.get(x)
+            -> "int¿6"
+                str_tv [] = st.split("¿")
+                  ->str_tv["int","6"]
+                        if str_tv[0]  == "int"
+                            valor = Integer.PaserInt(str_tv[1])
+        * */
         String tp = table.get(key);
         String[] typeValue = tp.split("¿");
         /*Idea: guardar variables de este tipo en el mapa : llave : "x", valor :"int¿6"*/
@@ -18,62 +40,85 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         return typeValue;
     }
 
-
-    public boolean parseBoolean(String s, int line, int col) {
-        boolean booleano1 = false;
-        if (s.toLowerCase().equals("true") || s.toLowerCase().equals("false")) {
-            booleano1 = Boolean.parseBoolean(s);
-        } else {
-            System.err.printf("<%d, %d> Error Semantico, expresión " + s + " no es booleano", line, col);
-            System.exit(-1);
-        }
-        return booleano1;
-    }
-
-    /*
-    * <String,String>
-       Funcion que devuelve el valor de las variables
-       "x","int:6"
-        String st = table.get(x)
-        -> "int¿6"
-            str_tv [] = st.split("¿")
-              ->str_tv["int","6"]
-                    if str_tv[0]  == "int"
-                        valor = Integer.PaserInt(str_tv[1])
-    * */
-
-    HashMap<String, Object> lengthsTable = new HashMap<>();
-
-    Boolean flag = true;
-
-    public void agregar(HashMap<String, String> table) {
-        table.put("a", "int¿1");
-        table.put("b", "bool¿False");
-        table.put("c", "bool¿True");
-        table.put("i", "int¿0");
-    }
-
     public void Sout(String str) {
         if (flag) {
             System.out.println(str);
         }
     }
+    //FUNCIÓN AUXILIAR PARA TYPE, PARA CONOCER EL TIPO DE LOS ARREGLOS
+    public static String type_arr(String[] data_arr){
+        String first_type = type(data_arr[0].replace(" ",""));
+        System.out.println("primer tipo "+ first_type);
+        for(int i = 1; i<data_arr.length;i++){
+            String ith_type = type(data_arr[i].replace(" ",""));
+            System.out.println("tipo "+i+" "+ ith_type);
+            if(!ith_type.equals(first_type))
+                return "[object]";
+        }
+        return "["+first_type+"]";
+    }
+    public static String type(String data) {
+        String result = "";
+        try {
+            System.out.println("Llegue a evaluar int");
+            int number = Integer.parseInt(data);
+            result = "int";
+        } catch (Exception notInteger) {
+            System.out.println("Llegue a evaluar bool");
+            if (data.toLowerCase().equals("true") || data.toLowerCase().equals("false")) {
+                result = "bool";
+            } else {
+                System.out.println("Llegue a evaluar str");
+                // TODO: VER SI ES CLASE LO TRATAMOS LUEGO CUANDO HAYA TABLAS DE CLASES
+                if (data.charAt(0) == '"' && data.charAt(data.length() - 1) == '"') {
+                    result = "str";
+                } else if (data.charAt(0) == '[' && data.charAt(data.length() - 1) == ']') {
+                    System.out.println("Llegue a evaluar arr");
+                    String[] data_arr = data.substring(1,data.length()-1).split(",");
+                    result = type_arr(data_arr);
+                } else {
+                    System.out.println("Llegue a evaluar None");
+                    if (data.equals("None")) {
+                        result = "None";
+                    }else{
+                        System.out.println("Llegue a evaluar OBJ COSA");
+                        //mirar en talbas (clases, ) <- VER CASOS DE PRUEBA
+                        // x:= a
+                        // Ver tabla de varialbes y mirar el tipo y comparar Sino, error
+                        // retrun 'posible variable o error'
+                        result = "ERROR";
+                    }
+                }
+            }
+        }
+        return result;
+    }
 
+    public boolean isArray(String possibleArr){
+        if(possibleArr.charAt(0)=='[' && possibleArr.charAt(possibleArr.length()-1)==']')
+            return true;
+        return false;
+    }
 
+    public void imprimirTable(){
+        for(Map.Entry<String, String> entry :  table.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            System.out.println("Llave "+key+" Valor "+value);
+        }
+    }
+    //FUNCIONES VISITOR
     @Override
     public T visitCexpr_p10_id(ChocopyParser.Cexpr_p10_idContext ctx) {
-        //TODO VERIFICAR TIPOS
-
+        // TODO VERIFICAR TIPOS
+        // REGLA visitCexpr_p10_id: ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?
         String name = ctx.ID().getText();
         Sout("Entré a visitCexpr_p10_id "+ name);
-
         if (ctx.PAR_IZQ() != null) {
             Sout("Tengo un Parentesis Izquierdo");
             if (!classFunTable.containsKey(name)) {
-
                 int line = ctx.ID().getSymbol().getLine();
                 int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
-
                 System.err.printf("<%d, %d> Error Semantico, la funcion con nombre: \"" + name + "\" no ha sido declarada", line, col);
                 System.exit(-1);
             } else {
@@ -86,21 +131,15 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
                         table.put(idTipo[0], idTipo[1] + "¿" + visit(ctx.expr(i)).toString());
                     }
                     Sout("Revisando la Tabla");
-                    for(Map.Entry<String, String> entry :  table.entrySet()) {
-                        String key = entry.getKey();
-                        String value = entry.getValue();
-                        System.out.println("Llave "+key+" Valor "+value);
-                    }
-
+                    imprimirTable();//Sout de HM table
                 } else {
                     int line = ctx.ID().getSymbol().getLine();
                     int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
-
                     System.err.printf("<%d, %d> Error Semantico, el número de parametros no es correcto", line, col);
                     System.exit(-1);
                 }
-
-                String vis = visit(context.func_body()).toString();
+                String vis = visit(context.func_body()).toString(); // Valor de vis
+                String vis_type = type(vis); //Tipo de vis
                 //Borrar Variables Locales
                 for(int i= 0; i < local_vars.size();i++){
                     local_vars.remove(local_vars.get(i));
@@ -108,72 +147,44 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
                 if (vis.equals("$") && context.type() != null) {
                     int line = ctx.ID().getSymbol().getLine();
                     int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
-
                     System.err.printf("<%d, %d> Error Semantico, el número de parametros no es correcto", line, col);
                     System.exit(-1);
                 } else {
                     String type = context.type().getText();
                     Sout("Soy Type: " + type);
-                    try {
-                        int number = Integer.parseInt(vis);
-                        if (!type.equals("int")) {
-                            int line = ctx.ID().getSymbol().getLine();
-                            int col = ctx.ID().getSymbol().getCharPositionInLine();
-                            System.err.printf("<%d, %d> Error Semantico, el tipo de retorno y la expresion no son iguales para la funcion" + ctx.ID(), line, col);
-                            System.exit(-1);
-                        }
-
-                    } catch (Exception exprIsNotNumber) {
+                    if(!vis_type.equals(type)){
                         int line = ctx.ID().getSymbol().getLine();
                         int col = ctx.ID().getSymbol().getCharPositionInLine();
-                        if (vis.equals("True") || vis.equals("False")) {
-                            if (!type.equals("bool")) {
-                                line = ctx.ID().getSymbol().getLine();
-                                col = ctx.ID().getSymbol().getCharPositionInLine();
-                                System.err.printf("<%d, %d> Error Semantico, el tipo de retorno y la expresion no son iguales para la funcion" + ctx.ID(), line, col);
-                                System.exit(-1);
-                            }
-                        } else if (!type.equals("str")) {
-                            line = ctx.ID().getSymbol().getLine();
-                            col = ctx.ID().getSymbol().getCharPositionInLine();
-                            System.err.printf("<%d, %d> Error Semantico, el tipo de retorno y la expresion no son iguales para la funcion" + ctx.ID(), line, col);
-                            System.exit(-1);
-                        } // TODO FALTA TIPO NONE
+                        System.err.printf("<%d, %d> Error Semantico, el tipo de retorno y la expresion no son iguales para la funcion" + ctx.ID(), line, col);
+                        System.exit(-1);
+                    }else if(!vis_type.equals("ERROR")){
+                        int line = ctx.ID().getSymbol().getLine();
+                        int col = ctx.ID().getSymbol().getCharPositionInLine();
+                        System.err.printf("<%d, %d> Error Semantico, expresion  " +vis+" no tiene un tipo de dato valido" + ctx.ID(), line, col);
+                        System.exit(-1);
                     }
-//                    int line = ctx.ID().getSymbol().getLine();
-//                    int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
-//
-//                    System.err.printf("<%d, %d> Error Semantico, el tipo de retorno no coincide con el valor de retorno", line, col);
-//                    System.exit(-1);
                     Sout("Fin de Verificación de Tipos de Variables");
                     return (T) vis;
                 }
                 Sout("No fuí una funcion");
-
             }
             Sout("Ya termino mi periodo de ser un parentesis");
-
         } else {
-
             Sout("Estoy buscando a: " + name);
             // 25 minutos en un !
             if (!table.containsKey(name)) {
                 Sout("No encontre a:" + name);
-
                 int line = ctx.ID().getSymbol().getLine();
                 int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
-
                 System.err.printf("<%d, %d> Error Semantico, la variable con nombre: \"" + name + "\" no ha sido declarada", line, col);
                 System.exit(-1);
-
             } else {
                 Sout("Encontre a:" + name);
-                String id = getTypeValue(ctx.ID().getText())[1];
-
-                return (T) id;
+                imprimirTable();
+                return (T) table.get(name).split("¿")[1];
             }
         }
-        return (T) "He terminado";
+        return (T) "He terminado visitCexpr_p10_id";
     }
 
     @Override
@@ -237,14 +248,18 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     @Override
     public T visitCexpr_p8_menos(ChocopyParser.Cexpr_p8_menosContext ctx) {
         Sout("Voy a cambiar el signo");
-        try {
-            int number = Integer.parseInt((String) visitChildren(ctx));
-            number *= -1;
-            Sout("Menos: " + ((Integer) number).toString());
-            return (T) ((Integer) number).toString();
-        } catch (NumberFormatException nfe) {
-            return super.visitCexpr_p8_menos(ctx);
+        String a = visit(ctx.cexpr_p8()).toString();
+        String type_expr = type(a);
+        if(!type_expr.equals("int")){
+            int line = ctx.MENOS().getSymbol().getLine();
+            int col =  ctx.MENOS().getSymbol().getCharPositionInLine()+1;
+            System.err.printf("<%d, %d> Error Semantico, no se puede cambiar de signo a un objeto no entero, tipo de dato dado: " + type_expr + " ", line, col);
+            System.exit(-1);
         }
+        int number = Integer.parseInt(a);
+        number *= -1;
+        Sout("Menos: " +number);
+        return (T) ((Integer) number).toString();
     }
 
     @Override
@@ -252,141 +267,365 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         Sout("Bajo de P8 a P9 " + ctx.cexpr_p9().getText());
         return (T) visit(ctx.cexpr_p9());
     }
-
+    //OPERACIONES BASICAS
+    //Máxima prioridad math
     @Override
     public T visitP7_mult(ChocopyParser.P7_multContext ctx) {
-        int a = Integer.parseInt((String) visit(ctx.cexpr_p7()));
-        int b = Integer.parseInt((String) visit(ctx.cexpr_p8()));
-        Sout("Multiplicacion: " + (a * b));
-        return (T) ((Integer) (a * b)).toString();
+        String a = visit(ctx.cexpr_p7()).toString();
+        String b = visit(ctx.cexpr_p8()).toString();
+        String type_a = type(a);
+        String type_b = type(b);
+        if(!type_a.equals("int") || !type_b.equals("int") ){
+            int col = -1;
+            if(!type_a.equals("int")) {
+                col = ctx.MULTIPLICACION().getSymbol().getCharPositionInLine() - 2;
+            }else{
+                col = ctx.MULTIPLICACION().getSymbol().getCharPositionInLine() + 2;
+            }
+            int line = ctx.MULTIPLICACION().getSymbol().getLine();
+            System.err.printf("<%d, %d> Error Semantico, no se pueden multiplicar dos objetos de tipo " + type_a + " y "+type_b, line, col);
+            System.exit(-1);
+        }
+        int result = (Integer.parseInt(a))*(Integer.parseInt(b));
+        Sout("Multiplicacion: " + result);
+        return (T) ((Integer) (result)).toString();
     }
 
     @Override
     public T visitP7_div(ChocopyParser.P7_divContext ctx) {
-        int a = Integer.parseInt((String) visit(ctx.cexpr_p7()));
-        int b = Integer.parseInt((String) visit(ctx.cexpr_p8()));
-        Sout("Division: " + (a / b));
-        return (T) ((Integer) (a / b)).toString();
+        String a = visit(ctx.cexpr_p7()).toString();
+        String b = visit(ctx.cexpr_p8()).toString();
+        String type_a = type(a);
+        String type_b = type(b);
+        if(!type_a.equals("int") || !type_b.equals("int") ){
+            int col = -1;
+            if(!type_a.equals("int")) {
+                col = ctx.DIVISION().getSymbol().getCharPositionInLine()-2;
+            }else{
+                col = ctx.DIVISION().getSymbol().getCharPositionInLine()+3;
+            }
+            int line = ctx.DIVISION().getSymbol().getLine();
+            System.err.printf("<%d, %d> Error Semantico, no se pueden dividir dos objetos de tipo " + type_a + " y "+type_b, line, col);
+            System.exit(-1);
+        }
+        if(Integer.parseInt(b) == 0){
+            int col = -1;
+            if(!type_a.equals("int")) {
+                col = ctx.DIVISION().getSymbol().getCharPositionInLine()-2;
+            }else{
+                col = ctx.DIVISION().getSymbol().getCharPositionInLine()+3;
+            }
+            int line = ctx.DIVISION().getSymbol().getLine();
+            System.err.printf("<%d, %d> Error Semantico, Math error, no se puede dividir por 0", line, col);
+            System.exit(-1);
+        }
+        int result = (Integer.parseInt(a))/(Integer.parseInt(b));
+        Sout("Division: " + result);
+        return (T) ((Integer) result).toString();
     }
 
     @Override
     public T visitP7_mod(ChocopyParser.P7_modContext ctx) {
-        int a = Integer.parseInt((String) visit(ctx.cexpr_p7()));
-        int b = Integer.parseInt((String) visit(ctx.cexpr_p8()));
+        String a = visit(ctx.cexpr_p7()).toString();
+        String b = visit(ctx.cexpr_p8()).toString();
+        String type_a = type(a);
+        String type_b = type(b);
+        if(!type_a.equals("int") || !type_b.equals("int") ){
+            int col = -1;
+            if(!type_a.equals("int")) {
+                col = ctx.MODULO().getSymbol().getCharPositionInLine()-2;
+            }else{
+                col = ctx.MODULO().getSymbol().getCharPositionInLine()+2;
+            }
+            int line = ctx.MODULO().getSymbol().getLine();
+            System.err.printf("<%d, %d> Error Semantico, no se puede obtener el modulo de dos objetos de tipo " + type_a + " y "+type_b, line, col);
+            System.exit(-1);
+        }
         //TODO: Propiedades del módulo
-        Sout("Modulo: " + (a % b));
-        return (T) ((Integer) (a % b)).toString();
+        int result = (Integer.parseInt(a))%(Integer.parseInt(b));
+        Sout("Modulo: " + result);
+        return (T) ((Integer) result).toString();
     }
-
+    //Segunda prioridad: suma/concatenacion de arreglos/concatenacion de Strings/resta
     @Override
     public T visitP6_suma(ChocopyParser.P6_sumaContext ctx) {
-        int a = Integer.parseInt((String) visit(ctx.cexpr_p6()));
-        int b = Integer.parseInt((String) visit(ctx.cexpr_p7()));
-        Sout("Suma: " + (a + b));
-        return (T) ((Integer) (a + b)).toString();
+        // Vamos a ver el tipo de dato que son ctx.cexpr_p6() y ctx.cexpr_p7()
+        // Si ambos son listas/str, suma se comporta como concatenación de listas/str
+        // Si ambos son enteros, vamos a hacer una suma
+        // Si son diferentes vamos a declarar error
+        String a = visit(ctx.cexpr_p6()).toString();
+        String b = visit(ctx.cexpr_p7()).toString();
+        String type_a = type(a);
+        String type_b = type(b);
+        Sout("Tipo de "+a+ " es "+type_a+"Tipo de "+b+ " es "+type_b);
+        //esto va a ser mi else
+        Sout("Llegue a una suma con tipo a "+type_a+" Tipo b "+type_b);
+        if(type_a.equals("str") && type_b.equals("str")){
+            //Concatenación de strs
+            String result = a+b;
+            result = result.replace("\"","");
+            result = "\""+result+"\"";
+            Sout(" Resultado de la suma de strs "+result);
+            return (T) (result);
+        }else if(isArray(a) && isArray(b)){
+            //concatenación de arrays
+            String part_a = a.substring(0,a.length()-1);
+            String part_b = b.substring(1);
+            String result = part_a+", "+part_b;
+            Sout(" Resultado de la suma de arrays "+result+ " y el tipo es "+type(result));
+            return (T) (result);
+        }else if(type_a.equals("int") && type_b.equals("int")){
+            int result = Integer.parseInt(a) + Integer.parseInt(b);
+            return (T) (Integer)result;
+        }else{
+            int col = -1;
+            if(!type_a.equals("int")) {
+                col = ctx.SUMA().getSymbol().getCharPositionInLine()-2;
+            }else{
+                col = ctx.SUMA().getSymbol().getCharPositionInLine()+2;
+            }
+            int line = ctx.SUMA().getSymbol().getLine();
+            System.err.printf("<%d, %d> Error Semantico, no se pueden sumar dos objetos de tipo " + type_a + " y  "+type_b, line, col);
+            System.exit(-1);
+        }
+        return (T) ("Ya se sumó we");
     }
 
     @Override
     public T visitP6_resta(ChocopyParser.P6_restaContext ctx) {
-        int a = Integer.parseInt((String) visit(ctx.cexpr_p6()));
-        int b = Integer.parseInt((String) visit(ctx.cexpr_p7()));
-        Sout("Resta: " + (a - b));
-        return (T) ((Integer) (a - b)).toString();
+        String a = visit(ctx.cexpr_p6()).toString();
+        String b = visit(ctx.cexpr_p7()).toString();
+        String type_a = type(a);
+        String type_b = type(b);
+        if(!type_a.equals("int") || !type_b.equals("int")){
+            int line = ctx.MENOS().getSymbol().getLine();
+            int col = -1;
+            if(!type_a.equals("int")) {
+                col = ctx.MENOS().getSymbol().getCharPositionInLine()-2;
+            }else{
+                col = ctx.MENOS().getSymbol().getCharPositionInLine()+2;
+            }
+            System.err.printf("<%d, %d> Error Semantico, no se pueden restar dos objetos de tipo " + type_a + " y  "+type_b, line, col);
+            System.exit(-1);
+        }
+        int result = (Integer.parseInt(a))-(Integer.parseInt(b));
+        Sout("Resta: " + result);
+        return (T) ((Integer) result).toString();
     }
-
+    //Comparacion de enteros
     @Override
     public T visitCexpr_mayor(ChocopyParser.Cexpr_mayorContext ctx) {
-        int a = Integer.parseInt((String) visit(ctx.cexpr_p6(0)));
-        int b = Integer.parseInt((String) visit(ctx.cexpr_p6(1)));
-        Sout("Mayor: " + (a > b));
-        return (T) ((Boolean) (a > b)).toString();
+        String a = visit(ctx.cexpr_p6(0)).toString();
+        String b = visit(ctx.cexpr_p6(1)).toString();
+        String type_a = type(a);
+        String type_b = type(b);
+        if(!type_a.equals("int") || !type_b.equals("int")){
+            int line = ctx.MAYOR().getSymbol().getLine();
+            int col = -1;
+            if(!type_a.equals("int")) {
+                col = ctx.MAYOR().getSymbol().getCharPositionInLine()-2;
+            }else{
+                col = ctx.MAYOR().getSymbol().getCharPositionInLine()+2;
+            }
+            System.err.printf("<%d, %d> Error Semantico, no se pueden comparar (>) dos objetos de tipo " + type_a + " y  "+type_b, line, col);
+            System.exit(-1);
+        }
+        boolean result = (Integer.parseInt(a))>(Integer.parseInt(b));
+        Sout("Mayor: " + result);
+        return (T) ((Boolean) (result)).toString();
     }
 
     @Override
     public T visitCexpr_menor(ChocopyParser.Cexpr_menorContext ctx) {
-        int a = Integer.parseInt((String) visit(ctx.cexpr_p6(0)));
-        int b = Integer.parseInt((String) visit(ctx.cexpr_p6(1)));
-        Sout("Menor: " + (a < b));
-        return (T) ((Boolean) (a < b)).toString();
+        String a = visit(ctx.cexpr_p6(0)).toString();
+        String b = visit(ctx.cexpr_p6(1)).toString();
+        String type_a = type(a);
+        String type_b = type(b);
+        if(!type_a.equals("int") || !type_b.equals("int")){
+            int line = ctx.MENOR().getSymbol().getLine();
+            int col = -1;
+            if(!type_a.equals("int")) {
+                col = ctx.MENOR().getSymbol().getCharPositionInLine()-2;
+            }else{
+                col = ctx.MENOR().getSymbol().getCharPositionInLine()+2;
+            }
+            System.err.printf("<%d, %d> Error Semantico, no se pueden comparar (<) dos objetos de tipo " + type_a + " y  "+type_b, line, col);
+            System.exit(-1);
+        }
+        boolean result = (Integer.parseInt(a))<(Integer.parseInt(b));
+        Sout("Menor: " + result);
+        return (T) ((Boolean) (result)).toString();
     }
 
     @Override
     public T visitCexpr_mayor_igual(ChocopyParser.Cexpr_mayor_igualContext ctx) {
-        int a = Integer.parseInt((String) visit(ctx.cexpr_p6(0)));
-        int b = Integer.parseInt((String) visit(ctx.cexpr_p6(1)));
-        Sout("Mayor Igual: " + (a >= b));
-        return (T) ((Boolean) (a >= b)).toString();
+        String a = visit(ctx.cexpr_p6(0)).toString();
+        String b = visit(ctx.cexpr_p6(1)).toString();
+        String type_a = type(a);
+        String type_b = type(b);
+        if(!type_a.equals("int") || !type_b.equals("int")){
+            int line = ctx.MAYOR_IGUAL().getSymbol().getLine();
+            int col = -1;
+            if(!type_a.equals("int")) {
+                col = ctx.MAYOR_IGUAL().getSymbol().getCharPositionInLine()-2;
+            }else{
+                col = ctx.MAYOR_IGUAL().getSymbol().getCharPositionInLine()+3;
+            }
+            System.err.printf("<%d, %d> Error Semantico, no se pueden comparar (>=) dos objetos de tipo " + type_a + " y  "+type_b, line, col);
+            System.exit(-1);
+        }
+        boolean result = (Integer.parseInt(a))>=(Integer.parseInt(b));
+        Sout("Mayor o igual: " + result);
+        return (T) ((Boolean) (result)).toString();
     }
 
     @Override
     public T visitCexpr_menor_igual(ChocopyParser.Cexpr_menor_igualContext ctx) {
-        int a = Integer.parseInt((String) visit(ctx.cexpr_p6(0)));
-        int b = Integer.parseInt((String) visit(ctx.cexpr_p6(1)));
-        Sout("Menor Igual: " + (a <= b));
-        return (T) ((Boolean) (a <= b)).toString();
+        String a = visit(ctx.cexpr_p6(0)).toString();
+        String b = visit(ctx.cexpr_p6(1)).toString();
+        String type_a = type(a);
+        String type_b = type(b);
+        if(!type_a.equals("int") || !type_b.equals("int")){
+            int line = ctx.MENOR_IGUAL().getSymbol().getLine();
+            int col = -1;
+            if(!type_a.equals("int")) {
+                col = ctx.MENOR_IGUAL().getSymbol().getCharPositionInLine()-2;
+            }else{
+                col = ctx.MENOR_IGUAL().getSymbol().getCharPositionInLine()+3;
+            }
+            System.err.printf("<%d, %d> Error Semantico, no se pueden comparar (<=) dos objetos de tipo " + type_a + " y  "+type_b, line, col);
+            System.exit(-1);
+        }
+        boolean result = (Integer.parseInt(a))<=(Integer.parseInt(b));
+        Sout("Menor o igual: " + result);
+        return (T) ((Boolean) (result)).toString();
     }
 
     @Override
     public T visitCexpr_igual(ChocopyParser.Cexpr_igualContext ctx) {
-        String a = (String) visit(ctx.cexpr_p6(0));
-        String b = (String) visit(ctx.cexpr_p6(1));
-        Sout("Igual: " + (a.equals(b))); //"4"== "2+2" Caso Toteo
-        return (T) ((Boolean) (a.equals(b))).toString();
+        String a = visit(ctx.cexpr_p6(0)).toString();
+        String b = visit(ctx.cexpr_p6(1)).toString();
+        String type_a = type(a);
+        String type_b = type(b);
+        Sout("Voy a comparar dos int");
+        if((!type_a.equals("int") || !type_b.equals("int")) && ((!type_a.equals("bool") || !type_b.equals("bool"))) && (!type_a.equals("str") || !type_b.equals("str"))){
+            int line = ctx.IGUAL().getSymbol().getLine();
+            int col = -1;
+            if(!type_a.equals("int")) {
+                col = ctx.IGUAL().getSymbol().getCharPositionInLine()-2;
+            }else{
+                col = ctx.IGUAL().getSymbol().getCharPositionInLine()+3;
+            }
+            System.err.printf("<%d, %d> Error Semantico, no se pueden comparar (==) dos objetos de tipo " + type_a + " y  "+type_b, line, col);
+            System.exit(-1);
+        }
+        boolean result = a.equals(b);
+        Sout("igual: " + result);
+        return (T) ((Boolean) (result)).toString();
     }
 
     @Override
     public T visitCexpr_diferente(ChocopyParser.Cexpr_diferenteContext ctx) {
-        String a = (String) visit(ctx.cexpr_p6(0));
-        String b = (String) visit(ctx.cexpr_p6(1));
-        Sout("Diferente: " + (!a.equals(b)));
-        return (T) ((Boolean) (!a.equals(b))).toString();
+        String a = visit(ctx.cexpr_p6(0)).toString();
+        String b = visit(ctx.cexpr_p6(1)).toString();
+        String type_a = type(a);
+        String type_b = type(b);
+        Sout("Voy a comparar dos int");
+        if((!type_a.equals("int") || !type_b.equals("int")) && ((!type_a.equals("bool") || !type_b.equals("bool"))) && (!type_a.equals("str") || !type_b.equals("str"))){
+            int line = ctx.DIFERENTE().getSymbol().getLine();
+            int col = -1;
+            if(!type_a.equals("int")) {
+                col = ctx.DIFERENTE().getSymbol().getCharPositionInLine()-2;
+            }else{
+                col = ctx.DIFERENTE().getSymbol().getCharPositionInLine()+3;
+            }
+            System.err.printf("<%d, %d> Error Semantico, no se pueden comparar (!=) dos objetos de tipo " + type_a + " y  "+type_b, line, col);
+            System.exit(-1);
+        }
+        boolean result = !a.equals(b);
+        Sout("diferente: " + result);
+        return (T) ((Boolean) (result)).toString();
     }
 
     //TODO IS
 
     @Override
     public T visitExpr_p4_not(ChocopyParser.Expr_p4_notContext ctx) {
-        int line = ctx.NOT().getSymbol().getLine();
-        int col = ctx.NOT().getSymbol().getCharPositionInLine() + 4;
-        Boolean a = parseBoolean((String) visit(ctx.expr_p4()), line, col);
-        Sout("Not: " + (!a));
-        return (T) ((Boolean) (!a)).toString();
+        String a = visit(ctx.expr_p4()).toString();
+        Sout("Voy a sacarle  el tipo  a "+a);
+        //NOTA TENER CUIDADO CON TRUE/FALSE DE JAVA: true/false y TRUE/FALSE de chocapick True/False
+        String type_a = type(a);
+        Sout("Tipo de dato"+type_a);
+        Sout("Valor de dato "+a);
+        if(!(type_a).equals("bool")){
+            int line = ctx.NOT().getSymbol().getLine();
+            int col = ctx.NOT().getSymbol().getCharPositionInLine() + 4;
+            System.err.printf("<%d, %d> Error Semantico, no se cambiar valor booleano (not) de objeto de tipo " + type_a , line, col);
+            System.exit(-1);
+        }
+        boolean result = !Boolean.parseBoolean(a);
+        Sout("Not: " + result);
+        return (T) ((Boolean) (result)).toString();
     }
 
     @Override
     public T visitP3_and(ChocopyParser.P3_andContext ctx) {
-        int line = ctx.AND().getSymbol().getLine();
-        int col = ctx.AND().getSymbol().getCharPositionInLine() - ctx.expr_p3().getText().length();
-        Boolean a = parseBoolean((String) visit(ctx.expr_p3()), line, col);
-        line = ctx.AND().getSymbol().getLine();
-        col = ctx.AND().getSymbol().getCharPositionInLine() + 5;
-        Boolean b = parseBoolean((String) visit(ctx.expr_p4()), line, col);
-        //System.out.println("Booleano: " + !a);
-        Sout("And: " + (a && b));
-        return (T) ((Boolean) (a && b)).toString();
+        String a = visit(ctx.expr_p3()).toString();
+        String b = visit(ctx.expr_p4()).toString();
+        String type_a = type(a);
+        String type_b = type(b);
+        if(!(type_a).equals("bool") || !(type_b).equals("bool")){
+            int line = ctx.AND().getSymbol().getLine();
+            line = ctx.AND().getSymbol().getLine();
+            int col = -1;
+            if(!type_a.equals("bool")) {
+                col = ctx.AND().getSymbol().getCharPositionInLine() - ctx.expr_p3().getText().length();
+            }else{
+                col = ctx.AND().getSymbol().getCharPositionInLine() + 5;
+            }
+            System.err.printf("<%d, %d> Error Semantico, no se pueden comparar (and) objetos de tipo " + type_a+" y "+type_b , line, col);
+            System.exit(-1);
+        }
+        boolean result = ((Boolean.parseBoolean(a)) && ((Boolean.parseBoolean(b))));
+        Sout("And: " + result);
+        return (T) ((Boolean) result).toString();
     }
 
     @Override
     public T visitP2_or(ChocopyParser.P2_orContext ctx) {
-        int line = ctx.OR().getSymbol().getLine();
-        int col = ctx.OR().getSymbol().getCharPositionInLine() - ctx.expr_p2().getText().length();
-        Boolean a = parseBoolean((String) visit(ctx.expr_p2()), line, col);
-        line = ctx.OR().getSymbol().getLine();
-        col = ctx.OR().getSymbol().getCharPositionInLine() + 4;
-        Boolean b = parseBoolean(visit(ctx.expr_p3()).toString(), line, col);
-        //System.out.println("Booleano: " + !a);
-        Sout("Or: " + (a || b));
-        return (T) ((Boolean) (a || b)).toString();
+        String a = visit(ctx.expr_p2()).toString();
+        String b = visit(ctx.expr_p3()).toString();
+        String type_a = type(a);
+        String type_b = type(b);
+        if(!(type_a).equals("bool") || !(type_b).equals("bool")){
+            int line = ctx.OR().getSymbol().getLine();
+            line = ctx.OR().getSymbol().getLine();
+            int col = -1;
+            if(!type_a.equals("bool")) {
+                col = ctx.OR().getSymbol().getCharPositionInLine() - ctx.expr_p2().getText().length();
+            }else{
+                col = ctx.OR().getSymbol().getCharPositionInLine() + 4;
+            }
+            System.err.printf("<%d, %d> Error Semantico, no se pueden comparar (or) objetos de tipo " + type_a+" y "+type_b , line, col);
+            System.exit(-1);
+        }
+        boolean result = ((Boolean.parseBoolean(a)) || ((Boolean.parseBoolean(b))));
+        Sout("or: " + result);
+        return (T) ((Boolean) result).toString();
     }
 
     @Override
     public T visitExpr_if(ChocopyParser.Expr_ifContext ctx) {
-        int line = ctx.IF().getSymbol().getLine();
-        int col = ctx.IF().getSymbol().getCharPositionInLine() + 4;
-        Boolean b = parseBoolean((String) visit(ctx.expr(0)), line, col);
-
+        String b = visit(ctx.expr(0)).toString();
+        String type_b = type(b);
+        if(!type_b.equals("bool")){
+            int line = ctx.IF().getSymbol().getLine();
+            int col = ctx.IF().getSymbol().getCharPositionInLine() + 4;
+            System.err.printf("<%d, %d> Error Semantico, evaluar if con expresion " +b+" ya que es de tipo "+type_b+ " y no bool" , line, col);
+            System.exit(-1);
+        }
         Sout("if: " + (b));
-        if (b) {
+        if (Boolean.parseBoolean(b)) {
             return (T) visit(ctx.expr_p2()).toString();
         } else {
             return (T) visit(ctx.expr(1)).toString();
@@ -397,12 +636,19 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     public T visitStmtprint(ChocopyParser.StmtprintContext ctx) {
         Sout("Voy a imprimir" + ctx.expr().getText());
         String ex = visit(ctx.expr()).toString();
-        if (ex.charAt(0) == '"') {
+        String type_ex = type(ex);
+        if (type_ex.equals("str")) {
             System.out.println("Esto es una sentencia Print: " + ex.substring(1, ex.length() - 1));
-        } else {
+        } else if (isArray(ex)){
+            int line = ctx.PRINT().getSymbol().getLine();
+            int col = ctx.PRINT().getSymbol().getCharPositionInLine() + 4;
+            System.err.printf("<%d, %d> Error Semantico, No se puede imprimir un arreglo ", line, col);
+            System.exit(-1);
+        }
+        else {
             System.out.println("Esto es una sentencia Print: " + ex);
         }
-        return null;
+        return (T) ("Termine visitStmtprint");
 //        return super.visitStmtprint(ctx);
     }
 
@@ -411,7 +657,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         Sout("Soy un Simple Stmt a revisar la expr: " + ctx.expr().getText());
         String visit = visit(ctx.expr()).toString();
         //Sout("Soy un Simple Stmt: " + visit);
-        return (T) visit;
+        return (T) ("Ya termine visitSimple_stmt_expr");
     }
 
     @Override
@@ -421,13 +667,11 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
             return (T) ("return¿" + visit(ctx.expr()).toString());
         } else {
             Sout("Soy un Return Vacío");
-            return (T) "return¿";
+            return (T) "return¿null"; //Si return tiene de valor null romper contexto
         }
-        //return super.visitSimple_stmt_return(ctx); //CUIDADO ROMPER FUNCIONES
     }
 
     //TODO: ERROR RARO SIEMPRE BOTA ERROR SEMÁNTICO EN 1,ULTIMO
-    //TODO: Agregar tipos de listas
     @Override
     public T visitSimple_stmt_asig(ChocopyParser.Simple_stmt_asigContext ctx) {
         Sout("Entre a una asignación");
@@ -453,63 +697,41 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
             String[] typeValue = getTypeValue(target);
             String type = typeValue[0];
             String visit = visit(ctx.expr()).toString();
-            Sout("VISITÉ LA EXPRE Y SALIO " + visit);
-            try {
-                int number = Integer.parseInt(visit);
-                if (!type.equals("int")) {
-                    int line = ctx.ASIG(i).getSymbol().getLine();
-                    int col = ctx.ASIG(i).getSymbol().getCharPositionInLine();
-                    System.err.printf("<%d, %d> Error Semantico, tipos diferentes de datos\n la variable: " + target + " es de tipo " + type + " y la expresion a asignar es de tipo int", line, col);
-                    System.exit(-1);
-                }
-                Sout("Y number es " + number);
-                table.put(target, "int¿" + number);
-                Sout("Valor después de asignacion de la variable: " + target + "  " + table.get(target));
-            } catch (Exception exprIsNotNumber) {
+            String visit_type = type(visit);
+            Sout("VISITÉ LA EXPRE Y SALIO " + visit + "De tipo "+ visit_type);
+            if(visit.equals("ERROR")){
                 int line = ctx.ASIG(i).getSymbol().getLine();
                 int col = ctx.ASIG(i).getSymbol().getCharPositionInLine();
-                if (visit.equals("True") || visit.equals("False")){
-                    if (!type.equals("bool")) {
-                        line = ctx.ASIG(i).getSymbol().getLine();
-                        col = ctx.ASIG(i).getSymbol().getCharPositionInLine();
-                        System.err.printf("<%d, %d> Error Semantico, tipos diferentes de datos\n la variable: " + target + " es de tipo " + type + " y la expresion a asignar es de tipo bool", line, col);
-                        System.exit(-1);
-                    } else {
-                        table.put(target, "bool¿" + visit);
-                        Sout("Valor después de asignacion de la variable: " + target + "  " + table.get(target));
-                        continue;
-                    }
-                }else if (visit.contains("\"")) {
-                    if (!type.equals("str")) {
-                        line = ctx.ASIG(i).getSymbol().getLine();
-                        col = ctx.ASIG(i).getSymbol().getCharPositionInLine();
-                        System.err.printf("<%d, %d> Error Semantico, tipos diferentes de datos\n la variable: " + target + " es de tipo " + type + " y la expresion a asignar es de tipo String", line, col);
-                        System.exit(-1);
-                    }else{
-                        table.put(target, "str¿" + visit);
-                    }
-                }else if (visit.contains("[")){
-                    String str[] = visit.substring(1, visit.length()-2).split(",");
-                    List<String> al = new ArrayList<String>();
-                    al = Arrays.asList(str);
-                            
-
-                    if (!type.equals("[int]") || !type.equals("[object]")) {
-                        line = ctx.ASIG(i).getSymbol().getLine();
-                        col = ctx.ASIG(i).getSymbol().getCharPositionInLine();
-                        System.err.printf("<%d, %d> Error Semantico, tipos diferentes de datos\n la variable: " + target + " es de tipo " + type + " y la expresion a asignar es de tipo String", line, col);
-                        System.exit(-1);
-                    }else{
-                        table.put(target, type+"¿" + visit);
-                    }
-                }
-
-                Sout("Valor después de asignacion de la variable: " + target + "  " + table.get(target));
+                System.err.printf("<%d, %d> Error Semantico, el tipo de la variable "+visit+" no es valido" , line, col);
+                System.exit(-1);
             }
+            if(!visit_type.equals(type)){
+                int line = ctx.ASIG(i).getSymbol().getLine();
+                int col = ctx.ASIG(i).getSymbol().getCharPositionInLine();
+                System.err.printf("<%d, %d> Error Semantico, tipos diferentes de datos\n la variable: " + target + " es de tipo " + type + " y la expresion "+visit+" a asignar es de tipo "+visit_type , line, col);
+                System.exit(-1);
+            }
+            Sout("Visit es "+visit+ " su tipo es "+visit_type);
+            Sout("Target es "+target+ " su tipo es "+table.get(target));
+            if(visit_type.equals("int")){
+                int number = Integer.parseInt(visit);
+                table.put(target, "int¿" + number);
+            }else if(visit_type.equals("bool")){
+                table.put(target, "bool¿" + visit);
+            }else if(visit_type.equals("str")){
+                table.put(target, "str¿" + visit);
+            }else if (isArray(visit_type)){
+                Sout("VOY A ASIGNAR UN ARREGLO");
+                if(visit_type.equals(type)) {
+                    Sout("Soy un arreglo chinngon "+visit);
+                    table.put(target, type+"¿" + visit);
+                }else{
+                    //TODO: QUE SE PUEDA RECORRER EL FOR DE OBJECT
+                }
+            }
+            Sout("Valor después de asignacion de la variable: " + target + "  " + table.get(target));
         }
-        // TODO PRUEBA
-        //        return super.visitSimple_stmt_asig(ctx);
-        return null;
+        return (T)("Ya visité visitSimple_stmt_asig");
     }
 
     @Override
@@ -525,9 +747,8 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         for (int i = 0; i < size; i++) {
             visit(ctx.stmt(i));
         }
-        return null;
+        return (T)("Termine visitBlock");
     }
-
 
     @Override
     public T visitStmt_simple_stmt(ChocopyParser.Stmt_simple_stmtContext ctx) {
@@ -538,41 +759,52 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     @Override
     public T visitStmt_if(ChocopyParser.Stmt_ifContext ctx) {
         String con1 = visit(ctx.expr(0)).toString();
-        int line = ctx.IF().getSymbol().getLine();
-        int col = ctx.IF().getSymbol().getCharPositionInLine() + 4;
-        boolean booleano1 = parseBoolean(con1, line, col);
-        if (booleano1) {
+        String type_con1 = type(con1);
+        if(!type_con1.equals("bool")){
+            int line = ctx.IF().getSymbol().getLine();
+            int col = ctx.IF().getSymbol().getCharPositionInLine() + 4;
+            System.err.printf("<%d, %d> Error Semantico, el tipo de la variable a evaluar en el if "+con1+" no es bool, tipo de variable "+type_con1 , line, col);
+            System.exit(-1);
+        }
+        if (Boolean.parseBoolean(con1)) {
             return (T) visit(ctx.block(0));
         } else {
             int size = ctx.expr().size();
             for (int i = 1; i < size; i++) {
                 String coni = visit(ctx.expr(i)).toString();
-                line = ctx.ELIF(i - 1).getSymbol().getLine();
-                col = ctx.ELIF(i - 1).getSymbol().getCharPositionInLine() + 6;
-                boolean booleanoi = parseBoolean(coni, line, col);
-                if (booleanoi)
+                String type_coni = type(coni);
+                if(!type_coni.equals("bool")){
+                    int line = ctx.IF().getSymbol().getLine();
+                    int col = ctx.IF().getSymbol().getCharPositionInLine() + 4;
+                    System.err.printf("<%d, %d> Error Semantico, el tipo de la variable a evaluar en el if "+coni+" no es bool, tipo de variable "+type_coni , line, col);
+                    System.exit(-1);
+                }
+                if (Boolean.parseBoolean(coni))
                     return (T) visit(ctx.block(i));
             }
             if (ctx.ELSE() != null) {
                 return (T) visit(ctx.block(ctx.block().size() - 1));
             }
         }
-        Sout("AHHHHHHHHHHHH");
-        return null;
+        return (T)("Termine visitStmt_if");
     }
 
     @Override
     public T visitStmt_while(ChocopyParser.Stmt_whileContext ctx) {
-        int line = ctx.WHILE().getSymbol().getLine();
-        int col = ctx.WHILE().getSymbol().getCharPositionInLine() + 7;
-        boolean condition = parseBoolean(visit(ctx.expr()).toString(), line, col);
-        while (condition) {
-            visit(ctx.block());
-            condition = parseBoolean(visit(ctx.expr()).toString(), line, col);
-            Sout("Condicion " + condition);
-
+        String con = visit(ctx.expr()).toString();
+        String type_con = type(con);
+        if(!type_con.equals("bool")){
+            int line = ctx.WHILE().getSymbol().getLine();
+            int col = ctx.WHILE().getSymbol().getCharPositionInLine() + 4;
+            System.err.printf("<%d, %d> Error Semantico, el tipo de la variable a evaluar en el condicional while "+con+" no es bool, tipo de variable "+type_con , line, col);
+            System.exit(-1);
         }
-        return null;
+        while (Boolean.parseBoolean(con)) {
+            visit(ctx.block());
+            con = (visit(ctx.expr()).toString());
+            Sout("Condicion " + con);
+        }
+        return (T)("Termine un visitStmt_while");
     }
 
     @Override
@@ -581,157 +813,77 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         // table.put("t","int¿0");
         String visit = visit(ctx.expr()).toString();
         String tipo_tmp = "";
-        //int size = Integer.parseInt(visit);
-        int ans = -1;
-        if (lengthsTable.containsKey(visit)) {
-            ans = (Integer) lengthsTable.get(visit);
-            //String num = "[22,True,'Perro',None,66,77]";
-            String str[] = visit.substring(1, visit.length() - 1).split(",");
-            List<String> al = new ArrayList<String>();
-            al = Arrays.asList(str);
-
-            boolean is_Integer = false;
-            boolean is_String = false;
-            boolean is_Boolean = false;
-            boolean is_Object = false;
-
-            for (Object i : al) {
-                try {
-                    int prueba = Integer.parseInt(i.toString().replace(" ", ""));
-                    is_Integer = true;
-                    if (is_Boolean || is_String) {
-                        is_Object = true;
-                        break;
-                    }
-
-                } catch (Exception e) {
-                    try {
-                        String tmp = i.toString().replace(" ", "");
-                        if (tmp.equals("True") || tmp.equals("False")) {
-                            is_Boolean = true;
-                            if (is_Integer || is_String) {
-                                is_Object = true;
-                                break;
-                            }
-                        } else {
-                            throw new Exception("Excepcion para que pase al catch siguiente");
-                        }
-
-                    } catch (Exception e1) {
-                        Sout("El valor de Object es: " + i.toString().replace(" ", ""));
-                        if (i.toString().replace(" ", "").charAt(0) != '"') {
-                            int line = ctx.IN().getSymbol().getCharPositionInLine();
-                            int col = ctx.IN().getSymbol().getCharPositionInLine() + 4;
-                            System.err.printf("<%d, %d> Error Semantico, Solo se permiten listas con Strings, Enteros o Booleanos", line, col);
-                            System.exit(-1);
-                        }
-                        is_String = true;
-                    }
-                }
-            }
-
-            if (is_Object) {
-                tipo_tmp = "Object";
-            } else if (is_Integer) {
-                tipo_tmp = "int";
-            } else if (is_Boolean) {
-                tipo_tmp = "bool";
-            } else {
-                tipo_tmp = "str";
-            }
-            Sout("Soy un null pointer " + tipo_tmp + " " + ans);
+        String type_visit = type(visit);
+        String id = ctx.ID().toString();
+        if(!table.containsKey(id)){
+            int line = ctx.ID().getSymbol().getCharPositionInLine();
+            int col = ctx.ID().getSymbol().getCharPositionInLine() + 4;
+            System.err.printf("<%d, %d> Error Semantico, "+id+ " no ha sido declarado", line, col);
+            System.exit(-1);
         }
-
-        if (visit.charAt(0) != '"' && visit.charAt(0) != '[') {
+        Sout(visit+" es arreglo "+isArray(visit));
+        if(!type_visit.equals(("str")) && !isArray(visit) ){
             int line = ctx.IN().getSymbol().getCharPositionInLine();
             int col = ctx.IN().getSymbol().getCharPositionInLine() + 4;
-            System.err.printf("<%d, %d> Error Semantico, no se puede iterar sobre: " + visit + " ", line, col);
+            System.err.printf("<%d, %d> Error Semantico, Solo se permiten listas con int o bool o object o un String y la expresion "+visit+" tiene tipo "+type_visit, line, col);
             System.exit(-1);
         }
-        if (visit.charAt(0) == '"') {
-            ans = visit.length() - 2;
-            tipo_tmp = "str";
-        }
-
-        Sout("La longitud de mi polla en km es: " + (ans));
-        Sout(ctx.ID().toString());
-        String[] arreglo = getTypeValue(ctx.ID().getText());
-
-        if (!arreglo[0].equals(tipo_tmp)) {
-            int line = ctx.IN().getSymbol().getLine();
-            int col = ctx.IN().getSymbol().getCharPositionInLine() + 4;
-            System.err.printf("<%d, %d> Error Semantico, El tipo del iterador: " + arreglo[0] + " ", line, col);
-            System.exit(-1);
-        }
-        Sout("Buenas Tardes");
-        String str[] = visit.substring(1, visit.length() - 1).split(",");
-        List<String> al = new ArrayList<String>();
-        al = Arrays.asList(str);
-        Sout("Buenas Tardes");
-
-        for (Object i : al) {
-            if (i.toString().replace(" ", "").charAt(0) == '"') {
-                //Sout("Yo soy i: " + i.toString().replace(" ", "") + ":");
-                if (i.toString().charAt(0) == ' ') {
-                    table.put(ctx.ID().getText(), arreglo[0] + "¿" + i.toString().substring(2, i.toString().length() - 1));
-                } else {
-                    table.put(ctx.ID().getText(), arreglo[0] + "¿" + i.toString().substring(1, i.toString().length() - 1));
-
-                }
-            } else {
-                Sout("Yo soy i: " + i.toString() + ":");
-                table.put(ctx.ID().getText(), arreglo[0] + "¿" + i.toString().replace(" ", ""));
-
+        Sout("SOY ID"+table.get(id)); //str¿"HOLA"
+        String type_id = table.get(id).split("¿")[0];
+        if(!type_visit.equals(type_id)){ //[str] str
+            if(!type_visit.equals("["+type_id+"]")) { //[str] [str]
+                int line = ctx.ID().getSymbol().getCharPositionInLine();
+                int col = ctx.ID().getSymbol().getCharPositionInLine() + 4;
+                System.err.printf("<%d, %d> Error Semantico, " + id + " no es del mismo tipo que " + visit + " tipo de id: " + type_id + " tipo de expresion " + visit, line, col);
+                System.exit(-1);
             }
-
-            visit(ctx.block());
         }
-        // return super.visitStmt_for(ctx);
-        return null;
-    }
-
-    @Override
-    public T visitProgram(ChocopyParser.ProgramContext ctx) {
-//        agregar(table);
-        return super.visitProgram(ctx);
+        if(type_visit.equals("str")){
+            visit = visit.replace("\"","");
+            for (int i = 0; i<visit.length();i++){
+                table.put(id,"str¿"+visit.charAt(i));
+                visit(ctx.block());
+            }
+        }else if (isArray(visit)){
+            String tmp = visit.substring(1,visit.length()-1);
+            String [] arr = tmp.split(",");
+            String ith_type = type_visit.substring(1,type_visit.length()-1); //[sdf] -> sdf
+            for (int i = 0; i<arr.length;i++){
+                table.put(id,ith_type+"¿"+arr[i].replace(" ",""));
+                visit(ctx.block());
+            }
+        }
+        return (T)("Termine visitStmt_for");
     }
 
     @Override
     public T visitVar_def(ChocopyParser.Var_defContext ctx) {
         String var_def = visit(ctx.typed_var()).toString();
-        Sout(var_def);
+        Sout("var def 2 "+var_def);
         String lit = ctx.literal().getText();
-        Sout(lit);
+        Sout("lit "+lit);
         String[] tmp = var_def.split(":");
-
-        try {
-            if (tmp[1].equals("int")) {
-                int prueba = Integer.parseInt(lit);
-            } else if (tmp[1].equals("bool")) {
-                if (lit.equals("True") || lit.equals("False")) {
-                    Boolean prueba2 = Boolean.parseBoolean(lit);
-                }
-            } else if (tmp[1].equals("str")) {
-                if (lit.charAt(0) == '"') {
-                    String prueba3 = lit.substring(1, lit.length() - 1);
-                }
-
-            } else if (tmp[1].charAt(0) == '[' && lit.equals("None")) {
-                Sout("Es un None");
-            } else {
-                throw new Exception();
+        String var_type = tmp[1];
+        String var_name = tmp[0];
+        String lit_type = type(lit);
+        if(!lit_type.equals(var_type)) {
+            if(isArray(var_type) && (var_type.equals(lit_type) || lit_type.equals("ERROR"))){
+                int line = ctx.ASIG().getSymbol().getLine();
+                int col = ctx.ASIG().getSymbol().getCharPositionInLine() + 3;
+                System.err.printf("<%d, %d>  Error Semantico, variable "+var_name+" de tipo "+var_type+" y solo se puede inicializar con None", line, col);
+                System.exit(-1);
             }
-        } catch (Exception e) {
-            int line = ctx.ASIG().getSymbol().getLine();
-            int col = ctx.ASIG().getSymbol().getCharPositionInLine() + 3;
-            System.err.printf("<%d, %d> Error Semantico, El tipo de la declaración debe ser igual al tipo de la variable: " + tmp[0] + " ", line, col);
-            System.exit(-1);
+            if (!isArray(var_type) || !lit_type.equals("None")) {
+                int line = ctx.ASIG().getSymbol().getLine();
+                int col = ctx.ASIG().getSymbol().getCharPositionInLine() + 3;
+                System.err.printf("<%d, %d> Error Semantico,Tipos diferentes de variables: el tipo de la variable "+var_name+" es de tipo "+var_type+" y el del literal "+lit+" es "+lit_type, line, col);
+                System.exit(-1);
+            }
         }
-
-        table.put(tmp[0], tmp[1] + "¿" + lit);
-        Sout(table.get(tmp[0]));
-
-        return null;
+        table.put(var_name, var_type + "¿" + lit);
+        Sout(table.get(var_name));
+        imprimirTable();
+        return (T) ("Termine visitVar_def");
     }
 
     @Override
@@ -739,15 +891,11 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
 
         String tipo = ctx.type().getText();
         if (table.containsKey(ctx.ID().getText())) {
-
             int line = ctx.ID().getSymbol().getLine();
             int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
-
             System.err.printf("<%d, %d> Error Semantico, la variable con nombre: \"" + ctx.ID().getText() + "\" ya ha sido declarada", line, col);
             System.exit(-1);
-
         } else {
-
             table.put(ctx.ID().getText(), tipo + "¿");
         }
         return (T) (ctx.ID().getText() + ":" + tipo);
@@ -759,14 +907,13 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         if (table.containsKey(tipo)) {
             int line = ctx.DOS_PUNTOS().getSymbol().getLine();
             int col = ctx.DOS_PUNTOS().getSymbol().getCharPositionInLine() + 3;
-
             System.err.printf("<%d, %d> Error Semantico, la clase nombrada: " + tipo + " no ha sido declarada", line, col);
             System.exit(-1);
 
         } else {
-            table.put(tipo, "Object¿");
+            table.put(tipo, "object¿null");
         }
-        return (T) (tipo + ":Object");
+        return (T) (tipo + ":object");
     }
 
     @Override
@@ -835,5 +982,30 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     public T visitClass_body_var_func(ChocopyParser.Class_body_var_funcContext ctx) {
         Sout("sadfadf");
         return super.visitClass_body_var_func(ctx);
+    }
+
+    @Override
+    public T visitIndex_expr_cexpr(ChocopyParser.Index_expr_cexprContext ctx) {
+        String cexpr = visit(ctx.cexpr()).toString();
+        Sout("CEXPR DE DONDE VIENE "+cexpr);
+        String index = visit(ctx.expr()).toString();
+        String index_type = type(index);
+        if(!index_type.equals("int")){
+            int line = ctx.COR_DER().getSymbol().getLine();
+            int col = ctx.COR_DER().getSymbol().getCharPositionInLine() -1;
+            System.err.printf("<%d, %d> Error semantico: entre [] se encontro "+index+" de tipo "+index_type+" y solo se puede poner algo de tipo int ", line, col);
+            System.exit(-1);
+        }
+        int i = Integer.parseInt(index);
+        if(cexpr.length()==1 && i == 0){
+
+        }
+        return (T) (result);
+    }
+
+    @Override
+    public T visitProgram(ChocopyParser.ProgramContext ctx) {
+//        agregar(table);
+        return super.visitProgram(ctx);
     }
 }
