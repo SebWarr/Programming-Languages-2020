@@ -1,5 +1,6 @@
-x:[int] = None
-x = [1,2,3,4,5]
-x[0] = 3
-print(x)
-
+x:[str] = None
+i:str = ""
+x = ["hola","como","estoy"]
+x[2] = "estas"
+for i in x:
+    print(i)
