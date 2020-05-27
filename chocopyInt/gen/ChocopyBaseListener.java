@@ -1,4 +1,4 @@
-// Generated from /home/minorin/Documents/Chococrispy/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
+// Generated from C:/Users/oscam/Desktop/InterpreteChocopy/Programming-Languages-2020/chocopyInt/grammar\Chocopy.g4 by ANTLR 4.8
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -627,13 +627,13 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterP10_punto(ChocopyParser.P10_puntoContext ctx) { }
+	@Override public void enterP10(ChocopyParser.P10Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitP10_punto(ChocopyParser.P10_puntoContext ctx) { }
+	@Override public void exitP10(ChocopyParser.P10Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -651,13 +651,13 @@ public class ChocopyBaseListener implements ChocopyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterP10(ChocopyParser.P10Context ctx) { }
+	@Override public void enterP10_punto(ChocopyParser.P10_puntoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitP10(ChocopyParser.P10Context ctx) { }
+	@Override public void exitP10_punto(ChocopyParser.P10_puntoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

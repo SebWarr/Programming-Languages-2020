@@ -1,3 +1,11 @@
+class a(B):
+    i:int=0
+    def h():
+        print(i)
+##############################
+# Error Heredar de B (Comentar para continuar)
+##############################
+
 class F(object):
     a:int = 0
     b:int = 3
@@ -27,8 +35,8 @@ print("")
 
 
 print("Error de Atributos dentro de clases")
-#ins.t = False   #error porque t no es atributo
-#print(ins.d)    #error porque no se pudo obtener d
+ins.t = False   #error porque t no es atributo
+print(ins.d)    #error porque no se pudo obtener d
 print("")
 ##############################
 # Error de Atributos dentro de clases
@@ -36,7 +44,7 @@ print("")
 
 
 print("Error Funcion con mas parametros de los que deberia")
-A(2)
+A(2,3)
 print("")
 ##############################
 # Error Funcion con mas parametros de los que deberia
@@ -44,14 +52,14 @@ print("")
 
 
 list_integers = [1, 2, 3]
-print(list_integers[1])
+print(list_integers[3])
 ##############################
 # Error Fuera de Rango
 ##############################
 
 
 print("No se Puede dividir entre 0")
-#print(42 // 0)
+print(42 // 0)
 print("")
 ##############################
 # No se Puede dividir entre 0
@@ -59,8 +67,8 @@ print("")
 
 
 
-#print("Error Numero Modulo 0")
-#print(42 % 0)
+print("Error Numero Modulo 0")
+print(42 % 0)
 print("")
 ############################
 #Error Número Modulo 0
@@ -69,7 +77,7 @@ print("")
 
 
 print("Error Longitud Invalida")
-#print(len(soy_none))
+print(len(soy_none))
 print("")
 ############################
 # Error Longitud Inválida
@@ -77,7 +85,7 @@ print("")
 
 
 print("Error Longitud Invalida")
-#print(len(soy_int))
+print(len(soy_int))
 print("")
 ############################
 # Error Longitud Inválida
@@ -85,7 +93,7 @@ print("")
 
 
 print("Errores Concatenar None")
-#print(len(soy_None1+soy_None2))
+print(len(soy_None1+soy_None2))
 print("")
 ############################
 # Errores Concatenar None
@@ -93,8 +101,8 @@ print("")
 
 
 print("Error Ciclo For sobre None")
-#for soy_int in soy_none:
-#    print(x)
+for soy_int in soy_none:
+    print(x)
 print("")
 ############################
 # Error Ciclo For sobre None
@@ -102,7 +110,7 @@ print("")
 
 
 print("Error Acceder Posicion en None")
-#soy_none[0] = 1
+soy_none[0] = 1
 print("")
 ############################
 # Error Acceder Posicion en None
@@ -110,7 +118,7 @@ print("")
 
 
 print("Error Print None")
-#print(None)
+print(None)
 print("")
 ############################
 # Error Print None

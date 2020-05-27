@@ -1,4 +1,4 @@
-// Generated from /home/minorin/Documents/Chococrispy/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
+// Generated from C:/Users/oscam/Desktop/InterpreteChocopy/Programming-Languages-2020/chocopyInt/grammar\Chocopy.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -599,17 +599,17 @@ public interface ChocopyListener extends ParseTreeListener {
 	 */
 	void exitCexpr_p8_cexpr_p9(ChocopyParser.Cexpr_p8_cexpr_p9Context ctx);
 	/**
-	 * Enter a parse tree produced by the {@code p10_punto}
+	 * Enter a parse tree produced by the {@code p10}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p9}.
 	 * @param ctx the parse tree
 	 */
-	void enterP10_punto(ChocopyParser.P10_puntoContext ctx);
+	void enterP10(ChocopyParser.P10Context ctx);
 	/**
-	 * Exit a parse tree produced by the {@code p10_punto}
+	 * Exit a parse tree produced by the {@code p10}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p9}.
 	 * @param ctx the parse tree
 	 */
-	void exitP10_punto(ChocopyParser.P10_puntoContext ctx);
+	void exitP10(ChocopyParser.P10Context ctx);
 	/**
 	 * Enter a parse tree produced by the {@code p10_cor}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p9}.
@@ -623,17 +623,17 @@ public interface ChocopyListener extends ParseTreeListener {
 	 */
 	void exitP10_cor(ChocopyParser.P10_corContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code p10}
+	 * Enter a parse tree produced by the {@code p10_punto}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p9}.
 	 * @param ctx the parse tree
 	 */
-	void enterP10(ChocopyParser.P10Context ctx);
+	void enterP10_punto(ChocopyParser.P10_puntoContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code p10}
+	 * Exit a parse tree produced by the {@code p10_punto}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p9}.
 	 * @param ctx the parse tree
 	 */
-	void exitP10(ChocopyParser.P10Context ctx);
+	void exitP10_punto(ChocopyParser.P10_puntoContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code cexpr_p10_id}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p10}.

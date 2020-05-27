@@ -14,8 +14,8 @@ Programming Languages Course National University of Colombia 2020
 #### Run
 
 1) Put chocopy syntax code on "test.py" File
-	- Make Sure that you are using the python interpreter in the "venv" folder inside the project
-	
+   - Make Sure that you are using the python interpreter in the "venv" folder inside the project
+   
 2) To Run execute the next command "python mainLexer.py"
 
 3) See the lexical analysis results on "output.txt"
@@ -25,8 +25,8 @@ Programming Languages Course National University of Colombia 2020
 #### Run
 
 1) Put chocopy syntax code on "test.py" File
-	- Make Sure that you are using the python interpreter in the "venv" folder inside the project
-	
+   - Make Sure that you are using the python interpreter in the "venv" folder inside the project
+   
 2) To Run execute the next command "python mainSyntax.py"
 
 3) Lexical analysis results will be printed on the console
@@ -38,3 +38,14 @@ Programming Languages Course National University of Colombia 2020
     - Failure Analysis will be printed as follow:
     
         >"<i,j>Error sintactico: se encontró: '<token_found>' y se esperaba '<token_expected>'."
+
+### Chococrispy Interpreter
+
+#### Run
+
+1) Put chocopy syntax code on "chocopyInt/in.txt" File
+   - Make Sure that you are using a correct Java version inside the project
+   
+2) To Run execute the next command "javac Main.java"
+
+3) Interpreter results will be printed on the console

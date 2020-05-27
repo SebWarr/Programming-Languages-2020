@@ -1,0 +1,100 @@
+class B(object):
+    i:int=2
+    def z():
+        print(i)
+
+
+class a(B):
+    i:int=0
+    def h():
+        print(i)
+
+
+class A(object):
+    a:int = 42
+
+x:A = None
+y:A = None
+a:int = 0
+##############################
+# Caso de Herencia Valido
+##############################
+class F(object):
+    a:int = 0
+    b:int = 3
+    c:bool = True
+
+
+def baz(h:int) -> int:
+    b:int=0
+    c:int=5
+
+    def f(x:bool) -> int:
+        c:int= 1
+        d:int= 2
+        if x:
+            print(c)
+        return d
+
+    b = 3
+    print("Carnaval")
+    print(f(False))
+    print(c)
+    return b
+
+
+obj_F:F = None
+number:int = 0
+list_strings:[str] = None
+string_iterador:str = ""
+##############################
+# Declaraciones
+##############################
+
+print("Impresion de atributos de clase")
+obj_F.a = 4
+obj_F.b = 5
+obj_F.c = False
+print(obj_F.a)
+print(obj_F.b)
+print(obj_F.c)
+print("")
+############################
+# Impresion de atributos de clase
+############################
+
+
+print("Logica Modificacion lista String e Impresion de un iterador tipo string")
+list_strings = ["hola","soy","Juan"]
+list_strings[2] = "Brayan"
+for string_iterador in list_strings:
+    print(string_iterador)
+print("")
+############################
+# Logica Modificacion lista String e Impresion de un iterador tipo string
+############################
+
+print("Diferenciacion de atributos en Objetos")
+x.a = 3
+y.a = 5
+x.a = 2
+print(x.a) # Esto debería botar 3
+print(y.a) # Esto debería botar 5
+print("")
+############################
+# Diferenciacion de atributos en Objetos
+############################
+
+
+print("Hola Amigos")
+a = baz(55)
+print(a)
+
+
+
+
+
+
+
+
+

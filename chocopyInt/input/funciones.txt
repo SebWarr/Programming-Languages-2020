@@ -1,0 +1,75 @@
+soy_hello:str = "Hello"
+soy_world:str = "World"
+soy_chocopy:str = "ChocoPy"
+num_0:int = 0
+objeto:object = 1
+
+def f(x:int) -> int:
+    def g(y:int, z:int):
+        def h(msg: str) -> str:
+            return msg
+        h("h")
+        print("start g")
+        print(y)
+        print(z)
+        print("end g")
+        return
+
+    print("start f")
+    print(x)
+    g(1, x)
+    print("end f")
+    return x
+
+def eq(a:str, b:str) -> bool:
+    return a == b
+
+
+def cat2(a:str, b:str) -> str:
+    return a + b
+
+def cat3(a:str, b:str, c:str) -> str:
+    return a + b + c
+
+##############################
+# Declaraciones
+##############################
+num_0 = objeto = 42
+
+print("Impresion despues de una asignacion multiple")
+print(num_0)
+############################
+# Impresion despues de una asignacion multiple
+############################
+
+
+print("Funciones anidadas")
+print(f(4))
+print("")
+##############################
+# Funciones anidadas
+############################
+
+
+print("Funciones para concatenar strings")
+print(cat2(soy_hello, soy_world))
+print(cat2("", soy_chocopy))
+print(cat3(soy_hello, " ", soy_chocopy))
+print(len(soy_hello))
+print(len(cat2(soy_hello, soy_hello)))
+print(len(cat2("","")))
+print("")
+############################
+# Funciones para concatenar strings
+############################
+
+print("Comparacion entre strings")
+print(eq(soy_hello,soy_hello))
+print(eq(soy_hello,soy_world))
+print(eq(soy_chocopy,soy_hello))
+
+print("")
+############################
+# Comparacion entre strings
+############################
+

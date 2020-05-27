@@ -1,0 +1,78 @@
+soy_4:int = 4
+soy_5:int = 5
+soy_hello:str = "Hello"
+soy_world:str = "World"
+soy_chocopy:str = "ChocoPy"
+
+
+print("Expresiones condicionales ternarias")
+print(3 if True else 4)
+print(3 if False else 4)
+print("")
+############################
+# Expresiones condicionales ternarias
+############################
+
+print("Bloque IF con pass")
+if False:
+    print("No")
+elif False:
+    if True:
+        print("Yes")
+else:
+    pass
+print("")
+############################
+# Bloque IF con pass
+############################
+
+
+print("Longitud de string")
+print(len("ChocoPy"))
+print("")
+############################
+# Longitud de string
+############################
+
+
+print("Impresiones con operaciones incluidas")
+print(True)
+print(False)
+print(42)
+print(65999)
+print("Hello World")
+print(1 + 100)
+print(True == True)
+print(True == False)
+print(False == True)
+print(False == False)
+print("diferentes")
+print(True != True)
+print(True != False)
+print(False != True)
+print(False != False)
+print("Sentencia ternaria compleja")
+print(not True and False or True)
+print("Comparadores")
+print(soy_5 == soy_4)
+print(soy_5 != soy_4)
+print(soy_5 < soy_4)
+print(soy_5 <= soy_4)
+print(soy_5 > soy_4)
+print(soy_5 >= soy_4)
+print(soy_5 == soy_5)
+print(soy_5 != soy_5)
+print(soy_5 < soy_5)
+print(soy_5 <= soy_5)
+print(soy_5 > soy_5)
+print(soy_5 >= soy_5)
+print("Operaciones")
+print(soy_5 // soy_4)
+print(soy_5 % soy_4)
+print(6*9*2)
+print(-soy_5)
+print(1 - 100)
+print("")
+############################
+# Impresiones con operaciones incluidas
+############################

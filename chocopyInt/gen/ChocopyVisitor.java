@@ -1,4 +1,4 @@
-// Generated from /home/minorin/Documents/Chococrispy/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
+// Generated from C:/Users/oscam/Desktop/InterpreteChocopy/Programming-Languages-2020/chocopyInt/grammar\Chocopy.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -357,12 +357,12 @@ public interface ChocopyVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCexpr_p8_cexpr_p9(ChocopyParser.Cexpr_p8_cexpr_p9Context ctx);
 	/**
-	 * Visit a parse tree produced by the {@code p10_punto}
+	 * Visit a parse tree produced by the {@code p10}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p9}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitP10_punto(ChocopyParser.P10_puntoContext ctx);
+	T visitP10(ChocopyParser.P10Context ctx);
 	/**
 	 * Visit a parse tree produced by the {@code p10_cor}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p9}.
@@ -371,12 +371,12 @@ public interface ChocopyVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitP10_cor(ChocopyParser.P10_corContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code p10}
+	 * Visit a parse tree produced by the {@code p10_punto}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p9}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitP10(ChocopyParser.P10Context ctx);
+	T visitP10_punto(ChocopyParser.P10_puntoContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code cexpr_p10_id}
 	 * labeled alternative in {@link ChocopyParser#cexpr_p10}.

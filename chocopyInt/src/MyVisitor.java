@@ -793,7 +793,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         if(!ctx.expr().getText().contains("\"") && ctx.expr().getText().contains(".")){
             if(stackTables.peek().containsKey(ctx.expr().getText())){
                 if(stackTables.peek().get(ctx.expr().getText()).split("¿")[0].equals("bool")){
-                    if(stackTables.peek().get(ctx.expr().getText()).split("¿")[1].equals("true")){
+                    if(stackTables.peek().get(ctx.expr().getText()).split("¿")[1].toLowerCase().equals("true")){
                         System.out.println("True");
                     }else{
                         System.out.println("False");
@@ -812,6 +812,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         }
         String ex = visit(ctx.expr()).toString();
         String type_ex = type(ex);
+        Sout("De tipo "+type_ex);
         if (type_ex.equals("str")) {
             System.out.println(ex.substring(1, ex.length() - 1));
         } else if (isArray(ex)){
@@ -825,7 +826,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
             System.err.printf("<%d, %d> Error Semantico, Argumento invalido: None ", line, col);
             System.exit(-1);
         }else if(type_ex.equals("bool")){
-            if(ex.equals("true")){
+            if(ex.toLowerCase().equals("true")){
                 System.out.println("True");
             }else{
                 System.out.println("False");
@@ -1407,7 +1408,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         if(!isArray(cexpr)){
             int line = ctx.COR_IZQ().getSymbol().getLine();
             int col = ctx.COR_IZQ().getSymbol().getCharPositionInLine() +2;
-            System.err.printf("<%d, %d> Error semantico: no se pude asignar a un subindice de algo que no es una lista "+cexpr.length(), line, col);
+            System.err.printf("<%d, %d> Error semantico: no se pude asignar a un subindice de algo que no es una lista ", line, col);
             System.exit(-1);
         }else{
             String id = ctx.cexpr().getText();

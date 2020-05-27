@@ -1,0 +1,44 @@
+a:int = 10000
+b:int = 2
+h:str = ""
+c:int = 0
+s:str = "Hello"
+f:bool = True
+x:[int] = None
+z: int = 3
+j: int = 1
+g:int = 0
+d:[int] = None
+i:int = 2
+
+x = [1, 2]
+x[0] = 3
+x[1] = 4
+print(f)
+c = (c + 2 // b) *  (a - 42)
+f = False
+print (c)
+print(x)  # No se Puede Imprimir Un Arreglo
+print(s)
+print (c, b) # Si se le ponen mas argumentos arroja error
+
+z: int = 3
+j: int = 1
+g:int = 0
+d:[int] = None
+i:int = 2
+
+if z >= j:
+    print(z)
+else:
+    print(z-1)
+
+for g in [1, 2, 3]:
+    print(g)
+
+d = [1,2,3] + [4,5,6] + [7,8,9] # Concatenación
+while i < len(d):
+    print(d[i])
+    i = i + 1
+
+print(3 if (1==2) else 4)

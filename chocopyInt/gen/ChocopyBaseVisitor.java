@@ -1,4 +1,4 @@
-// Generated from /home/minorin/Documents/Chococrispy/Programming-Languages-2020/chocopyInt/grammar/Chocopy.g4 by ANTLR 4.8
+// Generated from C:/Users/oscam/Desktop/InterpreteChocopy/Programming-Languages-2020/chocopyInt/grammar\Chocopy.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -373,7 +373,7 @@ public class ChocopyBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitP10_punto(ChocopyParser.P10_puntoContext ctx) { return visitChildren(ctx); }
+	@Override public T visitP10(ChocopyParser.P10Context ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -387,7 +387,7 @@ public class ChocopyBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitP10(ChocopyParser.P10Context ctx) { return visitChildren(ctx); }
+	@Override public T visitP10_punto(ChocopyParser.P10_puntoContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

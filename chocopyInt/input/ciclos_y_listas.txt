@@ -1,0 +1,127 @@
+lista_object:[object] = None
+lista_int:[int] = None
+lista_vacia:[int] = None
+
+number:int = 0
+
+string_vacio:str = ""
+string_temporal:str= ""
+string_abc:str = "abc"
+string_123:str = "123"
+string_xXx:str = "xXx"
+##############################
+# Declaraciones
+##############################
+
+
+
+print("##########################")
+print("Casos de Pruebas Ciclos y Listas")
+print("##########################")
+print("")
+print("")
+
+
+
+print("Asignacion Caso Especial sobre declaracion de listas")
+lista_object = [None]
+print("")
+##############################
+# Asignacion Caso Especial sobre declaracion de listas
+############################
+
+print("Longitud de la lista")
+lista_int = [1, 2, 3]
+print(len(lista_int))
+print("")
+############################
+# Longitud de la lista
+############################
+
+
+print(lista_int[1])
+print("")
+############################
+# Accediendo a un indice de la lista
+############################
+
+
+
+print("Ciclo For sobre Lista")
+for number in lista_int:
+    print(number)
+print("")
+############################
+# Ciclo For sobre Lista
+############################
+
+
+
+print("Ciclo For sobre string")
+for string_vacio in string_abc:
+    print(string_vacio)
+print("")
+############################
+# Ciclo For sobre string
+############################
+
+
+
+
+print("Ciclo For sobre string Vacio")
+for string_vacio in "":
+    print(string_vacio)
+print("")
+############################
+# Ciclo For sobre string Vacio
+############################
+
+
+
+
+print("Ciclo For sobre string con asignacion adicional")
+for string_vacio in string_abc:
+    string_temporal = "doesn't matter"
+    print(string_vacio)
+print("")
+############################
+# Ciclo For sobre string con asignacion adicional
+############################
+
+
+
+
+print("Ciclo For anidado sobre strings")
+for string_vacio in string_abc:
+    print(string_vacio)
+    for string_vacio in string_123:
+        print(string_vacio)
+print("")
+############################
+# Ciclo For anidado sobre strings
+############################
+
+
+
+
+print("Ciclo For anidado sobre el mismo iterador")
+for string_xXx in string_xXx:
+    print(string_xXx)
+print("")
+############################
+# Ciclo For anidado sobre el mismo iterador
+############################
+
+
+
+
+print("While")
+number = 5
+while number < 10:
+    print(number)
+    number = number + 1
+print("")
+############################
+# While
+############################
+
