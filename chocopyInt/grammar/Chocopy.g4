@@ -231,9 +231,9 @@ cexpr_p8: MENOS cexpr_p8    #cexpr_p8_menos
             |cexpr_p9       #cexpr_p8_cexpr_p9
             ;
 
-cexpr_p9: cexpr_p10 (PUNTO ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?)*     #p10_punto //TODO:
-        | cexpr_p10 (COR_IZQ expr COR_DER)*                                 #p10_cor  //TODO:
-        | cexpr_p10                                                         #p10
+cexpr_p9: cexpr_p10                                                         #p10
+        | cexpr_p10 (COR_IZQ expr COR_DER)*                                 #p10_cor
+        | cexpr_p10 (PUNTO ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?)+     #p10_punto
         ;
 
 //cexpr_p9: cexpr_p10 cexpr_p9_aux;
@@ -243,7 +243,7 @@ cexpr_p9: cexpr_p10 (PUNTO ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?)*     #p10
 //            |/*epsilon*/ #cexpr_p9_aux_eps
 //            ;
 
-cexpr_p10: ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?   #cexpr_p10_id   //TODO:
+cexpr_p10: ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?   #cexpr_p10_id
         |literal                                        #cexpr_p10_literal
         |COR_IZQ (expr (COMA expr)*)? COR_DER           #cexpr_p10_cor
         |PAR_IZQ expr PAR_DER                           #cexpr_p10_par
@@ -251,16 +251,6 @@ cexpr_p10: ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?   #cexpr_p10_id   //TODO:
         |SELF                                           #cexpr_p10_self
         ;
 
-
-/*
-member_expr : cexpr PUNTO ID    #member_expr_cexpr
-              |SELF PUNTO ID    #member_expr_self
-              ;
-
-index_expr : cexpr COR_IZQ expr COR_DER     #index_expr_cexpr
-            |SELF COR_IZQ expr COR_DER      #index_expr_self
-            ;
-*/
 target : ID                             #target_id
         |SELF                           #target_self
         |cexpr PUNTO ID                 #member_expr_cexpr

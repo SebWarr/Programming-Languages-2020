@@ -1,0 +1,608 @@
+// Como se esta haciendo validación de las funciones es importantes que esten declaradas antes de llamarlas
+//Todavía no funciona ni el global/nonlocal
+// No funciona retorno con [int]
+
+-------------------------
+// No se puede hacer esto
+-------------------------
+y:[object] = None
+y = [None]
+-------------------------
+
+
+-------------------------
+// No se puede acceder a una posicion en una lista por indice (Si se puede actualizar pero no retornar)
+// Ver Caso que si funciona en ejemplos
+-------------------------
+d:[int] = None
+d = [1,2,3,4,5,6,7,8,9]
+print(d[0])
+-------------------------
+
+-------------------------
+//Error de indice pero que no es semántico
+-------------------------
+x:[int] = None
+x = [1, 2, 3]
+x[0] = 4
+x[1] = 5
+x[2] = 6
+print(x[0])
+print(x[1])
+print(x[2])
+-------------------------
+x:[int] = None
+x = []
+print(x[0])
+-------------------------
+x:[int] = None
+x = []
+print(len(x))
+-------------------------
+//Error al asignar algo a None
+x:[int] = None
+x[0] = 1
+-------------------------
+// No se debería imprimir Never
+x:int = 0
+y:int = 0
+z:[int] = None
+e:[int] = None
+
+z = [1,2,3]
+e = []
+
+for x in z:
+    for y in e:
+        print("Never")
+    print(x)
+-------------------------
+//Modificacion por Indice
+
+x:int = 0
+z:[int] = None
+
+z = [1, 2, 1]
+
+for x in z:
+    z[x] = x
+    print(x)
+-------------------------
+
+
+-------------------------
+//Esto debería botar error
+-------------------------
+print(None)
+-------------------------
+// Esto no se permite y debería permitirlo
+x:int = 0
+y:object = 1
+x = y = 42
+print(x)
+-------------------------
+
+
+-------------------------
+// Esto se putea porque no encuentra retorno
+-------------------------
+def f(x:bool) -> int:
+    c:int= 1
+    d:int= 2
+    if(x):
+        return c
+    else:
+        return d
+-------------------------
+
+-------------------------
+// Esto siempre retorna d (No retorna al encontrar sentencia de retorno dentro de if)
+
+def f(x:bool) -> int:
+    c:int= 1
+    d:int= 2
+    if x:
+        return c
+    return d
+-------------------------
+
+
+-------------------------
+//No encuentra g (No se guardan varias funciones dentro del mismo scope)
+def h():
+    print("start h")
+    print("end h")
+    return
+
+def g():
+    print("start g")
+    h()
+    print("end g")
+    return
+
+def f() -> int:
+    print("start f")
+    g()
+    print("end f")
+    return 42
+
+print(h())
+print(g())
+print(f())
+
+-------------------------
+g: int = 1
+def foo(x: int) -> int:
+    y: int = 2
+    def bar() -> int:
+        z: int = 3
+        def baz() -> int:
+            return y
+        return baz()
+    return bar()
+
+print(foo(g))
+-------------------------
+
+
+-------------------------
+//Debería Salir error Print
+x:[int] = None
+print(x[0])
+-------------------------
+
+
+-------------------------
+// Clases y Objetos
+si permite declaralos y revisa su estructura, pero no los "crea" ni permite su creación como tipo,
+tampoco permite acceder a sus atributos con id.id.
+Tampoco se tiene la función "IS"
+Tampoco se tiene el Scope de cada objeto por separado (como debería ser), ej:
+
+x:A = None
+y:A = None
+x.atributo1 = 3
+y.atributo1 = 5
+print(x.atributo1) # Esto debería botar 3
+
+-------------------------
+Caso mas facil para obtener/modificar atributos
+
+class A(object):
+    a:int = 42
+
+class B(A):
+    b:bool = True
+
+    def __init__(self:"B"):
+        print("B")
+
+a:A = None
+b:B = None
+
+def get_b() -> B:
+    print("Getting B")
+    return b
+
+def get_one() -> int:
+    print("Getting 1")
+    return 1
+
+def get_false() -> bool:
+    print("Getting False")
+    return False
+
+a = b = B()
+print(a.a)
+print(b.a)
+print(b.b)
+get_b().a = get_one()
+print("Assigned B.a")
+get_b().b = get_false()
+print("Assigned B.b")
+b.a= 1
+b.b = False
+print(a.a)
+print(b.a)
+print(b.b)
+
+-------------------------
+class bar(object):
+    p: bool = True
+
+    def baz(self:"bar", xx: [int]) -> str:
+        global count
+        x:int = 0
+        y:int = 1
+
+        def qux(y: int) -> object:
+            nonlocal x
+            if x > y:
+                x = -1
+
+        for x in xx:
+            self.p = x == 2
+
+        qux(0)
+        count = count + 1
+
+        while x <= 0:
+            if self.p:
+                xx[0] = xx[1]
+                self.p = not self.p
+                x = x + 1
+            elif foo("Long"[0]) == 1:
+                self.p = self is None
+
+        return "Nope"
+
+
+
+
+-------------------------
+
+-----------------------------------
+Funciona
+-----------------------------------
+
+class A(object):
+    a:int = 42
+
+x:A = None
+y:A = None
+x.a = 3
+y.a = 5
+x.a = 2
+print(x.a) # Esto debería botar 3
+print(y.a) # Esto debería botar 5
+
+
+
+a:int = 10000
+b:int = 2
+h:str = ""
+c:int = 0
+s:str = "Hello"
+f:bool = True
+x:[int] = None
+
+x = [1, 2]
+x[0] = 3
+x[1] = 4
+print(f)
+c = (c + 2 // b) *  (a - 42)
+f = False
+
+print (c)
+#print(x)  # No se Puede Imprimir Un Arreglo
+print(s)
+print (c) # Si se le ponen mas argumentos arroja error
+
+
+z: int = 3
+j: int = 1
+g:int = 0
+d:[int] = None
+i:int = 2
+
+if z >= j:
+    print(z)
+else:
+    print(z-1)
+
+for g in [1, 2, 3]:
+    print(g)
+
+print(3 if (1==2) else 4)
+
+
+def baz(h:int) -> int:
+    b:int=0
+    c:int=5
+
+    def f(x:bool) -> int:
+        c:int= 1
+        d:int= 2
+        if x:
+            print(c)
+        return d
+
+    b = 3
+    print("Carnaval")
+    print(f(True))
+    print(c)
+    return b
+
+
+a:int = 0
+print("Hola Amigos")
+#print(f(True))
+a = baz(55)
+print(a)
+
+x:[str] = None
+i:str = ""
+x = ["hola","como","estoy"]
+x[2] = "estas"
+for i in x:
+    print(i)
+
+
+
+print(42 // 0)
+##############################
+# No se Puede dividir entre 0
+##############################
+
+
+
+
+def f(x:int) -> int:
+
+    def g(y:int, z:int):
+        def h(msg: str) -> str:
+            return msg
+        h("h")
+        print("start g")
+        print(y)
+        print(z)
+        print("end g")
+        return
+
+    print("start f")
+    print(x)
+    g(1, x)
+    print("end f")
+    return x
+
+
+print(f(4))
+##############################
+# Funciones anidadas
+############################
+
+
+
+print(42 % 0)
+############################
+#Error Número Modulo 0
+############################
+
+
+
+
+print(3 if True else 4)
+print(3 if False else 4)
+############################
+#Expresiones condicionales ternarias
+############################
+
+
+
+def f() -> int:
+  x:int = 1
+  return x
+print(f())
+############################
+# Scope de las Variables locales
+############################
+
+
+x:[int] = None
+print(len(x))
+############################
+# Error Longitud Inválida
+############################
+
+
+
+x:int = 1
+print(len(x))
+############################
+# Error Longitud Inválida
+############################
+
+x:[int] = None
+y:[int] = None
+print(len(x+y))
+############################
+# Errores Concatenar None
+############################
+
+
+x:[int] = None
+x = [1, 2, 3]
+print(len(x))
+############################
+# Longitud de la lista
+############################
+
+print(True)
+print(False)
+print(42)
+print(65999)
+print("Hello World")
+print(1 + 100)
+print(True == True)
+print(True == False)
+print(False == True)
+print(False == False)
+print(True != True)
+print(True != False)
+print(False != True)
+print(False != False)
+print(not True and False or True)
+
+x:int = 42
+y:int = 7
+print(x == y)
+print(x != y)
+print(x < y)
+print(x <= y)
+print(x > y)
+print(x >= y)
+print(x == x)
+print(x != x)
+print(x < x)
+print(x <= x)
+print(x > x)
+print(x >= x)
+
+print(x // y)
+print(x % y)
+print(6*9*2)
+print(-x)
+print(1 - 100)
+
+############################
+# Impresiones con operaciones incluidas
+############################
+
+x:int = 0
+z:[int] = None
+
+z = [1, 2, 3]
+
+for x in z:
+    print(x)
+############################
+# Ciclo For
+############################
+
+
+x:int = 0
+z:[int] = None
+
+for x in z:
+    print(x)
+############################
+# Error Ciclo For sobre None
+############################
+
+
+x:str = ""
+z:str = "abc"
+
+for x in z:
+    print(x)
+
+############################
+# Ciclo For sobre string
+############################
+
+
+x:str = ""
+y:str = "123"
+z:str = "abc"
+
+for x in z:
+    print(x)
+    for x in "":
+        print(x)
+
+############################
+# Ciclo For sobre string Vacio
+############################
+
+
+x:str = ""
+z:str = "abc"
+
+for x in z:
+    z = "doesn't matter"
+    print(x)
+############################
+# Ciclo For sobre string con asignacion adicional
+############################
+
+
+x:str = ""
+y:str = "123"
+z:str = "abc"
+
+for x in z:
+    print(x)
+    for x in y:
+        print(x)
+############################
+# Ciclo For anidado sobre strings
+############################
+
+
+x:str = "xXx"
+
+for x in x:
+    print(x)
+############################
+# Ciclo For anidado sobre el mismo iterador
+############################
+
+
+if False:
+    print("No")
+elif False:
+    if True:
+        print("Yes")
+else:
+    pass
+############################
+# Bloque IF con pass
+############################
+
+
+a:str = "Hello"
+b:str = "World"
+c:str = "ChocoPy"
+
+def cat2(a:str, b:str) -> str:
+    return a + b
+
+def cat3(a:str, b:str, c:str) -> str:
+    return a + b + c
+
+print(cat2(a, b))
+print(cat2("", c))
+print(cat3(a, " ", c))
+print(len(a))
+print(len(cat2(a,a)))
+print(len(cat2("","")))
+############################
+# Funciones para concatenar strings
+############################
+
+
+
+x:int = 1
+while x < 10:
+    print(x)
+    x = x + 1
+############################
+# While
+############################
+
+
+a:str = "Hello"
+b:str = "World"
+c:str = "ChocoPy"
+
+def eq(a:str, b:str) -> bool:
+    return a == b
+
+def neq(a:str, b:str) -> bool:
+    return a != b
+
+print(eq(a,a))
+print(eq(a,b))
+print(neq(a,b))
+print(neq(b,b))
+print(eq(c,a))
+print(neq(c,b))
+############################
+# Comparacion entre strings
+############################
+
+
+print(len("ChocoPy"))
+############################
+# Longitud de string
+############################

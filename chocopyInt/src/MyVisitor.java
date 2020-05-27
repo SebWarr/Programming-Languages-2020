@@ -10,7 +10,9 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     Stack<HashMap<String, String>> stackTables = new Stack<>(); //stack de contextos para variables
     Stack<HashMap<String, Object>> stackContext = new Stack<>(); //stack de contextos
     HashMap<String, ArrayList<String>> funArguments =  new HashMap<>();
-    HashMap<String, Object> lengthsTable = new HashMap<>();
+    HashMap<String, Object> classTypes = new HashMap<>();
+    HashMap<String, Object> variablesClass = new HashMap<>();
+
     Boolean flag = true;
 
     public String[] getTypeValue(String key) {
@@ -106,10 +108,11 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         // TODO VERIFICAR TIPOS
         // REGLA visitCexpr_p10_id: ID (PAR_IZQ (expr (COMA expr)*)? PAR_DER)?
         String name = ctx.ID().getText();
+        String all = ctx.getText();
         Sout("Entré a visitCexpr_p10_id "+ name);
+        Sout("Entré a ver algo asi "+all);
         if (ctx.PAR_IZQ() != null) {
             HashMap<String,Object> localHash = stackContext.peek(); //para funciones clases
-//            HashMap<String,String> localTable = stackTables.pop(); //para variables
             HashMap<String,String> localTable = stackTables.peek(); //para variables
             Sout("Tengo un Parentesis Izquierdo");
             Sout("Revisaré el name "+ name);
@@ -199,15 +202,15 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
             }
             Sout("Ya termino mi periodo de ser un parentesis");
         } else {
-            Sout("Prueba: ");
-//            if (funArguments.containsKey(ctx.ID().getText())){
-//                ArrayList<String> funArgumTmp = funArguments.get(ctx.ID().getText());
-//                for (int i = 0; i < funArgumTmp.size(); i++) {
-//                    String[] tmp = funArgumTmp.get(i).split("¿");
-//                    Sout("Aleluya "+tmp[0]+tmp[1] + "¿"+ tmp[2]);
-//                    localVariables.put(tmp[0], tmp[1] + "¿"+ tmp[2]);
-//                }
-//            }
+            Sout("No tengo parentesis izquierdo, soy un id solito "+name);
+            if (funArguments.containsKey(ctx.ID().getText())){
+                ArrayList<String> funArgumTmp = funArguments.get(ctx.ID().getText());
+                for (int i = 0; i < funArgumTmp.size(); i++) {
+                    String[] tmp = funArgumTmp.get(i).split("¿");
+                    Sout("Aleluya "+tmp[0]+tmp[1] + "¿"+ tmp[2]);
+                    localVariables.put(tmp[0], tmp[1] + "¿"+ tmp[2]);
+                }
+            }
             Sout("Estoy buscando a: " + name);
             imprimirTable();
             Sout("El tamaño de la pila es de: " + stackContext.size());
@@ -239,19 +242,23 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     @Override
     public T visitCexpr_p10_cor(ChocopyParser.Cexpr_p10_corContext ctx) {
         //TODO: Lista con tipo object
-        Sout("Soy una Lista");
+        Sout("Entré a p10_cor");
+        Sout("Soy una Lista o un elemento en una lista, soy "+ctx.getText());
         ArrayList<String> arreglo = new ArrayList<>();
         if (ctx.expr() != null) {
+            Sout("Voy a Tratar de obtener a  "+ctx.expr().toString());
+            //TODO:  if ex ==[] toca ver en len len([]) == 0 y eso esta en len
             String ex = ctx.expr(0).getText();
+            Sout("Voy a agregar a mi arreglo a "+ex);
             arreglo.add(ex);
             int times = ctx.expr().size();
             for (int i = 1; i < times; i++) {
                 ex = visit(ctx.expr(i)).toString();
+                Sout("Voy a agregar a mi arreglo a "+ex);
                 arreglo.add(ex);
             }
         }
         Sout(arreglo.toString());
-        lengthsTable.put(arreglo.toString(), arreglo.size());
         return (T) arreglo;
     }
 
@@ -265,9 +272,8 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     public T visitCexpr_p10_len(ChocopyParser.Cexpr_p10_lenContext ctx) {
         Sout("Estoy pidiendo el LEN");
         String st = visit(ctx.cexpr()).toString();
+        System.out.println("Me está llegando "+st);
         int ans = -1;
-        if (lengthsTable.containsKey(st))
-            ans = (Integer) lengthsTable.get(st);
         if (st.charAt(0) != '"' && st.charAt(0) != '[') {
             int line = ctx.LEN().getSymbol().getCharPositionInLine();
             int col = ctx.LEN().getSymbol().getCharPositionInLine() + 1;
@@ -276,6 +282,9 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         }
         if (st.charAt(0) == '"')
             ans = st.length() - 2;
+        if(st.charAt(0) == '['){
+            ans = st.substring(1,st.length()-1).split(",").length;
+        }
         Sout("La longitud final es: " + ans);
         return (T) ((Integer) ans).toString();
     }
@@ -284,6 +293,96 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     public T visitCexpr_p10_self(ChocopyParser.Cexpr_p10_selfContext ctx) {
         Sout("soy self");
         return (T) ctx.SELF();
+    }
+
+    @Override
+    public T visitP10_cor(ChocopyParser.P10_corContext ctx) {
+        Sout("En efecto, ahora entre a visitP10_cor con la expresion "+ctx.getText());
+        String expr = visit(ctx.cexpr_p10()).toString();
+        Sout("Ya recuperé el array/string que es "+expr);
+        int size = ctx.expr().size();
+        int[] returnIndex = new int[size];
+        String expr_type = type(expr);
+        Sout("Voy a ver a"+expr+"y a ver su tipo"+expr_type);
+        if(!expr_type.equals("str") && !isArray(expr)){
+            if(expr_type.equals("None"))
+                return (T)"None";
+            int line = ctx.COR_IZQ(0).getSymbol().getLine();
+            int col =  ctx.COR_IZQ(0).getSymbol().getCharPositionInLine()-1;
+            System.err.printf("<%d, %d> Error Semantico, la variable no es de tipo str o arreglo, es de tipo "+expr_type, line, col);
+            System.exit(-1);
+        }else{
+            for (int i = 0; i<size; i++){
+                String possibleIndex = visit(ctx.expr(i)).toString();
+                if(!type(possibleIndex).equals("int")){
+                    int line = ctx.COR_IZQ(i).getSymbol().getLine();
+                    int col =  ctx.COR_IZQ(i).getSymbol().getCharPositionInLine()+1;
+                    System.err.printf("<%d, %d> Error Semantico, no se puede acceder a una posicion que no sea entera\n" +
+                            "   expresión dada  " +possibleIndex  + " de tipo "+type(possibleIndex), line, col);
+                    System.exit(-1);
+                }
+                returnIndex[i] = Integer.parseInt(visit(ctx.expr(i)).toString());
+            }
+            if(expr_type.equals("str")){
+                if(returnIndex[0]>=expr.length()){
+                    int line = ctx.COR_IZQ(0).getSymbol().getLine();
+                    int col =  ctx.COR_IZQ(0).getSymbol().getCharPositionInLine()+1;
+                    System.err.printf("<%d, %d> Error Semantico, indice "+returnIndex[0]+ " fuera de tamaño del arreglo/str "+expr.length(), line, col);
+                    System.exit(-1);
+                }
+                // y[1][2][3][4] -> returnIndex [1,2,3,4]
+                Sout("Planeo devolver "+expr.charAt(returnIndex[0]+1));
+                return (T) (""+expr.charAt(returnIndex[0]+1));
+            }else{
+                String [] elements = expr.substring(1,expr.length()-1).replace(" ","").split(",");
+                if(returnIndex[0]>=elements.length){
+                    int line = ctx.COR_IZQ(0).getSymbol().getLine();
+                    int col =  ctx.COR_IZQ(0).getSymbol().getCharPositionInLine()+1;
+                    System.err.printf("<%d, %d> Error Semantico, indice "+returnIndex[0]+ " fuera de tamaño del arreglo/str "+elements.length, line, col);
+                    System.exit(-1);
+                }
+                Sout("Voy a retornar "+elements[returnIndex[0]]);
+                return (T)elements[returnIndex[0]];
+            }
+        }
+        return (T)("He Terminado p10cor");
+    }
+
+    @Override
+    public T visitP10_punto(ChocopyParser.P10_puntoContext ctx) {
+////
+//        Sout("entro a p10 punto");
+//        if(ctx.getParent().getParent().getParent().getParent().getParent().getParent().getText().contains("=")){
+//            return super.visitP10_punto(ctx);
+//        }else{
+//            HashMap<String,String> localVariables = stackTables.peek();
+//            String name = ctx.cexpr_p10().getText();
+//
+//            for (int i = 0; i < ctx.ID().size(); i++) {
+//                name = name + "." + ctx.ID(i);
+//            }
+//
+//            String all = ctx.getText();
+//            Sout("Entré a visitP10_punto "+ name);
+//            Sout("Entré a ver algo asi "+all);
+//            Sout("Estoy buscando a: " + name);
+//            Sout("El tamaño de la pila es de: " + stackContext.size());
+//            // 25 minutos en un !
+//
+//            if (!localVariables.containsKey(name)) {
+//                Sout("No encontre a:" + name);
+//                int line = ctx.PUNTO(0).getSymbol().getLine();
+//                int col = ctx.PUNTO(0).getSymbol().getCharPositionInLine() + 1;
+//                System.err.printf("<%d, %d> Error Semantico, la variable con nombre: \"" + name + "\" no ha sido declarada", line, col);
+//                System.exit(-1);
+//            } else {
+//                Sout("Encontre a:" + name);
+//                String id = getTypeValue(ctx.PUNTO(0).getText())[1];
+//                return (T) id;
+//            }
+//            return (T)"Estoy saliendo de visitP10_punto";
+//        }
+        return super.visitP10_punto(ctx);
     }
 
     @Override
@@ -691,6 +790,18 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     @Override
     public T visitStmtprint(ChocopyParser.StmtprintContext ctx) {
         Sout("Voy a imprimir" + ctx.expr().getText());
+        if(!ctx.expr().getText().contains("\"") && ctx.expr().getText().contains(".")){
+                if(stackTables.peek().containsKey(ctx.expr().getText())){
+                    String valor = stackTables.peek().get(ctx.expr().getText()).split("¿")[1];
+                    System.out.println("Esto es una sentencia Print: "+ valor);
+                    return (T)"he salido de stmtprint";
+                } else{
+                    int line = ctx.PRINT().getSymbol().getLine();
+                    int col = ctx.PRINT().getSymbol().getCharPositionInLine() + 4;
+                    System.err.printf("<%d, %d> Error Semantico, no se pudo obtener "+ ctx.expr().getText(), line, col);
+                    System.exit(-1);
+                }
+        }
         String ex = visit(ctx.expr()).toString();
         String type_ex = type(ex);
         if (type_ex.equals("str")) {
@@ -700,8 +811,12 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
             int col = ctx.PRINT().getSymbol().getCharPositionInLine() + 4;
             System.err.printf("<%d, %d> Error Semantico, No se puede imprimir un arreglo ", line, col);
             System.exit(-1);
-        }
-        else {
+        }else if (ex.equals("None")){
+            int line = ctx.PRINT().getSymbol().getLine();
+            int col = ctx.PRINT().getSymbol().getCharPositionInLine() + 4;
+            System.err.printf("<%d, %d> Error Semantico, Argumento invalido: None ", line, col);
+            System.exit(-1);
+        } else{
             System.out.println("Esto es una sentencia Print: " + ex);
         }
         return (T) ("Termine visitStmtprint");
@@ -731,22 +846,23 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     //TODO: Agregar tipos de listas
     @Override
     public T visitSimple_stmt_asig(ChocopyParser.Simple_stmt_asigContext ctx) {
-        HashMap<String, String> localVariables = stackTables.peek();
+      //  HashMap<String, String> localVariables = stackTables.peek();
         Sout("Entre a una asignación");
         // Falta cambiar de aqui para abajo los sout
-        int size = ctx.target().size();
+        int size = ctx.target().size(); // A cuantos target les va a poner lo que va a asignar
         ArrayList<String> targetList = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             String target = visit(ctx.target(i)).toString();
+            Sout("Vamos a ver el posible target "+target);
             if (target.contains("¡")) {
                 Sout("ACÁ ESTOY MODIFICANDO EL COMPORTAMIENTO PARA ACCEDER AL ARREGLO¡indice" + target);
 //                targetList.add(target);
                 String[] target_varindex = target.split("¡");
                 String target_name = target_varindex[0];
                 Sout("Target name " + target_name);
-                if (localVariables.containsKey(target_name)) {
+                if (stackTables.peek().containsKey(target_name)) {
                     Sout("La llave " + target_name + " del arreglo que quiero modiicar " + target + " esta en table");
-                    Sout("HEYYY " + localVariables.get(target_name));
+                    Sout("HEYYY " + stackTables.peek().get(target_name));
                     targetList.add(target);
                 } else {
                     int line = ctx.ASIG(i).getSymbol().getLine();
@@ -754,7 +870,27 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
                     System.err.printf("<%d, %d> Error Semantico, no se ha declarado la variable " + target_name + " ", line, col);
                     System.exit(-1);
                 }
-            } else if (localVariables.containsKey(target)) {
+            } else if(target.contains("ñ")){
+                //Sout("aqui si");
+                String [] arrtmp = target.split("ñ");
+                ChocopyParser.Class_defContext contexto = (ChocopyParser.Class_defContext)variablesClass.get(arrtmp[0]);
+                String atributo = arrtmp[1];
+                HashMap<String,String> classVariables= (HashMap<String,String>)visit(contexto.class_body());
+                if (!classVariables.containsKey(atributo)){
+                    int line = ctx.ASIG(i).getSymbol().getLine();
+                    int col = ctx.ASIG(i).getSymbol().getCharPositionInLine();
+                    System.err.printf("<%d, %d> Error Semantico, \"" +atributo+ "\" No es un atributo válido", line, col);
+                    System.exit(-1);
+                }else{
+                    String newTarget = arrtmp[0]+"."+atributo;
+                    String valor = classVariables.get(atributo);
+                    Sout("SOY EL VALOR " + valor);
+                    stackTables.peek().put(newTarget,valor);
+                    targetList.add(newTarget);
+                    //falta modificarlas
+                    Sout("ENCONTRE UN CONTEXTO Y CREE NUEVAS VARIABLES");
+                }
+            }else if (stackTables.peek().containsKey(target)) {
                 targetList.add(target);
             } else {
                 int line = ctx.ASIG(i).getSymbol().getLine();
@@ -766,9 +902,8 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         /*Acá todas las variables existen en la tabla pero no sabemos su tipo*/
         for (int i = targetList.size() - 1; i >= 0; i--) {
             String target = targetList.get(i);
-            Sout("Valor antes de asignacion de la variable: " + target + "  " + localVariables.get(target));
+            Sout("Valor antes de asignacion de la variable: " + target + "  " + stackTables.peek().get(target));
             /*pos 0 tipo, pos 1 valor*/
-
             if (target.contains("¡")) {
                 String[] target_varindex = target.split("¡");
                 String target_name = target_varindex[0];
@@ -777,56 +912,65 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
 
                 String[] targetArr = array.substring(1, array.length() - 1).replace(" ", "").split(",");
                 Sout("ESTE ES MI ARREGLO ");
-                Sout("Voy a tratar de modificar la variable " + localVariables.get(target_name) + " en el indice " + target_index);
+                Sout("Voy a tratar de modificar la variable " + stackTables.peek().get(target_name) + " en el indice " + target_index);
                 Sout("SOY TU TARGET " + targetArr[target_index]);
                 targetArr[target_index] = visit(ctx.expr()).toString();
                 Sout("SOY TU TARGET ASIGNADO" + targetArr[target_index]);
-
                 String ans = "[";
                 for (int j = 0; j < targetArr.length - 1; j++) {
                     ans = ans + targetArr[j] + ",";
                 }
                 ans = ans + targetArr[targetArr.length - 1] + "]";
                 Sout("Arreglo modificado es " + ans);
-                localVariables.put(target_name, type(array) + "¿" + ans);
+                stackTables.peek().put(target_name, type(array) + "¿" + ans);
             } else {
-
-                String[] typeValue = getTypeValue(target);
-                String type = typeValue[0];
-                String visit = visit(ctx.expr()).toString();
-                String visit_type = type(visit);
-                Sout("VISITÉ LA EXPRE Y SALIO " + visit);
-                if (visit.equals("ERROR")) {
-                    int line = ctx.ASIG(i).getSymbol().getLine();
-                    int col = ctx.ASIG(i).getSymbol().getCharPositionInLine();
-                    System.err.printf("<%d, %d> Error Semantico, el tipo de la variable " + visit + " no es valido", line, col);
-                    System.exit(-1);
-                }
-                if (!visit_type.equals(type)) {
-                    int line = ctx.ASIG(i).getSymbol().getLine();
-                    int col = ctx.ASIG(i).getSymbol().getCharPositionInLine();
-                    System.err.printf("<%d, %d> Error Semantico, tipos diferentes de datos\n la variable: " + target + " es de tipo " + type + " y la expresion " + visit + " a asignar es de tipo " + visit_type, line, col);
-                    System.exit(-1);
-                }
-                Sout("Visit es " + visit + " su tipo es " + visit_type);
-                Sout("Target es " + target + " su tipo es " + localVariables.get(target));
-                if (visit_type.equals("int")) {
-                    int number = Integer.parseInt(visit);
-                    localVariables.put(target, "int¿" + number);
-                } else if (visit_type.equals("bool")) {
-                    localVariables.put(target, "bool¿" + visit);
-                } else if (visit_type.equals("str")) {
-                    localVariables.put(target, "str¿" + visit);
-                } else if (isArray(visit_type)) {
-                    Sout("VOY A ASIGNAR UN ARREGLO");
-                    if (visit_type.equals(type)) {
-                        Sout("Soy un arreglo chinngon " + visit);
-                        localVariables.put(target, type + "¿" + visit);
-                    } else {
-                        //TODO: QUE SE PUEDA RECORRER EL FOR DE OBJECT
+                String texto = ctx.expr().getText();
+                if (texto.contains("()") && classTypes.containsKey(texto.substring(0,texto.length()-2)) ){
+                    Sout("SOY UNA ASIGNACION A UNA CLASE EXISTENTE de tipo " + texto);
+                    variablesClass.put(target, classTypes.get(texto.substring(0,texto.length()-2)) );
+                    Sout("Puse el contexto de " + texto +"en la tabla. Llave"+ target);
+                }else{
+                    String[] typeValue = getTypeValue(target);
+                    String type = typeValue[0];
+                    String visit = visit(ctx.expr()).toString();
+                    String visit_type = type(visit);
+                    Sout("VISITÉ LA EXPRE Y SALIO " + visit);
+                    if (visit.equals("ERROR")) {
+                        int line = ctx.ASIG(i).getSymbol().getLine();
+                        int col = ctx.ASIG(i).getSymbol().getCharPositionInLine();
+                        System.err.printf("<%d, %d> Error Semantico, el tipo de la variable " + visit + " no es valido", line, col);
+                        System.exit(-1);
                     }
+                    if (!visit_type.equals(type)) {
+                        if(type.equals("object") || type.equals("[object]") ){
+                            stackTables.peek().put(target, type+"¿" + visit);
+                        }else{
+                            int line = ctx.ASIG(i).getSymbol().getLine();
+                            int col = ctx.ASIG(i).getSymbol().getCharPositionInLine();
+                            System.err.printf("<%d, %d> Error Semantico, tipos diferentes de datos\n la variable: " + target + " es de tipo " + type + " y la expresion " + visit + " a asignar es de tipo " + visit_type, line, col);
+                            System.exit(-1);
+                        }
+                    }
+                    Sout("Visit es " + visit + " su tipo es " + visit_type);
+                    Sout("Target es " + target + " su tipo es " + stackTables.peek().get(target));
+                    if (visit_type.equals("int")) {
+                        int number = Integer.parseInt(visit);
+                        stackTables.peek().put(target, "int¿" + number);
+                    } else if (visit_type.equals("bool")) {
+                        stackTables.peek().put(target, "bool¿" + visit);
+                    } else if (visit_type.equals("str")) {
+                        stackTables.peek().put(target, "str¿" + visit);
+                    } else if (isArray(visit_type)) {
+                        Sout("VOY A ASIGNAR UN ARREGLO");
+                        if (visit_type.equals(type)) {
+                            Sout("Soy un arreglo chinngon " + visit);
+                            stackTables.peek().put(target, type + "¿" + visit);
+                        } else {
+                            //TODO: QUE SE PUEDA RECORRER EL FOR DE OBJECT
+                        }
+                    }
+                    Sout("Valor después de asignacion de la variable: " + target + "  " + stackTables.peek().get(target));
                 }
-                Sout("Valor después de asignacion de la variable: " + target + "  " + localVariables.get(target));
             }
 
         }
@@ -907,7 +1051,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
     }
     @Override
     public T visitStmt_for(ChocopyParser.Stmt_forContext ctx) {
-        HashMap<String,String> localVariables = stackTables.peek();
+       // HashMap<String,String> localVariables = stackTables.peek();
 
         // | FOR ID IN expr DOS_PUNTOS block
         // table.put("t","int¿0");
@@ -915,7 +1059,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         String tipo_tmp = "";
         String type_visit = type(visit);
         String id = ctx.ID().toString();
-        if(!localVariables.containsKey(id)){
+        if(!stackTables.peek().containsKey(id)){
             int line = ctx.ID().getSymbol().getCharPositionInLine();
             int col = ctx.ID().getSymbol().getCharPositionInLine() + 4;
             System.err.printf("<%d, %d> Error Semantico, "+id+ " no ha sido declarado", line, col);
@@ -928,8 +1072,8 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
             System.err.printf("<%d, %d> Error Semantico, Solo se permiten listas con int o bool o object o un String y la expresion "+visit+" tiene tipo "+type_visit, line, col);
             System.exit(-1);
         }
-        Sout("SOY ID"+localVariables.get(id)); //str¿"HOLA"
-        String type_id = localVariables.get(id).split("¿")[0];
+        Sout("SOY ID"+stackTables.peek().get(id)); //str¿"HOLA"
+        String type_id = stackTables.peek().get(id).split("¿")[0];
         if(!type_visit.equals(type_id)){ //[str] str
             if(!type_visit.equals("["+type_id+"]")) { //[str] [str]
                 int line = ctx.ID().getSymbol().getCharPositionInLine();
@@ -941,7 +1085,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         if(type_visit.equals("str")){
             visit = visit.replace("\"","");
             for (int i = 0; i<visit.length();i++){
-                localVariables.put(id,"str¿"+visit.charAt(i));
+                stackTables.peek().put(id,"str¿"+visit.charAt(i));
                 visit(ctx.block());
             }
         }else if (isArray(visit)){
@@ -949,7 +1093,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
             String [] arr = tmp.split(",");
             String ith_type = type_visit.substring(1,type_visit.length()-1); //[sdf] -> sdf
             for (int i = 0; i<arr.length;i++){
-                localVariables.put(id,ith_type+"¿"+arr[i].replace(" ",""));
+                stackTables.peek().put(id,ith_type+"¿"+arr[i].replace(" ",""));
                 visit(ctx.block());
             }
         }
@@ -967,48 +1111,69 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
 
     @Override
     public T visitVar_def(ChocopyParser.Var_defContext ctx) {
-        HashMap<String,String> localVariables= stackTables.peek();
-        String var_def = visit(ctx.typed_var()).toString();
+        //HashMap<String,String> localVariables= stackTables.peek();
+        String var_def = visit(ctx.typed_var()).toString(); // x:object donde a es clase
         Sout("var def 2 "+var_def);
         String lit = ctx.literal().getText();
         Sout("lit "+lit);
         String[] tmp = var_def.split(":");
         String var_type = tmp[1];
         String var_name = tmp[0];
-        String lit_type = type(lit);
-        if(!lit_type.equals(var_type)) {
-            if(isArray(var_type) && (var_type.equals(lit_type) || lit_type.equals("ERROR"))){
-                int line = ctx.ASIG().getSymbol().getLine();
-                int col = ctx.ASIG().getSymbol().getCharPositionInLine() + 3;
-                System.err.printf("<%d, %d>  Error Semantico, variable "+var_name+" de tipo "+var_type+" y solo se puede inicializar con None", line, col);
-                System.exit(-1);
-            }
-            if (!isArray(var_type) || !lit_type.equals("None")) {
-                int line = ctx.ASIG().getSymbol().getLine();
-                int col = ctx.ASIG().getSymbol().getCharPositionInLine() + 3;
-                System.err.printf("<%d, %d> Error Semantico,Tipos diferentes de variables: el tipo de la variable "+var_name+" es de tipo "+var_type+" y el del literal "+lit+" es "+lit_type, line, col);
-                System.exit(-1);
+        if(!var_type.equals("object") && !var_type.equals("[object]")) {
+            String lit_type = type(lit);
+            if (!lit_type.equals(var_type)) {
+                if (classTypes.containsKey(var_type) && lit_type == "None") {
+                    Sout("ESTOY ASIGNANDO NONE A UNA VARIABLE DE TIPO " + var_type);
+                    //aqui estaba stackTables.peek().put();
+                } else {
+                    if (isArray(var_type) && (var_type.equals(lit_type) || lit_type.equals("ERROR"))) {
+                        int line = ctx.ASIG().getSymbol().getLine();
+                        int col = ctx.ASIG().getSymbol().getCharPositionInLine() + 3;
+                        System.err.printf("<%d, %d>  Error Semantico, variable " + var_name + " de tipo " + var_type + " y solo se puede inicializar con None", line, col);
+                        System.exit(-1);
+                    }
+                    if (!isArray(var_type) || !lit_type.equals("None")) {
+                        int line = ctx.ASIG().getSymbol().getLine();
+                        int col = ctx.ASIG().getSymbol().getCharPositionInLine() + 3;
+                        System.err.printf("<%d, %d> Error Semantico,Tipos diferentes de variables: el tipo de la variable " + var_name + " es de tipo " + var_type + " y el del literal " + lit + " es " + lit_type, line, col);
+                        System.exit(-1);
+                    }
+                }
             }
         }
-        localVariables.put(var_name, var_type + "¿" + lit);
-        Sout(localVariables.get(var_name));
+        stackTables.peek().put(var_name, var_type + "¿" + lit);
+        Sout("hey esto deberia funcionar"+stackTables.peek().get(var_name));
         imprimirTable();
         return (T) ("Termine visitVar_def");
     }
 
     @Override
     public T visitTyped_var_id(ChocopyParser.Typed_var_idContext ctx) {
-        HashMap<String,String> localVariables = stackTables.peek();
+    //    HashMap<String,String> localVariables = stackTables.peek();
         String tipo = ctx.type().getText();
-        if (localVariables.containsKey(ctx.ID().getText())) {
+
+        if (stackTables.peek().containsKey(ctx.ID().getText())) {
             int line = ctx.ID().getSymbol().getLine();
             int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
             System.err.printf("<%d, %d> Error Semantico, la variable con nombre: \"" + ctx.ID().getText() + "\" ya ha sido declarada", line, col);
             System.exit(-1);
-        } else {
-            Sout("Se agregó la variable: " + ctx.ID().getText() + " con valor: "+ tipo);
-            localVariables.put(ctx.ID().getText(), tipo + "¿");
         }
+        if(!tipo.equals("int") && !tipo.equals("str")&& !tipo.equals("bool")&& !tipo.equals("object") && !classTypes.containsKey(tipo)){
+            int line = ctx.ID().getSymbol().getLine();
+            int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
+            System.err.printf("<%d, %d> Error Semantico, tipo no válido", line, col);
+            System.exit(-1);
+        }
+        if(classTypes.containsKey(tipo)){
+            Sout("ESTOY ASIGNANDO EL CONTEXTO DE "+tipo+" a "+ctx.ID().getText());
+            variablesClass.put(ctx.ID().getText(),classTypes.get(tipo));
+        }else{
+            Sout("Se agregó la variable: " + ctx.ID().getText() + " con valor: "+ tipo);
+            stackTables.peek().put(ctx.ID().getText(), tipo + "¿");
+            Sout("que paso");
+        }
+
+
         return (T) (ctx.ID().getText() + ":" + tipo);
     }
 
@@ -1036,9 +1201,9 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
 
     @Override
     public T visitFunc_body(ChocopyParser.Func_bodyContext ctx) {
-        HashMap<String,Object> localHash = new HashMap<>(); //crear un nuevo contexto local
-        HashMap<String,String> localVaribles = new HashMap<>(); //crear un nuevo contexto local
-
+        HashMap<String,Object> localHash = stackContext.peek(); //crear un nuevo contexto local que tiene que ser copia del anterior
+        HashMap<String,String> localVaribles = stackTables.peek(); //crear un nuevo contexto local
+        imprimirTable();
         for(Map.Entry<String, Object> entry :  stackContext.peek().entrySet()) {
             String key = entry.getKey();
             if (funArguments.containsKey(key)){
@@ -1057,7 +1222,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         Sout("Soy un Func Body" + size);
         for (int i = 0; i < size; i++) {
             Sout("Soy un Var def: "+ ctx.var_def(i).getText());
-            visit(ctx.var_def(i));
+//            visit(ctx.var_def(i)); //ESTA RARO
         }
 
         //TODO FALTAN LAS DEMAS DECLARACIONES global nonlocal
@@ -1066,7 +1231,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         int nFunciones = ctx.func_def().size();
 
         for (int i = 0; i < nFunciones; i++) {
-            visit(ctx.func_def(i));
+//            visit(ctx.func_def(i)); //ESTA RARO
         }
 
         size = ctx.stmt().size();
@@ -1105,20 +1270,21 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         Sout("ESTOY DEFININEDO UNA FUNCION");
         //Agrega el id de la funcion a la tabla local
         String idFun = ctx.ID().getText();
-        HashMap<String,Object> localHash = stackContext.peek(); //traer el contexto local
+       // HashMap<String,Object> localHash = stackContext.peek(); //traer el contexto local
 
-        if(localHash.containsKey(idFun)){    //Si la tabla ya contiene el id es que la funcion ya fue declarada
+        if(stackContext.peek().containsKey(idFun)){    //Si la tabla ya contiene el id es que la funcion ya fue declarada
             int line = ctx.ID().getSymbol().getLine();
             int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
 
             System.err.printf("<%d, %d> Error Semantico, la funcion con nombre: \"" + idFun + "\" ya fue declarada", line, col);
             System.exit(-1);
         }else{      //No ha sido declarada por lo tanto se va a agregar
-            localHash.put(idFun, ctx); // se guarda el contexto para futuros usos de la funcion
-            HashMap<String,Object> localcontext = new HashMap<>(); //crear un nuevo contexto local
-            HashMap<String,String> localvariables = new HashMap<>(); //crear un nuevo contexto local
+            stackContext.peek().put(idFun, ctx); // se guarda el contexto para futuros usos de la funcion
+            HashMap<String,Object> localcontext = stackContext.peek(); //crear un nuevo contexto local que tiene que ser copia del anterior
+            HashMap<String,String> localvariables = stackTables.peek(); //crear un nuevo contexto local
             stackContext.push(localcontext);
             stackTables.push(localvariables);
+
             Sout("Se Aumentó el tamaño de los stacks, size: "+ stackContext.size());
 
 //            for (int i = 0; i < ctx.typed_var().size(); i++) {
@@ -1128,7 +1294,6 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
 
             Sout("Se esta perdiendo estos valores");
 
-
             for (int i = 0; i < ctx.func_body().func_def().size(); i++) {
                 visit(ctx.func_body().func_def(i));
             }
@@ -1137,33 +1302,36 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
             }
             stackContext.pop();
             stackTables.pop();
-            Sout("Se Redujo el tamaño de los stacks, size: "+ stackContext.size());
-            //TODO VERIFICAR TODAS LAS DECLARACIONES
 
+            Sout("Se Redujo el tamaño de los stacks, size: "+ stackContext.size());
+            imprimirTable();
         }
         Sout("TERMINE DE DEFINIR UNA FUNCION");
+
         return (T)"retorno de visitFunc_def";
     }
 
     @Override
     public T visitClass_body_var_func(ChocopyParser.Class_body_var_funcContext ctx) {
-        HashMap<String,Object> localHash = new HashMap<>(); //crear un nuevo contexto local
-        HashMap<String,String> localVariables = new HashMap<>(); //crear un nuevo contexto local
+        HashMap<String,Object> localHash = stackContext.peek(); //crear un nuevo contexto local que tiene que ser copia del anterior
+        HashMap<String,String> localVariables = stackTables.peek(); //crear un nuevo contexto local
         stackContext.push(localHash);
         stackTables.push(localVariables);
+        //las borré porque ahora se llaman en la definicion
         super.visitClass_body_var_func(ctx);
+        HashMap<String,String> returnVariables = stackTables.peek();
         stackContext.pop();
         stackTables.pop();
-        return (T) "retorno de la funcion visitClass_body_var_func";
+        return (T) returnVariables;
     }
 
     @Override
     public T visitClass_def(ChocopyParser.Class_defContext ctx) {
         //Agrega el id de la clase a la tabla local
         String idClass = ctx.ID(0).getText();
-        HashMap<String,Object> localHash = stackContext.peek(); //traer el contexto local
+        //HashMap<String,Object> localHash = stackContext.peek(); //traer el contexto local
 
-        if(localHash.containsKey(idClass)){    //Si la tabla ya contiene el id es que la clase ya fue declarada
+        if(stackContext.peek().containsKey(idClass)){    //Si la tabla ya contiene el id es que la clase ya fue declarada
             int line = ctx.ID(0).getSymbol().getLine();
             int col = ctx.ID(0).getSymbol().getCharPositionInLine() + 1;
 
@@ -1171,17 +1339,25 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
             System.exit(-1);
         }else{      //No ha sido declarada por lo tanto se va a agregar
             String herencia = ctx.ID(1).getText();
-            if (herencia.equals("object") || localHash.containsKey(herencia)){
+            if (herencia.equals("object") || classTypes.containsKey(herencia)){
                 //verificar que la clase de la que hereda exista
                 //Si existe agregar la nueva clase a la tabla
-                localHash.put(idClass, ctx); // se guarda el contexto para futuros usos
-                return visit(ctx.class_body());
+                classTypes.put(idClass,ctx);
+                stackContext.peek().put(idClass, ctx); // se guarda el contexto para futuros usos
+//                HashMap<String,Object> localHashbody = new HashMap<>(); //crear un nuevo contexto local
+//                HashMap<String,String> localVariables = new HashMap<>(); //crear un nuevo contexto local
+//                stackContext.push(localHashbody);
+//                stackTables.push(localVariables);
+                visit(ctx.class_body());
+//                stackContext.pop();
+//                stackTables.pop();
+                return (T)"Estoy saliendo de classdef";
             }else{
                 //si no, existe error
                 int line = ctx.ID(1).getSymbol().getLine();
                 int col = ctx.ID(1).getSymbol().getCharPositionInLine() + 1;
 
-                System.err.printf("<%d, %d> Error Semantico, No se puede heredar de la clase con nombre: \"" + herencia + "\", porque no existe" , line, col);
+                System.err.printf("<%d, %d> Error Semantico, No se puede heredar de: \"" + herencia + "\", tipo inválido" , line, col);
                 System.exit(-1);
             }
         }
@@ -1245,5 +1421,22 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         // x[0]-> 1
     }
 
+    @Override
+    public T visitMember_expr_cexpr(ChocopyParser.Member_expr_cexprContext ctx) {
+        String cexpr = visit(ctx.cexpr()).toString();
+        Sout("SOY TU CEXPR "+cexpr+ " Y YO SOY TU KEY " +ctx.cexpr().getText());
 
+        if (cexpr.equals("None") && variablesClass.containsKey(ctx.cexpr().getText())){
+            Sout("Estoy retornando el contexto de " + ctx.cexpr().getText());
+            return (T) (ctx.cexpr().getText()+"ñ"+ctx.ID().getText());
+        }else{
+            int line = ctx.PUNTO().getSymbol().getLine();
+            int col = ctx.PUNTO().getSymbol().getCharPositionInLine() -1;
+            System.err.printf("<%d, %d> Error semantico: No se puede acceder a "+ctx.cexpr().getText() + "." +ctx.ID().getText(), line, col);
+            System.exit(-1);
+        }
+
+
+        return (T)"Estoy saliendo de visitMember_expr_cexpr";
+    }
 }
