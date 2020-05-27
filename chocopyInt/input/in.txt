@@ -1,4 +1,89 @@
-def A(i:int):
-    print(i)
+print("##########################")
+print("Casos de Errores")
+print("##########################")
+print("")
+print("")
 
+print("Error de Atributos dentro de clases")
+#ins.t = False   #error porque t no es atributo
+print(ins.d)    #error porque d no es atributo
+print("")
+##############################
+# Error de Atributos dentro de clases
+##############################
+
+
+print("Error Funcion con mas parametros de los que deberia")
 A(2,3)
+print("")
+##############################
+# Error Funcion con mas parametros de los que deberia
+##############################
+
+
+
+print("No se Puede dividir entre 0")
+print(42 // 0)
+print("")
+##############################
+# No se Puede dividir entre 0
+##############################
+
+
+
+print("Error Numero Modulo 0")
+print(42 % 0)
+print("")
+############################
+#Error Número Modulo 0
+############################
+
+
+
+print("Error Longitud Invalida")
+print(len(soy_none))
+print("")
+############################
+# Error Longitud Inválida
+############################
+
+
+print("Error Longitud Invalida")
+print(len(soy_int))
+print("")
+############################
+# Error Longitud Inválida
+############################
+
+
+print("Errores Concatenar None")
+print(len(soy_None1+soy_None2))
+print("")
+############################
+# Errores Concatenar None
+############################
+
+
+print("Error Ciclo For sobre None")
+for soy_int in soy_none:
+    print(x)
+print("")
+############################
+# Error Ciclo For sobre None
+############################
+
+
+print("Error Acceder Posicion en None")
+soy_none[0] = 1
+print("")
+############################
+# Error Acceder Posicion en None
+############################
+
+
+print("Error Print None")
+print(None)
+print("")
+############################
+# Error Print None
+############################
