@@ -1,2 +1,4 @@
-y:[object] = None
-y = [None]
+def A(i:int):
+    print(i)
+
+A(2,3)
