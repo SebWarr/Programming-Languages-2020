@@ -805,7 +805,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
                 return (T)"he salido de stmtprint";
             }  else{
                     int line = ctx.PAR_IZQ().getSymbol().getLine();
-                    int col = ctx.PAR_IZQ().getSymbol().getCharPositionInLine() + 4;
+                    int col = ctx.PAR_IZQ().getSymbol().getCharPositionInLine() + 2;
                     System.err.printf("<%d, %d> Error Semantico, no se pudo obtener "+ ctx.expr().getText(), line, col);
                     System.exit(-1);
                 }
@@ -820,8 +820,8 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
             System.err.printf("<%d, %d> Error Semantico, No se puede imprimir un arreglo ", line, col);
             System.exit(-1);
         }else if (ex.equals("None")){
-            int line = ctx.PRINT().getSymbol().getLine();
-            int col = ctx.PRINT().getSymbol().getCharPositionInLine() + 4;
+            int line = ctx.PAR_IZQ().getSymbol().getLine();
+            int col = ctx.PAR_IZQ().getSymbol().getCharPositionInLine() + 2;
             System.err.printf("<%d, %d> Error Semantico, Argumento invalido: None ", line, col);
             System.exit(-1);
         }else if(type_ex.equals("bool")){
@@ -1406,8 +1406,8 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         Sout(type(cexpr));
         if(!isArray(cexpr)){
             int line = ctx.COR_IZQ().getSymbol().getLine();
-            int col = ctx.COR_IZQ().getSymbol().getCharPositionInLine() +1;
-            System.err.printf("<%d, %d> Error semantico: no se pude asignar a un subindice de algo que no es una lista"+cexpr.length(), line, col);
+            int col = ctx.COR_IZQ().getSymbol().getCharPositionInLine() +2;
+            System.err.printf("<%d, %d> Error semantico: no se pude asignar a un subindice de algo que no es una lista "+cexpr.length(), line, col);
             System.exit(-1);
         }else{
             String id = ctx.cexpr().getText();
