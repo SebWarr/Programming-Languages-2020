@@ -1158,7 +1158,8 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
             System.err.printf("<%d, %d> Error Semantico, la variable con nombre: \"" + ctx.ID().getText() + "\" ya ha sido declarada", line, col);
             System.exit(-1);
         }
-        if(!tipo.equals("int") && !tipo.equals("str")&& !tipo.equals("bool")&& !tipo.equals("object") && !classTypes.containsKey(tipo)){
+        if(!tipo.equals("int") && !tipo.equals("str")&& !tipo.equals("bool")&& !tipo.equals("object") &&
+        !tipo.equals("[int]") && !tipo.equals("[str]")&& !tipo.equals("[bool]")&& !tipo.equals("[object]") && !classTypes.containsKey(tipo)){
             int line = ctx.ID().getSymbol().getLine();
             int col = ctx.ID().getSymbol().getCharPositionInLine() + 1;
             System.err.printf("<%d, %d> Error Semantico, tipo no válido", line, col);
@@ -1222,7 +1223,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         Sout("Soy un Func Body" + size);
         for (int i = 0; i < size; i++) {
             Sout("Soy un Var def: "+ ctx.var_def(i).getText());
-//            visit(ctx.var_def(i)); //ESTA RARO
+            visit(ctx.var_def(i)); //ESTA RARO
         }
 
         //TODO FALTAN LAS DEMAS DECLARACIONES global nonlocal
@@ -1231,7 +1232,7 @@ public class MyVisitor<T> extends ChocopyBaseVisitor<T> {
         int nFunciones = ctx.func_def().size();
 
         for (int i = 0; i < nFunciones; i++) {
-//            visit(ctx.func_def(i)); //ESTA RARO
+            visit(ctx.func_def(i)); //ESTA RARO
         }
 
         size = ctx.stmt().size();

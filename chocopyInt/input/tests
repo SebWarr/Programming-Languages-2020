@@ -131,17 +131,7 @@ print(g())
 print(f())
 
 -------------------------
-g: int = 1
-def foo(x: int) -> int:
-    y: int = 2
-    def bar() -> int:
-        z: int = 3
-        def baz() -> int:
-            return y
-        return baz()
-    return bar()
 
-print(foo(g))
 -------------------------
 
 
@@ -244,6 +234,18 @@ class bar(object):
 -----------------------------------
 Funciona
 -----------------------------------
+g: int = 1
+def foo(x: int) -> int:
+    y: int = 2
+    def bar() -> int:
+        z: int = 3
+        def baz() -> int:
+            return y
+        return baz()
+    return bar()
+
+print(foo(g))
+---
 
 class A(object):
     a:int = 42
